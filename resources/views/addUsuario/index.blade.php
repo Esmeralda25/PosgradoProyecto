@@ -12,6 +12,7 @@
             <th scope="col">Acciones</th>
         <tr
     </thead>
+    {{-- habia espacios aqui --}}
     <tr>
             <th scope="col">Ing Keyla Esmeralda</th>
             <th scope="col">Coordinadora</th>
