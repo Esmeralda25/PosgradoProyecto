@@ -12,7 +12,10 @@
             <th scope="col">Acciones</th>
         <tr
     </thead>
-    {{-- habia espacios aqui --}}
+    {{-- habia espacios aqui ya quedo tu repositorio en git
+        guardas y cada cambio que tengas se vere reflajado en... ese icono
+        haces commit all
+        --}}
     <tr>
             <th scope="col">Ing Keyla Esmeralda</th>
             <th scope="col">Coordinadora</th>
