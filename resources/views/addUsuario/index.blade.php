@@ -10,7 +10,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Nivel</th>
             <th scope="col">Acciones</th>
-        <tr
+        <tr> 
     </thead>
     {{-- prueba 1 de commit and push --}}
     <tr>
