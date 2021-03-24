@@ -10,9 +10,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Nivel</th>
             <th scope="col">Acciones</th>
-        <tr>
-        
-
+        <tr
     </thead>
     <tr>
             <th scope="col">Ing Keyla Esmeralda</th>
