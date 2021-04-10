@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::resource('pes', 'App\Http\Controllers\PesController');
 
 Route::resource('addUsuario', 'App\Http\Controllers\AddUsuarioController');
+
+Route::resource('cuentaAdmin', 'App\Http\Controllers\cuentaAdminController');

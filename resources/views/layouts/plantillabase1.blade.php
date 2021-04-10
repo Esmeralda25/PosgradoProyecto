@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- PLANTILLA BASE DE 127.0.0.1:8000/addUsuario-->
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -7,25 +9,20 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href=".../css/estilos.css" rel=”stylesheet” type=”text/css”>
   <style>
-    .header{
-      background
-    }
+      .header {
+          background: rgb(4, 18, 146);
+          color: rgb(255, 255, 255);
+          text-align: center;
+          margin-right: 0;
+        }
   </style>
     <title>CRUD USUARIOS</title>
   </head>
   <body>
-  <h1 class="bg-success text-white text-center">AGREGAR USUARIOS</h1>
-    <header class="header">
-      <div class="logo-nav-container">
-        <nav class="navigation">
-        <ul>
-          <li><a href="#">Informatico</a></li>
-          <li><a href="#">Coordinador</a></li>
-        </ul>
-        </nav>
-      </div>
-    </header>
+  <h1 class="header">AGREGAR USUARIOS</h1>
+    
 
     <div class="container">
     @yield('contenido')
