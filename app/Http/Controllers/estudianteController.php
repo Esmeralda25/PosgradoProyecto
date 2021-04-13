@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\cuentaAdmin;
+use App\Models\estudiante;
 use Illuminate\Http\Request;
 
-class cuentaAdminController extends Controller
+class estudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,37 +13,22 @@ class cuentaAdminController extends Controller
      */
     public function index()
     {
-        //$add = Add::all();
-        return view('layouts.plantillaCuentaAdmin');//->with('add',$add);
+        $estudiantes = estudiante::all();
+        return view('estudiante.index') ->with('estudiantes',$estudiantes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        
+        return view('estudiante.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        return redirect('/estudiantes');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
@@ -57,7 +42,8 @@ class cuentaAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiante= estudiante::find($id);
+        return view('estudiante.edit')->with('estudiante',$estudiante);
     }
 
     /**
@@ -69,7 +55,13 @@ class cuentaAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $valores = $request->all();
+        $registro = estudiante::find($id);
+
+        $registro->fill($valores);
+
+        $registro->save();
+        return redirect("/estudiantes");
     }
 
     /**
@@ -83,4 +75,3 @@ class cuentaAdminController extends Controller
         //
     }
 }
-

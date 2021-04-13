@@ -18,6 +18,14 @@ Route::get('/', function () {
 });
 Route::resource('pes', 'App\Http\Controllers\PesController');
 
-Route::resource('addUsuario', 'App\Http\Controllers\AddUsuarioController');
+Route::resource('estudiante', 'App\Http\Controllers\estudianteController');
 
 Route::resource('cuentaAdmin', 'App\Http\Controllers\cuentaAdminController');
+
+Route::resource('loges', 'App\Http\Controllers\loginestudianteController');
+
+Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
+
+Route::resource('generacion', 'App\Http\Controllers\generacionController');
+
+Route::resource('periodo', 'App\Http\Controllers\periodoController');

@@ -1,4 +1,4 @@
-@extends('layouts.plantillabase');
+@extends('layouts.plantillaperiodo');
 <!--index pes-->
 @section('contenido')
 
@@ -7,10 +7,10 @@
 
 <table class="table table-light table-striped mt-4">
     <thead class="table table-dark table-striped mt-4">
-        <p style="font-size: 35px; text-align:center; margin:0 auto;">AGREGAR PROGRAMA EDUCATIVO</p>
+        <p style="font-size: 35px; text-align:center; margin:0 auto;">AGREGAR PERIODO</p>
         <tr>
-            <th scope="col">Programa</th>
-            <th scope="col">Coordinador</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
         <tr>
     </thead>
@@ -42,21 +42,7 @@
         <tr>
         -->
     <tbody>
-    @foreach($pes as $pe)
-    <tr>
-        <td> {{$pe->nombre}} </td>
-        <td> {{$pe->coordinador}} </td>
-
-        
-        <td> 
-            
-            <a href='/pes/{​​{​​$pe->id}​​}​​/edit' class="btn btn-info">Editar</a>
-            <button class="btn btn-danger">Eliminar</button>
-            <a class="btn btn-info">Mostrar</a>
-
-        </td>
-    </tr>
-    @endforeach
+    
     </tbody>
 </table>
 @endsection

@@ -1,9 +1,79 @@
-.addindex {
-    color: black;
+.container {
+    width: 85%;
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    margin: 0;
+    font-size: 2;
+    line-height: 1.4rem;
+}
+
+.main {
+    padding-top: 130px;
+}
+
+p {
+    margin-bottom: 1rem;
+    <!-- Margen en cada linea de parrafo -->
 }
 
 .header {
-    background: chartreuse;
-    color: rgb(255, 255, 255);
-    text-align: center;
+    background: #080c3f;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    right: 0;
+}
+
+.aheader {
+    font-size: 20px;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation ul li a {
+    display: block;
+    padding: 0.5 rem 1rem;
+    margin: 4px;
+    margin-right: 20px;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    -moz-transition: all .9s ease;
+}
+
+.navigation ul li a:hover {
+    background: rgba(224, 221, 221, 0.404);
 }

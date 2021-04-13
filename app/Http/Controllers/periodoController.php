@@ -1,42 +1,45 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\cuentaAdmin;
 use Illuminate\Http\Request;
+use App\Models\periodo;
 
-class cuentaAdminController extends Controller
+
+
+
+class periodoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //$add = Add::all();
-        return view('layouts.plantillaCuentaAdmin');//->with('add',$add);
+    public function index(){
+     
+        return view('periodo.index');//->with('pes',$pes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
+        
+
         
     }
+    
+    public function store(Request $request) 
+    {
+        //$pes = new Pes();
 
+        //$pes -> coordinador = $request ->get('coordinador');
+        //$pes -> correo = $request -> get('correo');
+        //$pes -> contraseña = $request -> get('contraseña');
+        //$pes -> save();
+
+        return redirect('/pes');
+    }
+
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
     /**
      * Display the specified resource.
@@ -57,7 +60,7 @@ class cuentaAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +72,7 @@ class cuentaAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -83,4 +86,6 @@ class cuentaAdminController extends Controller
         //
     }
 }
+    
+
 

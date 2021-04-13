@@ -1,18 +1,20 @@
 <!doctype html>
-<!-- PLANTILLA BASE DE 127.0.0.1:8000/estudiante  es lo que agrega el coordinador-->
+<!-- PLANTILLA BASE DE 127.0.0.1:8000/generacion-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <style>
-             .container{
+    <style>
+        .container{
             width: 85%;
             max-width: 850px;
             margin: 0 auto;
             margin-top: 100px;
+            
             }
             body{
                 font-family: Georgia, 'Times New Roman', Times, serif;
@@ -37,13 +39,14 @@
                 width: 100%;
                 right: 0;
             }
-            .aheader{
-                font-size: 20px;
-            }
             .header a{
                 color: #fff;
                 text-decoration: none;
                 margin-left: 25px;
+                
+            }
+            .aheader{
+                font-size: 20px;
             }
             .logo-nav-container{
                 display:flex;
@@ -53,7 +56,7 @@
 
             .logo{
                 letter-spacing: 1px;
-                font-size: 30px;
+                font-size: 35px;
             }
             .navigation ul{
                 margin: 0;
@@ -80,25 +83,26 @@
                 background: rgba(224, 221, 221, 0.404);
             }
             
-        </style>
-    <title>CRUD USUARIOS</title>
+
+    </style>
+    <title>CRUD Generación</title>
   </head>
   <body>
-    <header class="header">
-        <div class="logo-nav-container">
-            <a href="#" class="logo">Coordinador | CRUD</a>
-            <nav class="navigation">
-                <ul>
-                    <li><a class="aheader" href="#">Inicio</a></li>
-                    <li><a class="aheader" href="#">Coordinador</a></li>
-                    <li><a class="aheader" href="#">Docente</a></li>
-                    <li><a class="aheader" href="#">Estudiante</a></li>
-                    <li><a class="aheader" href="#">Contacto</a></li>
-                    <li><a class="aheader" href="#">PaginaOficial</a></li>
-                </ul>   
-            </nav>
-        </div>
-    </header>
+  <header class="header">
+    <div class="logo-nav-container">
+        <a href="#" class="logo">Generacion | CRUD</a>
+        <nav class="navigation">
+            <ul>
+                <li><a class="aheader" href="#">Inicio</a></li>
+                <li><a class="aheader" href="#">Coordinador</a></li>
+                <li><a class="aheader" href="#">Docente</a></li>
+                <li><a class="aheader" href="#">Estudiante</a></li>
+                <li><a class="aheader" href="#">Contacto</a></li>
+                <li><a class="aheader" href="#">PaginaOficial</a></li>
+            </ul>   
+        </nav>
+    </div>
+</header>
 
     <div class="container">
     @yield('contenido')

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\addUsuario;
+use App\Models\loginestudiante;
 use Illuminate\Http\Request;
 
-class AddUsuarioController extends Controller
+class loginestudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AddUsuarioController extends Controller
     public function index()
     {
         //$add = Add::all();
-        return view('addUsuario.index');//->with('add',$add);
+        return view('layouts.plantillaloginestudiante');//->with('add',$add);
     }
 
     /**
@@ -33,7 +33,7 @@ class AddUsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -44,7 +44,7 @@ class AddUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -55,7 +55,7 @@ class AddUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -67,7 +67,7 @@ class AddUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
         //
     }
@@ -78,7 +78,7 @@ class AddUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
     }

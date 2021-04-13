@@ -1,21 +1,22 @@
-@extends('layouts.plantillabase1');
-
+@extends('layouts.plantillageneracion');
+<!--index generacion-->
 @section('contenido')
 
-<a href="pes/create" class="btn btn-primary">Agregar</a>
+
+<a style="margin: 10px auto;" href="pes/create" class="btn btn-primary">Agregar</a>
 
 <table class="table table-light table-striped mt-4">
     <thead class="table table-dark table-striped mt-4">
+        <p style="font-size: 35px; text-align:center; margin:0 auto;">AGREGAR GENERACIONES</p>
         <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Nivel</th>
+            <th scope="col">Descripcion</th>
             <th scope="col">Acciones</th>
-        <tr> 
+        <tr>
     </thead>
-    {{-- prueba 1 de commit and push --}}
-    <tr>
-            <th scope="col">Ing Keyla Esmeralda</th>
-            <th scope="col">Coordinadora</th>
+        <!--<tr>
+            <th scope="col">Programa 1</th>
+            <th scope="col">Ing. Keyla Esmeralda Montejo</th>
             <th scope="col"><buttom class="btn btn-info">Editar</buttom>
             <div class="btn-group">
             <buttom class="btn btn-danger">Borrar</buttom>
@@ -26,25 +27,22 @@
             </th>
             
         <tr>
-
         <tr>
-            <th scope="col">Ing. César Gabriel</th>
-            <th scope="col">Supervisor</th>
-            <th scope="col">
-            <div class="btn-group">
-                <buttom class="btn btn-info">Editar</buttom>
-            </div>
+            <th scope="col">Programa 2</th>
+            <th scope="col">Ing. Cesar Gabriel Morales</th>
+            <th scope="col"><buttom class="btn btn-info">Editar</buttom>
             <div class="btn-group">
             <buttom class="btn btn-danger">Borrar</buttom>
             </div>  
             <div class="btn-group">
             <buttom class="btn btn-primary">Agregar</buttom>
-            </div>              
+            </div>     
             </th>
+            
         <tr>
-
+        -->
     <tbody>
-  
+    
     </tbody>
 </table>
 @endsection
