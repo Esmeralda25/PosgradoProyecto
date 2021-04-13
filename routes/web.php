@@ -29,3 +29,5 @@ Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
 Route::resource('generacion', 'App\Http\Controllers\generacionController');
 
 Route::resource('periodo', 'App\Http\Controllers\periodoController');
+
+Route::post('entrada','App\Http\Controllers\entradaController@validar');
