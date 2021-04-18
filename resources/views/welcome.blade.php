@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
     <!-- Fonts -->
@@ -105,7 +106,9 @@
             }
             .bienvenido{
                 text-align: center;
-                padding-top: 150px;
+                padding-top: 130px;
+                
+                
             }
             .social-bar{
                 position: fixed;
@@ -151,6 +154,10 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
+            .logotec{
+                padding-top: 500px;
+                box-shadow: 0 0 10px #000;
+            }
 
             
             
@@ -162,12 +169,12 @@
                 <a class="generacion-font" href="#" class="logo">Generacion | CRUD</a>
                 <nav class="navigation">
                     <ul>
-                        <li><a class="aheader" href="#">Inicio</a></li>
-                        <li><a class="aheader" href="#">Coordinador</a></li>
-                        <li><a class="aheader" href="#">Docente</a></li>
-                        <li><a class="aheader" href="#">Estudiante</a></li>
-                        <li><a class="aheader" href="#">Contacto</a></li>
-                        <li><a class="aheader" href="#">PaginaOficial</a></li>
+                        <li><a class="aheader" action="" href="#">Inicio</a></li>
+                        <li><a class="aheader" action="" href="#">Coordinador</a></li>
+                        <li><a class="aheader" action="" href="#">Docente</a></li>
+                        <li><a class="aheader" action="" href="#">Estudiante</a></li>
+                        <li><a class="aheader" action="" href="#">Contacto</a></li>
+                        <li><a class="aheader" action="" href="#">PaginaOficial</a></li>
                     </ul>   
                 </nav>
             </div>
@@ -185,7 +192,11 @@
         
         
        <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
-       <form class="formulario" action="/entrada" method="post">
+
+       <div class="logotec col-12" style="background: rgba(0, 60, 255, 0.11); height:300px; padding-top: 130px;">
+            <div class=""><img src="../img/logotec.png"></div>
+       </div>
+      <!-- <form class="formulario" action="/entrada" method="post">
             @csrf
             nombre:<input type="text" name="nombre" id="">
             <br>
@@ -194,6 +205,13 @@
             <input type="submit" name="" id="">
 
 
-       </form>
+       </form> -->
+       <!-- Scripts -->
+       <script src="{{asset('js/app.js')}}"></script>
+            @yield('scripts')
+
+
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.js"></script>
     </body>
 </html>

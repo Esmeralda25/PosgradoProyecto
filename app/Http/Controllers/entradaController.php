@@ -1,5 +1,5 @@
 <?php
-
+/* FUNCIONES DEL LOGIN     */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
