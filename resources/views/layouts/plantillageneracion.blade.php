@@ -83,7 +83,6 @@
                 background: rgba(224, 221, 221, 0.404);
             }
             
-
     </style>
     <title>CRUD Generación</title>
   </head>
