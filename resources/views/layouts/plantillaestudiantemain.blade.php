@@ -21,13 +21,15 @@
             margin: 0 auto;
             
         }
-        body{
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: #333;
-            margin: 0;
-            font-size: 2;
-            line-height: 1.4rem;
-        }
+        .fondo{
+                background: #ecececb4;
+                background-image: url('../../img/fondo.jpg');
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: #333;
+                margin: 0;
+                font-size: 2;
+                line-height: 1.4rem;
+            }
         .main{
             padding-top: 60px;
         }
@@ -36,20 +38,25 @@
             margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
         }
         .header {
-            background: #080c3f;
-            color: #fff;
-            padding: 20px 0;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            right: 0;
-        }
+                background: #133894;
+                color: #fff;
+                box-shadow: 0 0 20px #000;
+                padding: 25px 0; 
+                position: fixed;
+                font-size: 35px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                right: 0;
+            }
         .header a{
             color: #fff;
             text-decoration: none;
             margin-left: 25px;
         }
+        .aheader{
+                font-size: 20px;
+            }
         .logo-nav-container{
             display:flex;
             justify-content: space-between;
@@ -153,27 +160,80 @@
             width: 60px;
             height: 30px;
         }
+        .social-bar{
+                position: fixed;
+                right: 0;
+                top: 35%;
+                font-size: 1.5rem;
+                display: flex;
+                flex-direction:column;
+                align-items: flex-end;
+                z-index: 100;
+            }
+
+            .icon{
+                color: #fff;
+                text-decoration: none; 
+                padding: 20px;
+                margin: 1px;
+                display: flex;
+                transition: all .5s;
+
+            }
+            .icon-facebook{
+                background: #133894;
+            }
+            .icon-instagram{
+                background: #3f729b;
+            }
+            .icon-google{
+                background: #3cba54;
+            }
+            .icon-mail{
+                background: #db3236;
+
+            }
+            .icon:first-child{
+                border-radius: 1rem 0 0 0;
+            }
+            .icon:last-child{
+                border-radius: 0 0 1rem;
+            }
+            .icon:hover{
+                padding-right: 3rem;
+                border-radius: 1rem 0 0 1rem;
+                box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
+            }
 
     </style>
 
 </head>
 
-<body>
+<body class="fondo">
     <header class="header">
         <div class="logo-nav-container">
             <a href="#" class="logo">Estudiante | Proyecto</a>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Coordinador</a></li>
-                    <li><a href="#">Docente</a></li>
-                    <li><a href="#">Estudiante</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">PaginaOficial</a></li>
+                    <li><a class="aheader" href="#">Inicio</a></li>
+                    <li><a class="aheader" href="#">Coordinador</a></li>
+                    <li><a class="aheader" href="#">Docente</a></li>
+                    <li><a class="aheader" href="#">Estudiante</a></li>
+                    <li><a class="aheader" href="#">Contacto</a></li>
+                    <li><a class="aheader" href="#">PaginaOficial</a></li>
                 </ul>   
             </nav>
         </div>
     </header>
+
+    <div class="social-bar">
+            
+        <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+        <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+        <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+        <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+    
+</div>
         
 
     <div class="main container mt-5">

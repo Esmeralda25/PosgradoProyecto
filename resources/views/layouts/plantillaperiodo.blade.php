@@ -16,7 +16,9 @@
             margin-top: 100px;
             
             }
-            body{
+            .fondo{
+                background: #ecececb4;
+                background-image: url('../../img/fondo.jpg');
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 color: #333;
                 margin: 0;
@@ -30,10 +32,12 @@
                 margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
             }
             .header {
-                background: #080c3f;
+                background: #133894;
                 color: #fff;
-                padding: 20px 0;
+                box-shadow: 0 0 20px #000;
+                padding: 25px 0; 
                 position: fixed;
+                font-size: 35px;
                 left: 0;
                 top: 0;
                 width: 100%;
@@ -82,12 +86,56 @@
             .navigation ul li a:hover{
                 background: rgba(224, 221, 221, 0.404);
             }
+            .social-bar{
+                position: fixed;
+                right: 0;
+                top: 35%;
+                font-size: 1.5rem;
+                display: flex;
+                flex-direction:column;
+                align-items: flex-end;
+                z-index: 100;
+            }
+
+            .icon{
+                color: #fff;
+                text-decoration: none; 
+                padding: 20px;
+                margin: 1px;
+                display: flex;
+                transition: all .5s;
+
+            }
+            .icon-facebook{
+                background: #133894;
+            }
+            .icon-instagram{
+                background: #3f729b;
+            }
+            .icon-google{
+                background: #3cba54;
+            }
+            .icon-mail{
+                background: #db3236;
+
+            }
+            .icon:first-child{
+                border-radius: 1rem 0 0 0;
+            }
+            .icon:last-child{
+                border-radius: 0 0 1rem;
+            }
+            .icon:hover{
+                padding-right: 3rem;
+                border-radius: 1rem 0 0 1rem;
+                box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
+            }
             
 
     </style>
     <title>CRUD PERIODO</title>
   </head>
-  <body>
+  <body class="fondo">
   <header class="header">
     <div class="logo-nav-container">
         <a href="#" class="logo">Coordinador | Periodo</a>
@@ -103,6 +151,15 @@
         </nav>
     </div>
 </header>
+<div class="social-bar">
+            
+    <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+    <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+    <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+    <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+
+</div>
+
 
     <div class="container">
     @yield('contenido')
