@@ -13,10 +13,14 @@
             .containerback{
                 width: 85%;
                 max-width: 850px;
+                align-content: center;
                 margin: 0 auto;
+                margin-top: 100px;
                 
             }
             body{
+                background: #ecececb4;
+                background-image: url('../../img/fondo.jpg');
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 color: #333;
                 margin: 0;
@@ -30,10 +34,12 @@
                 margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
             }
             .header {
-                background: #080c3f;
+                background: #133894;
                 color: #fff;
-                padding: 20px 0;
+                box-shadow: 0 0 20px #000;
+                padding: 25px 0; 
                 position: fixed;
+                font-size: 35px;
                 left: 0;
                 top: 0;
                 width: 100%;
@@ -43,6 +49,9 @@
                 color: #fff;
                 text-decoration: none;
                 margin-left: 25px;
+            }
+            .aheader{
+                font-size: 20px;
             }
             .logo-nav-container{
                 display:flex;
@@ -77,83 +86,136 @@
 
             .navigation ul li a:hover{
                 background: rgba(224, 221, 221, 0.404);
+                
             }
-            .detailimg1{
+            .social-bar{
+                position: fixed;
+                right: 0;
+                top: 35%;
+                font-size: 1.5rem;
+                display: flex;
+                flex-direction:column;
+                align-items: flex-end;
+                z-index: 100;
+            }
+
+            .icon{
+                color: #fff;
+                text-decoration: none; 
+                padding: 20px;
+                margin: 1px;
+                display: flex;
+                transition: all .5s;
+
+            }
+            .icon-facebook{
+                background: #133894;
+            }
+            .icon-instagram{
+                background: #3f729b;
+            }
+            .icon-google{
+                background: #3cba54;
+            }
+            .icon-mail{
+                background: #db3236;
+
+            }
+            .icon:first-child{
+                border-radius: 1rem 0 0 0;
+            }
+            .icon:last-child{
+                border-radius: 0 0 1rem;
+            }
+            .icon:hover{
+                padding-right: 3rem;
+                border-radius: 1rem 0 0 1rem;
+                box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
+            }
+            .iconusuario{
                 background: rgb(15, 15, 136); 
                 width: 250px;
                 height: 250px;
                 margin-right: 100px;
             }
-            .detailimg2{
+            .icongeneraciones{
                 background: rgb(72, 163, 248); 
                 width: 250px;
                 height: 250px;
             }
-            .detailimg3{
+            .iconproyectos{
                 background: rgb(15, 15, 136); 
                 width: 250px;
                 height: 250px;
             }
-            .detailimg4{
+            .iconrubricas{
                 background: rgb(72, 163, 248); 
                 width: 250px;
                 height: 250px;
             }
-            .detailimg5{
+            .iconcompromisos{
                 background: rgb(15, 15, 136); 
                 width: 250px;
                 height: 250px;
             }
 
+            
+
         </style>
     <title>Coordinador</title>
   </head>
-<body>
+<body class="fondo">
     <header class="header">
       <div class="logo-nav-container">
           <a href="#" class="logo">Coordinador | MENÚ</a>
           <nav class="navigation">
               <ul>
-                  <li><a href="#">Inicio</a></li>
-                  <li><a href="#">Coordinador</a></li>
-                  <li><a href="#">Docente</a></li>
-                  <li><a href="#">Estudiante</a></li>
-                  <li><a href="#">Contacto</a></li>
-                  <li><a href="#">PaginaOficial</a></li>
+                  <li><a class="aheader" href="#">Inicio</a></li>
+                  <li><a class="aheader" href="#">Coordinador</a></li>
+                  <li><a class="aheader" href="#">Docente</a></li>
+                  <li><a class="aheader" href="#">Estudiante</a></li>
+                  <li><a class="aheader" href="#">Contacto</a></li>
+                  <li><a class="aheader" href="#">PaginaOficial</a></li>
               </ul>   
           </nav>
       </div>
-  </header>
+    </header>
+            <div class="social-bar">
+                    
+                <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+                <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+                <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+                <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+
+            </div>
   <main class="main">
-    <table class=" containerback ">
+    <table class="containerback ">
         <caption>
         </caption>
 
         <tr>
-            <th class="detailimg1">IMAGEN 1</th>
-            <th class="detailimg2">IMAGEN 2</th>
-            <th class="detailimg3">IMAGEN 3</th>
+            <th class="iconusuario">IMAGEN 1</th>
+            <th class="icongeneraciones">IMAGEN 2</th>
+            <th class="iconproyectos">IMAGEN 3</th>
         </tr>
 
         <tr>
-            <th class="detailimg4">IMAGEN 4</th>
-            <th class="detailimg5">IMAGEN 5</th>
+            <th class="iconrubricas">IMAGEN 4</th>
+            <th class="iconcompromisos">IMAGEN 5</th>
         </tr>
     </table>
-    <!-- IMAGENES EN REJILLAS CONTENEDORES -->
-    <div class="container">
-        <div class="row">
-            <div class="md-3" style="border:3px solid #080c3f;">
-                <P>HOLA</P>
-            </div>
-            <div class="md-6" style="border:3px solid #080c3f;">
-                <p>como estas</p>
-            </div>
-    
-            
-        </div>
-    </div>
-  </main>
+  </main> 
+  <!-- IMAGENES EN REJILLAS CONTENEDORES -->
+ <!-- <div class="row col-12" style="width:100%;">
+        <div class="iconusuario col-4"><img src="../img/logotec.png"></div>
+        <div class="icongeneraciones col-4"><img src="../img/logotec.png"></div>
+        <div class="iconproyectos col-4"><img src="../img/logotec.png"></div>
+   </div>
+   <div class="container row col-12" style="width:100%;">
+        <div class="iconusuario col-6"><img src="../img/logotec.png"></div>
+        <div class="icongeneraciones col-6"><img src="../img/logotec.png"></div>
+        
+</div> -->
   
  
  

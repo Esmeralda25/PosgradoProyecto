@@ -31,13 +31,16 @@
             margin-top: 100px;
             
             }
-            body{
+            .fondo{
+                background: #ecececb4;
+                background-image: url('../../img/fondo.jpg');
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 color: #333;
                 margin: 0;
                 font-size: 2;
                 line-height: 1.4rem;
             }
+            
             .main{
                 padding-top: 130px;
             }
@@ -45,7 +48,7 @@
                 margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
             }
             .header {
-                background: #030c91ad;
+                background: #133894;
                 color: #fff;
                 box-shadow: 0 0 20px #000;
                 padding: 25px 0; 
@@ -155,7 +158,8 @@
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
             .logotec{
-                padding-top: 500px;
+                
+                padding-top: 600px;
                 box-shadow: 0 0 10px #000;
             }
 
@@ -163,10 +167,10 @@
             
         </style>
     </head>
-    <body class="antialiased">
+    <body class="fondo antialiased">
         <header class="header">
             <div class="logo-nav-container">
-                <a class="generacion-font" href="#" class="logo">Generacion | CRUD</a>
+                <a class="generacion-font" href="#" class="logo">Bienvenido</a>
                 <nav class="navigation">
                     <ul>
                         <li><a class="aheader" action="" href="#">Inicio</a></li>
@@ -193,8 +197,10 @@
         
        <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
 
-       <div class="logotec col-12" style="background: rgba(0, 60, 255, 0.11); height:300px; padding-top: 130px;">
-            <div class=""><img src="../img/logotec.png"></div>
+       <div class="logotec row col-12" style="background: rgb(255, 255, 255); height:300px; width:auto; padding-top: 130px;">
+            <div class="col-4"><img src="../img/logotec.png"></div>
+            <div class="col-4"><img src="../img/logotec.png"></div>
+            <div class="col-4"><img src="../img/logotec.png"></div>
        </div>
       <!-- <form class="formulario" action="/entrada" method="post">
             @csrf

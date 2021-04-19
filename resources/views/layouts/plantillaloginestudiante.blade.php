@@ -35,14 +35,16 @@
             margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
         }
         .header {
-            background: #080c3f;
-            color: #fff;
-            padding: 20px 0;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            right: 0;
+                background: #133894;
+                color: #fff;
+                box-shadow: 0 0 20px #000;
+                padding: 25px 0; 
+                position: fixed;
+                font-size: 25px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                right: 0;
         }
         .header a{
             color: #fff;
