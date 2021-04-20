@@ -30,4 +30,14 @@ Route::resource('generacion', 'App\Http\Controllers\generacionController');
 
 Route::resource('periodo', 'App\Http\Controllers\periodoController');
 
+Route::resource('docente', 'App\Http\Controllers\docenteController');
+
+Route::resource('coordinador', 'App\Http\Controllers\coordinadorController');
+
+Route::resource('evaluar', 'App\Http\Controllers\evaluarController');
+
+Route::resource('historico', 'App\Http\Controllers\historicoController');
+
+Route::resource('rubrica', 'App\Http\Controllers\rubricaController');
+
 Route::post('entrada','App\Http\Controllers\entradaController@validar');

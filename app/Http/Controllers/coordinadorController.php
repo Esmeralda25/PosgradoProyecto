@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 use App\Models\estudiantemain;
 use Illuminate\Http\Request;
 
-class estudiantemainController extends Controller
+class coordinadorController extends Controller
 {
     public function index()
     {
-        //$add = Add::all();
-        return view('layouts.plantillaestudiantemain');//->with('add',$add);
+        //PLANTILLA DONDE EL ESTUDIANTE AGREGA PROYECTO
+        return view('coordinador.index');//->with('add',$add);
     }
 
     
     public function create()
     {
+            return view('coordinador.create');
         
     }
 

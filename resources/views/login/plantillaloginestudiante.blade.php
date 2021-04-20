@@ -167,13 +167,10 @@
 <body>
     <header class="header">
         <div class="logo-nav-container">
-            <a href="#" class="logo">Coordinador | MENÚ</a>
+            <a href="#" class="logo">Iniciar Sesión</a>
             <nav class="navigation">
                 <ul>
                     <li><a class="aheader" href="#">Inicio</a></li>
-                    <li><a class="aheader" href="#">Coordinador</a></li>
-                    <li><a class="aheader" href="#">Docente</a></li>
-                    <li><a class="aheader" href="#">Estudiante</a></li>
                     <li><a class="aheader" href="#">Contacto</a></li>
                     <li><a class="aheader" href="#">PaginaOficial</a></li>
                 </ul>   
@@ -196,28 +193,43 @@
         <div class="col-md-7 mt-5">
             
             <div class="card">
-                <form action="" method="POST">
-                    <div class="card-header text-center font-weight-bolder">AGREGAR USUARIO</div>
+              <form class="formulario" action="/entrada" method="POST"> 
+                    <div class="card-header text-center font-weight-bolder" style="font-size: 25px">Iniciar Sesión</div>
 
                     <div class="card-body">
                         <div class="row form-group">
-                            <label for="" class="col-2">Nombre</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
+                           <!-- <label for="" class="col-2">Nombre</label>-->
+                           @csrf
+                           Nombre:<input type="text" name="nombre" class="form-control col-md-9" id="">
+                           <!-- <input type="text" name="nombre" class="form-control col-md-9"> -->
                         </div>
 
                         <div class="row form-group">
-                            <label for="" class="col-2">Email</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
+                            <!--<label for="" class="col-2">Email</label> -->
+                            Contraseña:<input type="text" name="contraseña" class="form-control col-md-9" id="">
+                            
 
                         </div>
 
                         <div class="row form-group">
-                            <button type="submit" class="btn btn-success mt-3 col-md-9 offset-2">Guardar</button>
+                            <button type="submit" class="btn btn-success mt-3 col-md-9 offset-2">Iniciar</button>
 
                         </div>
 
                     </div>
-                </form>
+                </form> 
+            
+              <!--  <form class="formulario" action="/entrada" method="post">
+                    @csrf
+                    nombre:<input type="text" name="nombre" id="">
+                    <br>
+                    contraseña:<input type="text" name="contraseña" id="">
+        
+                    <input type="submit" name="" id="">
+        
+        
+               </form> -->
+            
             </div>
 
         </div>

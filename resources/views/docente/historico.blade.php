@@ -1,18 +1,20 @@
 <!doctype html>
-<!-- PLANTILLA BASE DE 127.0.0.1:8000/estudiante  es lo que agrega el coordinador-->
+<!-- PLANTILLA BASE DE 127.0.0.1:8000/generacion-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <style>
-             .container{
+    <style>
+        .container{
             width: 85%;
             max-width: 850px;
             margin: 0 auto;
             margin-top: 100px;
+            
             }
             .fondo{
                 background: #ecececb4;
@@ -41,24 +43,26 @@
                 width: 100%;
                 right: 0;
             }
-            .aheader{
-                font-size: 20px;
-            }
             .header a{
                 color: #fff;
-                font-size: 20px;
                 text-decoration: none;
                 margin-left: 25px;
+                
+            }
+            .aheader{
+                font-size: 20px;
             }
             .logo-nav-container{
                 display:flex;
                 justify-content: space-between;
                 align-items: center;
             }
-
+            .evaluar{
+                text-decoration: none;
+            }
             .logo{
                 letter-spacing: 1px;
-                font-size: 30px;
+                font-size: 35px;
             }
             .navigation ul{
                 margin: 0;
@@ -128,36 +132,33 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
-        </style>
-    <title>CRUD USUARIOS</title>
+            
+    </style>
+    <title>Docente</title>
   </head>
   <body class="fondo">
-    <header class="header">
-        <div class="logo-nav-container">
-            <a href="#" class="logo">Coordinador | CRUD</a>
-            <nav class="navigation">
-                <ul>
-                    <li><a class="aheader" href="#">Inicio</a></li>
-                    <li><a class="aheader" href="#">Coordinador</a></li>
-                    <li><a class="aheader" href="#">Docente</a></li>
-                    <li><a class="aheader" href="#">Estudiante</a></li>
-                    <li><a class="aheader" href="#">Contacto</a></li>
-                    <li><a class="aheader" href="#">PaginaOficial</a></li>
-                </ul>   
-            </nav>
-        </div>
-    </header>
-    <div class="social-bar">
+  <header class="header">
+    <div class="logo-nav-container">
+        <a href="#" class="logo">Historico</a>
+        <nav class="navigation">
+            <ul>
+                <li><a class="aheader" href="{{url('/')}}">Inicio</a></li>
+                <li><a class="aheader" href="#">Contacto</a></li>
+                <li><a class="aheader" href="#">PaginaOficial</a></li>
+            </ul>   
+        </nav>
+    </div>
+</header>
+
+<div class="social-bar">
             
-        <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
-        <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
-        <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
-        <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
-    
+    <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+    <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+    <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+    <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+
 </div>
 
-    <div class="container">
-    @yield('contenido')
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

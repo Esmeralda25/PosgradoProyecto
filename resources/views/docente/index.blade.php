@@ -7,24 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- iconos redes sociales -->
-   
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="main.css">
-
-     <!-- Styles -->
-        <style>
-            
-        </style>
-
-        <style>
-            .container{
+    <style>
+        .container{
             width: 85%;
             max-width: 850px;
             margin: 0 auto;
@@ -40,7 +25,6 @@
                 font-size: 2;
                 line-height: 1.4rem;
             }
-            
             .main{
                 padding-top: 130px;
             }
@@ -60,7 +44,7 @@
                 right: 0;
             }
             .header a{
-                color: rgb(255, 255, 255);
+                color: #fff;
                 text-decoration: none;
                 margin-left: 25px;
                 
@@ -73,7 +57,10 @@
                 justify-content: space-between;
                 align-items: center;
             }
-
+            .evaluar{
+                text-decoration: none;
+                color:black;
+            }
             .logo{
                 letter-spacing: 1px;
                 font-size: 35px;
@@ -101,17 +88,6 @@
 
             .navigation ul li a:hover{
                 background: rgba(224, 221, 221, 0.404);
-                
-            }
-
-            .formulario{
-                padding-top: 50px;
-            }
-            .bienvenido{
-                text-align: center;
-                padding-top: 130px;
-                
-                
             }
             .social-bar{
                 position: fixed;
@@ -157,64 +133,61 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
-            .logotec{
-                
-                padding-top: 600px;
-                box-shadow: 0 0 10px #000;
-            }
+            
+    </style>
+    <title>Docente</title>
+  </head>
+  <body class="fondo">
+  <header class="header">
+    <div class="logo-nav-container">
+        <a href="#" class="logo">Docente</a>
+        <nav class="navigation">
+            <ul>
+                <li><a class="aheader" href="{{url('/')}}">Inicio</a></li>
+                <li><a class="aheader" href="#">Contacto</a></li>
+                <li><a class="aheader" href="#">PaginaOficial</a></li>
+            </ul>   
+        </nav>
+    </div>
+</header>
 
+<div class="social-bar">
             
-            
-        </style>
-    </head>
-    <body class="fondo antialiased">
-        <header class="header">
-            <div class="logo-nav-container">
-                <a class="generacion-font" href="#" class="logo">Bienvenido</a>
-                <nav class="navigation">
-                    <ul>
-                        <li><a class="aheader" action="" href="{{ url('/loges') }}">Iniciar Sesión</a></li>
-                        <li><a class="aheader" action="" href="#">Contacto</a></li>
-                        <li><a class="aheader" action="" href="#">PaginaOficial</a></li>
-                    </ul>   
-                </nav>
-            </div>
-        </header>
+    <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+    <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+    <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+    <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
 
-        <div class="social-bar">
-            
-                <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
-                <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
-                <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
-                <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
-            
-        </div>
+</div>
+    <div class="container">
+    <table class="table table-light table-striped mt-4">
+        <thead class="table table-dark table-striped mt-4">
+            <p style="font-size: 35px; text-align:center; margin:0 auto;">DOCENTE</p>
+            <tr>
+                <th scope="col">Proyecto</th>
+                <th scope="col">Estudiante</th>
+                <th scope="col">Acciones</th>
+            <tr>
+        </thead>
 
+            <tr>
+                <th>1</th>
+                <th>Esvan</th>
+                <th>
+                    <button class="btn btn-success"><a class="evaluar" href="{{url('/historico')}}">Historico</a></button> 
+                    <button class="btn button" style="background: rgb(245, 242, 58)"><a class="evaluar" href="{{url('/evaluar')}}">Evaluar</a></button></th>
+            </tr>
+            
+        <tbody>
         
-        
-       <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
+        </tbody>  
+    </div>
 
-       <div class="logotec row col-12" style="background: rgb(255, 255, 255); height:300px; width:auto; padding-top: 130px;">
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-       </div>
-      <!-- <form class="formulario" action="/entrada" method="post">
-            @csrf
-            nombre:<input type="text" name="nombre" id="">
-            <br>
-            contraseña:<input type="text" name="contraseña" id="">
+</table>
 
-            <input type="submit" name="" id="">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-
-       </form> -->
-       <!-- Scripts -->
-       <script src="{{asset('js/app.js')}}"></script>
-            @yield('scripts')
-
-
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.js"></script>
-    </body>
+    
+  </body>
 </html>

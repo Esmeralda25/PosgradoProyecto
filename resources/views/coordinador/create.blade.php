@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!-- PLANTILLA BASE DE 127.0.0.1:8000/generacion-->
 <html lang="en">
@@ -170,7 +171,7 @@
     <body class="fondo antialiased">
         <header class="header">
             <div class="logo-nav-container">
-                <a class="generacion-font" href="#" class="logo">Bienvenido</a>
+                <a class="generacion-font" href="#" class="logo">Coordinador</a>
                 <nav class="navigation">
                     <ul>
                         <li><a class="aheader" action="" href="{{ url('/loges') }}">Iniciar Sesión</a></li>
@@ -189,32 +190,47 @@
                 <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
             
         </div>
+        <div class="container">
+            <h2>CREAR REGISTROS</h2>
 
-        
-        
-       <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
-
-       <div class="logotec row col-12" style="background: rgb(255, 255, 255); height:300px; width:auto; padding-top: 130px;">
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-       </div>
-      <!-- <form class="formulario" action="/entrada" method="post">
+            <form action="/index" method="POST">
             @csrf
-            nombre:<input type="text" name="nombre" id="">
-            <br>
-            contraseña:<input type="text" name="contraseña" id="">
-
-            <input type="submit" name="" id="">
-
-
-       </form> -->
-       <!-- Scripts -->
-       <script src="{{asset('js/app.js')}}"></script>
-            @yield('scripts')
-
-
+                    <div class="mb-3">
+                        <label for="" class="form-label">Programa Educativo</label>
+                        <input id="Programa" name="Programa" type="text" class="form-control" tabindex="2">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nivel</label>
+                        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Rubricas</label>
+                        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Entregables</label>
+                        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Porcetajes</label>
+                        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Periodos</label>
+                        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
+                    </div>
+            
+                    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+            </form>
+            
+            
+        </div>
+        
         <script src="../js/jquery.js"></script>
         <script src="../js/bootstrap.js"></script>
     </body>
 </html>
+
+
+

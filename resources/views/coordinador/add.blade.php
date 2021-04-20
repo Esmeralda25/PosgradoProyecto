@@ -1,35 +1,19 @@
+<!--index estudiante-->
 <!doctype html>
-<!-- PLANTILLA BASE DE 127.0.0.1:8000/generacion-->
+<!-- PLANTILLA BASE DE 127.0.0.1:8000/estudiante  es lo que agrega el coordinador-->
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- iconos redes sociales -->
-   
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="main.css">
-
-     <!-- Styles -->
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <style>
-            
-        </style>
-
-        <style>
-            .container{
+             .container{
             width: 85%;
             max-width: 850px;
             margin: 0 auto;
             margin-top: 100px;
-            
             }
             .fondo{
                 background: #ecececb4;
@@ -40,7 +24,6 @@
                 font-size: 2;
                 line-height: 1.4rem;
             }
-            
             .main{
                 padding-top: 130px;
             }
@@ -59,14 +42,14 @@
                 width: 100%;
                 right: 0;
             }
-            .header a{
-                color: rgb(255, 255, 255);
-                text-decoration: none;
-                margin-left: 25px;
-                
-            }
             .aheader{
                 font-size: 20px;
+            }
+            .header a{
+                color: #fff;
+                font-size: 20px;
+                text-decoration: none;
+                margin-left: 25px;
             }
             .logo-nav-container{
                 display:flex;
@@ -76,7 +59,7 @@
 
             .logo{
                 letter-spacing: 1px;
-                font-size: 35px;
+                font-size: 30px;
             }
             .navigation ul{
                 margin: 0;
@@ -101,17 +84,6 @@
 
             .navigation ul li a:hover{
                 background: rgba(224, 221, 221, 0.404);
-                
-            }
-
-            .formulario{
-                padding-top: 50px;
-            }
-            .bienvenido{
-                text-align: center;
-                padding-top: 130px;
-                
-                
             }
             .social-bar{
                 position: fixed;
@@ -157,64 +129,67 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
-            .logotec{
-                
-                padding-top: 600px;
-                box-shadow: 0 0 10px #000;
-            }
-
-            
-            
         </style>
-    </head>
-    <body class="fondo antialiased">
+        <title>Agregar Usuarios</title>
+  </head>
+  <body class="fondo">
         <header class="header">
             <div class="logo-nav-container">
-                <a class="generacion-font" href="#" class="logo">Bienvenido</a>
+                <a href="#" class="logo">Coordinador | Agregar usuarios</a>
                 <nav class="navigation">
                     <ul>
-                        <li><a class="aheader" action="" href="{{ url('/loges') }}">Iniciar Sesión</a></li>
-                        <li><a class="aheader" action="" href="#">Contacto</a></li>
-                        <li><a class="aheader" action="" href="#">PaginaOficial</a></li>
+                        <li><a class="aheader" href="{{url('/')}}">Inicio</a></li>
+                        <li><a class="aheader" href="#">Contacto</a></li>
+                        <li><a class="aheader" href="#">PaginaOficial</a></li>
                     </ul>   
                 </nav>
             </div>
         </header>
-
         <div class="social-bar">
-            
-                <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
-                <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
-                <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
-                <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
-            
+                
+            <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+            <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+            <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+            <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+        
         </div>
-
         
         
-       <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
+        <div class="container">
+            <a href="{{url('coordinador/create')}}" class="btn btn-primary">Agregar</a>
+            <table class="table table-light table-striped mt-4">
+                <thead class="table table-dark table-striped mt-4">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Nivel</th>
+                        <th scope="col">Acciones</th>
+                    <tr> 
+                </thead>
+            {{-- prueba 1 de commit and push --}}
+        
+            <tbody>
+               
+                <tr>
+                    <td>Keyla</td>
+                    <td>Docente</td>
+                
+                    <td> 
+                        
+                        <a href='/estudiantes/{​​{​​$estudiante->id}​​}​​/edit' class="btn btn-info">Editar</a>
+                        <button class="btn btn-danger">Eliminar</button>
+                        <a class="btn btn-info">Mostrar</a>
 
-       <div class="logotec row col-12" style="background: rgb(255, 255, 255); height:300px; width:auto; padding-top: 130px;">
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-       </div>
-      <!-- <form class="formulario" action="/entrada" method="post">
-            @csrf
-            nombre:<input type="text" name="nombre" id="">
-            <br>
-            contraseña:<input type="text" name="contraseña" id="">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        </div>
+        
 
-            <input type="submit" name="" id="">
-
-
-       </form> -->
-       <!-- Scripts -->
-       <script src="{{asset('js/app.js')}}"></script>
-            @yield('scripts')
-
-
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.js"></script>
-    </body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>    
+  </body>
 </html>
+
+

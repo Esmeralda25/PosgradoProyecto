@@ -1,5 +1,6 @@
+
 <!doctype html>
-<!-- PLANTILLA BASE DE 127.0.0.1:8000/generacion-->
+<!-- PLANTILLA BASE DE 127.0.0.1:8000/pes-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -7,40 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- iconos redes sociales -->
-   
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="main.css">
-
-     <!-- Styles -->
-        <style>
-            
-        </style>
-
-        <style>
-            .container{
+    <style>
+        .container{
             width: 85%;
             max-width: 850px;
             margin: 0 auto;
             margin-top: 100px;
             
             }
-            .fondo{
-                background: #ecececb4;
-                background-image: url('../../img/fondo.jpg');
+            body{
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 color: #333;
                 margin: 0;
                 font-size: 2;
                 line-height: 1.4rem;
             }
-            
             .main{
                 padding-top: 130px;
             }
@@ -60,7 +43,7 @@
                 right: 0;
             }
             .header a{
-                color: rgb(255, 255, 255);
+                color: #fff;
                 text-decoration: none;
                 margin-left: 25px;
                 
@@ -101,18 +84,8 @@
 
             .navigation ul li a:hover{
                 background: rgba(224, 221, 221, 0.404);
-                
             }
-
-            .formulario{
-                padding-top: 50px;
-            }
-            .bienvenido{
-                text-align: center;
-                padding-top: 130px;
-                
-                
-            }
+            
             .social-bar{
                 position: fixed;
                 right: 0;
@@ -157,64 +130,71 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
-            .logotec{
-                
-                padding-top: 600px;
-                box-shadow: 0 0 10px #000;
-            }
 
-            
-            
-        </style>
-    </head>
-    <body class="fondo antialiased">
-        <header class="header">
-            <div class="logo-nav-container">
-                <a class="generacion-font" href="#" class="logo">Bienvenido</a>
-                <nav class="navigation">
-                    <ul>
-                        <li><a class="aheader" action="" href="{{ url('/loges') }}">Iniciar Sesión</a></li>
-                        <li><a class="aheader" action="" href="#">Contacto</a></li>
-                        <li><a class="aheader" action="" href="#">PaginaOficial</a></li>
-                    </ul>   
-                </nav>
-            </div>
-        </header>
 
-        <div class="social-bar">
-            
-                <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
-                <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
-                <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
-                <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
-            
-        </div>
+    </style>
+    <title>CRUD PES</title>
+  </head>
+  <body>
+  <header class="header">
+    <div class="logo-nav-container">
+        <a href="#" class="logo">Coordinador | Rubrica</a>
+        <nav class="navigation">
+            <ul>
+                <li><a class="aheader" href="#">Inicio</a></li>
+                <li><a class="aheader" href="#">Contacto</a></li>
+                <li><a class="aheader" href="#">PaginaOficial</a></li>
+            </ul>   
+        </nav>
+    </div>
+</header>
 
+<div class="social-bar">
+            
+    <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
+    <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
+    <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
+    <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+
+</div>
+
+    <div class="container">
+        <a style="margin: 10px auto;" href="pes/create" class="btn btn-primary">Agregar</a>
+
+<table class="table table-light table-striped mt-4">
+    <thead class="table table-dark table-striped mt-4">
+        <p style="font-size: 35px; text-align:center; margin:0 auto;">AGREGAR RUBRICA</p>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Acciones</th>
+        <tr>
+    </thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">
+                <buttom class="btn btn-info">Editar</buttom>
+                    <div class="btn-group">
+                        <buttom class="btn btn-danger">Borrar</buttom>
+                    </div>  
+                    <div class="btn-group">
+                        <buttom class="btn btn-primary">Agregar</buttom>
+                    </div>     
+            </th>
+            
+        <tr>
         
         
-       <h1 class="bienvenido">BIENVENIDOS AL SISTEMA DE SEGUIMIENTO DE POSGRADO</h1>
-
-       <div class="logotec row col-12" style="background: rgb(255, 255, 255); height:300px; width:auto; padding-top: 130px;">
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-            <div class="col-4"><img src="../img/logotec.png"></div>
-       </div>
-      <!-- <form class="formulario" action="/entrada" method="post">
-            @csrf
-            nombre:<input type="text" name="nombre" id="">
-            <br>
-            contraseña:<input type="text" name="contraseña" id="">
-
-            <input type="submit" name="" id="">
+    
+</table>
+    </div>   
 
 
-       </form> -->
-       <!-- Scripts -->
-       <script src="{{asset('js/app.js')}}"></script>
-            @yield('scripts')
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.js"></script>
-    </body>
+    
+  </body>
 </html>
+
