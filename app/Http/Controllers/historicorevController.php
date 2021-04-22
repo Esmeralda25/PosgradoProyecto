@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Models\generacion;
 
-
-
-
-class generacionController extends Controller
+class historicorevController extends Controller
 {
     public function index(){
       
-        return view('coordinador.generacion.index');//->with('pes',$pes);
+        return view('docente.historicorev');//->with('pes',$pes);
     }
 
     public function create(){
@@ -86,6 +83,3 @@ class generacionController extends Controller
         //
     }
 }
-    
-
-

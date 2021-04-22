@@ -16,6 +16,11 @@
             margin-top: 100px;
             
             }
+            .tcontainer{
+                width: 85%;
+                max-width: 850px;
+                margin: 0 auto;
+            }
             .fondo{
                 background: #ecececb4;
                 background-image: url('../../img/fondo.jpg');
@@ -130,6 +135,9 @@
                 border-radius: 1rem 0 0 1rem;
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
+            .base{
+                background: rgba(87, 81, 81, 0.438);
+            }
             
     </style>
     <title>Docente</title>
@@ -137,7 +145,7 @@
   <body class="fondo">
   <header class="header">
     <div class="logo-nav-container">
-        <a href="#" class="logo">Docente</a>
+        <a href="#" class="logo">Docente </a>
         <nav class="navigation">
             <ul>
                 <li><a class="aheader" href="{{url('/')}}">Inicio</a></li>
@@ -157,6 +165,99 @@
 
 </div>
     
+    <div class="container">
+           <h1 style="text-align:center; margin-top: 100px">Evaluar</h1>       
+    </div>
+    <div class="container" style="margin-top:20px">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th class="row">
+                                    <a href="{{url('/')}}">Datos Generales del Proyecto</a>
+                                </th> 
+                                <th></th>  
+                            </tr>
+                            <tr>
+                                <th class="row">
+                                    <a href="{{url('/')}}">Protocolo Entregado</a>
+                                </th> 
+                                <th></th>   
+                            </tr>
+                            <tr>
+                                <th class="row">
+                                    <a href="{{url('/')}}">Resultados y Desarrollo (Compromisos y Cronogramas)</a>
+                                </th>  
+                                <th></th>  
+                            </tr>
+                            <tr>
+                                <th class="row">
+                                    <div>
+                                        <button class="col-3"><a href="{{url('/')}}">Calificar</a></button>
+                                    </div>
+                                    
+                                </th>  
+                                <th></th>  
+                            </tr>
+                        </tbody>
+                    </table>
+            
+                </div>
+            </div>
+        </div>
+
+        <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
+        
+            <div class="tcontainer">
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="row">Criterios</th> 
+                            <th>Calificacion</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="row">Estructura</th> 
+                            <th><input type="text" name="nombre" id=""></th>  
+                        </tr>
+                        <tr>
+                            <th class="row">Nivel</th> 
+                            <th><input type="text" name="nombre" id=""></th>   
+                        </tr>
+                        <tr>
+                            <th class="row">Apreciación</th>  
+                            <th><input type="text" name="nombre" id=""></th>  
+                        </tr>
+                        <tr>
+                            <th class="row">Claridad</th> 
+                            <th><input type="text" name="nombre" id=""></th>  
+                        </tr>
+                        <tr>
+                            <th class="row">Correlacion</th> 
+                            <th><input type="text" name="nombre" id=""></th>   
+                        </tr>
+                        <tr>
+                            <th class="row">Promedio</th>  
+                            <th><input type="text" name="nombre" id=""></th>  
+                        </tr>
+                        
+                    </tbody>
+                </table>
+    
+            </div>
+        <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
+        <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="nombre" id="">
+        <div>
+            <p></p>
+        </div>
+        
+     </div>
+
+    
+
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

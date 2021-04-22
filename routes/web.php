@@ -40,4 +40,6 @@ Route::resource('historico', 'App\Http\Controllers\historicoController');
 
 Route::resource('rubrica', 'App\Http\Controllers\rubricaController');
 
+Route::resource('historicorev', 'App\Http\Controllers\historicorevController');
+
 Route::post('entrada','App\Http\Controllers\entradaController@validar');

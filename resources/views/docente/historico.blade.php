@@ -16,6 +16,11 @@
             margin-top: 100px;
             
             }
+            .tcontainer{
+                width: 85%;
+                max-width: 850px;
+                margin: 0 auto;
+            }
             .fondo{
                 background: #ecececb4;
                 background-image: url('../../img/fondo.jpg');
@@ -158,6 +163,115 @@
     <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
 
 </div>
+
+<div class="container">
+    <h1 style="text-align:center; margin-top: 100px">Evaluar</h1>       
+</div>
+<div class="container" style="margin-top:20px">
+ <div class="row">
+     <div class="col-12">
+         <div class="table-responsive">
+             <table class="table">
+                 <tbody">
+                    <tr>
+                        <th class="row">
+                            <div>
+                                 Nombre del Proyecto <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                            </div>
+                        </th> 
+                        <th></th>  
+                    </tr>
+                    <tr>
+                        <th class="row">
+                            <div>
+                                 Hipotesis <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                            </div>
+                        </th> 
+                        <th></th>  
+                    </tr>
+                    <tr>
+                        <th class="row">
+                            <div>
+                                 Objetivo General <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                            </div>
+                        </th> 
+                        <th></th>  
+                    </tr>
+                    <tr>
+                        <th class="row">
+                            <div>
+                                 Objetivo especifico <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                            </div>
+                        </th> 
+                        <th></th>  
+                    </tr>
+                    <tr>
+                        <th class="row">
+                            <div>
+                                 Proyecto <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px"  placeholder="Sistema para Dotorado" type="text" name="nombre" id="">
+                            </div>
+                        </th> 
+                        <th></th>  
+                    </tr>
+                     
+                 </tbody>
+             </table>
+     
+         </div>
+     </div>
+ </div>
+
+ <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
+ 
+     <div class="tcontainer">
+         <table class="table">
+             <tbody>
+                 <tr>
+                     <th class="row">Revisión 1</th> 
+                     <th><input type="text" style="border:none" placeholder="9.8" name="nombre" id=""></th>  
+                 </tr>
+                 <tr>
+                     <th class="row">Revisión 2</th> 
+                     <th><input type="text" style="border:none" placeholder="7.8" name="nombre" id=""></th>   
+                 </tr>
+                 <tr>
+                     <th class="row">Revisión 3</th>  
+                     <th><input type="text" style="border:none" placeholder="9.9" name="nombre" id=""></th>  
+                 </tr>
+                 <tr>
+                     <th class="row">Revisión 4</th> 
+                     <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
+                 </tr>
+                 <tr>
+                     <th class="row">Revisión 5</th> 
+                     <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>   
+                 </tr>
+                 <tr>
+                     <th class="row">Revisión 6</th>  
+                     <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
+                 </tr>
+                 <tr>
+                    <th class="row">Revisión 7</th>  
+                    <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
+                </tr>
+                <tr>
+                    <th class="row">Revisión 8</th>  
+                    <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
+                </tr>
+                 
+             </tbody>
+         </table>
+
+     </div>
+    <button><a href="{{url('/historicorev')}}">Revisión</a></button>
+    
+    
+    <div>
+        <p></p>
+    </div>
+ 
+</div>
+
 
 
     

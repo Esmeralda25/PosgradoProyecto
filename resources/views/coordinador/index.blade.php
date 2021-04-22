@@ -194,7 +194,7 @@
         </caption>
 
         <tr>
-            <th class="iconusuario">IMAGEN 1</th>
+            <th class="iconusuario"><img src="{{asset('img/fondo.jpg')}}"> 1</th>
             <th class="icongeneraciones">IMAGEN 2</th>
             <th class="iconproyectos">IMAGEN 3</th>
         </tr>

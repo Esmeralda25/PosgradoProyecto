@@ -174,7 +174,7 @@
                 <a class="generacion-font" href="#" class="logo">Coordinador</a>
                 <nav class="navigation">
                     <ul>
-                        <li><a class="aheader" action="" href="{{ url('/loges') }}">Iniciar Sesión</a></li>
+                        <li><a class="aheader" action="" href="">Iniciar Sesión</a></li>
                         <li><a class="aheader" action="" href="#">Contacto</a></li>
                         <li><a class="aheader" action="" href="#">PaginaOficial</a></li>
                     </ul>   
