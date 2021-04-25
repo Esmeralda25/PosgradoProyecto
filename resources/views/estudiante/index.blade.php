@@ -123,29 +123,7 @@
             padding: 0px;
             margin-top: 15px;
         }
-        .nav li a{
-            background: rgb(0, 0, 0);
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 15px;
-            display: block;
-
-        }
-        .nav li a:hover{
-            background-color: #434343; 
-        }
-
-        .nav > li{
-            float: left;
-        }
-
-        .nav li ul{
-            display: none; //no se visualiza el menu
-           
-        }
-        .nav li:hover >ul{
-            display: block; 
-        }
+       
 
         .containerlistArt{
             float: left;
@@ -205,6 +183,10 @@
                 box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
             }
 
+           
+
+
+
     </style>
 
 </head>
@@ -215,10 +197,7 @@
             <a href="#" class="logo">Estudiante | Proyecto</a>
             <nav class="navigation">
                 <ul>
-                    <li><a class="aheader" href="#">Inicio</a></li>
-                    <li><a class="aheader" href="#">Coordinador</a></li>
-                    <li><a class="aheader" href="#">Docente</a></li>
-                    <li><a class="aheader" href="#">Estudiante</a></li>
+                    <li><a class="aheader" href="{{url('/')}}">Inicio</a></li>
                     <li><a class="aheader" href="#">Contacto</a></li>
                     <li><a class="aheader" href="#">PaginaOficial</a></li>
                 </ul>   
@@ -267,43 +246,139 @@
                                 <input type="text" name="nombre" class="form-control col-md-9">
     
                             </div>
-    
-                            <div class=" col-md-12">
-                               <!-- <button type="submit" class="btn btn-success mt-3 col-md-9 offset-2">Guardar</button>-->
-                                <div class="containerlistArt container col-md-8">
-                                   <lu class="nav lista">
-                                        <li><a href="#">Articulos JCR Sometidos</a>
-                                            <ul class="nav">
-                                            <li><a href="#">Articulos JCR Sometidos</a></li>
-                                            <li><a href="#">Articulos JCR Aceptados o Publicados</a></li>
-                                            <li><a href="#">Modelo de utilidad o Patente</a></li>
-                                            <li><a href="#">Conferencias Nacionales</a></li>
-                                            <li><a href="#">Conferencias Internacionales</a></li>
-                                            </ul>
-                                        </li>
-                                   </lu>   
-                                </div>
-                                <div class="containerlistADD container col-4">
-                                    <button class="tamañoboton">+</button>
-                               </div>
+                
+                           </div>
+                        <div class="container">
+                            <table class="col-12" style="100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class=" navbar-collapse navbar-ex1-collapse">
+                                                <ul class="nav navbar-nav">
+                                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Articulos JCR sometidos<b class="caret"></b></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#"></a>Articulos JCR aceptados</li>
+                                                            <li><a href="#"></a>Modelo de utilidad o patente</li>
+                                                            <li><a href="#"></a>Conferencias nacionales</li>
+                                                            <li><a href="#"></a>Conferencias internacionales</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </th>
+                                        <th scope="row">
+                                            <div class="containerlistADD container">
+                                                <button class="tamañoboton">+</button>
+                                            </div>
+                                        </th>
+                                            
+                                    </tr>
+                                </thead>
+                             </table>
+                             <div>
+                                <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos</h2>
+                             </div>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Articulos JCR sometidos</th>
+                                    <th scope="col" style="padding-left:100px"><input type="text" name="nombre" class="form-control"></th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">Conferencias nacionales</th>
+                                    <td scope="col" style="padding-left:100px"><input type="text" name="nombre" class="form-control"></td> 
+                                  </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                            <!-- espacio entre contenido-->
                             </div>
-    
+                            <table class="col-12" style="100%">
+                                <thead>
+                                    <tr>
+                                        <th scope="row">
+                                                <ul class="nav navbar-nav">
+                                                    
+                                                    <input type="text" name="nombre" class="form-control">
+                                                </ul>
+                                        </th>
+                                        <th scope="row">
+                                            <div class="containerlistADD container">
+                                                <button class="tamañoboton">+</button>
+                                            </div>
+                                        </th>
+                                            
+                                    </tr>
+                                </thead>
+                             </table>
+                             <div>
+                                <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos</h2>
+                             </div>
+                            <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Busqueda de informacion</th>
+                                    <th scope="col" style="padding-left:100px"><input type="text" name="nombre" class="form-control"></th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">Creacion de la herramienta</th>
+                                    <td scope="col" style="padding-left:100px"><input type="text" name="nombre" class="form-control"></td> 
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Difucion del trabajoj</th>
+                                    <td scope="col" style="padding-left:100px"><input type="text" name="nombre" class="form-control"></td> 
+                                  </tr>
+                                </tbody>
+                            </table>
+
+                            <div>
+                                  <button><a href="{{url('')}}">Someter/Modificar</a></button>
+                            </div>
+                              
+
                         </div>
                     </form>
                 </div>
-    
+                
             </div>
         </div>
+        
     
     </div>  
       
+@section('scripts')
+<script>
+    $(document).ready(function() {
+    $('.menu li:has(ul)').click(function(e) {
+        e.preventDefault();
+        if($(this).hasClass('activado')){
 
+        }else{
+            $('.menu li ul').slideUp();
+            $('.menu li').removeClass('activado');
+            $(this).addClass('activado');
+            $(this).children('ul').slideDown();
+        }
+    });
+});
+</script>
+    
+@endsection
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-
-    <script src="assets/js/jquery.js"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="{{asset('resources/js/main.js') }}"></script>
     <script src="assets/js/bootstrap.js"></script>
+
+   
 </body>
 
 </html>

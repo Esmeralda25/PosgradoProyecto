@@ -42,4 +42,8 @@ Route::resource('rubrica', 'App\Http\Controllers\rubricaController');
 
 Route::resource('historicorev', 'App\Http\Controllers\historicorevController');
 
+Route::resource('reportar', 'App\Http\Controllers\reportarController');
+
+Route::resource('mainestudiante2', 'App\Http\Controllers\mainestudiante2Controller');
+
 Route::post('entrada','App\Http\Controllers\entradaController@validar');
