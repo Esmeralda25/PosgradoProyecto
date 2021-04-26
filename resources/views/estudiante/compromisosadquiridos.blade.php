@@ -129,11 +129,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{url('/compromisos')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-warning"></i>
-                  <p>Compromisos</p>
-                  </a>
-                </li>
+                    <a href="{{url('/compromisos')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-warning"></i>
+                    <p>Compromisos</p>
+                    </a>
+                  </li>
                 </ul>
             </li>
 
@@ -217,122 +217,97 @@
                 <div class="col-md-7 mt-5">
                     
                     <div class="card">
-                        <form action="" method="POST">
-                            <div class="card-header text-center font-weight-bold" style="font-size: 30px">Modificar</div>
+                            <form action="" method="POST">
+                                <div class="card-header text-center font-weight-bold" style="font-size: 30px">Compromisos Adquiridos</div>
         
-                            <div class="container">
-                                <table class="col-12" style="100%">
-                                    <thead>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="nav-item">
-                                                    <ul class="nav navbar-nav">
-                                                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Articulos JCR sometidos<b class="caret"></b></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="#"></a>Articulos JCR aceptados</li>
-                                                                <li><a href="#"></a>Modelo de utilidad o patente</li>
-                                                                <li><a href="#"></a>Conferencias nacionales</li>
-                                                                <li><a href="#"></a>Conferencias internacionales</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </th>
-                                            <th scope="row">
-                                                <div class="container">
-                                                    <button class="btn btn-primary" style="width:60px"><i class="fas fa-plus-circle"></i></button>
-                                                </div>
-                                            </th>
-                                                
-                                        </tr>
-                                    </thead>
-                                 </table>
-                                 <div>
-                                    <h2 style="width: 100%; text-align:center; background:rgb(24, 23, 23); padding:0 0; color:white;margin-top:15px" class="font-weidth-bold">Compromisos</h2>
-                                 </div>
-                                
-                                
-                                 <table class="table" style="width: 100%">
-                                    
-                                    <tbody style="width: 100%">
-                                        <tr class="col-12">
-                                            <th class="col-7">
-                                                Articulos JCR sometidos
-                                            </th>
-                                            <th class="col-5">
-                                                <input type="text" placeholder="1" name="nombre" class="form-control">
-                                            </th>
-                                     
-                                        </tr>
-                                        <tr>
-                                            <th >
-                                                Conferencias Nacionales
-                                            </th>
-                                            <th>
-                                                <input type="text" placeholder="3" name="nombre" class="form-control" style="width: auto">
-                                            </th>
-                                     
-                                        </tr>
-                                        
-                                      
-                                    </tbody>
-                                </table>
-                                <table class="table" style="width: 100%">
-                                    <thead>
-                                        <tr class="col-12">
-                                            <th class="col-4">
-                                                <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="width: 200px">
-                                            </th>
-                                            <th class="col-4">
-                                                <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 300px">
-                                            </th>
-                                            <th scope="row" class="col-4">
-                                                <button class="btn btn-primary" style="width:37px"><i class="fas fa-plus-circle"></i></button>
-                                            </th> 
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <div>
-                                <!-- espacio entre contenido-->
-                                </div>
-                                
-                                 <div>
-                                    <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
-                                 </div>
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                      <tr>
-                                        <th scope="col">Busqueda de informacion</th>
-                                        <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
-                                        
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <th scope="row">Creacion de la herramienta</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">Difucion del trabajo</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
-                                      </tr>
-                                    </tbody>
-                                </table>
     
-                                <div>
-                                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)">Someter/Modificar</a></button>
-                                </div>
-                                  
-    
-                            </div>
-                        </form>
-                    </div>
+                                    <div class="container">
+                                        <div class="card-body">
+                                            <div class="row form-group col-12">
+                                                <label for="" class="row col-12">Proyecto</label>
+                                                <input type="text" class="row col-12" name="nombre">
+                                            </div>
+            
                     
+                                            <div class="row form-group col-12">
+                                                <label for="" class="row col-12">Titulo</label>
+                                                <input type="text" class="row col-12" name="nombre">
+                                            </div>
+            
+                
+                                            <div class="row form-group col-12">
+                                                <label for="" class="row col-12">Objetivo General</label>
+                                                <input type="text" class="row col-12" name="nombre">
+                                            </div>
+                                            <div class="row form-group col-12">
+                                                <label for="" class="row col-12">Objetivo Especifico</label>
+                                                <input type="text" class="row col-12" name="nombre">
+                                            </div>
+            
+                                        
+                                        <div>
+                                        <!-- espacio entre contenido-->
+                                        </div>
+                                        <div>
+                                            <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos</h2>
+                                        </div>
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Articulos JCR sometidos</th>
+                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="1" name="nombre" class="form-control"></th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">Conferencias Nacionales</th>
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="3" name="nombre" class="form-control"></td> 
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <div>
+                                            <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
+                                        </div>
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Busqueda de informacion</th>
+                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
+                                                
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">Creacion de la herramienta</th>
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Difucion del trabajo</th>
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div>
+                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" style="color: black">Reportar</a></button>
+                                        </div>
+                                    
+        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    
+                    </div>
                 </div>
-            </div>
             
         
-        </div>  
+            </div>
+        </div>
+    
+    </section>
     
         
   
@@ -375,17 +350,5 @@
 <script src="{{asset('adminlte/js/pages/dashboard2.js')}}"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 

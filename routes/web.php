@@ -46,4 +46,6 @@ Route::resource('reportar', 'App\Http\Controllers\reportarController');
 
 Route::resource('mainestudiante2', 'App\Http\Controllers\mainestudiante2Controller');
 
+Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
+
 Route::post('entrada','App\Http\Controllers\entradaController@validar');

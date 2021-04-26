@@ -284,7 +284,7 @@
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/js/adminlte.js')}}"></script>
 
-{<!-- PAGE PLUGINS -->
+<!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
 <script src="{{asset('/adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
 <script src="{{asset('adminlte/plugins/raphael/raphael.min.js')}}"></script>

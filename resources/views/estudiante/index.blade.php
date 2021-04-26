@@ -111,22 +111,28 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <a href="{{url('/estudiante')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Ingresar proyecto</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/mainestudiante2')}}" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
+                    <a href="{{url('/mainestudiante2')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Someter / Modificar</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <a href="{{url('/reportar')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
                     <p>Reportar Avance</p>
                     </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/compromisos')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon text-warning"></i>
+                  <p>Compromisos</p>
+                  </a>
                 </li>
                 </ul>
             </li>
@@ -173,27 +179,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-
-            <li class="nav-header">Informacion</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-danger"></i>
-                <p class="text">Acerca del proyecto</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-warning"></i>
-                <p>Compromisos</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-info"></i>
-                <p>Informacion Adicional</p>
-                </a>
-            </li>
+              </li>
             </ul>
         </nav>
       <!-- /.sidebar-menu -->
@@ -380,7 +366,7 @@
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/js/adminlte.js')}}"></script>
 
-{<!-- PAGE PLUGINS -->
+<!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
 <script src="{{asset('/adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
 <script src="{{asset('adminlte/plugins/raphael/raphael.min.js')}}"></script>
