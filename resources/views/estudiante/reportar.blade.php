@@ -159,40 +159,94 @@
     <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
 
 </div>
-<div class="container col-12">
-    <div class="row justify-content-center">
-        <div class="col-md-7 mt-5">
+<div class="container">
+    <div class="containerback">
+        <div class="container">
+            <h1 style="text-align: center; padding-top: 40px">SISTEMA PARA DE POSGRADO</h1>
+            <div>
+                <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.822); padding:0 0; color:white;margin-top:15px">Actividades</h2>
+            </div>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Busqueda de Informacion</th>
+                    <th scope="col" style="padding-left:100px"><input type="text" style="text-align: center" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Creacion de la herramienta</th>
+                    <td scope="col" style="padding-left:100px"><input type="text" style="text-align: center" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
+                </tr>
+                <tr>
+                    <th scope="row">Difusión de Trabajo</th>
+                    <td scope="col" style="padding-left:100px"><input type="text" style="text-align: center" placeholder="01 de Junio 2021 - 30 de Junio 2021" name="nombre" class="form-control"></td> 
+                </tr>
+                </tbody>
+            </table>
             
-            <div class="card">
-                <form action="" method="POST">
-                    <div class="card-header text-center font-weight-bolder">Proyecto de Posgrado</div>
-
-                    <div class="card-body">
-                        <div class="row form-group">
-                            <label for="" class="col-2">Título</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
+            <table class="table table-striped col-12" style="100%">
+                <thead>
+                    <tr>
+                        <div style="height: 10px">
+                            <!-- espacio entre contenido-->
                         </div>
-
-                        <div class="row form-group">
-                            <label for="" class="col-5">Hipótesis</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
-
-                        </div>
-
-                        <div class="row form-group">
-                            <label for="" class="col-5">Objetivo General</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
-
-                        </div>
-
-                        <div class="row form-group">
-                            <label for="" class="col-5">Objetivo Especifico</label>
-                            <input type="text" name="nombre" class="form-control col-md-9">
-
-                        </div>
+                    </tr>
+                    <tr>
+                        <h2 style="text-align: center">Compromisos Adquiridos</h2>
+                    </tr>
+                    <tr class="table-dark">
+                        <th scope="col">Compromisos</th>
+                        <th scope="col">Programado</th>
+                        <th scope="col">Realizado</th>
+                        <th scope="col">Evidencias</th>
+                    </tr>
+                    <tr>
+                        <th>Articulos JCR sometidos</th>
+                        <td><input type="text" placeholder="2" name="nombre" class="form-control"></td>
+                        <td><input type="text" name="nombre" class="form-control"></td>
+                        <td style="padding: 5px">
+                            <button>Seleccionar archihvo..</button>
+                            <button>Seleccionar archihvo..</button>
+                        </td> <!-- este buttom es un ejemplo, se hace con jquery-->
+                    </tr>
+                    <tr>
+                        <th>Articulos JCR aceptados</th>
+                        <td><input type="text" placeholder="1" name="nombre" class="form-control"></td>
+                        <td><input type="text" name="nombre" class="form-control"></td>
+                        <td style="padding: 5px">
+                            <button>Seleccionar archihvo..</button>
+                            
+                        </td> <!-- este buttom es un ejemplo, se hace con jquery-->
+                    </tr>
+                    <tr>
+                        <th>Conferencias Nacionales</th>
+                        <td><input type="text" placeholder="2" name="nombre" class="form-control"></td>
+                        <td><input type="text" name="nombre" class="form-control"></td>
+                        <td style="padding: 5px">
+                            <button>Seleccionar archihvo..</button>
+                            <button>Seleccionar archihvo..</button>
+                            <button>Seleccionar archihvo..</button>
+                        </td> <!-- este buttom es un ejemplo, se hace con jquery-->
+                    </tr>
+                    <tr class="col-12">
+                        
+                        <td class=" col-6" scope="col" style="padding-left:350px">
+                            <button class="btn btn-primary"><a style="color: #000;text-decoration:none"  href="{{url('/mainestudiante2')}}">REPORTAR</a></button>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
             
-                       </div>
-    
+            
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
