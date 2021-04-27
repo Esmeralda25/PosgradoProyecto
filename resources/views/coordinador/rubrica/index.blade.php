@@ -1,200 +1,354 @@
-
-<!doctype html>
-<!-- PLANTILLA BASE DE 127.0.0.1:8000/pes-->
+<!DOCTYPE html>
+<!--INDEX DOCENTE-->
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coordinador</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/css/socialbar.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{asset('/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.min.css')}}">
+    <!--LINK IMAGENES-->
+    <link rel="preload" href="{{asset('adminlte/img/logotec.png')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/img/fondo1.jpg')}}">
+    
     <style>
-        .container{
-            width: 85%;
-            max-width: 850px;
-            margin: 0 auto;
-            margin-top: 100px;
-            
-            }
-            body{
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                color: #333;
-                margin: 0;
-                font-size: 2;
-                line-height: 1.4rem;
-            }
-            .main{
-                padding-top: 130px;
-            }
-            p{
-                margin-bottom: 1rem; <!-- Margen en cada linea de parrafo -->
-            }
-            .header {
-                background: #133894;
-                color: #fff;
-                box-shadow: 0 0 20px #000;
-                padding: 25px 0; 
-                position: fixed;
-                font-size: 35px;
-                left: 0;
-                top: 0;
-                width: 100%;
-                right: 0;
-            }
-            .header a{
-                color: #fff;
-                text-decoration: none;
-                margin-left: 25px;
-                
-            }
-            .aheader{
-                font-size: 20px;
-            }
-            .logo-nav-container{
-                display:flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .logo{
-                letter-spacing: 1px;
-                font-size: 35px;
-            }
-            .navigation ul{
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-
-            .navigation ul li{
-                display: inline-block;
-            }
-
-            .navigation ul li a{
-                display: block;
-                padding: 0.5 rem 1rem;
-                margin: 4px;
-                margin-right: 20px;
-                transition: all 0.2s linear;
-                border-radius: 5px;
-                -moz-transition: all .9s ease;
-
-            }
-
-            .navigation ul li a:hover{
-                background: rgba(224, 221, 221, 0.404);
-            }
-            
-            .social-bar{
-                position: fixed;
-                right: 0;
-                top: 35%;
-                font-size: 1.5rem;
-                display: flex;
-                flex-direction:column;
-                align-items: flex-end;
-                z-index: 100;
-            }
-
-            .icon{
-                color: #fff;
-                text-decoration: none; 
-                padding: 20px;
-                margin: 1px;
-                display: flex;
-                transition: all .5s;
-
-            }
-            .icon-facebook{
-                background: #133894;
-            }
-            .icon-instagram{
-                background: #3f729b;
-            }
-            .icon-google{
-                background: #3cba54;
-            }
-            .icon-mail{
-                background: #db3236;
-
-            }
-            .icon:first-child{
-                border-radius: 1rem 0 0 0;
-            }
-            .icon:last-child{
-                border-radius: 0 0 1rem;
-            }
-            .icon:hover{
-                padding-right: 3rem;
-                border-radius: 1rem 0 0 1rem;
-                box-shadow: 0 0 .5rem rgb(0, 0, 0, 0.42);
-            }
-
-
+        html {
+            background-image: {{asset('adminlte/img/fondo1.jpg')}};
+        }
     </style>
-    <title>CRUD PES</title>
-  </head>
-  <body>
-  <header class="header">
-    <div class="logo-nav-container">
-        <a href="#" class="logo">Coordinador | Rubrica</a>
-        <nav class="navigation">
-            <ul>
-                <li><a class="aheader" href="#">Inicio</a></li>
-                <li><a class="aheader" href="#">Contacto</a></li>
-                <li><a class="aheader" href="#">PaginaOficial</a></li>
-            </ul>   
+</head>
+<body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center" style="width: 100%">
+    <img class="animation__wobble" src="{{asset('adminlte/img/logotec.png')}}" alt="AdminLTELogo" height="300" width="500">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{url('/')}}" class="nav-link">Inicio</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contacto</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">TecNM</a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- MENU DE LA IZQUIERDA -->
+<aside class="main-sidebar sidebar-dark-primary">
+
+    <!-- Sidebar MENUU-->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                
+                <li class="nav-item">
+                    <p>Coordinador</p>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                    <i class="nav-icon fas fa-chevron-circle-down"></i>
+                    <p>
+                        Menu
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                    </a>
+                <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{url('/coordinador')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-danger"></i>
+                    <p>Pagina Principal</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/addusuario')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-warning"></i>
+                    <p>Agregar Usuario</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/generacion')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Agregar Generaciones</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/periodo')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p>Agregar Periodo</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/rubrica')}}" class="nav-link active">
+                    <i class="far fa-circle nav-icon text-secondary"></i>
+                    <p>Agregar Rubrica</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/criterio')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-success"></i>
+                    <p>Agregar Criterio</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/addcompromisos')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-warning"></i>
+                    <p>Agregar Compromisos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('/estadistico')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Estadisticos</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{url('/asignar')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-danger"></i>
+                    <p>Asignar Proyectos</p>
+                    </a>
+                </li>
+                </ul>
+            </li>
+
+        <!--REDES SOCIALES-->
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="fas fa-users nav-icon "></i>
+                <p>
+                    Contactos
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right"></span>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="https://www.tuxtla.tecnm.mx/" class="nav-link">
+                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                        <p>ITTG</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">
+                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                        <p>SII</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.facebook.com/tecnmtuxtlagtz/?rf=220191508087468" class="nav-link">
+                        <i class="fab fa-facebook-square nav-icon"></i>
+                        <p>Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.instagram.com/p/BkJ8RUBBDRA/?hl=es" class="nav-link">
+                            <i class="fab fa-instagram nav-icon"></i>
+                            <p>Instagram</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.tuxtla.tecnm.mx/directorio-2020/" class="nav-link">
+                            <i class="far fa-envelope nav-icon"></i>
+                            <p>Mail</p>
+                        </a>
+                    </li>
+                </ul>
+              </li>
+            </ul>
         </nav>
+      <!-- /.sidebar-menu -->
     </div>
-</header>
+    <!-- /.sidebar -->
+</aside>
 
-<div class="social-bar">
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+<section class="content">
+    <div class="container-fluid">
+        <div style="height: 50px">
+        </div>  <!-- Info boxes -->
+          
             
-    <a href="http://www.facebook.com" target="_blank" class="icon icon-facebook"></a>
-    <a href="http://www.twitter.com" target="_blank" class="icon icon-instagram"></a>
-    <a href="http://www.googleplus.com" target="_blank" class="icon icon-google"></a>
-    <a href="mailto:contacto@falconmasters.com" class="icon icon-mail"></a>
+  
+        <div class="row" >
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" style="text-align: center">
+                      <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Rubrica</h5>
+    
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
 
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fas fa-wrench"></i>
+                                </button>
+
+                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <a href="#" class="dropdown-item">Action</a>
+                                    <a href="#" class="dropdown-item">Another action</a>
+                                    <a href="#" class="dropdown-item">Something else here</a>
+                                    <a class="dropdown-divider"></a>
+                                    <a href="#" class="dropdown-item">Separated link</a>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                        <!-- contenido de main imagenes -->
+                                <div class="row">
+                                        
+                                   
+                                    <table class="table table-light table-striped mt-4">
+                                        <thead class="table table-dark table-striped mt-4">
+                                            
+                                            <tr>
+                                                <th scope="col">Título</th>
+                                                <th scope="col">Tipo</th>
+                                                <th scope="col">Acciones</th>
+                                            <tr>
+                                        </thead>
+                                        <tbody>
+                                           <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col"></th>
+                                                <th scope="col">
+                                                    <buttom class="btn btn-info">Editar</buttom>
+                                                        <div class="btn-group">
+                                                            <buttom class="btn btn-danger">Borrar</buttom>
+                                                        </div>  
+                                                        <div class="btn-group">
+                                                            <buttom class="btn btn-primary">Agregar</buttom>
+                                                        </div>     
+                                                </th>
+                                                
+                                            <tr> 
+                                        </tbody>
+                                    </table>     
+                                        
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+          
+    
+        
+  
+ 
+  
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>Propuesta</strong>
+    Sistema para el seguimiento de proyectos de Posgrado
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Residentes</b> 2
+    </div>
+  </footer>
 </div>
+<!-- ./wrapper -->
 
-    <div class="container">
-        <a style="margin: 10px auto;" href="pes/create" class="btn btn-primary">Agregar</a>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('adminlte/js/adminlte.js')}}"></script>
 
-<table class="table table-light table-striped mt-4">
-    <thead class="table table-dark table-striped mt-4">
-        <p style="font-size: 35px; text-align:center; margin:0 auto;">AGREGAR RUBRICA</p>
-        <tr>
-            <th scope="col">Título</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Acciones</th>
-        <tr>
-    </thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">
-                <buttom class="btn btn-info">Editar</buttom>
-                    <div class="btn-group">
-                        <buttom class="btn btn-danger">Borrar</buttom>
-                    </div>  
-                    <div class="btn-group">
-                        <buttom class="btn btn-primary">Agregar</buttom>
-                    </div>     
-            </th>
-            
-        <tr>
-        
-        
-    
-</table>
-    </div>   
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="{{asset('/adminlte/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+<script src="{{asset('adminlte/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('adminlte/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
+<script src="{{asset('adminlte/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('adminlte/plugins/chart.js/Chart.min.js')}}"></script>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
-    
-  </body>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('adminlte/js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('adminlte/js/pages/dashboard2.js')}}"></script>
+</body>
 </html>
+
 

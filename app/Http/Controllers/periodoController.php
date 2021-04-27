@@ -11,7 +11,7 @@ class periodoController extends Controller
 {
     public function index(){
      
-        return view('periodo.index');//->with('pes',$pes);
+        return view('coordinador.periodo.index');//->with('pes',$pes);
     }
 
     public function create(){

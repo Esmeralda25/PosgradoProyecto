@@ -103,7 +103,7 @@
                 </li>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-chevron-circle-down"></i>
                     <p>
                         Menu
                         <i class="right fas fa-angle-left"></i>
@@ -291,7 +291,7 @@
                                             </tbody>
                                         </table>
                                         <div>
-                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" style="color: black">Reportar</a></button>
+                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" style="color: black">Aceptar</a></button>
                                         </div>
                                     
         

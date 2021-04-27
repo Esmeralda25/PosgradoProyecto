@@ -112,7 +112,7 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{url('/coordinador')}}" class="nav-link active">
+                    <a href="{{url('/coordinador')}}" class="nav-link">
                     <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Pagina Principal</p>
                     </a>
@@ -131,19 +131,19 @@
                 </li>
                 <li class="nav-item">
                   <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <i class="far fa-circle nav-icon text-warning"></i>
                   <p>Agregar Periodo</p>
                   </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/rubrica')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
+                    <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Agregar Rubrica</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
+                    <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Agregar Criterio</p>
                     </a>
                 </li>
@@ -154,15 +154,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
+                  <a href="{{url('/estadistico')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Estadisticos</p>
+                  </a>
+              </li>
 
                 <li class="nav-item">
                     <a href="{{url('/asignar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-danger"></i>
+                    <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Asignar Proyectos</p>
                     </a>
                 </li>
@@ -233,7 +233,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">Coordinador Principal</h5>
+                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Estadisticos</h5>
     
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -263,61 +263,7 @@
                         <div class="row">
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
-                            
-                                            <div class="info-box-content">
-                                                <a href=""><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
-                                            <div class="info-box-content">
-                                                <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
-                                            
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
-                                                
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
-                                                
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

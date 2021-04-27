@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Estudiante</title>
+    <title>Welcome</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -99,11 +99,11 @@
                 with font-awesome or any other icon font library -->
                 
                 <li class="nav-item">
-                    <p>Estudiante</p>
+                    <p>Principal</p>
                 </li>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="nav-icon fas fa-chevron-circle-down"></i>
                     <p>
                         Menu
                         <i class="right fas fa-angle-left"></i>
@@ -112,22 +112,17 @@
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="./index.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ingresar proyecto</p>
+                    <i class="far fa-circle nav-icon text-danger"></i>
+                    <p>Registrarse</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/mainestudiante2')}}" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Someter / Modificar</p>
+                    <a href="{{url('/mainestudiante2')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-warning"></i>
+                    <p>Manal de Usuario</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Reportar Avance</p>
-                    </a>
-                </li>
+                
                 </ul>
             </li>
 
@@ -203,6 +198,7 @@
 
   <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+      
     <!-- Main content -->
     <div class="main container mt-5">
         <div class="row justify-content-center">

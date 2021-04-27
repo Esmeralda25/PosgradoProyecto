@@ -112,25 +112,25 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{url('/coordinador')}}" class="nav-link active">
+                    <a href="{{url('/coordinador')}}" class="nav-link ">
                     <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Pagina Principal</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/addusuario')}}" class="nav-link">
+                    <a href="{{url('/addusuario')}}" class="nav-link ">
                     <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Agregar Usuario</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link">
+                    <a href="{{url('/generacion')}}" class="nav-link ">
                     <i class="far fa-circle nav-icon text-info"></i>
                     <p>Agregar Generaciones</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
+                  <a href="{{url('/periodo')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Agregar Periodo</p>
                   </a>
@@ -233,7 +233,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">Coordinador Principal</h5>
+                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Periodo</h5>
     
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -262,62 +262,50 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                        <!-- contenido de main imagenes -->
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
-                            
-                                            <div class="info-box-content">
-                                                <a href=""><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
+                                <!-- contenido de main imagenes -->
+                                <a style="margin: 10px auto;" href="pes/create" class="btn btn-primary">Agregar</a>
 
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box">
-                                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
-                                            <div class="info-box-content">
-                                                <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
-                                            
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
-                                                
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
-                                                
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                </div>
+<table class="table table-light table-striped mt-4">
+    <thead class="table table-dark table-striped mt-4">
+        
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        <tr>
+    </thead>
+        <!--<tr>
+            <th scope="col">Programa 1</th>
+            <th scope="col">Ing. Keyla Esmeralda Montejo</th>
+            <th scope="col"><buttom class="btn btn-info">Editar</buttom>
+            <div class="btn-group">
+            <buttom class="btn btn-danger">Borrar</buttom>
+            </div>  
+            <div class="btn-group">
+            <buttom class="btn btn-primary">Agregar</buttom>
+            </div>     
+            </th>
+            
+        <tr>
+        <tr>
+            <th scope="col">Programa 2</th>
+            <th scope="col">Ing. Cesar Gabriel Morales</th>
+            <th scope="col"><buttom class="btn btn-info">Editar</buttom>
+            <div class="btn-group">
+            <buttom class="btn btn-danger">Borrar</buttom>
+            </div>  
+            <div class="btn-group">
+            <buttom class="btn btn-primary">Agregar</buttom>
+            </div>     
+            </th>
+            
+        <tr>
+        -->
+    <tbody>
+    
+    </tbody>
+</table>
+
                             </div>
                         </div>
                     </div>
@@ -373,19 +361,3 @@
 <script src="{{asset('adminlte/js/pages/dashboard2.js')}}"></script>
 </body>
 </html>
-
-
-
-
-
-    
- 
-
-
-
-
-
-
-
-
-
