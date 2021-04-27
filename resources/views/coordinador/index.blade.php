@@ -118,12 +118,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/addusuario')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Usuario</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{url('/generacion')}}" class="nav-link">
                     <i class="far fa-circle nav-icon text-info"></i>
                     <p>Agregar Generaciones</p>
@@ -269,7 +263,7 @@
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                             
                                             <div class="info-box-content">
-                                                <a href=""><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
+                                                <a href="{{url('/addusuario')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

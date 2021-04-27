@@ -129,7 +129,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/compromisos')}}" class="nav-link">
+                    <a href="{{url('/compromisos')}}" class="nav-link active">
                     <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Compromisos</p>
                     </a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coordinador</title>
+    <title>Docente</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -100,7 +100,7 @@
                 with font-awesome or any other icon font library -->
                 
                 <li class="nav-item">
-                    <p>Coordinador</p>
+                    <p>Docente</p>
                 </li>
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
@@ -112,60 +112,18 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{url('/coordinador')}}" class="nav-link">
+                    <a href="{{url('/docente')}}" class="nav-link active">
                     <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/addusuario')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Usuario</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Agregar Generaciones</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Agregar Periodo</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/rubrica')}}" class="nav-link active">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
-                    <p>Agregar Rubrica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Agregar Criterio</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/addcompromisos')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Compromisos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
+                
+                
+                
+                
+                
 
-                <li class="nav-item">
-                    <a href="{{url('/asignar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Asignar Proyectos</p>
-                    </a>
-                </li>
+                
                 </ul>
             </li>
 
@@ -233,7 +191,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                      <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Rubrica</h5>
+                      <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Pagina Principal Docente</h5>
     
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">

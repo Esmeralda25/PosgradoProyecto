@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('/mainestudiante2')}}" class="nav-link ">
+                    <a href="{{url('/mainestudiante2')}}" class="nav-link active ">
                     <i class="far fa-circle nav-icon text-warning"></i>
                     <p>Someter / Modificar</p>
                     </a>

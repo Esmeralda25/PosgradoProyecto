@@ -112,7 +112,7 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{url('/estudiante')}}" class="nav-link">
+                    <a href="{{url('/estudiante')}}" class="nav-link active">
                     <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Ingresar proyecto</p>
                     </a>

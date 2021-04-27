@@ -10,14 +10,17 @@ class entradaController extends Controller
     public function validar (Request $peticion){
         switch ($peticion->input('nombre')) {
             case 'coordinador':
-               return redirect('pes');
+               return redirect('coordinador');
                 break;
 
             case 'estudiante':
                 return redirect('estudiante');
                 break;
             case 'docente':
-                return redirect('loges');
+                return redirect('docente');
+                break;
+            case 'informatico':
+                return redirect('pes');
                 break;
             
             default:
