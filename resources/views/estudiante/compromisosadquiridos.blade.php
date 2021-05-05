@@ -291,7 +291,7 @@
                                             </tbody>
                                         </table>
                                         <div>
-                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" style="color: black">Aceptar</a></button>
+                                            <button class="btn btn-danger"><a href="{{url('/compromisos')}}" onclick="alerta()" style="color: black">Aceptar</a></button>
                                         </div>
                                     
         
@@ -325,6 +325,11 @@
 </div>
 <!-- ./wrapper -->
 
+<script>
+  function alerta(){
+    alert("Compromisos Aceptados");
+  }
+</script>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>

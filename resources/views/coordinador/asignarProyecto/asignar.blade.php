@@ -117,55 +117,7 @@
                     <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/addusuario')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Usuario</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Agregar Generaciones</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Agregar Periodo</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/rubrica')}}" class="nav-link ">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
-                    <p>Agregar Rubrica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Agregar Criterio</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/addcompromisos')}}" class="nav-link ">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Compromisos</p>
-                    </a> 
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{url('/asignar')}}" class="nav-link active">
-                    <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Asignar Proyectos</p>
-                    </a>
-                </li>
+                
                 </ul>
             </li>
 
@@ -283,7 +235,7 @@
                                                 <th scope="col"></th>
                                                 <th>
                                                    <div class="btn-group" style="padding-rigth: 12px">
-                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px">ASIGNAR</buttom>
+                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="{{url('/asesor')}}" style="color: black">ASIGNAR</a></buttom>
                                                     </div> 
                                                 </th>
                                                 

@@ -296,7 +296,7 @@
                                         </table>
         
                                         <div>
-                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" style="color: black">Reportar</a></button>
+                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" onclick="alerta()" style="color: black">Reportar</a></button>
                                         </div>
                                     
         
@@ -329,6 +329,13 @@
   </footer>
 </div>
 <!-- ./wrapper -->
+
+
+<script>
+  function alerta(){
+    alert("Reporte Agregado Correctamente");
+  }
+</script>
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->

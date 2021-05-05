@@ -16,7 +16,7 @@ class periodoController extends Controller
 
     public function create(){
         
-
+        return view('coordinador.periodo.create');
         
     }
     

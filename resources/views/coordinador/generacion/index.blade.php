@@ -117,55 +117,9 @@
                     <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/addusuario')}}" class="nav-link ">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Usuario</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link active">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Agregar Generaciones</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Agregar Periodo</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/rubrica')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
-                    <p>Agregar Rubrica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Agregar Criterio</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/addcompromisos')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Compromisos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{url('/asignar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Asignar Proyectos</p>
-                    </a>
-                </li>
+                
+                
+                
                 </ul>
             </li>
 
@@ -264,7 +218,7 @@
                             <div class="col-md-12">
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
-                                    <a style="margin: 10px auto;" href="pes/create" class="btn btn-primary">Agregar</a>
+                                    <a style="margin: 10px auto;" href="{{url('/generacion/create')}}" class="btn btn-primary">Agregar</a>
                             
                                     <table class="table table-light table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
@@ -275,6 +229,13 @@
                                                 <th scope="col">Acciones</th>
                                             <tr>
                                         </thead>
+                                                <th></th>
+                                                <th></th>
+                                                <th>
+                                                  <button type="button" class="btn btn-success">Editar</button>
+                                                  <button type="button" class="btn btn-warning"><a href="{{url('/periodo')}}">Periodos</a></button>
+                                                  <button type="button" class="btn btn-danger">Eliminar</button>
+                                                </th>
                                            
                                         <tbody>
                                         

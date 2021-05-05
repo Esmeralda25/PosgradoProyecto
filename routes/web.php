@@ -47,6 +47,8 @@ Route::resource('addcompromisos', 'App\Http\Controllers\addCompromisosController
 Route::resource('asignar', 'App\Http\Controllers\asignarController');
 
 Route::resource('estadistico', 'App\Http\Controllers\estadisticoController');
+
+Route::resource('asesor', 'App\Http\Controllers\asesorController');
 //Docente
 
 Route::resource('docente', 'App\Http\Controllers\docenteController');
@@ -61,7 +63,7 @@ Route::resource('historicorev', 'App\Http\Controllers\historicorevController');
 
 Route::resource('cuentaAdmin', 'App\Http\Controllers\cuentaAdminController');
 
-Route::resource('loges', 'App\Http\Controllers\loginestudianteController');
+Route::resource('loges', 'App\Http\Controllers\loginController');
 
 Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
 

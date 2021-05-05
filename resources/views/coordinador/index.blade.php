@@ -117,49 +117,10 @@
                     <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Agregar Generaciones</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Agregar Periodo</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/rubrica')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
-                    <p>Agregar Rubrica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Agregar Criterio</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/addcompromisos')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Compromisos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
+                
+                
+                
 
-                <li class="nav-item">
-                    <a href="{{url('/asignar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Asignar Proyectos</p>
-                    </a>
-                </li>
                 </ul>
             </li>
 
@@ -273,7 +234,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                                <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
+                                                <a href="{{url('/generacion')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
                                                 
                                             </div>
                                         </div>
@@ -283,7 +244,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
+                                            <a href="{{url('/asignar')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->
@@ -294,7 +255,7 @@
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
+                                            <a href="{{url('/rubrica')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->
@@ -305,7 +266,7 @@
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href=""><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                            <a href="{{url('/addcompromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->

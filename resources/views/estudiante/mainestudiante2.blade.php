@@ -225,18 +225,19 @@
                                     <thead>
                                         <tr>
                                             <th scope="row">
-                                                <div class="nav-item">
-                                                    <ul class="nav navbar-nav">
-                                                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Articulos JCR sometidos<b class="caret"></b></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="#"></a>Articulos JCR aceptados</li>
-                                                                <li><a href="#"></a>Modelo de utilidad o patente</li>
-                                                                <li><a href="#"></a>Conferencias nacionales</li>
-                                                                <li><a href="#"></a>Conferencias internacionales</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+
+                                              <div class="mb-3 form-group">
+                                                <label for="nivel">Articulos JCR sometidos: </label>
+                                                  <select name="nivel" id="nivel">
+                                                    
+                                                    <option value="">Articulos JCR aceptados</option>
+                                                    <option value="">Modelo de utilidad o patente</option>
+                                                    <option value="">Conferencias nacionales</option>
+                                                    <option value="">Conferencias internacionales</option>
+                                                  </select>
+                   
+                                            </div>
+                                                
                                             </th>
                                             <th scope="row">
                                                 <div class="container">
@@ -320,7 +321,7 @@
                                 </table>
     
                                 <div>
-                                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)">Someter/Modificar</a></button>
+                                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
                                 </div>
                                   
     
@@ -349,7 +350,11 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
+<script>
+  function alerta(){
+    alert("Proyecto Modificado correctamente");
+  }
+</script>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>

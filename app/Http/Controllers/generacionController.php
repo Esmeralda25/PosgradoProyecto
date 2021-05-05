@@ -16,6 +16,7 @@ class generacionController extends Controller
 
     public function create(){
         
+        return view('coordinador.generacion.create');
 
         
     }
