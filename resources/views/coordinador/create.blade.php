@@ -117,49 +117,8 @@
                     <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/generacion')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Agregar Generaciones</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/periodo')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Agregar Periodo</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/rubrica')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-secondary"></i>
-                    <p>Agregar Rubrica</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/criterio')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-success"></i>
-                    <p>Agregar Criterio</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/addcompromisos')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Agregar Compromisos</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/estadistico')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Estadisticos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{url('/asignar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Asignar Proyectos</p>
-                    </a>
-                </li>
+                
+                
                 </ul>
             </li>
 
@@ -293,7 +252,7 @@
                                             </div>
                                     
                                             <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                            <button type="submit" class="btn btn-primary" tabindex="4"><a href="{{url('/coordinador/create')}}"  onclick="alerta()">Guardar</a></button>
                                     </form>
                                     
                                     
@@ -329,7 +288,11 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
+<script>
+  function alerta(){
+    alert("Se Guardó Usuario Correctamente");
+  }
+</script>
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
