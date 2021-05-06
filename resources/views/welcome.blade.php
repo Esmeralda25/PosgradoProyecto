@@ -221,7 +221,7 @@
                                         <p>Contraseña</p>
                                     </div>
                                     <div class="row col-12">
-                                        <input type="text" name="contraseña" class="form-control col-md-12" id="">
+                                        <input type="text" name="palabra" class="form-control col-md-12" id="">
                                     </div>
             
                                     <div class="row form-group">
