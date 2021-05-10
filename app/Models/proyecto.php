@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Estudiante extends Authenticatable
+class proyecto extends Model
 {
-    protected $fillable=['usario_id','correo','password'];
+    protected $fillable=['Titulo','Hipotesis','Objetivos','Reporte','Proyectoscol','comite','avance','estudiantes_id'];
     public $timestamps = false;
-
-    
 }

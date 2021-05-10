@@ -25,8 +25,6 @@
         }
     </style>
 </head>
- 
-
 <body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Preloader -->
@@ -114,29 +112,15 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{url('/estudiante')}}" class="nav-link active">
+                    <a href="{{url('/coordinador')}}" class="nav-link active">
                     <i class="far fa-circle nav-icon text-danger"></i>
-                    <p>Ingresar proyecto</p>
+                    <p>Pagina Principal</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('/mainestudiante2')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Someter / Modificar</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/reportar')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-info"></i>
-                    <p>Reportar Avance</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{url('/compromisos')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon text-warning"></i>
-                  <p>Compromisos</p>
-                  </a>
-                </li>
+                
+                
+                
+
                 </ul>
             </li>
 
@@ -191,157 +175,106 @@
 </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Main content -->
-    <section class="content" style="padding-top: 10px">
-      <div>
-        <div class="main container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-7 mt-5">
-                    
-                    <div class="card">
-                        <form action="" method="POST">
-                            <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
-        
-                            <div class="card-body">
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Título</label>
-                                    <input type="text" class="row col-12" name="nombre">
-                                </div>
+<div class="content-wrapper">
 
-        
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Hipotesis</label>
-                                    <input type="text" class="row col-12" name="nombre">
-                                </div>
+<section class="content">
+    <div class="container-fluid">
+        <div style="height: 50px">
+        </div>  <!-- Info boxes -->
+          
+            
+  
+        <div class="row" >
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" style="text-align: center">
+                        <h5 class="card-title font-weight-bold" style="text-align: center">Estudiante</h5>
+    
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
 
-    
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="nombre">
-                                </div>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fas fa-wrench"></i>
+                                </button>
 
-    
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Objetivo Espesifico</label>
-                                    <input type="text" class="row col-12" name="nombre">
+                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <a href="#" class="dropdown-item">Action</a>
+                                    <a href="#" class="dropdown-item">Another action</a>
+                                    <a href="#" class="dropdown-item">Something else here</a>
+                                    <a class="dropdown-divider"></a>
+                                    <a href="#" class="dropdown-item">Separated link</a>
                                 </div>
-
-                    
-                               </div>
-                            <div class="container">
-                                <table class="col-12" style="100%">
-                                    <thead>
-                                        <tr>
-                                            <th scope="row">
-                                               <div class="mb-3 form-group">
-                                                    <label for="nivel">Articulos JCR sometidos: </label>
-                                                      <select name="nivel" id="nivel">
-                                                        
-                                                        <option value="">Articulos JCR aceptados</option>
-                                                        <option value="">Modelo de utilidad o patente</option>
-                                                        <option value="">Conferencias nacionales</option>
-                                                        <option value="">Conferencias internacionales</option>
-                                                      </select>
-                       
-                                                </div>  
-                                                
-                                            </th>
-                                            <th scope="row">
-                                                <div class="container">
-                                                    <button class="btn btn-primary" style="width:60px"><i class="fas fa-plus-circle"></i></button>
-                                                </div>
-                                            </th>
-                                                
-                                        </tr>
-                                    </thead>
-                                 </table>
-                                 <div>
-                                    <h2 style="width: 100%; text-align:center; background:rgb(24, 23, 23); padding:0 0; color:white;margin-top:15px" class="font-weidth-bold">Compromisos</h2>
-                                 </div>
-                                
-                                
-                                 <table class="table" style="width: 100%">
-                                    
-                                    <tbody style="width: 100%">
-                                        <tr class="col-12">
-                                            <th class="col-7">
-                                                Articulos JCR sometidos
-                                            </th>
-                                            <th class="col-5">
-                                                <input type="text" placeholder="1" name="nombre" class="form-control">
-                                            </th>
-                                     
-                                        </tr>
-                                        <tr>
-                                            <th >
-                                                Conferencias Nacionales
-                                            </th>
-                                            <th>
-                                                <input type="text" placeholder="3" name="nombre" class="form-control" style="width: auto">
-                                            </th>
-                                     
-                                        </tr>
-                                        
-                                      
-                                    </tbody>
-                                </table>
-                                <table class="table" style="width: 100%">
-                                    <thead>
-                                        <tr class="col-12">
-                                            <th class="col-4">
-                                                <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="width: 200px">
-                                            </th>
-                                            <th class="col-4">
-                                                <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 300px">
-                                            </th>
-                                            <th scope="row" class="col-4">
-                                                <button class="btn btn-primary" style="width:37px"><i class="fas fa-plus-circle"></i></button>
-                                            </th> 
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <div>
-                                <!-- espacio entre contenido-->
-                                </div>
-                                
-                                 <div>
-                                    <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
-                                 </div>
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                      <tr>
-                                        <th scope="col">Busqueda de informacion</th>
-                                        <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
-                                        
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <th scope="row">Creacion de la herramienta</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">Difucion del trabajo</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
-                                      </tr>
-                                    </tbody>
-                                </table>
-    
-                                <div>
-                                  <button type="button" class="btn btn-warning"><a style="color: black" href="{{url('/estudiante')}}"  onclick="alerta()">Registrar</a></button>
-                                </div>
-                                  
-    
                             </div>
-                        </form>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                            </button>
+                        </div>
                     </div>
-                    
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                        <!-- contenido de main imagenes -->
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
+                            
+                                            <div class="info-box-content">
+                                                <a href="{{url('/proyectos')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Nuevo Proyecto</span></a>  
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
+                                            <div class="info-box-content">
+                                                <a href="{{url('/mainestudiante2')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-box mb-3">
+                                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
+                            
+                                            <div class="info-box-content">
+                                            <a href="{{url('/reportar')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
+                                            
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="info-box mb-3">
+                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
+                            
+                                            <div class="info-box-content">
+                                            <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                                
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
                 </div>
             </div>
-            
-        
-        </div>  
+        </div>
+    </div>
+</section>
+
+
+    
+          
     
         
   
@@ -358,14 +291,6 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
-
-<script>
-  function alerta(){
-    alert("Proyecto Agregado Correctamente");
-  }
-</script>
-
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
@@ -397,4 +322,14 @@
 
 
 
-<!--MI PLANTILLA, ARRIBA ESTA EL DASHBOARD-->
+    
+ 
+
+
+
+
+
+
+
+
+
