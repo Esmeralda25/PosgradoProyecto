@@ -76,19 +76,6 @@ Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
 Route::post('entrada','App\Http\Controllers\entradaController@validar');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/prueba', function () {
+    echo Hash::make( 'paso' );
+});

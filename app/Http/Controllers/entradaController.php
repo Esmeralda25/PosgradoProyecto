@@ -18,23 +18,28 @@ class entradaController extends Controller
         
         if(! is_null($usuario) ){
             //es un estudiante debo checar su password
+            
             $password_dieron =  $peticion->input('palabra');
+            
             $password_guadado = $usuario->password;
             
-            if (Hash::check($password_dieron, $password_guadado)) {
-                
-                Auth::login( $usuario);
+            
+            if (Hash::check($password_dieron, $password_guadado)) {               
+                \Session::put('usuario' ,  $usuario );
                 return  redirect('/estudiante');
             }
         }
 
         $usuario = Pe::where('correo', $peticion->input('nombre'))->first();
+        
         if(! is_null($usuario) ){
             //es un coordiandor debo checar su password (checar si es informatico)
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
-                Auth::login($usuario);
+                
+                \Session::put('usuario' ,  $usuario );
+
                 return  redirect('/coordinador');
             }
         }
@@ -45,7 +50,7 @@ class entradaController extends Controller
             $password_dieron = $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
-                Auth::login($usuario);
+                \Session::put('usuario' ,  $usuario );
                 return  redirect('/docente');
             }
         }

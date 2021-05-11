@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\proyecto;
+use App\Models\estudiante;
 use App\Http\Requests\proyectosRequest;
+use Illuminate\Support\Facades\Auth;
 
 class proyectosController extends Controller
 {
 
 public function index(){
 
+
+//    $usuario = \Session::get('usuario');
+//    echo "entra estudiante: $usuario->id";
+
+    //checar en que moemnto estamos
+    //si tiene proyecto lo muestro si no que lo cree
     return view('estudiante.proyectos');
+
 }
     
 

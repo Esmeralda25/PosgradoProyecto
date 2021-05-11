@@ -243,6 +243,7 @@
                                 </div>
 
                         
+                                <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
                                 
 
                     
