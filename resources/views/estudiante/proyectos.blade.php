@@ -200,10 +200,10 @@
                 <div class="col-md-7 mt-5">
                     
                     <div class="card">
-                        <form action="" method="POST">
-                        @csrf 
+                        <form action="/proyectos" method="POST">
+                        
                             <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
-        
+                            @csrf 
                             <div class="card-body">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Título</label>
@@ -234,19 +234,16 @@
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Comite</label>
-                                    <input type="text" class="row col-12" name="Comite">
+                                    <input type="text" class="row col-12" name="comite">
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Avance</label>
-                                    <input type="text" class="row col-12" name="Avance">
+                                    <input type="text" class="row col-12" name="avance">
                                 </div>
 
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Estudiante</label>
-                                    <input type="text" class="row col-12" name="estudiantes_id">
-                                </div>
-
+                        
+                                
 
                     
                                </div>
@@ -350,7 +347,7 @@
                                 </table>
     
                                 <div>
-                                  <button type="button" class="btn btn-warning"><a style="color: black" href="{{url('/estudiante')}}"  onclick="alerta()">Registrar</a></button>
+                                  <button type="submit" class="btn btn-warning"><a style="color: black">Registrar</a></button>
                                 </div>
                                   
     
@@ -380,12 +377,6 @@
 </div>
 <!-- ./wrapper -->
 
-
-<script>
-  function alerta(){
-    alert("Proyecto Agregado Correctamente");
-  }
-</script>
 
 
 <!-- REQUIRED SCRIPTS -->

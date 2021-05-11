@@ -222,17 +222,21 @@
                                         <thead class="table table-dark table-striped mt-4">
                                             
                                             <tr>
+                                                <th scope="col">Id</th>
                                                 <th scope="col">Proyecto</th>
                                                 <th scope="col">Estudiante</th>
                                                 <th scope="col">Asesor</th>
                                                 <th scope="col">Acciones</th>
+                                               
                                             <tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($proyectos as $proyecto)
                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
+                                          
+                                                <th scope="col">{{$proyecto->id}}</th>
+                                                <th scope="col">{{$proyecto->Titulo}}</th>
+                                                <th scope="col">{{$proyecto->estudiante_id}}</th>
                                                 <th>
                                                    <div class="btn-group" style="padding-rigth: 12px">
                                                         <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="{{url('/asesor')}}" style="color: black">ASIGNAR</a></buttom>
@@ -240,6 +244,7 @@
                                                 </th>
                                                 
                                             <tr> 
+                                            @endforeach
                                         </tbody>
                                     </table>     
                                         

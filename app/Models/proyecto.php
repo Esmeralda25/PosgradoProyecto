@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class proyecto extends Model
 {
-    protected $fillable=['Titulo','Hipotesis','Objetivos','Reporte','Proyectoscol','comite','avance','estudiantes_id'];
+    protected $table = 'proyectos';
+    protected $fillable=['Titulo','Hipotesis','Objetivos','Reporte','ProyectosCol','comite','avance'];
     public $timestamps = false;
 }
