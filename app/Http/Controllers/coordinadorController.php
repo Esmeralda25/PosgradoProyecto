@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 use App\Models\estudiantemain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class coordinadorController extends Controller
 {
     public function index()
     {
         //PLANTILLA DONDE EL ESTUDIANTE AGREGA PROYECTO
-        return view('coordinador.index');//->with('add',$add);
+        $usuario = \Session::get('usuario');
+        echo "entra coordinador: $usuario->id";
+    
+        //return view('coordinador.index');//->with('add',$add);
     }
 
     

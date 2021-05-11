@@ -25,6 +25,8 @@ Route::resource('estudiante', 'App\Http\Controllers\estudianteController');
 
 Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
 
+Route::post('proyectos','App\Http\Controllers\proyectosController@Store');
+
 Route::resource('reportar', 'App\Http\Controllers\reportarController');
 
 Route::resource('mainestudiante2', 'App\Http\Controllers\mainestudiante2Controller');
@@ -74,19 +76,6 @@ Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
 Route::post('entrada','App\Http\Controllers\entradaController@validar');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::get('/prueba', function () {
+    echo Hash::make( 'paso' );
+});

@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 
-class Pe extends Authenticatable
+class Pe extends Usuario
 {
+    public $table = "pes";
     protected $fillable=['coordinador','correo','password','nombre'];
     public $timestamps = false;
 }
