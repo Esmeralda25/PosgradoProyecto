@@ -111,17 +111,11 @@
                     </a>
                 <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link">
+                  <a href="./index.html" class="nav-link">
                     <i class="far fa-circle nav-icon text-danger"></i>
                     <p>Registrarse</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/mainestudiante2')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon text-warning"></i>
-                    <p>Manal de Usuario</p>
-                    </a>
-                </li>
+                </li> 
                 
                 </ul>
             </li>
@@ -169,26 +163,6 @@
                     </li>
                 </ul>
             </li>
-
-            <li class="nav-header">Informacion</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-danger"></i>
-                <p class="text">Acerca del proyecto</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-warning"></i>
-                <p>Compromisos</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-info"></i>
-                <p>Informacion Adicional</p>
-                </a>
-            </li>
             </ul>
         </nav>
       <!-- /.sidebar-menu -->
@@ -203,7 +177,7 @@
     <div class="main container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-7 mt-5">
-              <h2 class="font-weight-bolder" align="center">Bienvenidos al Sistema de Seguimiento de Proyectos de Doctorado</h2>
+              <h2 class="font-weight-bolder" style="font-style: initial" align="center">Bienvenidos al Sistema de Seguimiento de Proyectos de Doctorado</h2>
                 <div class="card">
                   
                     <form class="formulario" action="/entrada" method="POST"> 
@@ -211,17 +185,17 @@
                                 <div class="card-body">
                                     <div class="row col-12">
                                         @csrf
-                                    <p>Nombre</p>
+                                    <p>Correo</p>
                                     </div>
                                     <div class="row col-12">
-                                        <input type="text" name="nombre" class="form-control col-md-12" id="">
+                                        <input type="text" name="nombre" class="form-control col-md-12" id="" placeholder="Introduce tu email">
                                     </div>
 
                                     <div class="row col-12">
                                         <p>Contraseña</p>
                                     </div>
                                     <div class="row col-12">
-                                        <input type="text" name="palabra" class="form-control col-md-12" id="">
+                                        <input type="text" name="palabra" class="form-control col-md-12" id="" placeholder="Introduce tu contraseña">
                                     </div>
             
                                     <div class="row form-group">

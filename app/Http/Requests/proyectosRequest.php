@@ -24,13 +24,13 @@ class proyectosRequest extends FormRequest
     public function rules()
     {
         return [
-            'Titulo'->'required|unique:proyectos,Titulo'
-            'Hipotesis'->'required'
-            'Objetivos'->'required'
-            'Reporte'->'required'
-            'ProyectosCol'->'required'
-            'comite'->'required'
-            'avance'->'required'
+            'Titulo'->'required|unique:proyectos,Titulo',
+            'Hipotesis'->'required',
+            'Objetivos'->'required',
+            'Reporte'->'required',
+            'ProyectosCol'->'required',
+            'comite'->'required',
+            'avance'->'required',
             'estudiantes_id'->'required'
         ];
     }
