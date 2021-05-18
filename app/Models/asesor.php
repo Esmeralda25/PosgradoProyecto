@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class asesor extends Model
 {
-    use HasFactory;
+    public $table = "docentes";
+    protected $fillable=['nombre','apellidop','apellidom','correo', 'password'];
+    public $timestamps = false;
 }

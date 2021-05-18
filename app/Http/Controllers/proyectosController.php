@@ -13,7 +13,7 @@ class proyectosController extends Controller
 public function index(){
 
 
-//    $usuario = \Session::get('usuario');
+    $usuario = \Session::get('usuario');
 //    echo "entra estudiante: $usuario->id";
 
     //checar en que moemnto estamos

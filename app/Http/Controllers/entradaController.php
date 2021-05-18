@@ -55,5 +55,5 @@ class entradaController extends Controller
             }
         }
 
-    }
+        }
 }

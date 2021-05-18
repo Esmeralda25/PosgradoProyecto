@@ -223,52 +223,51 @@
                                 </div>
 
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Reporte</label>
-                                    <input type="text" class="row col-12" name="Reporte">
+                                    <label for="" class="row col-12">Objetivos Especificos</label>
+                                    <input type="text" class="row col-12" name="Objetivose">
                                 </div>
-
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Proyectos Col</label>
-                                    <input type="text" class="row col-12" name="ProyectosCol">
-                                </div>
-
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Comite</label>
                                     <input type="text" class="row col-12" name="comite">
                                 </div>
 
-                                <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Avance</label>
-                                    <input type="text" class="row col-12" name="avance">
-                                </div>
-
-                        
                                 <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
+
+                                
+                                
+                                
                                 
 
                     
                                </div>
                             <div class="container">
+                      
+                        
                                 <table class="col-12" style="100%">
                                     <thead>
                                         <tr>
                                             <th scope="row">
                                                <div class="mb-3 form-group">
-                                                    <label for="nivel">Articulos JCR sometidos: </label>
-                                                      <select name="nivel" id="nivel">
-                                                        
-                                                        <option value="">Articulos JCR aceptados</option>
-                                                        <option value="">Modelo de utilidad o patente</option>
-                                                        <option value="">Conferencias nacionales</option>
-                                                        <option value="">Conferencias internacionales</option>
-                                                      </select>
+                                                   
+                                               <label for="sometidod" class="form-label">Articulos JRC Sometidos</label>
+                                                <input class="form-control" list="lista" id="opciones" placeholder="Opciones">
+                                                  <datalist id="lista">
+                                                    <option value="Articulos JRC Sometidos">
+                                                    <option value="Articulos JRC Aceptados o Publicados">
+                                                    <option value="Modelo de Utilidad o Patente">
+                                                    <option value="Conferencias Nacionales">
+                                                    <option value="Conferencias Internacionales">
+                                                  </datalist>
                        
                                                 </div>  
                                                 
                                             </th>
                                             <th scope="row">
                                                 <div class="container">
-                                                    <button class="btn btn-primary" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+
+                                    
+                                                <button id="botonClick" for="opciones" class="btn btn-warning"><a style="color: black">Agregar</a></button>
+                                                
                                                 </div>
                                             </th>
                                                 
@@ -288,7 +287,9 @@
                                                 Articulos JCR sometidos
                                             </th>
                                             <th class="col-5">
-                                                <input type="text" placeholder="1" name="nombre" class="form-control">
+                                            
+                                            <input type="text" readonly class="form-control" for="botonClick" value=""> 
+                                                
                                             </th>
                                      
                                         </tr>
@@ -297,7 +298,7 @@
                                                 Conferencias Nacionales
                                             </th>
                                             <th>
-                                                <input type="text" placeholder="3" name="nombre" class="form-control" style="width: auto">
+                                                <input type="text" readonly class="form-control" >
                                             </th>
                                      
                                         </tr>
@@ -376,6 +377,8 @@
     </div>
   </footer>
 </div>
+
+
 <!-- ./wrapper -->
 
 
