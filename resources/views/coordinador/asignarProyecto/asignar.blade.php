@@ -237,6 +237,7 @@
                                                 <th scope="col">{{$proyecto->id}}</th>
                                                 <th scope="col">{{$proyecto->Titulo}}</th>
                                                 <th scope="col">{{$proyecto->nombre}}</th>
+                                                
                                                 <th>
                                                    <div class="btn-group" style="padding-rigth: 12px">
                                                         <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="{{url('/asesor')}}" style="color: black">ASIGNAR</a></buttom>
