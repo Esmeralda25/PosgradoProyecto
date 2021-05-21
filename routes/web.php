@@ -24,6 +24,9 @@ Route::resource('pes', 'App\Http\Controllers\PesController');
 Route::resource('estudiante', 'App\Http\Controllers\estudianteController');
 
 Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
+//Route::resource('asignar', 'App\Http\Controllers\asignarController');
+Route::get('asignar-asesores/{id_proyecto}','App\Http\Controllers\proyectosController@asignarAsesores' );
+//nota:  componer las rutas, aplicar convenciones en todo el sistema
 
 Route::post('proyectos','App\Http\Controllers\proyectosController@Store');
 
@@ -35,6 +38,7 @@ Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosContro
 
 //Coordinador
 Route::resource('coordinador', 'App\Http\Controllers\coordinadorController');
+//el coordinador puede seleccionar  a sus docentes.
 
 Route::resource('generacion', 'App\Http\Controllers\generacionController');
 
@@ -48,9 +52,9 @@ Route::resource('criterio', 'App\Http\Controllers\criterioController');
 
 Route::resource('addcompromisos', 'App\Http\Controllers\addCompromisosController');
 
-Route::resource('asignar', 'App\Http\Controllers\asignarController');
 
 Route::resource('estadistico', 'App\Http\Controllers\estadisticoController');
+
 
 Route::resource('asesor', 'App\Http\Controllers\asesorController');
 //Docente

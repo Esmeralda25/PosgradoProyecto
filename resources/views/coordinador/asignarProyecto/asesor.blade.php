@@ -216,103 +216,79 @@
                             <div class="card-header text-center font-weight-bold" style="font-size: 15px">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Estudiante: </label>
-                                    <input type="text" class="row col-12" name="nombre" value="{{ \Session::get('usuario')->nombre }}">
+                                    <input type="text" class="row col-12" name="nombre" value="{{ $proyecto->estudiante->nombre }}">
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Titulo: </label>
-                                    <input type="text" class="row col-12" name="Titulo" value="{{ \proyectos::get('Titulo')}}">
+                                    <input type="text" class="row col-12" name="Titulo" value="{{ $proyecto->Titulo }}">
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Hipotesis: </label>
-                                    <input type="text" class="row col-12" name="Hipotesis" value="{{ \proyectos::get('Hipotesis')}}">
+                                    <input type="text" class="row col-12" name="Hipotesis" value="{{ $proyecto->Hipotesis}}">
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="Objetivos" value="{{ \proyectos::get('Objetivos')}}">
+                                    <input type="text" class="row col-12" name="Objetivos" value="{{ $proyecto->Objetivos}}">
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo Espesifico</label>
-                                    <input type="text" class="row col-12" name="Objetivose" value="{{ \proyectos::get('Objetivose')}}">
+                                    <input type="text" class="row col-12" name="Objetivose" value="{{ $proyecto->Objetivose}}">
                                 </div>
-                                @foreach($asesores as $asesor)
+                                
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">
+                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                          
                                             
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
+                                          @foreach($docentes as $asesor)
+                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                          @endforeach
                                         </select>
-                                        @endforeach
+                                        
                                 </div>
                                 
 
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">
-                                        @foreach($asesores as $asesor)
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                        </select>
+                                        @foreach($docentes as $asesor)  
+                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                         @endforeach
+                                        </select>
                                 </div>
-                                @foreach($asesores as $asesor)
                                 <div class="row col-12">
-                                    <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
-                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">
-                                            
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                        </select>
-                                        @endforeach
-
+                                  <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
+                                    <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                   
+                                    @foreach($docentes as $asesor)  
+                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                    @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">
-                                        @foreach($asesores as $asesor)
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                            <option value="{{ \docentes::get('nombre')}}">{{$asesores->nombre}}</option>
-                                        </select>
-                                        @endforeach
+                                          @foreach($docentes as $asesor)  
+                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                          @endforeach
                                 </div>
                                 
 
-                                <div class="row col-12" style="padding: 10px">
-                                    
-                                    <button type="button" class="btn btn-warning" style="padding: 5px"><a style="color: black" href="{{url('/asignar')}}"  onclick="alerta()">ASIGNAR</a></button>
+                                <div class="row col-12" style="padding: 10px">                                   
+                                    <button type="button" class="btn btn-warning" style="padding: 5px">
+                                      <a style="color: black" href="{{url('/asignar')}}"  onclick="alerta()">ASIGNAR</a>
+                                    </button>
 
                                 </div>
 
                             </div>
                     
-                                            
-                                                    
-                                
-                                            
-                                            
-
-                            
-                            
                     
                         </div> <!--class="card"-->
                     </div><!--class="col-md-12"-->
@@ -322,13 +298,6 @@
     </div> <!--class="content-wrapper"-->
 
 
-    
-          
-    
-        
-  
- 
-  
 
   <!-- Main Footer -->
   <footer class="main-footer">

@@ -10,4 +10,10 @@ class proyecto extends Model
     protected $table = 'proyectos';
     protected $fillable=['Titulo','Hipotesis','Objetivos','Objetivose','comite','estudiante_id'];
     public $timestamps = false;
+
+    public function estudiante(){
+        return $this->hasOne('App\Models\estudiante','id','estudiante_id');
+
+    }
+
 }

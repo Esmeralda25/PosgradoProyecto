@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\proyecto;
 use App\Models\estudiante;
+use App\Models\docente;
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,5 +39,10 @@ public function index(){
         
 
     } 
-
+    public function asignarAsesores($id_proyecto){
+        $id_proyecto=2;
+        $proyecto = proyecto::find($id_proyecto);
+        $docentes = docente::all(); //investigar sub consultas y joins
+        return view('coordinador.asignarProyecto.asesor',compact('proyecto','docentes'));
+    }
 }

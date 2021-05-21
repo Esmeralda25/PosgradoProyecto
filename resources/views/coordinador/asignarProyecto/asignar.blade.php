@@ -240,7 +240,8 @@
                                                 
                                                 <th>
                                                    <div class="btn-group" style="padding-rigth: 12px">
-                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="{{url('/asesor')}}" style="color: black">ASIGNAR</a></buttom>
+                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a></buttom>
+                                                                                                              {{-- investigar como con url() paso el parametro $proyecto->id  --}}
                                                     </div> 
                                                 </th>
                                                 
