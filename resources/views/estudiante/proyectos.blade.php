@@ -204,6 +204,11 @@
                         
                             <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
                             @csrf 
+
+                            <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
+                                <input type="text" name="nombre" value="{{ \Session::get('usuario')->nombre }}">
+
+                                
                             <div class="card-body">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Título</label>
@@ -231,7 +236,8 @@
                                     <input type="text" class="row col-12" name="comite">
                                 </div>
 
-                                <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
+                                
+
 
                                 
                                 

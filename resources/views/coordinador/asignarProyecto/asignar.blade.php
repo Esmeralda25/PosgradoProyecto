@@ -218,8 +218,8 @@
                                 <div class="row">
                                         
                                    
-                                    <table class="table table-light table-striped mt-4">
-                                        <thead class="table table-dark table-striped mt-4">
+                                <table class="table table-dark table-striped mt-4">
+                                        <thead >
                                             
                                             <tr>
                                                 <th scope="col">Id</th>
@@ -236,7 +236,7 @@
                                           
                                                 <th scope="col">{{$proyecto->id}}</th>
                                                 <th scope="col">{{$proyecto->Titulo}}</th>
-                                                <th scope="col">{{$proyecto->estudiante_id}}</th>
+                                                <th scope="col">{{$proyecto->nombre}}</th>
                                                 <th>
                                                    <div class="btn-group" style="padding-rigth: 12px">
                                                         <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="{{url('/asesor')}}" style="color: black">ASIGNAR</a></buttom>

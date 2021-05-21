@@ -15,10 +15,9 @@ class entradaController extends Controller
 {
     public function validar (Request $peticion){
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
-        
-        if(! is_null($usuario) ){
-            //es un estudiante debo checar su password
-            
+
+        if(!is_null($usuario) ){
+            //es un estudiante debo checar su password   
             $password_dieron =  $peticion->input('palabra');
             
             $password_guadado = $usuario->password;
@@ -55,5 +54,6 @@ class entradaController extends Controller
             }
         }
 
+        echo "USUARIO NO REGISTRADO";
         }
 }

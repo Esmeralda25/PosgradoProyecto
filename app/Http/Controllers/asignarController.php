@@ -8,10 +8,9 @@ use App\Models\proyectos;
 class asignarController extends Controller
 {
     public function index(){
-        $proyectos = \DB::table('proyectos')
-        ->select('proyectos.*')
-        orderBy('id','DESC')
-        get();
-        return view('coordinador.asignarProyecto.asignar');with->('proyectos',$proyectos);
+        $usuario  = \Session::get('usuario' );
+        $proyectos = $usuario->proyectos;
+
+        return view('coordinador.asignarProyecto.asignar',compact('proyectos'));
     }
 }

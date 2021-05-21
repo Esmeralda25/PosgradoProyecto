@@ -216,7 +216,7 @@
                             <div class="card-header text-center font-weight-bold" style="font-size: 15px">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Estudiante: </label>
-                                    <input type="text" class="row col-12" name="estudiantes_id" value="{{ \Session::get('usuario')->id }}">
+                                    <input type="text" class="row col-12" name="nombre" value="{{ \Session::get('usuario')->nombre }}">
                                 </div>
 
 
