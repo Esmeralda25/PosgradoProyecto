@@ -57,6 +57,8 @@ Route::resource('estadistico', 'App\Http\Controllers\estadisticoController');
 
 
 Route::resource('asesor', 'App\Http\Controllers\asesorController');
+Route::resource('asignar', 'App\Http\Controllers\asignarController');
+
 //Docente
 
 Route::resource('docente', 'App\Http\Controllers\docenteController');

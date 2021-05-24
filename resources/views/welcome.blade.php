@@ -1,5 +1,17 @@
 @extends('layouts.master')
 
+@section('menu')
+<a href="./index.html" class="nav-link">
+  <i class="far fa-circle nav-icon text-danger"></i>
+  <p>Registrarse</p>
+</a>
+@endsection
+
+@section('titulo')
+  <p>Principal</p>
+    
+@endsection
+
 @section('content')   
     <!-- Main content AQUI VA TODO EL CONTENIDO EXTRA -->
     <div class="main container mt-5">

@@ -1,7 +1,23 @@
-@extends('layouts.plantillageneracion');
+@extends('layouts.master')
 
-@section('contenido')
-<h2>Agregar generacion</h2>
+@section('titulo')
+  <p>Coordinador</p>
+
+@endsection
+@section('submenu')
+<li class="nav-item">
+  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <i class="far fa-circle nav-icon text-danger"></i>
+  <p>Pagina Principal</p>
+  </a>
+</li>
+@endsection
+
+@section('content')
+<div class="main container mt-10">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2>Agregar generacion</h2>
 
 <form action="/pes/{​​{​​$pe->id}​​}​​" method="POST">
 @csrf
@@ -26,5 +42,12 @@
     <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 </form>
+        </div>
+    </div>
+      
+</div>
+
+
+
 
 @endsection
