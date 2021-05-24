@@ -1,26 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posgrado - Agregar Usuarios</title>
-</head>
-<body>
+@extends('layouts.master')
 
-<form action="/create" method="POST">
-        <label>Coordinador o Estudiante</label>
-        <input type ="text" name="coordinador" placeholder="Nombre del coordinador">
-        <br>
-        <label>Correo</label>
-        <input type ="text" name="correo" placeholder="E-mail">
-        <br>
-        <label>Contraseña</label>
-        <input type ="text" name="password" placeholder="Contraseña">
-        <br>
-        <button type="submit">Agregar</button>
+@section('titulo')
+  <p>Coordinador</p>
 
-        <form>
+@endsection
+@section('submenu')
+<li class="nav-item">
+  <a href="{{url('/estudiante')}}" class="nav-link active">
+  <i class="far fa-circle nav-icon text-danger"></i>
+  <p>Pagina Principal</p>
+  </a>
+</li>
+@endsection
 
-</body>
-</html>
+@section('content')
+
+   <div class="main container mt-10">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form action="/create" method="POST">
+                    <label>Coordinador o Estudiante</label>
+                    <input type ="text" name="coordinador" placeholder="Nombre del coordinador">
+                    <br>
+                    <label>Correo</label>
+                    <input type ="text" name="correo" placeholder="E-mail">
+                    <br>
+                    <label>Contraseña</label>
+                    <input type ="text" name="password" placeholder="Contraseña">
+                    <br>
+                    <button type="submit">Agregar</button>
+
+                <form>
+
+            </div>
+        </div> 
+    </div>
+
+@endsection
+     
+ 
