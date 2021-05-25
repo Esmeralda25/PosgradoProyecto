@@ -7,17 +7,11 @@ use Illuminate\Http\Request;
 class asesorController extends Controller
 {
     public function index(){
-        $asesores = \DB::table('docentes')
-        ->orderBy('id','DESC')
-        ->get();
-       
+        $pe = \Session::get('usuario');
+
+        $asesores = $pe->docentes;
+        dd($asesores);
         return view('coordinador.asignarProyecto.asesor')->with(['docentes'=>$asesores]);
     }
 
-    public function seleccionados(){
-        $docentes=DB::table('docentes')
-        ->join('pes','docentes.id','=','pes.is')
-        ->select('docentes.nombre','pes.nombre')
-        ->get();
-    }
 }

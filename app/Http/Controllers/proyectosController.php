@@ -40,9 +40,14 @@ public function index(){
 
     } 
     public function asignarAsesores($id_proyecto){
-        $id_proyecto=2;
+        $pe = \Session::get('usuario');
+
+        
+
+        
         $proyecto = proyecto::find($id_proyecto);
-        $docentes = docente::all(); //investigar sub consultas y joins
+        $docentes = $pe->docentes;
+        
         return view('coordinador.asignarProyecto.asesor',compact('proyecto','docentes'));
     }
 }

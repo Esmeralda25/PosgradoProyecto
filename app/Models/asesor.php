@@ -10,7 +10,8 @@ class Asesor extends Model
     public $table = "docentes";
     protected $fillable=['nombre','correo', 'password'];
     public $timestamps = false;
-}
-public function asesor(){
-    return $this->hasMany('App\Models\Docente','id','nombre');
+
+    public function asesor(){
+        return $this->hasMany('App\Models\Docente','id','nombre');
+    }
 }
