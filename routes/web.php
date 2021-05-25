@@ -21,7 +21,7 @@ Route::resource('pes', 'App\Http\Controllers\PesController');
 
 //Estudiante
 
-Route::resource('estudiante', 'App\Http\Controllers\estudianteController');
+Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
 
 Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
 //Route::resource('asignar', 'App\Http\Controllers\asignarController');
@@ -30,52 +30,53 @@ Route::get('asignar-asesores/{id_proyecto}','App\Http\Controllers\proyectosContr
 
 Route::post('proyectos','App\Http\Controllers\proyectosController@Store');
 
-Route::resource('reportar', 'App\Http\Controllers\reportarController');
+Route::resource('reportes', 'App\Http\Controllers\reportarController');
 
-Route::resource('mainestudiante2', 'App\Http\Controllers\mainestudiante2Controller');
+Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller');
 
 Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
 
 //Coordinador
-Route::resource('coordinador', 'App\Http\Controllers\coordinadorController');
+Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
 //el coordinador puede seleccionar  a sus docentes.
+Route::get('seleccionados','App\Http\Controllers\asesorController@seleccionados');
 
-Route::resource('generacion', 'App\Http\Controllers\generacionController');
+Route::resource('generaciones', 'App\Http\Controllers\generacionController');
 
-Route::resource('periodo', 'App\Http\Controllers\periodoController');
+Route::resource('periodos', 'App\Http\Controllers\periodoController');
 
-Route::resource('rubrica', 'App\Http\Controllers\rubricaController');
+Route::resource('rubricas', 'App\Http\Controllers\rubricaController');
 
-Route::resource('addusuario', 'App\Http\Controllers\addController');
+Route::resource('addusuarios', 'App\Http\Controllers\addController');
 
-Route::resource('criterio', 'App\Http\Controllers\criterioController');
+Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
 Route::resource('addcompromisos', 'App\Http\Controllers\addCompromisosController');
 
 
-Route::resource('estadistico', 'App\Http\Controllers\estadisticoController');
+Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 
 
-Route::resource('asesor', 'App\Http\Controllers\asesorController');
-Route::resource('asignar', 'App\Http\Controllers\asignarController');
+Route::resource('asesores', 'App\Http\Controllers\asesorController');
+Route::resource('asignaciones', 'App\Http\Controllers\asignarController');
 
 //Docente
 
-Route::resource('docente', 'App\Http\Controllers\docenteController');
+Route::resource('docentes', 'App\Http\Controllers\docenteController');
 
-Route::resource('evaluar', 'App\Http\Controllers\evaluarController');
+Route::resource('evaluaciones', 'App\Http\Controllers\evaluarController');
 
-Route::resource('historico', 'App\Http\Controllers\historicoController');
+Route::resource('historicos', 'App\Http\Controllers\historicoController');
 
-Route::resource('historicorev', 'App\Http\Controllers\historicorevController');
+Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
 
 
 
-Route::resource('cuentaAdmin', 'App\Http\Controllers\cuentaAdminController');
+Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
 Route::resource('loges', 'App\Http\Controllers\loginController');
 
-Route::resource('estumain', 'App\Http\Controllers\estudiantemainController');
+Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
 
 
 

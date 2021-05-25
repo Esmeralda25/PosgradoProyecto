@@ -51,7 +51,7 @@
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                             
                                             <div class="info-box-content">
-                                                <a href="{{url('/addusuario')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
+                                                <a href="{{url('/addusuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
@@ -61,7 +61,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/generacion')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
+                                                <a href="{{url('/generaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
                                                 
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/asignar')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
+                                            <a href="{{url('/asignaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->
@@ -82,7 +82,7 @@
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/rubrica')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
+                                            <a href="{{url('/rubricas')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->

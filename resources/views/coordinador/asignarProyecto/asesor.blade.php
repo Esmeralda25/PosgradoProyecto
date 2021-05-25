@@ -6,7 +6,7 @@
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -63,24 +63,24 @@
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Titulo: </label>
-                                    <input type="text" class="row col-12" name="Titulo" value="{{ $proyecto->Titulo }}">
+                                    <input type="text" class="row col-12" name="titulo" value="{{ $proyecto->titulo }}">
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Hipotesis: </label>
-                                    <input type="text" class="row col-12" name="Hipotesis" value="{{ $proyecto->Hipotesis}}">
+                                    <input type="text" class="row col-12" name="hipotesis" value="{{ $proyecto->hipotesis}}">
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="Objetivos" value="{{ $proyecto->Objetivos}}">
+                                    <input type="text" class="row col-12" name="objetivos" value="{{ $proyecto->objetivos}}">
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo Espesifico</label>
-                                    <input type="text" class="row col-12" name="Objetivose" value="{{ $proyecto->Objetivose}}">
+                                    <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
                                 </div>
                                 
                                 <div class="row col-12">
@@ -123,7 +123,7 @@
 
                                 <div class="row col-12" style="padding: 10px">                                   
                                     <button type="button" class="btn btn-warning" style="padding: 5px">
-                                      <a style="color: black" href="{{url('/asignar')}}"  onclick="alerta()">ASIGNAR</a>
+                                      <a style="color: black" href="{{url('/Asignaciones')}}"  onclick="alerta()">ASIGNAR</a>
                                     </button>
 
                                 </div>

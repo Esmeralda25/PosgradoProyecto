@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\proyectos;
+use App\Models\Proyectos;
 
 class asignarController extends Controller
 {
@@ -13,4 +13,6 @@ class asignarController extends Controller
 
         return view('coordinador.asignarProyecto.asignar',compact('proyectos'));
     }
+        
+    
 }

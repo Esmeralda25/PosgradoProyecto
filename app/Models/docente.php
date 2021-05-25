@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class docente extends Authenticatable
 {
-    //Crear en la bd, en la tabla docente los siguientes parametros en ese orden
-    protected $fillable=['nombre','apellidop','apellidom','correo', 'password'];
+    
+    protected $fillable=['nombre','correo', 'password'];
     public $timestamps = false;
 }

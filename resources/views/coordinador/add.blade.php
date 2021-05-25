@@ -6,7 +6,7 @@
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -63,21 +63,9 @@
                                         </thead>
                                      {{-- prueba 1 de commit and push --}}
                                 
-                                        <tbody>
-                                        
-                                            <tr>
-                                                <td>Keyla</td>
-                                                <td>Docente</td>
-                                            
-                                                <td> 
-                                                 <!-- <a href={{url('/estudiante/{​​{​​$estudiante->id}​​}​​/edit')}} class="btn btn-info">Editar</a> -->
-                                                    <button><a href={{url('/coordinador/{​​{​​$docente->id}​​}​​/edit')}} class="btn btn-info">Editar</a></button>
-                                                    <button class="btn btn-danger">Eliminar</button>
-                                                    <button><a class="btn btn-info">Mostrar</a></button>
-                            
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                     <tbody>
+                                           
+                                            </tbody>
                                     </table>
                             
                                 </div>

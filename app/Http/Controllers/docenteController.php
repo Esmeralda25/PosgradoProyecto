@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\docente;
+use App\Models\Docente;
 
 class docenteController extends Controller
 {
     public function index()
     {
-        //$add = Add::all();
-        return view('docente.index');//->with('add',$add);
+        $docentes = docente::all();
+        return view('coordinador.add') ->with('docentes',$docentes);
     }
 }

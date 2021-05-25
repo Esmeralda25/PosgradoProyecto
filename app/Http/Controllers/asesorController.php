@@ -13,4 +13,11 @@ class asesorController extends Controller
        
         return view('coordinador.asignarProyecto.asesor')->with(['docentes'=>$asesores]);
     }
+
+    public function seleccionados(){
+        $docentes=DB::table('docentes')
+        ->join('pes','docentes.id','=','pes.is')
+        ->select('docentes.nombre','pes.nombre')
+        ->get();
+    }
 }

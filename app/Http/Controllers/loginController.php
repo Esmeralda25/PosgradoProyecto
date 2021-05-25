@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\docente;
 use Illuminate\Http\Request;
-use App\Models\login;
+use App\Models\Login;
 use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller

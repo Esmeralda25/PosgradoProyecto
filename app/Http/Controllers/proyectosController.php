@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\proyecto;
-use App\Models\estudiante;
-use App\Models\docente;
+use App\Models\Proyecto;
+use App\Models\Estudiante;
+use App\Models\Docente;
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 

@@ -8,7 +8,7 @@
 @endsection
 
 @section('titulo')
-  <p>Principal</p>
+  <p>Posgrado</p>
     
 @endsection
 

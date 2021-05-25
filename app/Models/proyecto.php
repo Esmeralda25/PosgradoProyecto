@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class proyecto extends Model
 {
     protected $table = 'proyectos';
-    protected $fillable=['Titulo','Hipotesis','Objetivos','Objetivose','comite','estudiante_id'];
+    protected $fillable=['titulo','hipotesis','objetivos','objetivose','comite','estudiante_id'];
     public $timestamps = false;
 
     public function estudiante(){

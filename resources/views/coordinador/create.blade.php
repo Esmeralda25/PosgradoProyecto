@@ -6,7 +6,7 @@
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/Coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>

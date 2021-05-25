@@ -6,7 +6,7 @@
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -69,6 +69,7 @@
                                                     <th scope="col">Asesor</th>
                                                     <th scope="col">Acciones</th>
                                                 
+                                                
                                                 <tr>
                                             </thead>
                                             <tbody>
@@ -76,8 +77,8 @@
                                             <tr>
                                             
                                                     <th scope="col">{{$proyecto->id}}</th>
-                                                    <th scope="col">{{$proyecto->Titulo}}</th>
-                                                    <th scope="col">{{$proyecto->nombre}}</th>
+                                                    <th scope="col">{{$proyecto->titulo}}</th>
+                                                    
                                                     
                                                     <th>
                                                     <div class="btn-group" style="padding-rigth: 12px">

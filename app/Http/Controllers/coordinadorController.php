@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\estudiantemain;
+use App\Models\Estudiantemain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +16,7 @@ class coordinadorController extends Controller
         //return view('coordinador.index');//->with('add',$add);
     }
 
-    
+
     public function create()
     {
             return view('coordinador.create');

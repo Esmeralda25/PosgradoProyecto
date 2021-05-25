@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-use App\Models\docente;
+use App\Models\Docente;
 use App\Models\Estudiante;
 use App\Models\Pe;
 class entradaController extends Controller
@@ -25,7 +25,7 @@ class entradaController extends Controller
             
             if (Hash::check($password_dieron, $password_guadado)) {               
                 \Session::put('usuario' ,  $usuario );
-                return  redirect('/estudiante');
+                return  redirect('/estudiantes');
             }
         }
 
@@ -39,7 +39,7 @@ class entradaController extends Controller
                 
                 \Session::put('usuario' ,  $usuario );
 
-                return  redirect('/coordinador');
+                return  redirect('/coordinadores');
             }
         }
         
@@ -50,7 +50,7 @@ class entradaController extends Controller
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
                 \Session::put('usuario' ,  $usuario );
-                return  redirect('/docente');
+                return  redirect('/docentes');
             }
         }
 

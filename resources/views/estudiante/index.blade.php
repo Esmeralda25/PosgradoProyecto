@@ -6,7 +6,7 @@
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/estudiante')}}" class="nav-link active">
+  <a href="{{url('/Estudiantes')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -74,7 +74,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/mainestudiante2')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
+                                                <a href="{{url('/mainestudiantes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
                                                 
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/reportar')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
+                                            <a href="{{url('/reportes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->

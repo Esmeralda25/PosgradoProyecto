@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class asesor extends Model
+class Asesor extends Model
 {
     public $table = "docentes";
-    protected $fillable=['nombre','apellidop','apellidom','correo', 'password'];
+    protected $fillable=['nombre','correo', 'password'];
     public $timestamps = false;
+}
+public function asesor(){
+    return $this->hasMany('App\Models\Docente','id','nombre');
 }

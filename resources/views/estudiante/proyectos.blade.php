@@ -37,24 +37,24 @@
                             <div class="card-body">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Título</label>
-                                    <input type="text" class="row col-12" name="Titulo">
+                                    <input type="text" class="row col-12" name="titulo">
                                 </div>
 
         
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Hipotesis</label>
-                                    <input type="text" class="row col-12" name="Hipotesis">
+                                    <input type="text" class="row col-12" name="hipotesis">
                                 </div>
 
     
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="Objetivos">
+                                    <input type="text" class="row col-12" name="objetivos">
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivos Especificos</label>
-                                    <input type="text" class="row col-12" name="Objetivose">
+                                    <input type="text" class="row col-12" name="objetivose">
                                 </div>
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Comite</label>

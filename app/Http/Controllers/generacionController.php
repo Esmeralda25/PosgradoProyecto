@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\generacion;
+use App\Models\Generacion;
 
 
 
