@@ -13,6 +13,7 @@ class asignarController extends Controller
 
         return view('coordinador.asignarProyecto.asignar',compact('proyectos'));
     }
-        
+    
+    
     
 }

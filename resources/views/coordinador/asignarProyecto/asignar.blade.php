@@ -78,6 +78,7 @@
                                             
                                                     <th scope="col">{{$proyecto->id}}</th>
                                                     <th scope="col">{{$proyecto->titulo}}</th>
+                                        
                                                     
                                                     
                                                     <th>
@@ -89,6 +90,10 @@
                                                     
                                                 <tr> 
                                                 @endforeach
+
+                                                
+
+                                                
                                             </tbody>
                                         </table>     
                                             

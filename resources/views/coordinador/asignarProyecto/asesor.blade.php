@@ -83,6 +83,10 @@
                                     <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
                                 </div>
                                 
+                                <div>                                   
+                                    <button type="submit" class="btn btn-warning"><a>Asignar</a></button>
+                                </div>
+                                
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                          
@@ -121,14 +125,9 @@
                                 </div>
                                 
 
-                                <div class="row col-12" style="padding: 10px">                                   
-                                    <button type="button" class="btn btn-warning" style="padding: 5px">
-                                      <a style="color: black" href="{{url('/Asignaciones')}}"  onclick="alerta()">ASIGNAR</a>
-                                    </button>
-
-                                </div>
-
                             </div>
+
+                            
                     
                     
                         </div> <!--class="card"-->

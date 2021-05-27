@@ -39,7 +39,7 @@ Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosContro
 //Coordinador
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
 //el coordinador puede seleccionar  a sus docentes.
-Route::get('seleccionados','App\Http\Controllers\asesorController@seleccionados');
+
 
 Route::resource('generaciones', 'App\Http\Controllers\generacionController');
 
