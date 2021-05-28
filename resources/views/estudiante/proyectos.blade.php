@@ -20,19 +20,21 @@
            <!-- Main content -->
     <section class="content" style="padding-top: 10px">
       <div>
-        <div class="main container mt-5">
+        <div class="main container mt-10">
             <div class="row justify-content-center">
-                <div class="col-md-7 mt-5">
+                <div class="col-md-10 mt-10">
                     
-                    <div class="card">
+                    <div class="card col-md-10 mt-10"">
                         <form action="/proyectos" method="POST">
                         
                             <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
                             @csrf 
-
-                            <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
+                            <div class="justify-content-center" style="margin: 15px">
+                                <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
                                 <input type="text" name="nombre" value="{{ \Session::get('usuario')->nombre }}">
 
+                            </div>
+                            
                                 
                             <div class="card-body">
                                 <div class="row form-group col-12">

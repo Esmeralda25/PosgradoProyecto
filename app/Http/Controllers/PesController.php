@@ -64,7 +64,7 @@ class PesController extends Controller
         return view('pes.edit')->with('pe',$pe);
     }
 
-    /**
+    /** 
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -90,7 +90,7 @@ class PesController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
     

@@ -19,7 +19,7 @@
                         <th scope="col">Coordinador</th>
                         <th scope="col">Acciones</th>
                     <tr>
-                </thead>
+                </thead> 
                 
                 <tbody>
                 @foreach($pes as $pe)
@@ -31,7 +31,9 @@
                     <td> 
                         
                         <a href='/pes/{​​{​​$pe->id}​​}​​/edit' class="btn btn-info">Editar</a>
-                        <button class="btn btn-danger">Eliminar</button>
+                        <!--checar bien los parametros   -->     
+                        <a  class="btn btn-danger glyphicon glyphicon-remove-circle">Eliminar</a>
+                        
                         <a class="btn btn-info">Mostrar</a>
 
                     </td>
