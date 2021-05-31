@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,9 @@ Route::get('/', function () {
 //});
 
 Route::resource('pes', 'App\Http\Controllers\PesController');
-//Route::get('pes/{id}/destroy',['uses' => 'PesController@destroy','as' => 'pes.destroy']);
+
+//con esta ruta puedo acceder a todos los metodos, creando instantaneamente una url para cada una(los metodos que esten en ese controlador)
+Route::resource('pes', PesController::class);
 
 //Estudiante
 
@@ -86,7 +89,7 @@ Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
 Route::resource('loges', 'App\Http\Controllers\loginController');
 
-Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
+//Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
 
 
 

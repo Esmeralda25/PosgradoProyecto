@@ -10,8 +10,10 @@ use App\Models\Pe;
 class PesController extends Controller
 {
     public function index(){
-        $pes = Pe::all();
-        return view('pes.index')->with('pes',$pes);
+        $datos['pes'] = Pe::paginate(7);
+        return view('pes.index', $datos);
+        //$pes = Pe::all();
+        //return view('pes.index')->with('pes',$pes);
     }
 
     public function create(){
@@ -22,6 +24,9 @@ class PesController extends Controller
     
     public function store(Request $request) 
     {
+        $pes = request()->except('_token');
+        Pe::insert($pes);
+
         //$pes = new Pes();
 
         //$pes -> coordinador = $request ->get('coordinador');
@@ -90,7 +95,8 @@ class PesController extends Controller
      */
     public function destroy($id)
     {
-
+        Pe::destroy($id);
+        return redirect('pes');
     }
 }
     
