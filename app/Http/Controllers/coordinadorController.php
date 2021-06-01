@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Estudiantemain;
+
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +31,18 @@ class coordinadorController extends Controller
     public function store(Request $request)
     {
         $estudiante = request()->except('_token');
-        Estudiante::insert($estudiante);
+        
+        //detalle agregar segun le corresponda
+        if($request->input('nivel')=="Estudiante"){
+            echo "agregar estudiante";
+            //Estudiante::insert($estudiante);
 
+        }else{
+            //docente
+            echo "si ya existe entonces solo le3 agregas su adscripcion";
+            echo "si, es nuevo y tienes que agregarlo en 2 tablas en 'docentes' y en 'adscripciones'";
+        }
+        return;
         return redirect('coordinador.add');
 
         //Estudiante::create($request->only('nombre','correo')

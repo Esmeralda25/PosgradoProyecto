@@ -27,10 +27,10 @@ Route::get('/', function () {
     //]);
 //});
 
-Route::resource('pes', 'App\Http\Controllers\PesController');
-
+//Route::resource('pes', 'App\Http\Controllers\PesController');
 //con esta ruta puedo acceder a todos los metodos, creando instantaneamente una url para cada una(los metodos que esten en ese controlador)
 Route::resource('pes', PesController::class);
+
 
 //Estudiante
 
@@ -55,6 +55,7 @@ Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
 Route::get('usuarios', 'App\Http\Controllers\coordinadorController@add');
 
 Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
+Route::post('add', 'App\Http\Controllers\coordinadorController@store');
 
 //el coordinador puede seleccionar  a sus docentes.
 

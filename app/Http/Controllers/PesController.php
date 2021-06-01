@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 use App\Models\Pe;
 
 
@@ -10,8 +12,15 @@ use App\Models\Pe;
 class PesController extends Controller
 {
     public function index(){
-        $datos['pes'] = Pe::paginate(7);
-        return view('pes.index', $datos);
+        echo "llega aqui";
+        $pes = Pe::paginate(7);
+        
+        //detalle:
+        //como pasar variables a una vista 
+        return view('pes.index',compact('pes'));
+
+
+        //        return view('pes.index', $datos);
         //$pes = Pe::all();
         //return view('pes.index')->with('pes',$pes);
     }
@@ -24,8 +33,14 @@ class PesController extends Controller
     
     public function store(Request $request) 
     {
-        $pes = request()->except('_token');
-        Pe::insert($pes);
+        $campos = request()->except('_token');
+        if ( $campos['password'] !=  $campos['password2']) 
+            return redirect()->back(); //detalle quiero que regrese y no vuelva a escribir y ademas que le avise  "error, no repetiste bien las contraseñas";
+
+        unset($campos['password2']);
+        $campos['password'] = Hash::make($campos['password']);
+
+        Pe::insert($campos);
 
         //$pes = new Pes();
 
@@ -34,7 +49,7 @@ class PesController extends Controller
         //$pes -> contraseña = $request -> get('contraseña');
         //$pes -> save();
 
-        return redirect('/pes');
+        return redirect('/pes'); //detalle que me avise "se guardo correctamente"
     }
 
     
@@ -54,6 +69,8 @@ class PesController extends Controller
      */
     public function show($id)
     {
+        $pe= Pe::find($id);
+        return view('pes.show')->with('pe',$pe);
         //
     }
 
@@ -78,13 +95,18 @@ class PesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $valores = $request->all();
+
+        $campos = $request->all();
+        if ( $campos['password'] !=  $campos['password2']) 
+            return redirect()->back(); //detalle quiero que regrese y no vuelva a escribir y ademas que le avise  "error, no repetiste bien las contraseñas";
+        
+        if ( $campos['password'] == "") unset( $campos['password']);
+        else $campos['password'] = Hash::make($campos['password']);
+
         $registro = Pe::find($id);
-
-        $registro->fill($valores);
-
+        $registro->fill($campos);
         $registro->save();
-        return redirect("/pes");
+        return redirect("/pes"); //detalle avisar que modifico
     }
 
     /**
@@ -95,8 +117,12 @@ class PesController extends Controller
      */
     public function destroy($id)
     {
-        Pe::destroy($id);
-        return redirect('pes');
+        try{
+            Pe::destroy($id);
+            return redirect('pes');//detalle: que avise que si borro
+        } catch (\Throwable $th) {
+            return redirect('pes');//detalle: que avise que no pudo borrar
+        }
     }
 }
     
