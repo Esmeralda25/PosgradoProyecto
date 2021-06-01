@@ -60,20 +60,13 @@
                                     <div class="container">
                                         
 
-                                        <form action="/index" method="POST" enctype="multipart/form-data">
+                                        <form action="/add" method="POST" enctype="multipart/form-data">
                                         @csrf
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Nombre</label>
                                                     <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Apellido Paterno</label>
-                                                    <input id="apaterno" name="apaterno" type="text" class="form-control" tabindex="3">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Apellido Materno</label>
-                                                    <input id="amaterno" name="amaterno" type="text" class="form-control" tabindex="3">
-                                                </div>
+                                            
                                                 <div class="mb-3 form-group">
                                                     <label for="nivel">Nivel</label>
                                                     <select name="nivel" id="nivel">
@@ -91,8 +84,8 @@
                                                     <input id="password" name="password" type="text" class="form-control" tabindex="3">
                                                 </div>
                                         
-                                                <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                                <button type="submit" class="btn btn-primary" tabindex="4"><a href="{{url('/coordinador/create')}}"  onclick="alerta()">Guardar</a></button>
+                                                <a href="/usuarios" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                                <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
                                         </form>
                                         
                                         

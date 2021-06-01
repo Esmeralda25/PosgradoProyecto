@@ -52,7 +52,7 @@
                             <div class="col-md-12">
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
-                                    <a href="{{url('coordinador/create')}}" class="btn btn-primary">Agregar</a>
+                                    <a href="{{url('/agregar')}}" class="btn btn-primary">Agregar</a>
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
                                             <tr>

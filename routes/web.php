@@ -51,6 +51,11 @@ Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosContro
 
 //Coordinador
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
+
+Route::get('usuarios', 'App\Http\Controllers\coordinadorController@add');
+
+Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
+
 //el coordinador puede seleccionar  a sus docentes.
 
 
@@ -59,8 +64,6 @@ Route::resource('generaciones', 'App\Http\Controllers\generacionController');
 Route::resource('periodos', 'App\Http\Controllers\periodoController');
 
 Route::resource('rubricas', 'App\Http\Controllers\rubricaController');
-
-Route::resource('addusuarios', 'App\Http\Controllers\addController');
 
 Route::resource('criterios', 'App\Http\Controllers\criterioController');
 

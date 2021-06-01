@@ -16,6 +16,9 @@ class coordinadorController extends Controller
         //return view('coordinador.index');//->with('add',$add);
     }
 
+    public function add(){
+        return view('coordinador.add');
+    }
 
     public function create()
     {
@@ -26,19 +29,35 @@ class coordinadorController extends Controller
     
     public function store(Request $request)
     {
-        //
+        $estudiante = request()->except('_token');
+        Estudiante::insert($estudiante);
+
+        return redirect('coordinador.add');
+
+        //Estudiante::create($request->only('nombre','correo')
+        //+[
+        //    'password' => bcrypt($request->input(password))
+        //]);
+        //return redirect()->back();
+
+        //Docente::create($request->only('nombre','correo')
+        //+[
+        //    'password' => bcrypt($request->input(password))
+        //]);
+        //return redirect()->back();
     }
 
    
     public function show($id)
     {
-        //
+        
     }
 
     
     public function edit($id)
     {
-        //
+        $estudiante= Estudiante::find($id);
+        return view('coordinador.edit')->with('estudiante',$estudiante);
     }
 
     public function update(Request $request, $id)

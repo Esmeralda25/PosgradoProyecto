@@ -51,7 +51,7 @@
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                             
                                             <div class="info-box-content">
-                                                <a href="{{url('/addusuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
+                                                <a href="{{url('/usuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
