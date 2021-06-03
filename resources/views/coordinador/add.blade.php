@@ -62,8 +62,28 @@
                                             <tr> 
                                         </thead>
                                      {{-- prueba 1 de commit and push --}}
+
+
                                 
                                      <tbody>
+                                     @foreach($estudiantes as $estudiante)
+                                            <tr>
+                                            
+                                                    <th scope="col">{{$estudiante->nombre}}</th>
+                                                    <th scope="col">{{$estudiante->}}</th>
+                                        
+                                                    <td>
+                                                    <a href="coordinador/{{$estudiante->id}}/edit" class="btn btn-info">EDITAR</a>
+                                                    <form action="coordinador/{{$estudiante->id}}" style="display:inline" method="post" >
+                                                    @csrf
+                                                    @method('delete')
+                                                    
+                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                    </form>
+                                                    </td>
+                                                    </tr>
+                                    
+                                                    @endforeach
                                            
                                             </tbody>
                                     </table>

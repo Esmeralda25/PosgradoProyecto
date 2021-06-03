@@ -63,30 +63,31 @@
                                         <form action="/usuarios/{​​{​​$estudiante->id}​​}​​" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
+
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Nombre</label>
-                                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">
+                                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$estudiante->nombre}}">
                                                 </div>
                                             
                                                 <div class="mb-3 form-group">
                                                     <label for="nivel">Nivel</label>
                                                     <select name="nivel" id="nivel">
-                                                        <option value="">Docente</option>
-                                                        <option value="">Estudiante</option>
+                                                        <option value="{{$docente->correo}}">Docente</option>
+                                                        <option value="{{$estudiante->correo}}">Estudiante</option>
                                                     </select>
                     
                                                 </div> 
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Correo</label>
-                                                    <input id="correo" name="correo" type="text" class="form-control" tabindex="3">
+                                                    <input id="correo" name="correo" type="text" class="form-control" tabindex="3" value="{{$estudiante->correo}}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Contraseña</label>
-                                                    <input id="password" name="password" type="text" class="form-control" tabindex="3">
+                                                    <input id="password" name="password" type="text" class="form-control" tabindex="3" value="{{$estudiante->password}}">
                                                 </div>
                                         
                                                 <a href="/usuarios" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                                <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
+                                                <input type="submit" value="Guardar" class="btn btn-primary">
                                         </form>
                                         
                                         
