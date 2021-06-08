@@ -49,10 +49,13 @@ Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controll
 
 Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
 
-//Coordinador
+//Coordinador->index(listar), sotre(guardar), create, show, edit, update, delete
+Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarLista');
+Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarLista');
+
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
 
-Route::get('usuarios', 'App\Http\Controllers\coordinadorController@add');
+Route::get('usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
 
 Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
 Route::post('add', 'App\Http\Controllers\coordinadorController@store');

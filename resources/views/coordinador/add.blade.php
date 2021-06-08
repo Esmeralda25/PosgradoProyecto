@@ -66,15 +66,15 @@
 
                                 
                                      <tbody>
-                                     @foreach($estudiantes as $estudiante)
+                                     @foreach($usuarios as $usuario)
                                             <tr>
                                             
-                                                    <th scope="col">{{$estudiante->nombre}}</th>
-                                                    <th scope="col">{{$estudiante->}}</th>
+                                                    <th scope="col">{{$usuario->nombre}}</th>
+                                                    <th scope="col">{{$usuario->nivel }}</th>
                                         
                                                     <td>
-                                                    <a href="coordinador/{{$estudiante->id}}/edit" class="btn btn-info">EDITAR</a>
-                                                    <form action="coordinador/{{$estudiante->id}}" style="display:inline" method="post" >
+                                                    <a href="editar-usuarios/{{$usuario->nivel }}/{{$usuario->id}}" class="btn btn-info">EDITAR</a>
+                                                    <form action="coordinador/{{$usuario->id}}" style="display:inline" method="post" >
                                                     @csrf
                                                     @method('delete')
                                                     

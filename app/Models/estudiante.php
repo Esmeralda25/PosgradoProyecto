@@ -9,6 +9,8 @@ class Estudiante extends Usuario
  
     protected $fillable=['nombre','correo','password'];
     public $timestamps = false;
-
-    
+    public function nivel(){
+        return "Estudiante";
+    }
+        
 }

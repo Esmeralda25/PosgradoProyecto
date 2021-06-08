@@ -7,6 +7,7 @@ use App\Models\Docente;
 use App\Models\Adscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class coordinadorController extends Controller
 {
@@ -19,8 +20,32 @@ class coordinadorController extends Controller
         //return view('coordinador.index');//->with('add',$add);
     }
 
-    public function add(){
-        return view('coordinador.add');
+    public function agregarUsuarios(){
+        $coordinador = \Session::get('usuario');
+
+        //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
+
+        $estudiantes =  DB::table('estudiantes')->select('nombre','id', DB::raw("'Estudiante' as nivel") )->where('pes_id',$coordinador->id);
+        // "SELECT nombre FROM estudiantes where pes_id = 5"
+        
+        
+        $usuarios =  DB::table('docentes')
+        ->select('nombre','id', DB::raw("'Docente' as nivel") )
+        ->whereIn('id', DB::table('adscripciones')->select('docentes_id')->where('pes_id',$coordinador->id) )
+        ->union($estudiantes)
+        ->get();
+        // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
+        // 
+/*
+ "SELECT nombre FROM estudiantes where pes_id = 5"
+ UNION
+ "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
+
+*/
+
+
+
+        return view('coordinador.add',compact('usuarios'));
     }
 
     public function create()
@@ -30,6 +55,7 @@ class coordinadorController extends Controller
     }
 
     
+
     public function store(Request $request)
     {
         $estudiante = request()->except('_token');
@@ -37,11 +63,12 @@ class coordinadorController extends Controller
         $adscripcion = $request->all();
 
         if($request->input('nivel')=="Estudiante"){
-            echo "agregar estudiante";
+            //echo "agregar estudiante";
             Estudiante::insert($estudiante);
 
-        }else($request->input('nivel')=="Docente"){
+        }elseif($request->input('nivel')=="Docente"){
             
+            /*
             if($docente->nombre == $docente){
                 echo "Este usuario ya existe";
                 Docente::insert($adscripcion);
@@ -53,6 +80,7 @@ class coordinadorController extends Controller
                 Docente::insert($adscripcion);
 
             }
+            */
         }
         return;
         return redirect('coordinador.add');
@@ -77,30 +105,43 @@ class coordinadorController extends Controller
     }
 
     
-    public function edit($id)
+    public function editarLista($tipo, $id)
     {
-        $estudiante= Estudiante::find($id);
-        return view('coordinador.edit')->with('estudiante',$estudiante);
 
-        $docente= Docente::find($id);
-        return view('coordinador.edit')->with('docente',$docente);
+        if ($tipo == "Estudiante"){
+            $estudiante= Estudiante::find($id);
+            return view('coordinador.edit-estudiante')->with('estudiante',$estudiante);  
+        }else{
+            $docente= Docente::find($id);
+            return view('coordinador.edit-docente')->with('docente',$docente);    
+        }
+
     }
 
-    public function update(Request $request, $id)
+    public function actualizarLista(Request $request, $tipo, $id)
     {
-        $estudiante = request()->except('_token');
-        $docente = request()->except('_token');
-
-        $registro = Estudiante::find($id);
-        $registro->fill($estudiante);
-        $registro->save();
-        return redirect("/add");
-
-        $registro = Docente::find($id);
-        $registro->fill($docente);
-        $registro->save();
-        return redirect("/add");
         
+        if ($tipo == "Estudiante"){
+        
+            $estudiante = request()->except('_token');
+            
+            $registro = Estudiante::find($id);
+
+            $registro->fill($estudiante);
+            $registro->save();
+
+
+        }else{
+            $docente = request()->except('_token');
+            $registro = Docente::find($id);
+            $registro->fill($docente);
+            $registro->save();
+    
+
+        }
+
+        return redirect("/usuarios"); //debe informar que paso
+
     }
 
     
