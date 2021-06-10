@@ -15,7 +15,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">Coordinador Principal</h5>
+                        <h5 class="card-title font-weight-bold" style="text-align: center">
+                        {{ \Session::get('usuario')->nombre}}<br>
+                        {{ \Session::get('usuario')->coordinador}}
+                        </h5>
     
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">

@@ -19,28 +19,25 @@
         <div class="col-md-10">
             <h2>Agregar generacion</h2>
 
-<form action="/pes/{​​{​​$pe->id}​​}​​" method="POST">
-@csrf
-@method('PUT')
-    <div class="mb-3">
-        <label for="" class="form-label">Generacion</label>
-        <input name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Año</label>
-        <input name="correo" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Nombre</label>
-        <input name="password" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">nombre</label>
-        <input name="nombre" type="text" class="form-control" tabindex="3">
-    </div>
+                                    <form action="/actualizarGeneraciones/{id}​​" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="card-body">
+                                     <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Nombre</label>
+                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->nombre}}">
+                                    </div>
 
-    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
-    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+    
+                                    <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Descripcion</label>
+                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
+                                    </div>
+
+                                    
+                                    <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+            
 </form>
         </div>
     </div>

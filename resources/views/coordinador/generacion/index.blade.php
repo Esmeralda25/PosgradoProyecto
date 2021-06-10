@@ -59,7 +59,7 @@
                                     <div class="col-md-12">
                                         <!-- contenido de main imagenes -->
                                         <div class="container">
-                                            <a style="margin: 10px auto;" href="{{url('/generacion/create')}}" class="btn btn-primary">Agregar</a>
+                                            <a style="margin: 10px auto;" href="{{url('/agregarGeneraciones')}}" class="btn btn-primary">Agregar</a>
                                     
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
@@ -70,14 +70,24 @@
                                                         <th scope="col">Acciones</th>
                                                     <tr>
                                                 </thead>
-                                                        <th></th>
-                                                        <th></th>
-                                                        <th>
-                                                        <button type="button" class="btn btn-success">Editar</button>
-                                                        <button type="button" class="btn btn-warning"><a href="{{url('/periodo')}}" style="color: white">Periodos</a></button>
-                                                        <button type="button" class="btn btn-danger">Eliminar</button>
+                                                @foreach($generaciones as $generacion)
+                                                <tr>
+                                            
+                                                    <th scope="col">{{$generacion->nombre}}</th>
+                                                    <th scope="col">{{$generacion->descripcion}}</th>
+
+                                                    <td>
+                                                    <a href="editarGeneraciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
+                                                     <button type="button" class="btn btn-warning"><a href="{{url('/periodo')}}" style="color: white">Periodos</a></button>
+                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                    </td>
+                                                    
+                                                    
+                                            
                                                         </th>
-                                                
+                                                        <tr> 
+                                                @endforeach
+                                            
                                                 <tbody>
                                                 
                                                 </tbody>

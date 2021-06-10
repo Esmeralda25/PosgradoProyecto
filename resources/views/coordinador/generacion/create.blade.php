@@ -61,19 +61,26 @@
                                 <div class="container">
                                     
 
-                                    <form action="/index" method="POST" enctype="multipart/form-data">
+                                    <form action="/guardarGeneraciones" method="POST" enctype="multipart/form-data">
                                     @csrf
                                            
-                                            <div class="mb-3 form-group">
-                                                <label for="nivel">Año</label>
-                                                  <select name="nivel" id="nivel">
-                                                    <option value="">2021</option>
-                                                    <option value="">2020</option>
-                                                    <option value="">2019</option>
-                                                    <option value="">2018</option>
-                                                  </select>
-                   
-                                            </div> 
+                                    <div class="card-body">
+                                    <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Nombre</label>
+                                    <input type="text" class="row col-12" name="nombre">
+                                    </div>
+
+        
+                                    <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Periodo</label>
+                                    <input type="text" class="row col-12" name="periodo">
+                                    </div>
+
+    
+                                    <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Descripcion</label>
+                                    <input type="text" class="row col-12" name="descripcion">
+                                    </div>
 
                                     
                                             <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>

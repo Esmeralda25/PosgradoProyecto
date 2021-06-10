@@ -60,10 +60,15 @@ Route::get('usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuari
 Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
 Route::post('add', 'App\Http\Controllers\coordinadorController@store');
 
+Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password');
+Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
+
+Route::get('generaciones','App\Http\Controllers\coordinadorController@generaciones');
+Route::get('agregarGeneraciones','App\Http\Controllers\coordinadorController@agregarGeneraciones');
+Route::post('guardarGeneraciones','App\Http\Controllers\coordinadorController@guardarGeneraciones');
+Route::get('editarGeneraciones/{id}','App\Http\Controllers\coordinadorController@editarGeneraciones');
+Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\coordinadorController@actualizarGeneraciones');
 //el coordinador puede seleccionar  a sus docentes.
-
-
-Route::resource('generaciones', 'App\Http\Controllers\generacionController');
 
 Route::resource('periodos', 'App\Http\Controllers\periodoController');
 

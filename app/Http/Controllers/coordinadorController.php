@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Adscripcion;
+use App\Models\Generacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class coordinadorController extends Controller
 {
@@ -163,4 +165,91 @@ class coordinadorController extends Controller
             echo 'El usuario no se pudo borrar, verifiue de nuevo';
         }
     }
+
+    public function password($tipo, $id){
+        if ($tipo == "Estudiante"){
+            $estudiante= Estudiante::find($id);
+            return view('coordinador.password-estudiante')->with('estudiante',$estudiante);  
+        }else{
+            $docente= Docente::find($id);
+            return view('coordinador.password-docente')->with('docente',$docente);    
+        }
+
+    }
+
+    /*public function guardarPassword(Request $request, $tipo, $id){
+
+        if ($tipo == "Estudiante"){
+        
+            $rules = [
+                'password' => 'required',
+            ];
+            
+            $messages = [
+                'password.required' => 'El campo es requerido',
+            ];
+                if (Hash::check($request->password, Auth::user()->password)){
+                    $user = new User;
+                    $user->where('correo', '=', Auth::user()->email)
+                         ->update(['password' => bcrypt($request->password)]);
+                    return redirect('/usuarios')->with('status', 'Contraseña cambiada con éxito');
+                }
+                else
+                {
+                    return redirect('/password')->with('message', 'Campo incorrecto');
+                }
+            }else{
+                $rules = [
+                    'password' => 'required',
+                ];
+                
+                $messages = [
+                    'password.required' => 'El campo es requerido',
+                ];
+                    if (Hash::check($request->password, Auth::user()->password)){
+                        $user = new User;
+                        $user->where('correo', '=', Auth::user()->correo)
+                             ->update(['password' => bcrypt($request->password)]);
+                        return redirect('/usuarios')->with('status', 'Contraseña cambiada con éxito');
+                    }
+                    else
+                    {
+                        return redirect('/password')->with('message', 'Campo incorrecto');
+                    }
+            }
+
+    
+
+        }*/
+
+        public function generaciones(){
+            $generaciones = \DB::table('generaciones')
+            ->get();
+            return view('coordinador.generacion.index',compact('generaciones',$generaciones));
+        }
+
+        public function agregarGeneraciones(){
+            return view('coordinador.generacion.create');   
+        }
+
+        public function guardarGeneraciones(Request $request){
+            generacion::create(request()->all());
+            return redirect('/generaciones');
+        }
+
+        public function editarGeneraciones($id){
+            $generacion = Generacion::find($id);
+            return view('coordinador.generacion.edit')->with('generacion',$generacion);
+        }
+
+        /*public function actualizarGeneraciones(Request $request, $id){
+            $generacion = $request->all();
+            $registro = Generacion::find($id);
+    
+            $registro->fill($generacion);
+    
+            $registro->save();
+            return redirect("/generaciones");
+    }*/
+
 }

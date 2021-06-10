@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Generacion extends Model
 {
-   
+    public $table = "generaciones";
+    protected $fillable=['nombre','periodo','descripcion'];
+    public $timestamps = false;
+
 }

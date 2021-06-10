@@ -74,6 +74,7 @@
                                         
                                                     <td>
                                                     <a href="editar-usuarios/{{$usuario->nivel }}/{{$usuario->id}}" class="btn btn-info">EDITAR</a>
+                                                    <a href="editar-contraseñas/{{$usuario->nivel }}/{{$usuario->id}}" class="btn btn-warning">CONTRASEÑA</a>
                                                     <form action="coordinador/{{$usuario->id}}" style="display:inline" method="post" >
                                                     @csrf
                                                     @method('delete')
