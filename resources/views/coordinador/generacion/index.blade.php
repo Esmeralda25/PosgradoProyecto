@@ -70,7 +70,7 @@
                                                         <th scope="col">Acciones</th>
                                                     <tr>
                                                 </thead>
-                                                @foreach($generaciones as $generacion)
+                                                @foreach($generaciones as $generacion) 
                                                 <tr>
                                             
                                                     <th scope="col">{{$generacion->nombre}}</th>

@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Generacion extends Model
+class compromiso extends Model
 {
-    public $table = "generaciones";
-    protected $fillable=['nombre','periodo','descripcion'];
+    public $table = "compromisos";
+    protected $fillable=['titulo'];
     public $timestamps = false;
- 
 }

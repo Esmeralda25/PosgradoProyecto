@@ -65,15 +65,15 @@
                                         <thead class="table table-dark table-striped mt-4">
                                             
                                             <tr>
-                                                <th scope="col">Título</th>
-                                                <th scope="col">Tipo</th>
+                                                <th scope="col">Compromisos</th>
                                                 <th scope="col">Acciones</th>
-                                            <tr>
+                                            <tr> 
                                         </thead>
+                                        
                                         <tbody>
+                                        @foreach($compromisos as $compromiso) 
                                            <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
+                                                <th scope="col">{{$compromiso->titulo}}</th>
                                                 <th scope="col">
                                                   <div class="btn-group">
                                                     <buttom class="btn btn-info"><a href="{{url('/edit')}}" style="color: white">Editar</a></buttom>
@@ -84,12 +84,11 @@
                                                   </div>  
                                                   <div class="btn-group">
                                                       <buttom class="btn btn-primary"><a href="{{url('/create')}}" style="color: white">Agregar</a></buttom>
-                                                  </div>  
-                                                  
-                                                            
+                                                  </div>           
                                                 </th>
                                                 
                                             <tr> 
+                                            @endforeach
                                         </tbody>
                                     </table>     
                                         

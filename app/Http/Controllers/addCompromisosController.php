@@ -8,9 +8,13 @@ class addCompromisosController extends Controller
 {
     public function index(){
        
-        return view('coordinador.addCompromisos.index');
+        $compromisos = \DB::table('compromisos')
+                    ->select('compromisos.*')
+                    ->orderBy('id','DESC')
+                    ->get();
+        return view('coordinador.addCompromisos.index')->with('compromisos', $compromisos);
     }
-    public function create(){
+    public function create(){ 
         
 
         return view('coordinador.addCompromisos.create');

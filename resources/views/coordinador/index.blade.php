@@ -13,10 +13,10 @@
   
         <div class="row" >
             <div class="col-md-12">
-                <div class="card">
+                <div class="card col-12">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">
-                        {{ \Session::get('usuario')->nombre}}<br>
+                        <h5 class="card-title font-weight-bold col-md-9" style="text-align: left">
+                        {{ \Session::get('usuario')->nombre}}: 
                         {{ \Session::get('usuario')->coordinador}}
                         </h5>
     
