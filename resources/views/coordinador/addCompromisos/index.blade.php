@@ -73,7 +73,7 @@
                                         <tbody>
                                         @foreach($compromisos as $compromiso) 
                                            <tr>
-                                                <th scope="col">{{$compromiso->titulo}}</th>
+                                           <th scope="col">{{$compromiso->titulo}}</th>
                                                 <th scope="col">
                                                   <div class="btn-group">
                                                     <buttom class="btn btn-info"><a href="{{url('/edit')}}" style="color: white">Editar</a></buttom>
@@ -87,7 +87,7 @@
                                                   </div>           
                                                 </th>
                                                 
-                                            <tr> 
+                                            <tr>  
                                             @endforeach
                                         </tbody>
                                     </table>     

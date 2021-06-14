@@ -10,4 +10,4 @@ class compromiso extends Model
     public $table = "compromisos";
     protected $fillable=['titulo'];
     public $timestamps = false;
-}
+}  
