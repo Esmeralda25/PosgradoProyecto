@@ -6,6 +6,7 @@ use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Adscripcion;
 use App\Models\Generacion;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -252,4 +253,18 @@ class coordinadorController extends Controller
             return redirect("/generaciones");
     }*/
 
+    
+        public function periodos($id){
+            $generacion = Generacion::find($id);
+            return view('coordinador.periodo.index')->with('generacion',$generacion);
+        }
+
+        public function crearPeriodos($id){
+            $generacion = Generacion::find($id);
+            return view('coordinador.periodo.create')->with('generacion',$generacion);
+        }
+        /*public function guardarPeriodos(Request $request){
+            periodo::create(request()->all());
+            return redirect('/periodos/{id}');
+        }*/
 }

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 
@@ -16,8 +16,7 @@
                 <div class="card">
                     <div class="card-header" style="text-align: center">
                         <h5 class="card-title font-weight-bold" style="text-align: center">
-                        {{ \Session::get('usuario')->nombre}}<br>
-                        {{ \Session::get('usuario')->coordinador}}
+                        {{ \Session::get('usuario')->nombre}}
                         </h5>
     
                         <div class="card-tools">
