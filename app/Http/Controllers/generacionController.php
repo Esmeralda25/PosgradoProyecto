@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Generacion;
 
 
-
+  
 
 class generacionController extends Controller
 {

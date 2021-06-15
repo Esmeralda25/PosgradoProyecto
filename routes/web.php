@@ -105,7 +105,7 @@ Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
 
 Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
-Route::resource('loges', 'App\Http\Controllers\loginController');
+//Route::resource('loges', 'App\Http\Controllers\loginController');
 
 //Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
 
