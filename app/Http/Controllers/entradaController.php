@@ -50,6 +50,12 @@ class entradaController extends Controller
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
                 \Session::put('usuario' ,  $usuario );
+/*
+                session_start -->es de php
+                session_destroy(); --> es de php 
+
+                \Session
+*/
                 //session_start();     CHECAR DIFERENCIA
                 return  redirect('/docentes');
             }
@@ -59,11 +65,13 @@ class entradaController extends Controller
         }
 
         public function logout (Request $peticion){
-
-            if(isset($_Session[$usuario])){
-                session_destroy();
-                header('Location: welcome.blade.php');
+//isset($_Session['usuario'])
+            if(\Session::has('usuario') ){               
+                \Session::forget('usuario');
+                //session_destroy();
+                //header('Location: welcome.blade.php');
                 //header('Location:'.$URL.'/welcome');
+                return  redirect('/');
             }else{
                 echo "No existe sesión";
             }

@@ -14,6 +14,7 @@
 @endsection
 
 @section('content')
+DEBE CAMBIARSE ESTO
 <div class="main container mt-10">
     <div class="row justify-content-center">
         <div class="col-md-10">

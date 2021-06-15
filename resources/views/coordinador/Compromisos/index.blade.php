@@ -77,23 +77,24 @@
                                            <th scope="col">{{$compromiso->titulo}}</th>
                                                 <th scope="col">
                                                   <div class="btn-group">
-                                                    <buttom class="btn btn-info"><a href="{{url('/edit')}}" style="color: white">Editar</a></buttom>
+                                                    <buttom class="btn btn-info"><a href="/Compromisos/{{$compromiso->id}}/edit" style="color: white">Editar</a></buttom>
                                                 </div>
                                                   
                                                   <div class="btn-group">
                                                       <buttom class="btn btn-danger">Borrar</buttom>
                                                   </div>  
-                                                  <div class="btn-group">
-                                                      <buttom class="btn btn-primary"><a href="{{url('/create')}}" style="color: white">Agregar</a></buttom>
-                                                  </div>           
-                                                </th>
-                                                
+                                                </th>                                               
                                             <tr>  
                                             @endforeach
                                         </tbody>
                                     </table>     
                                         
-            
+                                    <form action="/Compromisos" method="POST">
+                                        @csrf
+                                        Nuevo: 
+                                        <input type="text" name="titulo">
+                                        <input type="submit" class="btn btn-primary" value="Agregar">
+                                    </form>
                                 </div>
                             </div>
                         </div>

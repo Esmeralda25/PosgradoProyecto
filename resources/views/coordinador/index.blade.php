@@ -9,7 +9,7 @@
     <form action="/logout">
         <li class="nav-item">
             @csrf
-            <a href="" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
+            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    
     </form>
     
@@ -105,7 +105,7 @@
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/addcompromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                            <a href="{{url('/Compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->

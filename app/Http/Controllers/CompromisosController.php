@@ -3,25 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Compromiso;
  
-class addCompromisosController extends Controller
+class CompromisosController extends Controller
 {
     public function index(){
        
-        $compromisos = \DB::table('compromisos')
-                    ->select('compromisos.*')
-                    ->orderBy('id','DESC')
-                    ->get();
-        return view('coordinador.addCompromisos.index')->with('compromisos', $compromisos);
+        $compromisos = Compromiso::orderBy('id','DESC')->get();                  
+        return view('coordinador.Compromisos.index')->with('compromisos', $compromisos);
     }
     public function create(){ 
-        
-
-        return view('coordinador.addCompromisos.create');
+        //return view('coordinador.Compromisos.create');
     }
     
     public function store(Request $request) 
     {
+        //guardar los datos que vengan
+        $compromiso = new Compromiso;
+        $compromiso->fill( $request->all() );
+        $compromiso->save();
+        return redirect("/Compromisos"); //que me envie con un mensaje
         //$pes = new Pes();
 
         //$pes -> coordinador = $request ->get('coordinador');
@@ -61,7 +62,7 @@ class addCompromisosController extends Controller
     public function edit()
     {
        // $pe= Pe::find($id);
-        return view('coordinador.addCompromisos.edit');//->with('pe',$pe);
+        return view('coordinador.Compromisos.edit');//->with('pe',$pe);
     }
 
     /**
@@ -79,7 +80,7 @@ class addCompromisosController extends Controller
        // $registro->fill($valores);
 
         //$registro->save();
-        return redirect("/addcompromisos");
+        return redirect("/Compromisos");
     }
 
     /**

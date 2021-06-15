@@ -82,7 +82,11 @@ Route::resource('rubricas', 'App\Http\Controllers\rubricaController');
 
 Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
-Route::resource('addcompromisos', 'App\Http\Controllers\addCompromisosController');
+
+
+Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
+
+
 
 
 Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
