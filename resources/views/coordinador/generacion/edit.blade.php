@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -18,8 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <h2>Agregar generacion</h2>
-
-                                    <form action="/actualizarGeneraciones/{id}​​" method="POST">
+                                    <form action="/actualizarGeneraciones/{{$generacion->id}}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">

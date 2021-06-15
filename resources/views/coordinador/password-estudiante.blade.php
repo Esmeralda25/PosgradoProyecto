@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Actualizar Contraseña Estudiante</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" style="text-align: center">
-                            <h5 class="card-title font-weight-bold" style="text-align: center">Actualizar contraseñas</h5>
+                            <h5 class="card-title font-weight-bold" style="text-align: center">Actualizar contraseñas estudiante</h5>
         
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">

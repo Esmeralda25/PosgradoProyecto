@@ -63,14 +63,20 @@ Route::post('add', 'App\Http\Controllers\coordinadorController@store');
 Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password');
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
+//Generaciones
 Route::get('generaciones','App\Http\Controllers\coordinadorController@generaciones');
 Route::get('agregarGeneraciones','App\Http\Controllers\coordinadorController@agregarGeneraciones');
 Route::post('guardarGeneraciones','App\Http\Controllers\coordinadorController@guardarGeneraciones');
 Route::get('editarGeneraciones/{id}','App\Http\Controllers\coordinadorController@editarGeneraciones');
 Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\coordinadorController@actualizarGeneraciones');
+
+//Periodos
+Route::get('periodos/{id}','App\Http\Controllers\coordinadorController@periodos');
+Route::get('agregar-periodos/{id}','App\Http\Controllers\coordinadorController@crearPeriodos');
+Route::post('guardar-periodos','App\Http\Controllers\coordinadorController@guardarPeriodos');
 //el coordinador puede seleccionar  a sus docentes.
 
-Route::resource('periodos', 'App\Http\Controllers\periodoController');
+
 
 Route::resource('rubricas', 'App\Http\Controllers\rubricaController');
 

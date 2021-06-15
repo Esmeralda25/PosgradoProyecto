@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/coordinador')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -28,8 +28,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Periodo</h5>
-    
+                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Periodo</h5><br><br>
+                        <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>
@@ -58,7 +58,7 @@
                             <div class="row">
                               <div class="col-md-12">
                                   <!-- contenido de main imagenes -->
-                                  <a style="margin: 10px auto;" href="{{url('/periodo/create')}}" class="btn btn-primary">Agregar</a>
+                                  <a style="margin: 10px auto;" href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary">Agregar</a>
 
                                     <table class="table table-light table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">

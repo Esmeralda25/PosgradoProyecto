@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
 <li class="nav-item">
-  <a href="{{url('/Coordinadores')}}" class="nav-link active">
+  <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Pagina Principal</p>
   </a>
@@ -28,7 +28,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">Agregar Periodo</h5>
+                        <h5 class="card-title font-weight-bold" style="text-align: center">Agregar Periodo</h5><br><br>
+                        <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>
     
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -62,18 +63,32 @@
                                 <div class="container">
                                     
 
-                                    <form action="/index" method="POST" enctype="multipart/form-data">
+                                    <form action="/guardar-periodos" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                           
-                                            <div class="mb-3 form-group">
-                                                <label for="nivel">Periodo</label>
-                                                  <select name="nivel" id="nivel">
-                                                    <option value="">2021</option>
-                                                    <option value="">2020</option>
-                                                    <option value="">2019</option>
-                                                    <option value="">2018</option>
-                                                  </select>
-                   
+                                        <input type="hidden" name="generacion_id" value="{{$generacion->id}}">       
+
+                                            <div class="card-body">
+                                            <div class="row form-group col-12">
+                                            <label for="" class="row col-12">Nombre</label>
+                                            <input type="text" class="row col-12" name="nombre">
+                                            </div>
+                            
+                                            <label for="" class="row col-12">Fecha Inicio</label>
+                                            <input type="date" placeholder="" name="fechaInicio" class="form-control" style="width: 300px">
+                                        
+        
+                                            <label for="" class="row col-12">Fecha Fin</label>
+                                            <input type="date" placeholder="" name="fechaFin" class="form-control" style="width: 300px">
+
+                                            <label for="" class="row col-12">Rubrica</label>
+
+                                            <select name="rubrica">
+                                                @foreach ($rubricas as $rubrica)
+                                                <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>
+                                                    
+                                                @endforeach
+                                            </select>
+
                                             </div> 
 
                                     

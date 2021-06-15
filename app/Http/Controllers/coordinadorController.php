@@ -6,6 +6,8 @@ use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Adscripcion;
 use App\Models\Generacion;
+use App\Models\Periodo;
+use App\Models\Rubrica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -177,50 +179,31 @@ class coordinadorController extends Controller
 
     }
 
-    /*public function guardarPassword(Request $request, $tipo, $id){
-
-        if ($tipo == "Estudiante"){
+    public function guardarPassword(Request $request, $tipo, $id){
+        /*
+        $rules = [
+            'password' => 'required',
+        ];
         
-            $rules = [
-                'password' => 'required',
-            ];
-            
-            $messages = [
-                'password.required' => 'El campo es requerido',
-            ];
-                if (Hash::check($request->password, Auth::user()->password)){
-                    $user = new User;
-                    $user->where('correo', '=', Auth::user()->email)
-                         ->update(['password' => bcrypt($request->password)]);
-                    return redirect('/usuarios')->with('status', 'Contraseña cambiada con éxito');
-                }
-                else
-                {
-                    return redirect('/password')->with('message', 'Campo incorrecto');
-                }
-            }else{
-                $rules = [
-                    'password' => 'required',
-                ];
-                
-                $messages = [
-                    'password.required' => 'El campo es requerido',
-                ];
-                    if (Hash::check($request->password, Auth::user()->password)){
-                        $user = new User;
-                        $user->where('correo', '=', Auth::user()->correo)
-                             ->update(['password' => bcrypt($request->password)]);
-                        return redirect('/usuarios')->with('status', 'Contraseña cambiada con éxito');
-                    }
-                    else
-                    {
-                        return redirect('/password')->with('message', 'Campo incorrecto');
-                    }
-            }
+        $messages = [
+            'password.required' => 'El campo es requerido',
+        ];
 
-    
 
-        }*/
+        if ($tipo == "Estudiante"){       
+            //buscar al estudiante con id 
+            //ponerle al estudiante->password = Hash::make($request->password);
+            //salvar
+            //regresar avisando que se cambio contraseña
+        }else{
+            //buscar al docente con id 
+            //ponerle al docente->password = Hash::make($request->password);
+            //salvar
+            //regresar avisando que se cambio contraseña
+        }
+
+    */
+        }
 
         public function generaciones(){
             $generaciones = \DB::table('generaciones')
@@ -242,7 +225,8 @@ class coordinadorController extends Controller
             return view('coordinador.generacion.edit')->with('generacion',$generacion);
         }
 
-        /*public function actualizarGeneraciones(Request $request, $id){
+        public function actualizarGeneraciones(Request $request, $id){
+            
             $generacion = $request->all();
             $registro = Generacion::find($id);
     
@@ -250,6 +234,26 @@ class coordinadorController extends Controller
     
             $registro->save();
             return redirect("/generaciones");
-    }*/
+            
+        }
 
+    
+        public function periodos($id){
+            $generacion = Generacion::find($id);
+            return view('coordinador.periodo.index')->with('generacion',$generacion);
+        }
+
+        public function crearPeriodos($id){
+            $generacion = Generacion::find($id);
+            $rubricas = Rubrica::all();
+            
+            //SI NO AHY RUBICAS DEBE REGRESAR A "PERIDOS" pero avisando que no hay rubricas
+            return view('coordinador.periodo.create', compact('generacion','rubricas') );
+        }
+        public function guardarPeriodos(Request $request){
+            $valores = $request->all();
+            periodo::create($valores);
+            $id =$valores['generacion_id'];
+            return redirect("/periodos/$id");
+        }
 }
