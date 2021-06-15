@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+ 
 
 class Estudiante extends Usuario
 {

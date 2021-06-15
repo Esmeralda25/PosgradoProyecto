@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-use App\Models\Docente;
+use App\Models\Docente; 
 use App\Models\Estudiante;
-use App\Models\Pe;
+use App\Models\Pe; 
 class entradaController extends Controller
 {
     public function validar (Request $peticion){
@@ -50,10 +50,22 @@ class entradaController extends Controller
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
                 \Session::put('usuario' ,  $usuario );
+                //session_start();     CHECAR DIFERENCIA
                 return  redirect('/docentes');
             }
         }
 
         echo "USUARIO NO REGISTRADO";
         }
+
+        public function logout (Request $peticion){
+
+            if(isset($_Session[$usuario])){
+                session_destroy();
+                header('Location: welcome.blade.php');
+                //header('Location:'.$URL.'/welcome');
+            }else{
+                echo "No existe sesión";
+            }
+        }  
 }

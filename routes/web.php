@@ -105,7 +105,8 @@ Route::resource('loges', 'App\Http\Controllers\loginController');
 
 
 
-Route::post('entrada','App\Http\Controllers\entradaController@validar');
+Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
+Route::get('logout', 'App\Http\Controllers\entradaController@logout');
 
 
 Route::get('/prueba', function () {

@@ -5,10 +5,11 @@
 
 @endsection
 @section('submenu')
+<!--OPCION DEL MENU PARA SALIR DE SESION -->
 <li class="nav-item">
   <a href="{{url('/coordinadores')}}" class="nav-link active">
   <i class="far fa-circle nav-icon text-danger"></i>
-  <p>Pagina Principal</p>
+  <p>Cerrar Sesión</p>
   </a>
 </li>
 @endsection
@@ -60,7 +61,7 @@
                         <!-- contenido de main imagenes -->
                                 <div class="row">
                                         
-                                   
+                                    
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
                                             

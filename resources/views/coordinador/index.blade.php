@@ -4,7 +4,16 @@
   <p>Coordinador</p>
 
 @endsection
-
+@section('submenu')
+    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
+    <form action="/logout">
+        <li class="nav-item">
+            @csrf
+            <a href="" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
+        </li>    
+    </form>
+    
+@endsection
 @section('content')
 <section class="content">
     <div class="container-fluid">
