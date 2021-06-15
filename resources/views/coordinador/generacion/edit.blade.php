@@ -18,8 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <h2>Agregar generacion</h2>
-
-                                    <form action="/actualizarGeneraciones/{id}​​" method="POST">
+                                    <form action="/actualizarGeneraciones/{{$generacion->id}}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">

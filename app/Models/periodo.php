@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Periodo extends Model
 {
     public $table = "periodos";
-    protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica'];
+    protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];
     public $timestamps = false;
 }

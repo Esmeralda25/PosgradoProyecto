@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class docente extends Authenticatable
+class Docente extends Authenticatable
 {
     
     protected $fillable=['nombre','correo', 'password'];

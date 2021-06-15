@@ -65,7 +65,8 @@
 
                                     <form action="/guardar-periodos" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                           
+                                        <input type="hidden" name="generacion_id" value="{{$generacion->id}}">       
+
                                             <div class="card-body">
                                             <div class="row form-group col-12">
                                             <label for="" class="row col-12">Nombre</label>
@@ -80,7 +81,14 @@
                                             <input type="date" placeholder="" name="fechaFin" class="form-control" style="width: 300px">
 
                                             <label for="" class="row col-12">Rubrica</label>
-                                            <input type="text" class="row col-12" name="rubrica">
+
+                                            <select name="rubrica">
+                                                @foreach ($rubricas as $rubrica)
+                                                <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>
+                                                    
+                                                @endforeach
+                                            </select>
+
                                             </div> 
 
                                     
