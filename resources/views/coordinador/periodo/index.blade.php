@@ -60,29 +60,32 @@
                                   <!-- contenido de main imagenes -->
                                   <a style="margin: 10px auto;" href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary">Agregar</a>
 
-                                    <table class="table table-light table-striped mt-4">
+                                    <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
                                             
                                             <tr>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Estado</th>
+                                                <th scope="col">Fecha de Inicio</th>
+                                                <th scope="col">Fecha de Terminación</th>
                                                 <th scope="col">Acciones</th>
                                             <tr>
                                         </thead>
-                                            <!--<tr>
-                                                <th scope="col">Programa 1</th>
-                                                <th scope="col">Ing. Keyla Esmeralda Montejo</th>
-                                                <th scope="col"><buttom class="btn btn-info">Editar</buttom>
-                                                <div class="btn-group">
-                                                <buttom class="btn btn-danger">Borrar</buttom>
-                                                </div>  
-                                                <div class="btn-group">
-                                                <buttom class="btn btn-primary">Agregar</buttom>
-                                                </div>     
-                                                </th>
-                                                
-                                            <tr> -->
+                                        @foreach($periodos as $periodo)
+                                            <tr>
+                                                <th scope="col">{{$periodo->nombre}}</th>
+                                                <th scope="col">{{$periodo->fechaInicio}}</th>
+                                                <th scope="col">{{$periodo->fechaFin}}</th>
+                                                <td>
+                                                   
+                                                    </*a href="editar-periodos" class="btn btn-info">EDITAR<*//a>
+                                                     <button type="button" class="btn btn-warning"><a href="/estadisticos" style="color: white">Estadisticos</a></button>
+                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                    </td>     
                                             
+                                            </th>
+                                                <tr> 
+                                        @endforeach
+                                                    
                                         <tbody>
                                         
                                         </tbody>

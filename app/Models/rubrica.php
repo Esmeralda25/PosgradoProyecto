@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rubrica extends Model
 {
-    use HasFactory;
+    public $table = "rubricas";
+    protected $fillable=['nombre','tipo'];
+    public $timestamps = false;
 }

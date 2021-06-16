@@ -63,9 +63,7 @@
                                         <form action="/actualizar-contraseñas/Docente/{{$docente->id}}​​" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
-                                        <div class="form-group">
-                                        <input id="password" name="password" type="text" class="form-control" tabindex="2" value="{{$docente->password}}">
-                                                </div>
+                                        
                                                 <div class="form-group">
                                                 <label for="password">Introduce tu nuevo password:</label>
                                                 <input type="password" name="password" class="form-control">

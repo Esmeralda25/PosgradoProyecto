@@ -30,11 +30,11 @@
     
                                     <div class="row form-group col-12">
                                     <label for="" class="row col-12">Descripcion</label>
-                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
+                                    <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
                                     </div>
 
                                     
-                                    <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                    <a href="/coordinadores/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                     <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
             
 </form>

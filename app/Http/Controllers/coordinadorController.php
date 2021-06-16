@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Adscripcion;
-use App\Models\Generacion;
-use App\Models\Periodo;
-use App\Models\Rubrica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -180,7 +177,7 @@ class coordinadorController extends Controller
     }
 
     public function guardarPassword(Request $request, $tipo, $id){
-        /*
+
         $rules = [
             'password' => 'required',
         ];
@@ -191,69 +188,18 @@ class coordinadorController extends Controller
 
 
         if ($tipo == "Estudiante"){       
-            //buscar al estudiante con id 
-            //ponerle al estudiante->password = Hash::make($request->password);
-            //salvar
-            //regresar avisando que se cambio contraseña
+             $estudiante= estudiante::find($id);
+             $estudiante->password = Hash::make($request->password);
+             $estudiante->save();
+             return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctaente');
         }else{
-            //buscar al docente con id 
-            //ponerle al docente->password = Hash::make($request->password);
-            //salvar
-            //regresar avisando que se cambio contraseña
-        }
-
-    */
-        }
-
-        public function generaciones(){
-            $generaciones = \DB::table('generaciones')
-            ->get();
-            return view('coordinador.generacion.index',compact('generaciones',$generaciones));
-        }
-
-        public function agregarGeneraciones(){
-            return view('coordinador.generacion.create');   
-        }
-
-        public function guardarGeneraciones(Request $request){
-            generacion::create(request()->all());
-            return redirect('/generaciones');
-        }
-
-        public function editarGeneraciones($id){
-            $generacion = Generacion::find($id);
-            return view('coordinador.generacion.edit')->with('generacion',$generacion);
-        }
-
-        public function actualizarGeneraciones(Request $request, $id){
-            
-            $generacion = $request->all();
-            $registro = Generacion::find($id);
-    
-            $registro->fill($generacion);
-    
-            $registro->save();
-            return redirect("/generaciones");
-            
+            $estudiante= estudiante::find($id);
+            $estudiante->password = Hash::make($request->password);
+            $estudiante->save();
+            return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctamente');
         }
 
     
-        public function periodos($id){
-            $generacion = Generacion::find($id);
-            return view('coordinador.periodo.index')->with('generacion',$generacion);
         }
-
-        public function crearPeriodos($id){
-            $generacion = Generacion::find($id);
-            $rubricas = Rubrica::all();
-            
-            //SI NO AHY RUBICAS DEBE REGRESAR A "PERIDOS" pero avisando que no hay rubricas
-            return view('coordinador.periodo.create', compact('generacion','rubricas') );
-        }
-        public function guardarPeriodos(Request $request){
-            $valores = $request->all();
-            periodo::create($valores);
-            $id =$valores['generacion_id'];
-            return redirect("/periodos/$id");
-        }
+   
 }

@@ -92,7 +92,7 @@
                                             </div> 
 
                                     
-                                            <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                            <a href="/periodos/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                             <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                     </form>
                                     

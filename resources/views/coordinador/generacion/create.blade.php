@@ -70,12 +70,6 @@
                                     <input type="text" class="row col-12" name="nombre">
                                     </div>
 
-        
-                                    <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Periodo</label>
-                                    <input type="text" class="row col-12" name="periodo">
-                                    </div>
-
     
                                     <div class="row form-group col-12">
                                     <label for="" class="row col-12">Descripcion</label>

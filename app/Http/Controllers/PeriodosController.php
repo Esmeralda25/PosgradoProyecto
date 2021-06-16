@@ -2,31 +2,37 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Periodo;
 use App\Models\Generacion;
+use App\Models\Rubrica;
 
-
-  
-
-class GeneracionController extends Controller
+class PeriodosController extends Controller
 {
-    public function index(){ 
-        $generaciones = \DB::table('generaciones')
+    public function index($id){ 
+        $generacion = Generacion::find($id);
+        $periodos = \DB::table('periodos')
         ->get();
-        return view('coordinador.generacion.index',compact('generaciones',$generaciones));
+        return view('coordinador.periodo.index', compact('generacion','periodos'));
     
     }
 
-    public function create(){
+    public function create($id){
         
-        return view('coordinador.generacion.create');
-
+        $generacion = Generacion::find($id);
+        $rubricas = Rubrica::all();
+        
+        
+        //SI NO AHY RUBICAS DEBE REGRESAR A "PERIDOS" pero avisando que no hay rubricas
+        return view('coordinador.periodo.create', compact('generacion','rubricas') );
         
     }
     
     public function store(Request $request) 
     {
-        generacion::create(request()->all());
-        return redirect('/generaciones');
+        $valores = $request->all();
+        periodo::create($valores);
+        $id =$valores['generacion_id'];
+        return redirect("/periodos/$id");
         
     }
 
@@ -58,8 +64,8 @@ class GeneracionController extends Controller
      */
     public function edit($id)
     {
-        $generacion = Generacion::find($id);
-        return view('coordinador.generacion.edit')->with('generacion',$generacion); 
+        $periodo = Periodo::find($id);
+        return view('coordinador.periodo.edit')->with('periodo',$periodo); 
     }
 
     /**
@@ -88,7 +94,8 @@ class GeneracionController extends Controller
     {
         //
     }
+
+    public function estadistico(){
+        return view('coordinador.estadistico.index');
+    }
 }
-    
-
-

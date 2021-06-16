@@ -64,21 +64,26 @@ Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorCo
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
 //Generaciones
-Route::get('generaciones','App\Http\Controllers\coordinadorController@generaciones');
-Route::get('agregarGeneraciones','App\Http\Controllers\coordinadorController@agregarGeneraciones');
-Route::post('guardarGeneraciones','App\Http\Controllers\coordinadorController@guardarGeneraciones');
-Route::get('editarGeneraciones/{id}','App\Http\Controllers\coordinadorController@editarGeneraciones');
-Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\coordinadorController@actualizarGeneraciones');
+Route::resource('generaciones','App\Http\Controllers\GeneracionController');
+Route::get('agregarGeneraciones','App\Http\Controllers\GeneracionController@create');
+Route::post('guardarGeneraciones','App\Http\Controllers\GeneracionController@store');
+Route::get('editarGeneraciones/{id}','App\Http\Controllers\GeneracionController@edit');
+Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\GeneracionController@update');
 
 //Periodos
-Route::get('periodos/{id}','App\Http\Controllers\coordinadorController@periodos');
-Route::get('agregar-periodos/{id}','App\Http\Controllers\coordinadorController@crearPeriodos');
-Route::post('guardar-periodos','App\Http\Controllers\coordinadorController@guardarPeriodos');
-//el coordinador puede seleccionar  a sus docentes.
+Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
+Route::get('agregar-periodos/{id}','App\Http\Controllers\PeriodosController@create');
+Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
+Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit');
+Route::get('estadisticos','App\Http\Controllers\PeriodosController@estadistico');
 
-
-
-Route::resource('rubricas', 'App\Http\Controllers\rubricaController');
+// Rubricas
+Route::resource('rubricas', 'App\Http\Controllers\RubricaController');
+Route::get('agregar-rubricas','App\Http\Controllers\RubricaController@create');
+Route::post('guardar-rubricas','App\Http\Controllers\RubricaController@store');
+Route::get('editar-rubricas/{id}','App\Http\Controllers\RubricaController@edit');
+Route::put('actualizar-rubricas/{id}','App\Http\Controllers\RubricaController@update');
+Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show');
 
 Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
