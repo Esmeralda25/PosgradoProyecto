@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('menu')
+@section('menu') 
 <a href="./index.html" class="nav-link">
   <i class="far fa-circle nav-icon text-danger"></i>
   <p>Registrarse</p>
