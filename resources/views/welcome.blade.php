@@ -7,7 +7,7 @@
 </a>
 @endsection
 
-@section('titulo')
+@section('titulo') 
   <p>Posgrado</p>
     
 @endsection
