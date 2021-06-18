@@ -100,7 +100,7 @@ Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 Route::resource('asesores', 'App\Http\Controllers\asesorController');
 Route::resource('asignaciones', 'App\Http\Controllers\asignarController');
 
-//Docente
+//Docente 
 
 Route::resource('docentes', 'App\Http\Controllers\docenteController');
 

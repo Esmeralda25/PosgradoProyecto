@@ -7,7 +7,7 @@
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
     <form action="/logout">
-        <li class="nav-item">
+        <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    

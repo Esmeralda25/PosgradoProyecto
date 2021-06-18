@@ -5,13 +5,14 @@
 
 @endsection
 @section('submenu')
-<!--OPCION DEL MENU PARA SALIR DE SESION -->
-<li class="nav-item">
-  <a href="{{url('/coordinadores')}}" class="nav-link active">
-  <i class="far fa-circle nav-icon text-danger"></i>
-  <p>Cerrar Sesión</p>
-  </a>
-</li>
+    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
+    <form action="/logout">
+        <li class="nav-item"> 
+            @csrf
+            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
+        </li>    
+    </form>
+    
 @endsection
 
 @section('content')
