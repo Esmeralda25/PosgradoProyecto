@@ -208,6 +208,8 @@
 <script src="{{asset('adminlte/plugins/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.js"></script>
+
 <!-- ChartJS -->
 <script src="{{asset('adminlte/plugins/chart.js/Chart.min.js')}}"></script>
 

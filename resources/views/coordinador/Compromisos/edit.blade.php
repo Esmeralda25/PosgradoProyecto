@@ -16,40 +16,29 @@
 @endsection
 
 @section('content')
-DEBE CAMBIARSE ESTO
+
 <div class="main container mt-10">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h2>Crear Registros</h2>
+            <h2>Editar Compromisos</h2>
+            
+            <form action="/actualizarCompromisos/{{$compromiso->id}}"​​ method="post">
+                    @csrf
+                    @method('PUT')
+                <div class="card-body">
+                    <div class="row form-group col-12">
+                        <label for="" class="row col-12">Compromiso</label>
+                        <input id="titulo" name="titulo" type="text" class="form-control" tabindex="2" value="{{$compromiso->titulo}}">
+                    </div>
 
-<form action="/pes/{​​{​​$pe->id}​​}​​" method="POST">
-@csrf
-@method('PUT')
-    <div class="mb-3">
-        <label for="" class="form-label">Coordinador</label>
-        <input name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Correo</label>
-        <input name="correo" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">password</label>
-        <input name="password" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">nombre</label>
-        <input name="nombre" type="text" class="form-control" tabindex="3">
-    </div>
+                        <a href="/Compromisos" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                        <!--<input type="submit" class="btn btn-primary" value="Agregar">-->
 
-    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
-    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
-</form>
+                </div>
+            </form>
         </div>
     </div>
       
-</div>
- 
-    
-    
+</div>   
 @endsection

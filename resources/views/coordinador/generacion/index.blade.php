@@ -70,10 +70,10 @@
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Descripcion</th>
                                                         <th scope="col">Acciones</th>
-                                                    <tr>
+                                                    <tr> 
                                                 </thead>
                                                 @foreach($generaciones as $generacion) 
-                                                <tr>
+                                                <tr> 
                                             
                                                     <th scope="col">{{$generacion->nombre}}</th>
                                                     <th scope="col">{{$generacion->descripcion}}</th>
@@ -81,7 +81,13 @@
                                                     <td>
                                                     <a href="editarGeneraciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="periodos/{{$generacion->id}}" style="color: white">Periodos</a></button>
-                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                     
+                                                     <form action="generaciones/{{$generacion->id}}" style="display:inline" method="post" >
+                                                     @csrf
+                                                    @method('delete')
+                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                </form> 
+                                
                                                     </td>
                                                     
                                                     

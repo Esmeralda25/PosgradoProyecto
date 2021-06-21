@@ -76,14 +76,15 @@
                                         @foreach($compromisos as $compromiso) 
                                            <tr>
                                            <th scope="col">{{$compromiso->titulo}}</th>
-                                                <th scope="col">
-                                                  <div class="btn-group">
-                                                    <buttom class="btn btn-info"><a href="/Compromisos/{{$compromiso->id}}/edit" style="color: white">Editar</a></buttom>
-                                                </div>
-                                                  
-                                                  <div class="btn-group">
-                                                      <buttom class="btn btn-danger">Borrar</buttom>
-                                                  </div>  
+                                                <th scope="col"> 
+                                                 
+                                                    <a href="editarCompromisos/{{$compromiso->id}}" class="btn btn-info">Editar</a>       
+                                                    
+                                                <form action="Compromisos/{{$compromiso->id}}" style="display:inline" method="post" >
+                                                     @csrf
+                                                    @method('delete')
+                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                </form> 
                                                 </th>                                               
                                             <tr>  
                                             @endforeach

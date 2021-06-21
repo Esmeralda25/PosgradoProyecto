@@ -47,7 +47,7 @@ Route::resource('reportes', 'App\Http\Controllers\reportarController');
 
 Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller');
 
-Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
+
 
 //Coordinador->index(listar), sotre(guardar), create, show, edit, update, delete
 Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarLista');
@@ -87,9 +87,18 @@ Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show'
 
 Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
-
-
+//Compromisos
 Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
+Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
+Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
+Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
+Route::put('actualizarCompromisos/{id}','App\Http\Controllers\CompromisosController@update');
+
+Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
+
+
+
+
 
 
 

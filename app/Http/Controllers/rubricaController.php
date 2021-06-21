@@ -11,7 +11,7 @@ class RubricaController extends Controller
         ->get();
         return view('coordinador.rubrica.index',compact('rubricas',$rubricas));
     }
-
+ 
     public function create(){
         
         return view('coordinador.rubrica.create');
@@ -75,7 +75,7 @@ class RubricaController extends Controller
         return redirect("/rubricas")->with('mensaje','Rubrica actualizada correctamente');
     }
 
-    /**
+    /** 
      * Remove the specified resource from storage.
      *
      * @param  int  $id

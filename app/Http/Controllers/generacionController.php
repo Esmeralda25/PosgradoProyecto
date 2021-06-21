@@ -63,7 +63,7 @@ class GeneracionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -86,7 +86,15 @@ class GeneracionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            Generacion::destroy($id);
+            return redirect('generaciones');//detalle: que avise que si borro
+            alert("Se borró correctamente");
+        } catch (\Throwable $th) {
+            return redirect('generaciones');//detalle: que avise que no pudo borrar
+            alert("No se pudo borrar");
+
+        }
     }
 }
     

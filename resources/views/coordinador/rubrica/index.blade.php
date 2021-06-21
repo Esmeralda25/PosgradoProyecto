@@ -11,7 +11,7 @@
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    
-    </form>
+    </form> 
     
 @endsection
 
@@ -66,7 +66,7 @@
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
                                             
-                                                    <tr>
+                                                    <tr> 
                                                         <th scope="col">Titulo</th>
                                                         <th scope="col">Tipo</th>
                                                         <th scope="col">Acciones</th>

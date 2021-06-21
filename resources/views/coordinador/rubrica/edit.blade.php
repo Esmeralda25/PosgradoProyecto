@@ -2,7 +2,7 @@
 
 @section('titulo')
   <p>{{ \Session::get('usuario')->coordinador}}</p>
-
+ 
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      

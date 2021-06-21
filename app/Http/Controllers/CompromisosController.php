@@ -23,15 +23,14 @@ class CompromisosController extends Controller
         $compromiso->fill( $request->all() );
         $compromiso->save();
         return redirect("/Compromisos"); //que me envie con un mensaje
-        //$pes = new Pes();
 
-        //$pes -> coordinador = $request ->get('coordinador');
-        //$pes -> correo = $request -> get('correo');
-        //$pes -> contraseña = $request -> get('contraseña');
-        //$pes -> save();
+        
+       
+        
 
-        return redirect('/pes');
+        //return redirect('/pes');
     }
+
 
     
     /**
@@ -58,11 +57,11 @@ class CompromisosController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function edit()
+     */ 
+    public function edit($id)
     {
-       // $pe= Pe::find($id);
-        return view('coordinador.Compromisos.edit');//->with('pe',$pe);
+       $compromiso = Compromiso::find($id);
+        return view('coordinador.Compromisos.edit')->with('compromiso',$compromiso);
     }
 
     /**
@@ -74,13 +73,18 @@ class CompromisosController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // $valores = $request->all();
-        //$registro = Pe::find($id);
-
-       // $registro->fill($valores);
-
-        //$registro->save();
+        /* $generacion = $request->all();
+        $registro = Generacion::find($id);
+        $registro->fill($generacion);
+        $registro->save();
+        return redirect("/generaciones"); */
+        $compromiso = $request->all();
+        $registro = Compromiso::find($id);
+        $registro->fill($compromiso);
+        $registro->save();
         return redirect("/Compromisos");
+
+        
     }
 
     /**
@@ -91,6 +95,13 @@ class CompromisosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            Compromiso::destroy($id);
+            return redirect('Compromisos');//detalle: que avise que si borro
+            alert("Se borró correctamente");
+        } catch (\Throwable $th) {
+            return redirect('Compromisos');//detalle: que avise que no pudo borrar
+            alert("No se pudo borrar");
+        }
     }
 }
