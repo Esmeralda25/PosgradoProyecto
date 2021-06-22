@@ -10,8 +10,10 @@ use App\Models\Generacion;
 class GeneracionController extends Controller
 {
     public function index(){ 
-        $generaciones = \DB::table('generaciones')
-        ->get();
+        $pe = \Session::get('usuario');
+        //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
+
+        $generaciones = Generacion::where('pes_id', $pe->id)->get();
         return view('coordinador.generacion.index',compact('generaciones',$generaciones));
     
     }

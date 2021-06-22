@@ -1,18 +1,22 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
+  {{ \Session::get('usuario')->coordinador}}
 @endsection
 @section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
+<li class="nav-item">
+    <a href="/usuarios" class="nav-link active far fa-circle nav-icon">usuarios</a></li>
+<li class="nav-item"> 
+    <a href="/generaciones" class="nav-link active far fa-circle nav-icon">genearciones</a>
+</li>    
+
+<!--OPCION DEL MENU PARA SALIR DE SESION -->      
         <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
+            <form action="/logout">
+                @csrf
+                <a href="/logout" class="nav-link far fa-circle nav-icon">Cerrar Sesión</a>
+            </form>  
         </li>    
-    </form>
-    
 @endsection
 
 @section('content')
@@ -23,15 +27,11 @@
             <div class="container-fluid">
                 <div style="height: 50px">
                 </div>  <!-- Info boxes -->
-                
-                    
-        
                 <div class="row" >
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header" style="text-align: center">
-                                <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Generaciones</h5>
-            
+                                <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Generaciones</h5>           
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>

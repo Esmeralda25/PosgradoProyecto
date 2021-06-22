@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
-
+  Coordinador
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
@@ -11,8 +10,7 @@
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    
-    </form>
-    
+    </form>   
 @endsection
 
 @section('content')

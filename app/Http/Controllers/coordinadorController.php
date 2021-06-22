@@ -15,10 +15,9 @@ class coordinadorController extends Controller
 {
     public function index()
     {
-        //PLANTILLA DONDE EL ESTUDIANTE AGREGA PROYECTO
         $usuario = \Session::get('usuario');
-       //echo "entra coordinador: $usuario->id";
-       return view('coordinador.index');//->with('add',$add);
+       //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
+       return view('coordinador.index')->with('pe',$usuario);
         //return view('coordinador.index');//->with('add',$add);
     }
 

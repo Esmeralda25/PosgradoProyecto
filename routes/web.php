@@ -71,6 +71,8 @@ Route::get('editarGeneraciones/{id}','App\Http\Controllers\GeneracionController@
 Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\GeneracionController@update');
 
 //Periodos
+
+
 Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
 Route::get('agregar-periodos/{id}','App\Http\Controllers\PeriodosController@create');
 Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');

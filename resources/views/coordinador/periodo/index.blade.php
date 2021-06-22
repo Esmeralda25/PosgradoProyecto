@@ -79,7 +79,9 @@
                                                 <th scope="col">{{$periodo->fechaFin}}</th>
                                                 <td>
                                                    
-                                                    </*a href="editar-periodos" class="btn btn-info">EDITAR<*//a>
+                                                    {{----}}
+                                                    <!-- -->
+                                                    <a href="/editar-periodos/{{$periodo->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="/estadisticos" style="color: white">Estadisticos</a></button>
                                                     <button type="button" class="btn btn-danger">Eliminar</button>
                                                     </td>     

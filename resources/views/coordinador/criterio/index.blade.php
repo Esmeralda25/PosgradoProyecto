@@ -2,7 +2,6 @@
 
 @section('titulo')
   <p>{{ \Session::get('usuario')->coordinador}}</p>
-
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
@@ -11,8 +10,7 @@
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    
-    </form>
-    
+    </form>   
 @endsection
 
 @section('content')
@@ -23,9 +21,6 @@
     <div class="container-fluid">
         <div style="height: 50px">
         </div>  <!-- Info boxes -->
-          
-            
-  
         <div class="row" >
             <div class="col-md-12">
                 <div class="card">
@@ -86,7 +81,13 @@
                                 
                                                     
                                         <tbody>
-                                        
+@foreach ($criterios as $criterio)
+<tr>
+    {{$criterio->descripcion}}
+
+</tr>
+    
+@endforeach                                        
                                         </tbody>
                                     </table>
 

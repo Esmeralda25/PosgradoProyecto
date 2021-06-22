@@ -26,7 +26,7 @@
                     <div class="card-header" style="text-align: center">
 
                         <h5 class="card-title font-weight-bold col-md-9" style="text-align: left">
-                        {{ \Session::get('usuario')->nombre}}: 
+                        {{ $pe->nombre}}: 
                         {{ \Session::get('usuario')->coordinador}} </h5>
     
                         <div class="card-tools">

@@ -87,6 +87,9 @@
   </nav>
   <!-- /.navbar -->
 
+    <!-- si existe la sesion se muestra el menu de la izquierda -->
+
+
   <!-- MENU DE LA IZQUIERDA -->
 <aside class="main-sidebar sidebar-dark-primary">
 
@@ -99,8 +102,8 @@
                 with font-awesome or any other icon font library -->
                 
                 <li class="nav-item ">   
-
-                   @yield('titulo')
+                  <p>@yield('titulo')</p>
+                   
 
                 </li>  
                 <li class="nav-item menu-open">
@@ -108,6 +111,20 @@
                     <i class="nav-icon fas fa-chevron-circle-down"></i>
                     <p>
                         Menu
+                        {{-- solo puedo tener 4 tipos de menus 
+                        @switch($type)
+                            @case(1)
+                                
+                                @break
+                            @case(2)
+                                
+                                @break
+                            @default
+                                
+                        @endswitch
+                        
+                          
+                          --}}
                         <i class="right fas fa-angle-left"></i>
                     </p>
                     </a>

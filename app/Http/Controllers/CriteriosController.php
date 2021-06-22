@@ -8,8 +8,9 @@ use App\Models\Rubrica;
 class CriteriosController extends Controller
 {
     public function index($id){ 
-        $rubricas = Rubrica::find($id);
-        return view('coordinador.criterio.index')->with('rubrica',$rubricas); //compact('generacion','periodos'));
+        $rubrica = Rubrica::find($id);
+        $criterios = Criterio::where('Rubricas_id', $rubrica->id)->get();
+        return view('coordinador.criterio.index', compact('rubrica','criterios'));
     
     }
 

@@ -10,8 +10,8 @@ class PeriodosController extends Controller
 {
     public function index($id){ 
         $generacion = Generacion::find($id);
-        $periodos = \DB::table('periodos')
-        ->get();
+        $periodos = Periodo::where('generacion_id', $generacion->id)->get();
+        
         return view('coordinador.periodo.index', compact('generacion','periodos'));
     
     }
