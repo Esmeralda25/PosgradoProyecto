@@ -2,36 +2,31 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Periodo;
-use App\Models\Generacion;
+use App\Models\Criterio;
 use App\Models\Rubrica;
 
-class PeriodosController extends Controller
+class CriteriosController extends Controller
 {
     public function index($id){ 
-        $generacion = Generacion::find($id);
-        $periodos = \DB::table('periodos')
-        ->get();
-        return view('coordinador.periodo.index', compact('generacion','periodos'));
+        $rubricas = Rubrica::find($id);
+        return view('coordinador.criterio.index')->with('rubrica',$rubricas); //compact('generacion','periodos'));
     
     }
 
     public function create($id){
         
-        $generacion = Generacion::find($id);
-        $rubricas = Rubrica::all();
+        $rubricas = Rubrica::find($id);
         
-        
-        return view('coordinador.periodo.create', compact('generacion','rubricas') );
+        return view('coordinador.criterio.create')->with('rubrica',$rubricas); //compact('generacion','rubricas') );
         
     }
     
     public function store(Request $request) 
     {
         $valores = $request->all();
-        periodo::create($valores);
-        $id =$valores['generacion_id'];
-        return redirect("/periodos/$id");
+        Criterio::create($valores);
+        $id =$valores['Rubricas_id'];
+        return redirect("/criterios/$id");
         
     }
 
@@ -63,8 +58,8 @@ class PeriodosController extends Controller
      */
     public function edit($id)
     {
-        $periodo = Periodo::find($id);
-        return view('coordinador.periodo.edit')->with('periodo',$periodo); 
+        $criterios = Criterio::find($id);
+        return view('coordinador.criterio.edit')->with('criterio',$criterios); 
     }
 
     /**
@@ -76,11 +71,11 @@ class PeriodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $periodo = $request->all();
-        $registro = Periodo::find($id);
-        $registro->fill($periodo);
+        $criterios = $request->all();
+        $registro = Criterio::find($id);
+        $registro->fill($criterios);
         $registro->save();
-        return redirect("/periodos");
+        return redirect("/criterios");
     }
 
     /**
@@ -98,3 +93,4 @@ class PeriodosController extends Controller
         return view('coordinador.estadistico.index');
     }
 }
+

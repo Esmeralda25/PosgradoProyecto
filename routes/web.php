@@ -85,6 +85,11 @@ Route::get('editar-rubricas/{id}','App\Http\Controllers\RubricaController@edit')
 Route::put('actualizar-rubricas/{id}','App\Http\Controllers\RubricaController@update');
 Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show');
 
+//Criterios
+Route::get('criterios/{id}','App\Http\Controllers\CriteriosController@index');
+Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@create');
+Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
+
 Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
 //Compromisos

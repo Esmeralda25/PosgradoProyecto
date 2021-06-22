@@ -80,6 +80,7 @@
 
                                                     <td>
                                                     <a href="editar-rubricas/{{$rubrica->id}}" class="btn btn-info">EDITAR</a>
+                                                    <a href="criterios/{{$rubrica->id}}" class="btn btn-info">CRITERIOS</a>
                                                      <button type="button" class="btn btn-warning"><a href="mostrar-rubricas/{{$rubrica->id}}" style="color: white">Mostrar</a></button>
                                                      <form action="rubricas/{{$rubrica->id}}" style="display:inline" method="post" >
                                                      @csrf

@@ -18,36 +18,18 @@
 <div class="main container mt-10">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h2>Crear Registros</h2>
+            <h2>Crear Criterios</h2>
+            <h3 class="card-title font-weight-bold" style="text-align: center">Rubrica: {{$rubrica->nombre}}</h3><br><br>
 
-<form action="/pes" method="POST">
+<form action="/guardar-criterios" method="POST" enctype="multipart/form-data">
 @csrf
     <div class="mb-3">
-        <label for="" class="form-label">Programa Educativo</label>
-        <input id="Programa" name="Programa" type="text" class="form-control" tabindex="2">
+        <label for="" class="form-label">Descripcion</label>
+        <input name="descripcion" type="text" class="form-control" tabindex="2">
     </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Nivel</label>
-        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Rubricas</label>
-        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Entregables</label>
-        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Porcetajes</label>
-        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Periodos</label>
-        <input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-
-    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
+    
+    
+    <a href="/criterios" class="btn btn-secondary" tabindex="5">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
 </form>
         </div>
