@@ -17,7 +17,7 @@
     <div class="main container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-7 mt-5">
-              <h2 class="font-weight-bolder" style="font-style: initial align=center">Bienvenidos al Sistema de Seguimiento de Proyectos de Doctorado</h2>
+              <h2 class="font-weight-bolder" style="font-style: initial align=center">Bienvenidos al Sistema de Seguimiento de Proyectos para Doctorado</h2>
                 <div class="card">
                   
                           <form class="formulario" action="/entrada" method="POST"> 
