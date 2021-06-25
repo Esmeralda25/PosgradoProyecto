@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Generacion;
+use App\Models\Pe;
 
 
   
@@ -10,7 +11,9 @@ use App\Models\Generacion;
 class GeneracionController extends Controller
 {
     public function index(){ 
+        
         $pe = \Session::get('usuario');
+
         //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
 
         $generaciones = Generacion::where('pes_id', $pe->id)->get();
@@ -19,8 +22,9 @@ class GeneracionController extends Controller
     }
 
     public function create(){
-        
-        return view('coordinador.generacion.create');
+
+        $pe = \Session::get('usuario');
+        return view('coordinador.generacion.create')->with('pe',$pe);
 
         
     }
@@ -30,6 +34,7 @@ class GeneracionController extends Controller
         generacion::create(request()->all());
         return redirect('/generaciones');
         
+
     }
 
     

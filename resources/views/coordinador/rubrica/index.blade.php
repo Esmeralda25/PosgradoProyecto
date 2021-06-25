@@ -85,9 +85,8 @@
                                                      <form action="rubricas/{{$rubrica->id}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
-                            
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">
-                                                    </form>
+                                                </form> 
                                                     </td>
                                                     
                                                     

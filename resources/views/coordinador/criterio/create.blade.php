@@ -19,13 +19,16 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <h2>Crear Criterios</h2>
-            <h3 class="card-title font-weight-bold" style="text-align: center">Rubrica: {{$rubrica->nombre}}</h3><br><br>
+            <h3 class="card-title font-weight-bold" style="text-align: center">Rubrica</h3><br><br>
 
 <form action="/guardar-criterios" method="POST" enctype="multipart/form-data">
 @csrf
     <div class="mb-3">
         <label for="" class="form-label">Descripcion</label>
         <input name="descripcion" type="text" class="form-control" tabindex="2">
+    </div>
+    <div class="mb-3">
+        <input name="Rubricas_id" type="hidden" class="form-control" tabindex="2" value="{{$rubrica->id}}">
     </div>
     
     

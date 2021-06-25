@@ -62,7 +62,7 @@
                                     <div class="container">
                                         
 
-                                        <form action="/usuarios/{​​{​​$docente->id}​​}​​" method="POST" enctype="multipart/form-data">
+                                        <form action="/actualizar-usuarios/Docente/{{$docente->id}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
 

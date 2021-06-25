@@ -65,29 +65,28 @@
                                                 <th scope="col">Acciones</th>
                                             <tr>
                                         </thead>
-                                    
+                                        @foreach ($criterios as $criterio)
                                             <tr>
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
-                                                <th scope="col"></th>
+                                                <th scope="col"> {{$criterio->descripcion}}</th>
+                                               
                                                 <td>
                                                    
-                                                
-                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                <a href="/editar-criterios/{{$criterio->id}}" class="btn btn-info">EDITAR</a>
+                
+                                                    <form action="/borrar-criterios/{{$criterio->id}}" style="display:inline" method="post" >
+                                                     @csrf
+                                                    @method('delete')
+                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                </form> 
+                                
                                                     </td>     
                                             
                                             </th>
                                                 <tr> 
                                 
-                                                    
+                                                @endforeach       
                                         <tbody>
-@foreach ($criterios as $criterio)
-<tr>
-    {{$criterio->descripcion}}
 
-</tr>
-    
-@endforeach                                        
                                         </tbody>
                                     </table>
 

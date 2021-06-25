@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
@@ -14,35 +14,25 @@
     </form>
     
 @endsection
+
 @section('content')
 <div class="main container mt-10">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center"> 
         <div class="col-md-10">
-            <h2>Crear Registros</h2>
+            <h2>Agregar generacion</h2>
+                <form action="/actualizar-criterios/{{$criterio->id}}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="card-body"> 
+                        <div class="row form-group col-12">
+                            <label for="" class="row col-12">Descripcion</label>
+                            <input name="descripcion" type="text" class="form-control" tabindex="2" value="{{$criterio->descripcion}}">
+                        </div>
 
-<form action="/pes/{​​{​​$pe->id}​​}​​" method="POST">
-@csrf
-@method('PUT')
-    <div class="mb-3">
-        <label for="" class="form-label">Coordinador</label>
-        <input name="coordinador" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Correo</label>
-        <input name="correo" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">password</label>
-        <input name="password" type="text" class="form-control" tabindex="3">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">nombre</label>
-        <input name="nombre" type="text" class="form-control" tabindex="3">
-    </div>
-
-    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
-    <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
-</form>
+                        <a href="/criterios" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                    </div>
+                </form>
         </div>
     </div>
       
