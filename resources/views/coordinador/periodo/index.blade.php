@@ -83,7 +83,11 @@
                                                     <!-- -->
                                                     <a href="/editar-periodos/{{$periodo->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="/estadisticos" style="color: white">Estadisticos</a></button>
-                                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                                     <form action="periodos/{{$periodo->id}}" style="display:inline" method="post" >
+                                                     @csrf
+                                                    @method('delete')
+                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                </form> 
                                                     </td>     
                                             
                                             </th>

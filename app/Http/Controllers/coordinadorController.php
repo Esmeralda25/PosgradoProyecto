@@ -69,34 +69,10 @@ class coordinadorController extends Controller
 
         }elseif($request->input('nivel')=="Docente"){
             
-            /*
-            if($docente->nombre == $docente){
-                echo "Este usuario ya existe";
-                Docente::insert($adscripcion);
-            }
-
-            else($docente->nombre != $docente){
-                echo "usuario agregado"
-                Docente::insert($docente);
-                Docente::insert($adscripcion);
-
-            }
-            */
+            Docente::insert($docente);
         }
-        return;
-        return redirect('coordinador.add');
+        return redirect("/usuarios");
 
-        //Estudiante::create($request->only('nombre','correo')
-        //+[
-        //    'password' => bcrypt($request->input(password))
-        //]);
-        //return redirect()->back();
-
-        //Docente::create($request->only('nombre','correo')
-        //+[
-        //    'password' => bcrypt($request->input(password))
-        //]);
-        //return redirect()->back();
     }
 
    

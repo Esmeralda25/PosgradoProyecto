@@ -64,7 +64,10 @@ class PeriodosController extends Controller
     public function edit($id)
     {
         $periodo = Periodo::find($id);
-        return view('coordinador.periodo.edit')->with('periodo',$periodo); 
+        $rubricas = Rubrica::all();
+        
+        
+        return view('coordinador.periodo.edit', compact('periodo','rubricas') );
     }
 
     /**
@@ -80,7 +83,7 @@ class PeriodosController extends Controller
         $registro = Periodo::find($id);
         $registro->fill($periodo);
         $registro->save();
-        return redirect("/periodos");
+        return redirect("/periodos/$id");
     }
 
     /**
@@ -91,7 +94,15 @@ class PeriodosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            Periodo::destroy($id);
+            return redirect('periodos');//detalle: que avise que si borro
+            alert("Se borró correctamente");
+        } catch (\Throwable $th) {
+            return redirect('periodos');//detalle: que avise que no pudo borrar
+            alert("No se pudo borrar");
+
+        }
     }
 
     public function estadistico(){

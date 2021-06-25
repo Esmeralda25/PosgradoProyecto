@@ -78,6 +78,10 @@
                                     <input type="text" class="row col-12" name="descripcion">
                                     </div>
 
+                                    <div class="row form-group col-12">
+                                    <input type="hidden" class="row col-12" name="pes_id" value="{{$pe->id}}">
+                                    </div>
+
                                     
                                             <a href="/coordinador" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                             <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>

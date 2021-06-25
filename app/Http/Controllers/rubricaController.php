@@ -86,8 +86,10 @@ class RubricaController extends Controller
         try{
             Rubrica::destroy($id);
             return redirect('rubricas');//detalle: que avise que si borro
+            alert("Se borró correctamente");
         } catch (\Throwable $th) {
-            return redirect('rubricas');//detalle: que avise que no pudo borrar
+            return redirect('rubricas');//detalle: que avise que no pudo borr
+            alert("No se pudo borrar");
         }
     }
 }

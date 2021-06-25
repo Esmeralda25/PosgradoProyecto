@@ -77,6 +77,7 @@ Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
 Route::get('agregar-periodos/{id}','App\Http\Controllers\PeriodosController@create');
 Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
 Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit');
+Route::put('actualizar-periodos/{id}','App\Http\Controllers\PeriodosController@update');
 Route::get('estadisticos','App\Http\Controllers\PeriodosController@estadistico');
 
 // Rubricas
@@ -91,15 +92,17 @@ Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show'
 Route::get('criterios/{id}','App\Http\Controllers\CriteriosController@index');
 Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@create');
 Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
+Route::get('editar-criterios/{id}','App\Http\Controllers\CriteriosController@edit');
+Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
+Route::post('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
 
-Route::resource('criterios', 'App\Http\Controllers\criterioController');
 
 //Compromisos
 Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-Route::put('actualizarCompromisos/{id}','App\Http\Controllers\CompromisosController@update');
+
 
 Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
 

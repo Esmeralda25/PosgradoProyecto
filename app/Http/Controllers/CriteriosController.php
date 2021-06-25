@@ -18,7 +18,7 @@ class CriteriosController extends Controller
         
         $rubricas = Rubrica::find($id);
         
-        return view('coordinador.criterio.create')->with('rubrica',$rubricas); //compact('generacion','rubricas') );
+        return view('coordinador.criterio.create')->with('rubrica',$rubricas);//compact('rubricas'));
         
     }
     
@@ -76,7 +76,7 @@ class CriteriosController extends Controller
         $registro = Criterio::find($id);
         $registro->fill($criterios);
         $registro->save();
-        return redirect("/criterios");
+        return redirect("/criterios/$id");
     }
 
     /**
@@ -87,11 +87,16 @@ class CriteriosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            Criterio::destroy($id);
+            return redirect('/criterios');//detalle: que avise que si borro
+            alert("Se borró correctamente");
+        } catch (\Throwable $th) {
+            return redirect('/criterios');//detalle: que avise que no pudo borrar
+            alert("No se pudo borrar");
+
+        }
     }
 
-    public function estadistico(){
-        return view('coordinador.estadistico.index');
-    }
 }
 
