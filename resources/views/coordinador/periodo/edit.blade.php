@@ -68,10 +68,10 @@
                                     @csrf  
                                     @method('PUT')
 
-                                            <div class="card-body">
+                                        <div class="card-body">
                                             <div class="row form-group col-12">
-                                            <label for="" class="row col-12">Nombre</label>
-                                            <input name="nombre" type="text" class="form-control" tabindex="2" value="{{$periodo->nombre}}">                                        
+                                                <label for="" class="row col-12">Nombre</label>
+                                                <input name="nombre" type="text" class="form-control" tabindex="2" value="{{$periodo->nombre}}">                                        
                                             </div>
                             
                                             <label for="" class="row col-12">Fecha Inicio</label>
@@ -84,12 +84,63 @@
 
                                             <select name="rubrica">
                                                 @foreach ($rubricas as $rubrica)
-                                                <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>
-                                                    
+                                                <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>                                                   
                                                 @endforeach
                                             </select>
 
-                                            </div> 
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label for="">
+                                                        Estado actual del perido
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <select name="estado">                                                       
+                                                        @if ($periodo->estado=="Inicio")
+                                                            <option value="Inicio" selected>Inicio</option>
+                                                        @else
+                                                            <option value="Inicio">Inicio</option>
+                                                        @endif
+
+                                                        @if ($periodo->estado=="Comienzo")
+                                                            <option value="Comienzo" selected>Comienzo</option>
+                                                        @else
+                                                            <option value="Comienzo">Comienzo</option>
+                                                        @endif
+
+                                                        @if ($periodo->estado=="Seguimiento")
+                                                            <option value="Seguimiento" selected>Seguimiento</option>
+                                                        @else
+                                                            <option value="Seguimiento">Seguimiento</option>
+                                                        @endif
+
+                                                        @if ($periodo->estado=="Evaluacion")
+                                                            <option value="Evaluacion" selected>Evaluacion</option>
+                                                        @else
+                                                            <option value="Evaluacion">Evaluacion</option>
+                                                        @endif
+
+                                                        @if ($periodo->estado=="Evaluado")
+                                                            <option value="Evaluado" selected>Evaluado</option>
+                                                        @else
+                                                            <option value="Evaluado">Evaluado</option>
+                                                        @endif
+
+                                                        @if ($periodo->estado=="Concluido")
+                                                            <option value="Concluido" selected>Concluido</option>
+                                                        @else
+                                                            <option value="Concluido">Concluido</option>
+                                                        @endif
+
+                                                    </select>
+                                                </div>
+                                                       
+                                            </div>
+
+
+                                        </div> 
 
                                     
                                             <a href="/periodos" class="btn btn-secondary" tabindex="5">Cancelar</a>

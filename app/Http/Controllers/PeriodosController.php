@@ -63,6 +63,7 @@ class PeriodosController extends Controller
      */
     public function edit($id)
     {
+        
         $periodo = Periodo::find($id);
         $rubricas = Rubrica::all();
         
@@ -83,7 +84,7 @@ class PeriodosController extends Controller
         $registro = Periodo::find($id);
         $registro->fill($periodo);
         $registro->save();
-        return redirect("/periodos/$id");
+        return redirect("/periodos/$registro->generacion_id");
     }
 
     /**

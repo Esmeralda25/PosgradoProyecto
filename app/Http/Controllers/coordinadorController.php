@@ -59,17 +59,26 @@ class coordinadorController extends Controller
 
     public function store(Request $request)
     {
-        $estudiante = request()->except('_token');
+        $pe = \Session::get('usuario');
+        $estudiante = request()->except(['_token','nivel']);
         $docente = request()->except('_token');
+        //dd($docente);
         $adscripcion = $request->all();
 
         if($request->input('nivel')=="Estudiante"){
             //echo "agregar estudiante";
+            $estudiante['pes_id'] = $pe->id;
             Estudiante::insert($estudiante);
 
         }elseif($request->input('nivel')=="Docente"){
             
-            Docente::insert($docente);
+            //Docente::insert($docente);
+            $nuevo = new Docente();
+            $nuevo->fill($docente);
+            $nuevo->save();
+
+            //modificar la adscripcion  a $pe->id del $nuevo->id
+
         }
         return redirect("/usuarios");
 
