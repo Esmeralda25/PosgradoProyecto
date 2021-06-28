@@ -53,7 +53,7 @@
                                                 </div>
                                             
                                                 <div class="mb-3 form-group">
-                                                    <label for="nivel">Nivel</label>
+                                                    <label for="nivel">Tipo</label>
                                                     <select name="nivel" id="nivel">
                                                         <option value="Docente">Docente</option>
                                                         <option value="Estudiante">Estudiante</option>

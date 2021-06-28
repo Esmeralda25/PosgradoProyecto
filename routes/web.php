@@ -94,7 +94,7 @@ Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@cr
 Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
 Route::get('editar-criterios/{id}','App\Http\Controllers\CriteriosController@edit');
 Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
-Route::post('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
+Route::put('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
 
 
 //Compromisos

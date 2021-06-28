@@ -51,6 +51,7 @@
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Fecha de Inicio</th>
                                                 <th scope="col">Fecha de Terminación</th>
+                                                <th scope="col">Estado</th>
                                                 <th scope="col">Acciones</th>
                                             <tr>
                                         </thead>
@@ -59,6 +60,7 @@
                                                 <th scope="col">{{$periodo->nombre}}</th>
                                                 <th scope="col">{{$periodo->fechaInicio}}</th>
                                                 <th scope="col">{{$periodo->fechaFin}}</th>
+                                                <th scope="col">{{$periodo->estado}}</th>
                                                 <td>
                                                    
                                                     {{----}}

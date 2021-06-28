@@ -78,6 +78,9 @@ class coordinadorController extends Controller
             $nuevo->save();
 
             //modificar la adscripcion  a $pe->id del $nuevo->id
+        $add = new Adscripcion();
+        $add['pes_id'] = $pe->id;
+        $add['docentes_id'] = $nuevo->id; 
 
         }
         return redirect("/usuarios");

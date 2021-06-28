@@ -50,10 +50,10 @@
                                                 <tbody>
 
                                                 <tr>
-                                                @foreach($proyectos as $proyecto)
-                                                        <th scope="col">{{$proyecto->id}}</th>
-                                                    @foreach($estudiantes as $estudiante)    
-                                                        <th scope="col">{{$estudiante->nombre}}</th>
+                                                
+                                                        <th scope="col"></th>
+                                                       
+                                                        <th scope="col"></th>
                                                         <th scope="col">
                                                                 <div class="btn-group">
                                                                     <a href="{{url('/historico')}}"><buttom class="btn btn-danger">Historico</buttom></a>
@@ -64,6 +64,8 @@
                                                         </th>
                                                         
                                                     <tr> 
+
+                                                  
                                                 </tbody>
                                             </table>     
                                                 

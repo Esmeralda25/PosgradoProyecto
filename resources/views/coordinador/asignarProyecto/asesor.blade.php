@@ -60,8 +60,9 @@
                                     <label for="" class="row col-12">Objetivo Espesifico</label>
                                     <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
                                 </div>
-     
                                 
+                                <form action="/" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                          
@@ -107,6 +108,7 @@
                                 <div class="row col-12">   
                                     <button type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px"><a>Asignar</a></button>                               
                                 </div>
+                                </form>
                             </div>
 
                             

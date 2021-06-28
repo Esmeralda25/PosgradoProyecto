@@ -54,7 +54,7 @@
                                                 <th scope="col"> {{$criterio->descripcion}}</th>                                              
                                                 <td>                                                  
                                                 <a href="/editar-criterios/{{$criterio->id}}" class="btn btn-info">EDITAR</a>               
-                                                    <form action="/borrar-criterios/{{$criterio->id}}" style="display:inline" method="post" >
+                                                    <form action="criterios/{{$criterio->id}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">
