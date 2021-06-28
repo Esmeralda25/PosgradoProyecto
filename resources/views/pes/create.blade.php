@@ -10,6 +10,11 @@
     </form>
     
 @endsection
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/pes')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
 <div class="main container mt-10"></div>
     <div class="row justify-content-center">

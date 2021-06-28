@@ -14,9 +14,15 @@
     </form>
     
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
 <div class="main container mt-10">
+<a href="/generaciones" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+
     <div class="row justify-content-center"> 
         <div class="col-md-10">
             <h2>Agregar generacion</h2>

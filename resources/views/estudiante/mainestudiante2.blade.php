@@ -11,10 +11,13 @@
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
         </li>    
-    </form>
-    
+    </form> 
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/estudiantes')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
   <div class="main container mt-10">
     <div class="row justify-content-center">

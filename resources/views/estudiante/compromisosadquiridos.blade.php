@@ -14,7 +14,11 @@
     </form>
     
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/estudiantes')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
   <div>
          <section class="content" style="padding-top: 10px">

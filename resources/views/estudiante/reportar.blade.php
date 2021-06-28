@@ -14,7 +14,11 @@
     </form>
     
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/estudiantes')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
    <div class="main container mt-10">
      <div class="row justify-content-center">
@@ -25,7 +29,6 @@
         <div class="main container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-7 mt-5">
-                    
                     <div class="card">
                             <form action="" method="POST">
                                 <div class="card-header text-center font-weight-bold" style="font-size: 30px">Reportar</div>

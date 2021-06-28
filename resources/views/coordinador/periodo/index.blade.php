@@ -14,46 +14,28 @@
     </form>
     
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
    <div class="main container mt-10">
   <div class="row justify-content-center">
     <div class="col-md-10">
       <section class="content">
+      <a href="/generaciones" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+
     <div class="container-fluid">
-        <div style="height: 50px">
+        <div style="height: 5px">
         </div>  <!-- Info boxes -->
-          
-            
-  
         <div class="row" >
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
                         <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Periodo</h5><br><br>
                         <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                            </button>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fas fa-wrench"></i>
-                                </button>
-
-                                <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                    <a href="#" class="dropdown-item">Action</a>
-                                    <a href="#" class="dropdown-item">Another action</a>
-                                    <a href="#" class="dropdown-item">Something else here</a>
-                                    <a class="dropdown-divider"></a>
-                                    <a href="#" class="dropdown-item">Separated link</a>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                            </button>
-                        </div>
+                        
                     </div>
                     <!-- /.card-header -->
                       <div class="card-body">

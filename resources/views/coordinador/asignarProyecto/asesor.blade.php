@@ -17,46 +17,22 @@
 
 @section('content')
 <div class="main container mt-10">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <section class="content">
+    <div class="row justify-content-center"> <!-- aquí -->
+        <div class="col-md-10"> <!-- aquí -->
+            <section class="content"> <!-- aquí -->
             <div class="container-fluid">
-                <div style="height: 50px">
+            <a href="/asignaciones" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+                <div style="height: 100%"><!-- aquí -->
                 </div>  <!-- Info boxes -->
-                
-                    
         
-                <div class="row" >
+                <div class="row" > 
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card" style="height: 100%">
                             <div class="card-header" style="text-align: center">
                                 <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Asignar Proyecto</h5>
-            
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fas fa-wrench"></i>
-                                        </button>
-
-                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <a href="#" class="dropdown-item">Action</a>
-                                            <a href="#" class="dropdown-item">Another action</a>
-                                            <a href="#" class="dropdown-item">Something else here</a>
-                                            <a class="dropdown-divider"></a>
-                                            <a href="#" class="dropdown-item">Separated link</a>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                    <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
                             </div>
                             
-                            <div class="card-header text-center font-weight-bold" style="font-size: 15px">
+                            <div class="card-header text-center font-weight-bold" style="font-size: 15px " >
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Estudiante: </label>
                                     <input type="text" class="row col-12" name="nombre" value="{{ $proyecto->estudiante->nombre }}">
@@ -84,10 +60,7 @@
                                     <label for="" class="row col-12">Objetivo Espesifico</label>
                                     <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
                                 </div>
-                                
-                                <div>                                   
-                                    <button type="submit" class="btn btn-warning"><a>Asignar</a></button>
-                                </div>
+     
                                 
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
@@ -117,16 +90,23 @@
                                     @endforeach
                                     </select>
                                 </div>
-
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">
                                           @foreach($docentes as $asesor)  
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                           @endforeach
+                                          
                                 </div>
-                                
-
+                                <div class="row col-12">
+                                    <label for="" style="padding: 2px; font-size:20px">hola </label>
+                                        <select name="" id="nivel" style="width: 1000px; height:35px">
+                                          
+                                </div>
+                               
+                                <div class="row col-12">   
+                                    <button type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px"><a>Asignar</a></button>                               
+                                </div>
                             </div>
 
                             

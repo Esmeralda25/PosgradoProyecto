@@ -9,6 +9,11 @@
     </form>
     
 @endsection
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
 
 <div class="main container mt-10">
@@ -16,9 +21,7 @@
         <div class="col-md-10">
                             
             <h2>Rubricas</h2>
-            
-            
-                    <div class="mb-3">
+                <div class="mb-3">
                         Titulo de la rubrica : {{$rubrica->nombre}}
                     </div>
                     <div class="mb-3">

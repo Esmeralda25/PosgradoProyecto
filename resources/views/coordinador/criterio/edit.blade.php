@@ -14,7 +14,11 @@
     </form>
     
 @endsection
-
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
 <div class="main container mt-10">
     <div class="row justify-content-center"> 

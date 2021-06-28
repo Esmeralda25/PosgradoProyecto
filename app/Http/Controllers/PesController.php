@@ -6,13 +6,9 @@ use Illuminate\Support\Facades\Hash;
 
 use App\Models\Pe;
 
-
-
-
 class PesController extends Controller
 {
     public function index(){
-        echo "llega aqui";
         $pes = Pe::paginate(7);
         
         //detalle:

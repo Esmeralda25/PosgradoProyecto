@@ -15,13 +15,16 @@
     
 @endsection
 
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/docentes')}}" class="nav-link">Inicio</a>
+</li>
+@endsection
 @section('content')
    <div class="main container mt-10">
        <div class="row justify-content-center">
           <div class="col-md-10">
         <h1 style="text-align:center; margin-top: 100px">HISTORICO | Revisión</h1>       
-    
-    
                 <div class="table-responsive">
                     <table class="table">
                         <tbody">

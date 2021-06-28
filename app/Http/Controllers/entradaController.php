@@ -62,6 +62,8 @@ class entradaController extends Controller
         }
 
         echo "USUARIO NO REGISTRADO";
+        return view('user_notfound');
+
         }
 
         public function logout (Request $peticion){
