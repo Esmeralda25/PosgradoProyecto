@@ -48,9 +48,8 @@
                                                     <tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    {{--aqui un foreach--}}
                                                 <tr>
-                                                
                                                         <th scope="col"></th>
                                                        
                                                         <th scope="col"></th>

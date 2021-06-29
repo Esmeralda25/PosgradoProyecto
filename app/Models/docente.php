@@ -11,4 +11,22 @@ class Docente extends Authenticatable
     
     protected $fillable=['nombre','correo', 'password'];
     public $timestamps = false;
+
+    public function proyectos(){
+        /*
+        $comites = Comite::where('asesor', $this->id)
+                            ->orWhere('revisor1', $this->id)
+                            ->orWhere('revisor2', $this->id)
+                            ->orWhere('revisor3', $this->id)
+                        ->select(id);
+        */
+        return Proyecto::whereIn('comite', 
+        Comite::where('asesor', $this->id)
+        ->orWhere('revisor1', $this->id)
+        ->orWhere('revisor2', $this->id)
+        ->orWhere('revisor3', $this->id)
+        ->select('id')
+                    )->get();
+
+    }
 }
