@@ -42,27 +42,29 @@
                                                 <thead class="table table-dark table-striped mt-4">
                                                     
                                                     <tr>
+                                                        <th scope="col">ID</th>
                                                         <th scope="col">Proyecto</th>
                                                         <th scope="col">Estudiante</th>
                                                         <th scope="col">Acciones</th>
                                                     <tr>
                                                 </thead>
                                                 <tbody>
-                                                    {{--aqui un foreach--}}
-                                                <tr>
-                                                        <th scope="col"></th>
-                                                       
-                                                        <th scope="col"></th>
-                                                        <th scope="col">
-                                                                <div class="btn-group">
-                                                                    <a href="{{url('/historico')}}"><buttom class="btn btn-danger">Historico</buttom></a>
-                                                                </div>  
-                                                                <div class="btn-group">
-                                                                <a href="{{url('/evaluar')}}"><buttom class="btn btn-primary">Evaluar</buttom></a> 
-                                                                </div>     
+                                                @foreach($proyectos as $proyecto) 
+                                                <tr> 
+                                            
+                                                    <th scope="col">{{$proyecto->id}}</th>
+                                                    <th scope="col">{{$proyecto->titulo}}</th>
+                                                    <th scope="col">{{$proyecto->estudiante_id}}</th>
+
+                                                    <td>
+                                                    <a href="" class="btn btn-info">Evaluar</a>
+                                                     <button type="button" class="btn btn-warning"><a href="" style="color: white">Historico</a></button>
+                                                     
+                                                    </td>
                                                         </th>
-                                                        
-                                                    <tr> 
+                                                        <tr> 
+                                                @endforeach
+                                            
 
                                                   
                                                 </tbody>

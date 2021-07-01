@@ -63,6 +63,9 @@ Route::post('add', 'App\Http\Controllers\coordinadorController@store');
 Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password');
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
+//Proyectos
+Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
+
 //Generaciones
 Route::resource('generaciones','App\Http\Controllers\GeneracionController');
 Route::get('agregarGeneraciones','App\Http\Controllers\GeneracionController@create');

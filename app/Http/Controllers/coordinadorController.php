@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Pe;
+use App\Models\Comite;
 use App\Models\Adscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -144,7 +145,7 @@ class coordinadorController extends Controller
         $proyecto::find($id);
         $proyecto->comite = $comite->id;
         $proyecto->save();
-
+        return redirect("/asignaciones");
     }
     
     public function destroy($id)

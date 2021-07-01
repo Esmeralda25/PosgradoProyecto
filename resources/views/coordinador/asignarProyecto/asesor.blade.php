@@ -61,8 +61,9 @@
                                     <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
                                 </div>
                                 
-                                <form action="/" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                                <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
                                         <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                          
