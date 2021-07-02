@@ -18,11 +18,7 @@
     <link rel="preload" href="{{asset('adminlte/img/logotec.png')}}">
     <link rel="stylesheet" href="{{asset('adminlte/img/fondo1.jpg')}}">
     
-    <style>
-        html {
-            background-image: {{asset('adminlte/img/fondo1.jpg')}};
-        }
-    </style>
+    
 </head>
 <body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
