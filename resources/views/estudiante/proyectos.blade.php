@@ -20,9 +20,11 @@
 </li>
 @endsection
 @section('content')
-   <div class="main container mt-10">
+   <div class="main container">
      <div class="row justify-content-center">
        <div class="col-md-10">
+       <a href="/estudiantes" class="btn btn-warning " style="margin: 10px; margin-left:10dp" tabindex="5">Regresar</a>
+
            <!-- Main content -->
     <section class="content" style="padding-top: 10px">
       <div>
@@ -179,7 +181,7 @@
                                 </table>
     
                                 <div>
-                                  <button type="submit" class="btn btn-warning"><a style="color: black">Registrar</a></button>
+                                  <button type="submit" class="btn btn-warning" style="margin: 5"><a style="color: black">Registrar</a></button>
                                 </div>
                                   
     

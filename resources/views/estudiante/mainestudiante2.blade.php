@@ -20,6 +20,8 @@
 @endsection
 @section('content')
   <div class="main container mt-10">
+  <a href="/estudiantes" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+
     <div class="row justify-content-center">
       <div class="col-md-10">
           <section class="content" style="padding-top: 10px">

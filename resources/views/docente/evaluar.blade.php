@@ -25,7 +25,9 @@
            <div class="col-md-10">
              <section class="content">
     <div class="container-fluid">
-        <div style="height: 50px">
+    <a href="/docentes" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+
+        <div style="height: 5px">
         </div>  <!-- Info boxes -->
         <div class="row" >
             <div class="col-md-12">

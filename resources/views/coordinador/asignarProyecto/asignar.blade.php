@@ -50,7 +50,6 @@
                                                     <th scope="col">Asesor</th>
                                                     <th scope="col">Acciones</th>
                                                 
-                                                
                                                 <tr>
                                             </thead>
                                             <tbody>
@@ -60,14 +59,13 @@
                                                     <th scope="col">{{$proyecto->id}}</th>
                                                     <th scope="col">{{$proyecto->titulo}}</th>
                                         
-                                                    <th scope="col"></th>
-                                                    <th scope="col"></th>
+                                                    <th scope="col">holaaa</th>
+                                                    <th scope="col">holaaa</th>
                                                     
                                                     <th>
                                                     
                                                     <div class="btn-group" style="padding-rigth: 12px">
                                                             <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a></buttom>
-                                                                                                                {{-- investigar como con url() paso el parametro $proyecto->id  --}}
                                                         </div> 
                                                     </th>
                                                     

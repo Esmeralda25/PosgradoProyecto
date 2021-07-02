@@ -26,7 +26,8 @@
        <section class="content">
     <div class="container-fluid">
 
-    
+    <a href="{{periodos/{id}}}" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+
         <div style="height: 50px">
         </div>  <!-- Info boxes -->
           

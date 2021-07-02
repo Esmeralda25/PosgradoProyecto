@@ -144,6 +144,8 @@ Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
 Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
 Route::get('logout', 'App\Http\Controllers\entradaController@logout');
+Route::resource('info', 'App\Http\Controllers\infoController');
+
 
 
 Route::get('/prueba', function () {

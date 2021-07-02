@@ -10,17 +10,18 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
+         </li>    
     </form>
     
 @endsection
 
-
+ 
 @section('content')
 <section class="content">
 
     <div class="container-fluid">
     
+
         <div style="height: 5px">
         
         </div>  <!-- Info boxes -->  

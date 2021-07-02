@@ -82,11 +82,11 @@
                    
 
                 </li>  
-                <li class="nav-item menu-open">
+                <li class="nav-item ">
                     <a href="#" class="nav-link active">
                     <i class="nav-icon fas fa-chevron-circle-down"></i>
-                    <p>
-                        Menu
+                    <p>Menu
+                       <!--  Menu
                         {{-- solo puedo tener 4 tipos de menus 
                         @switch($type)
                             @case(1)
@@ -100,7 +100,7 @@
                         @endswitch
                         
                           
-                          --}}
+                          --}} -->
                         <i class="right fas fa-angle-left"></i>
                     </p>
                     </a>
@@ -115,7 +115,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users nav-icon "></i>
-                        <p>
+                        <p> 
                             Contactos
                             <i class="fas fa-angle-left right"></i>
                             <span class="badge badge-info right"></span>
@@ -176,11 +176,11 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Propuesta</strong>
+    <strong><a href="{{url('/info')}}">    
     Sistema para el seguimiento de proyectos de Posgrado
+    </a></strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Residentes</b> 2
-    </div>
+      <b>Residentes </b>2
   </footer>
 </div>
 <!-- ./wrapper -->
