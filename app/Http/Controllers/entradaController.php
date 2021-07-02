@@ -14,6 +14,7 @@ use App\Models\Pe;
 class entradaController extends Controller
 {
     public function validar (Request $peticion){
+        $identificacion = "";
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
 
         if(!is_null($usuario) ){
@@ -22,8 +23,10 @@ class entradaController extends Controller
             
             $password_guadado = $usuario->password;
             
-            
+            //puesto: pe : nombre
             if (Hash::check($password_dieron, $password_guadado)) {               
+                $identificacion = "Estudiante : " . $usuario->pe->nombre . ":" . $usuario->nombre ;
+                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
                 return  redirect('/estudiantes');
             }
@@ -36,6 +39,8 @@ class entradaController extends Controller
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
+                $identificacion = "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
+                \Session::put('identificacion' ,  $identificacion );
                 
                 \Session::put('usuario' ,  $usuario );
 
@@ -49,6 +54,9 @@ class entradaController extends Controller
             $password_dieron = $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
+                $identificacion = "Docente : " . $usuario->nombre ;
+                \Session::put('identificacion' ,  $identificacion );
+
                 \Session::put('usuario' ,  $usuario );
 /*
                 session_start -->es de php
@@ -70,6 +78,7 @@ class entradaController extends Controller
 //isset($_Session['usuario'])
             if(\Session::has('usuario') ){               
                 \Session::forget('usuario');
+                \Session::forget('identificacion');
                 //session_destroy();
                 //header('Location: welcome.blade.php');
                 //header('Location:'.$URL.'/welcome');

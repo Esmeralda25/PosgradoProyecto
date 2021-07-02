@@ -11,8 +11,12 @@
             @csrf
             <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
          </li>    
-    </form>
-    
+    </form>   
+@endsection
+
+@section('identificacion')
+{{ $pe->nombre}}: 
+{{ \Session::get('usuario')->coordinador}} 
 @endsection
 
  
@@ -32,8 +36,7 @@
                     <div class="card-header" style="text-align: center">
 
                         <h5 class="card-title font-weight-bold col-md-9" style="text-align: left">
-                        {{ $pe->nombre}}: 
-                        {{ \Session::get('usuario')->coordinador}} </h5>
+                        </h5>
     
                        
                     </div>

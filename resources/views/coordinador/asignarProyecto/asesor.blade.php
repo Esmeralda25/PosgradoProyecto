@@ -34,31 +34,29 @@
                             
                             <div class="card-header text-center font-weight-bold" style="font-size: 15px " >
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Estudiante: </label>
-                                    <input type="text" class="row col-12" name="nombre" value="{{ $proyecto->estudiante->nombre }}">
+                                    <label for="">Estudiante: </label>
+                                    {{ $proyecto->estudiante->nombre }}
                                 </div>
-
-
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Titulo: </label>
-                                    <input type="text" class="row col-12" name="titulo" value="{{ $proyecto->titulo }}">
+                                    {{ $proyecto->titulo }}
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Hipotesis: </label>
-                                    <input type="text" class="row col-12" name="hipotesis" value="{{ $proyecto->hipotesis}}">
+                                    {{ $proyecto->hipotesis}}
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="objetivos" value="{{ $proyecto->objetivos}}">
+                                    {{ $proyecto->objetivos}}
                                 </div>
 
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo Espesifico</label>
-                                    <input type="text" class="row col-12" name="objetivose" value="{{ $proyecto->objetivose}}">
+                                    {{ $proyecto->objetivose}}
                                 </div>
                                 
                                 <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
@@ -66,7 +64,7 @@
                                 @method('PUT')
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                          
+                                        <select name="asesor" id="nivel" style="width: 1000px; height:35px">                                          
                                             
                                           @foreach($docentes as $asesor)
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
@@ -78,7 +76,7 @@
 
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
-                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">
+                                        <select name="revisor1" id="nivel" style="width: 1000px; height:35px">
                                         @foreach($docentes as $asesor)  
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                         @endforeach
@@ -86,7 +84,7 @@
                                 </div>
                                 <div class="row col-12">
                                   <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
-                                    <select name="nivel" id="nivel" style="width: 1000px; height:35px">                                   
+                                    <select name="revisor2" id="nivel" style="width: 1000px; height:35px">                                   
                                     @foreach($docentes as $asesor)  
                                       <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                     @endforeach
@@ -94,7 +92,7 @@
                                 </div>
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
-                                        <select name="nivel" id="nivel" style="width: 1000px; height:35px">
+                                        <select name="revisor3" id="nivel" style="width: 1000px; height:35px">
                                           @foreach($docentes as $asesor)  
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                           @endforeach
@@ -103,7 +101,6 @@
                                 <div class="row col-12">
                                     <label for="" style="padding: 2px; font-size:20px">hola </label>
                                         <select name="" id="nivel" style="width: 1000px; height:35px">
-                                          
                                 </div>
                                
                                 <div class="row col-12">   

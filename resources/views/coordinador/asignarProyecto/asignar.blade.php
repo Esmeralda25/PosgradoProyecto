@@ -59,8 +59,12 @@
                                                     <th scope="col">{{$proyecto->id}}</th>
                                                     <th scope="col">{{$proyecto->titulo}}</th>
                                         
-                                                    <th scope="col">holaaa</th>
-                                                    <th scope="col">holaaa</th>
+                                                    <th scope="col">{{$proyecto->estudiante->nombre}}</th>
+                                                    <th scope="col">
+                                                        @if (is_null($proyecto->comite))
+                                                            No asignado
+                                                        @endif
+                                                    </th>
                                                     
                                                     <th>
                                                     

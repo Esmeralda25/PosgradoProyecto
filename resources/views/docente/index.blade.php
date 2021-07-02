@@ -2,7 +2,6 @@
 
 @section('titulo')
   <p>Docente</p>
-
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
@@ -14,6 +13,7 @@
     </form>
     
 @endsection
+
 
 @section('content')
 <div class="main container mt-10">

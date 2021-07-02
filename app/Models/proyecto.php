@@ -13,7 +13,12 @@ class proyecto extends Model
 
     public function estudiante(){
         return $this->hasOne('App\Models\estudiante','id','estudiante_id');
-
     }
-
+    public function comiteTutorial(){
+        return $this->hasOne('App\Models\Comite','id','comite');
+        /*->withDefault([
+            'asesor' => 'No asignado',
+        ]) */
+        
+    }
 }

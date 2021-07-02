@@ -6,6 +6,7 @@ use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Pe;
 use App\Models\Comite;
+use App\Models\Proyecto;
 use App\Models\Adscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -135,14 +136,14 @@ class coordinadorController extends Controller
 
     }
     public function actualizarComite(Request $request, $id){
-
+        //dd($request->all());
         //manejo de transacciones en base de datos
         //DB::beginTransaction()
         //validaciones
         $comite = new Comite;
         $comite->fill($request->all());
         $comite->save();
-        $proyecto::find($id);
+        $proyecto = Proyecto::find($id);
         $proyecto->comite = $comite->id;
         $proyecto->save();
         return redirect("/asignaciones");
