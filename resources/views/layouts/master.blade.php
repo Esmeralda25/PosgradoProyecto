@@ -47,8 +47,8 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">SII</a>
       </li>
-      
-    </ul>
+        
+      </ul>
     
 
     <!-- Right navbar links -->
