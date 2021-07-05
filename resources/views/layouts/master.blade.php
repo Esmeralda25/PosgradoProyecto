@@ -32,20 +32,24 @@
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
+      </li> -->
       <ul class="nav nav-treeview">
       @yield('inicio')               
       </ul>
+      <li class="nav-item d-none d-sm-inline-block">
+        @yield('submenu')
+      </i>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="https://www.tuxtla.tecnm.mx/" class="nav-link">TecNM</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">SII</a>
+      </li>
       
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contacto</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">TecNM</a>
-      </li>
     </ul>
+    
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -58,6 +62,26 @@
         </span>
 
       </li>
+    
+      <li class="nav-item">
+        <a href="https://www.facebook.com/tecnmtuxtlagtz/?rf=220191508087468" class="nav-link" role="button">
+            <i class="fab fa-facebook-square nav-icon"></i>
+              
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.instagram.com/p/BkJ8RUBBDRA/?hl=es" class="nav-link" role="button">
+          <i class="fab fa-instagram nav-icon"></i>
+              
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.tuxtla.tecnm.mx/directorio-2020/" class="nav-link" role="button">
+          <i class="far fa-envelope nav-icon"></i>
+            
+          </a>
+      </li>
+                      
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -69,18 +93,22 @@
   <!-- /.navbar -->
 
     <!-- si existe la sesion se muestra el menu de la izquierda -->
-
-@if (\Session::has('usuario'))
-  @include('layouts.menu_izq')  
-@endif
-
+ 
+  @if (\Session::has('usuario'))
+      @include('layouts.menu_izq') 
+  @endif 
+   
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="height: 100%">
+  
       
-    <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->
-    @yield('content')           
+    <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->          
+
+  <div class="content-wrapper" style="height: 100%; width: 100%">
         
-</div>  
+      <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->
+      @yield('content')           
+          
+  </div>  
     
         
   
@@ -88,7 +116,7 @@
   
 
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="main-footer  col-12" style="width: 100%">
     <strong><a href="{{url('/info')}}">    
     Sistema para el seguimiento de proyectos de Posgrado
     </a></strong>

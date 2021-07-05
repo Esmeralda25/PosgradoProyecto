@@ -3656,7 +3656,7 @@ textarea.form-control-lg {
 
 .dropdown-menu-dark {
   color: #dee2e6;
-  background-color: #343a40;
+  background-color: #0a3055;
   border-color: rgba(0, 0, 0, 0.15);
 }
 .dropdown-menu-dark .dropdown-item {
@@ -5636,7 +5636,7 @@ textarea.form-control-lg {
   border-top-right-radius: calc(0.3rem - 1px);
 }
 .popover-header:empty {
-  display: none;
+   display: none; 
 }
 
 .popover-body {
