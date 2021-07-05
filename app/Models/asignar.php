@@ -11,5 +11,5 @@ class Asignar extends Model
 }
 
     
-    }
+    
 
