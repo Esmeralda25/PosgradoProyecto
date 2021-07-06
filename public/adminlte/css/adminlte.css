@@ -12233,7 +12233,7 @@ body.sidebar-collapse:not(.sidebar-mini-xs):not(.sidebar-mini-md):not(.sidebar-m
   body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer,
   body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
     transition: margin-left 0.3s ease-in-out;
-    margin-left: 250px;
+    /* margin-left: 250px; */
   }
 }
 

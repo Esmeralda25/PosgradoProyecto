@@ -14,7 +14,7 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.css')}}">
     <!--LINK IMAGENES-->
     <link rel="preload" href="{{asset('adminlte/img/logotec.png')}}">
     <link rel="stylesheet" href="{{asset('adminlte/img/fondo1.jpg')}}">
