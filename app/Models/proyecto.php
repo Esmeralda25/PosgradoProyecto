@@ -21,4 +21,8 @@ class Proyecto extends Model
         ]) */
         
     }
+    public function proyectoAsesor()
+    {
+        return $this->hasOneThrough(Comite::class, Estudiante::class);
+    }
 }

@@ -64,6 +64,7 @@
                                                         @if (is_null($proyecto->comite))
                                                             No asignado
                                                         @endif
+                                                        {{$proyecto->comite}}
                                                     </th>
                                                     
                                                     <th>

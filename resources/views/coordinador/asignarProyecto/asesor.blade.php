@@ -38,24 +38,24 @@
                                     {{ $proyecto->estudiante->nombre }}
                                 </div>
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Titulo: </label>
+                                    <label for="">Titulo: </label>
                                     {{ $proyecto->titulo }}
                                 </div>
 
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Hipotesis: </label>
+                                    <label for="">Hipotesis: </label>
                                     {{ $proyecto->hipotesis}}
                                 </div>
 
 
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Objetivo General</label>
+                                    <label for="">Objetivo General</label>
                                     {{ $proyecto->objetivos}}
                                 </div>
 
 
                                 <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Objetivo Espesifico</label>
+                                    <label for="">Objetivo Espesifico</label>
                                     {{ $proyecto->objetivose}}
                                 </div>
                                 
