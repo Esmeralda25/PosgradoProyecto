@@ -63,8 +63,10 @@
                                                     <th scope="col">
                                                         @if (is_null($proyecto->comite))
                                                             No asignado
+                                                        @else
+                                                            {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
                                                         @endif
-                                                        {{$proyecto->comite}}
+                                                        
                                                     </th>
                                                     
                                                     <th>

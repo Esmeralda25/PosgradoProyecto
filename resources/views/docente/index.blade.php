@@ -58,9 +58,15 @@
                                                     <th scope="col">{{$proyecto->estudiante_id}}</th>
 
                                                     <td>
-                                                    <a href="" class="btn btn-info">Evaluar</a>
-                                                     <button type="button" class="btn btn-warning"><a href="" style="color: white">Historico</a></button>
-                                                     
+                                                        @if ($proyecto->periodo->estado == "Evaluacion")
+                                                            <a href="" class="btn btn-info">Evaluar</a>        
+                                                        @endif
+                                                    
+                                                            <button type="button" class="btn btn-warning"><a href="" style="color: white">Historico</a></button>
+
+                                                        @if ($proyecto->comiteTutorial->asesor == 1)
+                                                            <a href="" class="btn btn-info">Asignar</a>        
+                                                        @endif
                                                     </td>
                                                         </th>
                                                         <tr> 
