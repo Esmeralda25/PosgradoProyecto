@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Proyecto extends Model
 {
     protected $table = 'proyectos';
-    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose','comite','estudiante_id', 'periodo_id'];
+    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose','comite','estudiante_id', 'periodo_id','calificacion_id'];
     
     public $timestamps = false;
 
@@ -17,16 +17,13 @@ class Proyecto extends Model
     }
     public function comiteTutorial(){
         return $this->hasOne('App\Models\Comite','id','comite');
-        /*->withDefault([
-            'asesor' => 'No asignado',
-        ]) */
         
     }
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
-    public function proyectoAsesor()
-    {
-        return $this->hasOneThrough(Comite::class, Estudiante::class);
+    public function calificacion(){
+        return $this->hasOne('App\Models\Periodo','id','calificacion_id');
     }
+    
 }

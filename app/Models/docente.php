@@ -29,4 +29,8 @@ class Docente extends Authenticatable
                     )->get();
 
     }
+
+    public function estudiante(){
+        return $this->hasMany('App\Models\Estudiante','id','nombre');
+    }
 }

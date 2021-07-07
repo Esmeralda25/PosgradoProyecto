@@ -33,7 +33,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" style="text-align: center">
-                      <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Pagina Principal Docente</h5>
+                      <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Estudiante: {{$proyecto->estudiante->nombre}}</h5>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -47,32 +47,31 @@
                                                 <table class="table">
                                                     <tbody>
                                                         <tr>
+                                                        <h5> Datos Generales del Proyecto: </h5>
                                                             <th class="row">
-                                                                <a href="{{url('/')}}">Datos Generales del Proyecto</a>
+            
+                                                   
+                                                                Titulo: {{$proyecto->titulo}}<br>
+                                                                Hipotesis: {{$proyecto->hipotesis}}<br>
+                                                                Objetivos: {{$proyecto->objetivos}}<br>
+                                                                Objetivos Especificos: {{$proyecto->objetivose}}<br>
+                                                        
                                                             </th> 
                                                             <th></th>  
                                                         </tr>
                                                         <tr>
                                                             <th class="row">
-                                                                <a href="{{url('/')}}">Protocolo Entregado</a>
+                                                                <a>Protocolo Entregado</a>
                                                             </th> 
                                                             <th></th>   
                                                         </tr>
                                                         <tr>
                                                             <th class="row">
-                                                                <a href="{{url('/')}}">Resultados y Desarrollo (Compromisos y Cronogramas)</a>
+                                                                <a>Resultados y Desarrollo (Compromisos y Cronogramas)</a>
                                                             </th>  
                                                             <th></th>  
                                                         </tr>
-                                                        <tr>
-                                                            <th class="row">
-                                                                <div>
-                                                                    <button class="btn btn-primary"><a href="{{url('/')}}">Calificar</a></button>
-                                                                </div>
-                                                                
-                                                            </th>  
-                                                            <th></th>  
-                                                        </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                         
@@ -83,6 +82,8 @@
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
                                     
                                         <div class="tcontainer">
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                             <table class="table">
                                                 <thead class="table-dark">
                                                     <tr>
@@ -92,28 +93,107 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
+                                                    <div class="mb-3 form-group">
                                                         <th class="row">Estructura</th> 
-                                                        <th><input type="text" name="nombre" id=""></th>  
+                                                        <th>
+                                                        <select name="" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select> 
+                                                    </th>
                                                     </tr>
                                                     <tr>
-                                                        <th class="row">Nivel</th> 
-                                                        <th><input type="text" name="nombre" id=""></th>   
+                                                        <th class="row">Nivel</th>
+                                                        <th> 
+                                                        <select name="tipo" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select>    
+                                                    </th>
                                                     </tr>
                                                     <tr>
-                                                        <th class="row">Apreciación</th>  
-                                                        <th><input type="text" name="nombre" id=""></th>  
+                                                        <th class="row">Apreciación</th>
+                                                        <th>  
+                                                        <select name="tipo" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select>  
+                                                    </th>
                                                     </tr>
                                                     <tr>
                                                         <th class="row">Claridad</th> 
-                                                        <th><input type="text" name="nombre" id=""></th>  
+                                                        <th>
+                                                        <select name="tipo" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select> 
+                                                    </th> 
                                                     </tr>
                                                     <tr>
                                                         <th class="row">Correlacion</th> 
-                                                        <th><input type="text" name="nombre" id=""></th>   
+                                                        <th>
+                                                        <select name="tipo" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select>
+                                                    </th>    
                                                     </tr>
                                                     <tr>
                                                         <th class="row">Promedio</th>  
-                                                        <th><input type="text" name="nombre" id=""></th>  
+                                                        <th>
+                                                        <select name="tipo" id="tipo">
+                                                        <option value="">10</option>
+                                                        <option value="">20</option>
+                                                        <option value="">30</option>
+                                                        <option value="">40</option>
+                                                        <option value="">50</option>
+                                                        <option value="">60</option>
+                                                        <option value="">70</option>
+                                                        <option value="">80</option>
+                                                        <option value="">90</option>
+                                                        <option value="">100</option>
+                                                    </select>
+                                                    </th>   
                                                     </tr>
                                                     
                                                 </tbody>
@@ -122,9 +202,15 @@
                                         </div>
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
                                     <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="nombre" id="">
+                                    
+                                    <tr>
+                                    <th class="row">
                                     <div>
-                                        <p></p>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary" tabindex="4">Calificar</a></button>
+                                    </div>                            
+                                    </th>           
+                                     </tr>
+                                     </form>
                                 
                                 </div>
 

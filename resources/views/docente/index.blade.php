@@ -43,7 +43,7 @@
                                                 <thead class="table table-dark table-striped mt-4">
                                                     
                                                     <tr>
-                                                        <th scope="col">ID</th>
+                
                                                         <th scope="col">Proyecto</th>
                                                         <th scope="col">Estudiante</th>
                                                         <th scope="col">Acciones</th>
@@ -53,19 +53,19 @@
                                                 @foreach($proyectos as $proyecto) 
                                                 <tr> 
                                             
-                                                    <th scope="col">{{$proyecto->id}}</th>
+                                            
                                                     <th scope="col">{{$proyecto->titulo}}</th>
-                                                    <th scope="col">{{$proyecto->estudiante_id}}</th>
+                                                    <th scope="col">{{$proyecto->estudiante->nombre}}</th>
 
                                                     <td>
                                                         @if ($proyecto->periodo->estado == "Evaluacion")
-                                                            <a href="" class="btn btn-info">Evaluar</a>        
+                                                            <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>        
                                                         @endif
                                                     
-                                                            <button type="button" class="btn btn-warning"><a href="" style="color: white">Historico</a></button>
+                                                            <button type="button" class="btn btn-warning"><a href="/historicos/{{$proyecto->id}}" style="color: white">Historico</a></button>
 
                                                         @if ($proyecto->comiteTutorial->asesor == 1)
-                                                            <a href="" class="btn btn-info">Asignar</a>        
+                                                            <a href="/evaluaciones" class="btn btn-info">Asignar</a>        
                                                         @endif
                                                     </td>
                                                         </th>

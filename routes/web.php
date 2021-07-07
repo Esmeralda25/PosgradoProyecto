@@ -126,9 +126,10 @@ Route::resource('asignaciones', 'App\Http\Controllers\asignarController');
 
 Route::resource('docentes', 'App\Http\Controllers\docenteController');
 
-Route::resource('evaluaciones', 'App\Http\Controllers\evaluarController');
+//Docente Evaluaciones
+Route::get('evaluaciones/{id}', 'App\Http\Controllers\evaluarController@index');
 
-Route::resource('historicos', 'App\Http\Controllers\historicoController');
+Route::get('historicos', 'App\Http\Controllers\historicoController@index');
 
 Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
 
