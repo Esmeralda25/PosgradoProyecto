@@ -9,10 +9,11 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
@@ -22,14 +23,17 @@
 
 @endsection
 @section('content')
-<div class="mmt-10 align-content-center">
+<div class="mt-10 align-content-center">
   <section class="content">
   <a href="/coordinadores" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
     <div class="container-fluid">
+        <div style="height:60px">
+        
+        </div> 
           <!-- Info boxes -->
-        <div class="row" >
-            <div class="col-md-12">
-                <div class="card">
+        <div class="row justify-content-center " >
+            <div class="col-10">
+                <div class="card col-12">
                     <div class="card-header" style="text-align: center">
                         <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Usuario</h5>
                     </div>

@@ -4565,7 +4565,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #ffffff;
 }
 
 .nav-fill > .nav-link,
@@ -12093,6 +12093,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   position: fixed;
   right: 0;
   z-index: 1032;
+  color:white;
 }
 
 .layout-footer-not-fixed .wrapper .main-footer {
@@ -12440,7 +12441,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 .main-footer {
   background-color: #fff;
   border-top: 1px solid #dee2e6;
-  color: #869099;
+  color: #ffffff;
   padding: 1rem;
 }
 
@@ -13609,7 +13610,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .sidebar-dark-lightblue .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-light-lightblue .nav-sidebar > .nav-item > .nav-link.active {
-  background-color: #3c8dbc;
+  background-color: #fcfcfc;
   color: #fff;
 }
 

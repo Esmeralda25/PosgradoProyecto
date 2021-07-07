@@ -21,7 +21,7 @@
     
     
 </head>
-<body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="fondo hold-transition dark-mode  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center" style="width: 100%">
@@ -35,12 +35,13 @@
       <!-- <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li> -->
-      <ul class="nav nav-treeview">
-      @yield('inicio')               
-      </ul>
+      
       <li class="nav-item d-none d-sm-inline-block">
         @yield('submenu')
       </i>
+      <li class="nav-item d-none d-sm-inline-block">
+      @yield('inicio')               
+      </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://www.tuxtla.tecnm.mx/" class="nav-link">TecNM</a>
       </li>
@@ -62,46 +63,14 @@
         </span>
 
       </li>
-    
-      <li class="nav-item">
-        <a href="https://www.facebook.com/tecnmtuxtlagtz/?rf=220191508087468" class="nav-link" role="button">
-            <i class="fab fa-facebook-square nav-icon"></i>
-              
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.instagram.com/p/BkJ8RUBBDRA/?hl=es" class="nav-link" role="button">
-          <i class="fab fa-instagram nav-icon"></i>
-              
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="https://www.tuxtla.tecnm.mx/directorio-2020/" class="nav-link" role="button">
-          <i class="far fa-envelope nav-icon"></i>
-            
-          </a>
-      </li>
-                      
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      
     </ul>
   </nav>
-  <!-- /.navbar -->
-
-    <!-- si existe la sesion se muestra el menu de la izquierda -->
- 
-  @if (\Session::has('usuario'))
-      @include('layouts.menu_izq') 
-  @endif 
-   
-  <!-- Content Wrapper. Contains page content -->
-  
-      
-    <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->          
+         
 
   <div class="content-wrapper" style="height: 100%; width: 100%">
         
@@ -116,12 +85,31 @@
   
 
   <!-- Main Footer -->
-  <footer class="main-footer  col-12" style="width: 100%">
-    <strong><a href="{{url('/info')}}">    
+  <footer class="main-footer  col-12">
+  <ul>
+    <li  class="float-right d,-none d-sm-inline-block">
+      <a href="https://www.facebook.com/tecnmtuxtlagtz/?rf=220191508087468" class="nav-link" role="button">
+      <i class="fab fa-facebook-square nav-icon"></i>         
+      </a>
+    </li>
+    <li  class="float-right d-none d-sm-inline-block">
+      <a href="https://www.instagram.com/p/BkJ8RUBBDRA/?hl=es" class="nav-link" role="button">
+        <i class="fab fa-instagram nav-icon"></i>
+                
+      </a>
+    </li>
+    <li  class="float-right d-none d-sm-inline-block">
+      <a href="https://www.tuxtla.tecnm.mx/directorio-2020/" class="nav-link" role="button">
+        <i class="far fa-envelope nav-icon"></i>
+              
+      </a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+  <strong><a href="{{url('/info')}}">    
     Sistema para el seguimiento de proyectos de Posgrado
     </a></strong>
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Residentes </b>2
+  </li>
+  </ul>  
   </footer>
 </div>
 <!-- ./wrapper -->

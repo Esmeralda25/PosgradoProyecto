@@ -17,7 +17,7 @@
 @endsection
 
 @section('identificacion')
-{{ $pe->nombre}}: 
+{{ $pe->nombre}}  
 {{ \Session::get('usuario')->coordinador}} 
 @endsection
 
@@ -25,33 +25,25 @@
 @section('content')
 <section class="content">
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
     
 
-        <div style="height: 5px">
+        <div style="height:60px">
         
         </div>  <!-- Info boxes -->  
   
-        <div class="row" >
-            <div class="col-md-12">
+        <div class="row justify-content-center " >
+            <div class="col-10">
                 <div class="card col-12">
-                    <div class="card-header" style="text-align: center">
-
-                        <h5 class="card-title font-weight-bold col-md-9" style="text-align: left">
-                        </h5>
-    
-                       
-                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
                         <!-- contenido de main imagenes -->
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="info-box">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
-                            
                                             <div class="info-box-content">
                                                 <a href="{{url('/usuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
                                             </div>

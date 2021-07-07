@@ -16,8 +16,11 @@
 <!-- Main content AQUI VA TODO EL CONTENIDO EXTRA -->
 <div class="main container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-7 mt-5">
-            <h2 class="font-weight-bolder" style="font-style: initial align=center">Bienvenidos al Sistema de Seguimiento de Proyectos para Doctorado</h2>
+        <div class="col-7 mt-5">
+            <div class="col-12 mt-5 text-center font-weight-bolder">
+                <h1 class="font-weight-bolder">BIENVENIDOS</h1>
+            </div>
+            
             <div class="card">
                 <form class="formulario" action="/entrada" method="POST">
                     <div class="card-header text-center font-weight-bolder" style="font-size: 25px">
