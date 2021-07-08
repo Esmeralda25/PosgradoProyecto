@@ -9,32 +9,36 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+
 </li>
 @endsection
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('content')
-<div class="main container mt-10">
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-       <section class="content">
+<section class="content">
     <div class="container-fluid">
 
-        <div style="height: 5px">
-        </div>  <!-- Info boxes -->
-        <div class="row" >
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" style="text-align: center">
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
                         <h5 class="card-title font-weight-bold" style="text-align: center">Agregar Periodo</h5><br><br>
-                        <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>
-                    </div>
+                        <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>                       
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
@@ -69,30 +73,17 @@
                                                     
                                                 @endforeach
                                             </select>
-
                                             </div> 
-                                    
                                             <a href="/periodos/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                             <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                     </form>
-                                    
-                                    
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-            
                 </div>
             </div>
         </div>
     </div>
 </section>
-    </div>
-  </div>
-      
-</div>
-  
-   
 @endsection

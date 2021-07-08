@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
 @section('submenu')
@@ -9,28 +9,30 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
-</li>
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
 @endsection
 @section('content')
-<div class="main container mt-10">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <section class="content">
+<section class="content">
     <div class="container-fluid">
-        <div class="row" >
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Estadisticos</h5>
-                    </div>
+
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Estadisticos</h1>
+                        </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">

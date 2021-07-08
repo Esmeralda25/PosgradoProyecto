@@ -98,10 +98,9 @@ class CompromisosController extends Controller
         try{
             Compromiso::destroy($id);
             return redirect('Compromisos');//detalle: que avise que si borro
-            alert("Se borró correctamente");
         } catch (\Throwable $th) {
             return redirect('Compromisos');//detalle: que avise que no pudo borrar
-            alert("No se pudo borrar");
+            
         }
     }
 }

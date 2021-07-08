@@ -9,29 +9,31 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
+@endsection
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
 @endsection
 
 @section('content')
-<div class="main container mt-10">
-    <div class="row justify-content-center"> <!-- aquí -->
-        <div class="col-md-10"> <!-- aquí -->
-            <section class="content"> <!-- aquí -->
-            <div class="container-fluid">
-            <a href="/asignaciones" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
-                <div style="height: 100%"><!-- aquí -->
-                </div>  <!-- Info boxes -->
-        
-                <div class="row" > 
-                    <div class="col-md-12">
-                        <div class="card" style="height: 100%">
-                            <div class="card-header" style="text-align: center">
-                                <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Asignar Proyecto</h5>
-                            </div>
-                            
+<section class="content">
+    <div class="container-fluid">
+
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Asignar Asesor</h1>
+                        </div>
                             <div class="card-header text-center font-weight-bold" style="font-size: 15px " >
                                 <div class="row form-group col-12">
                                     <label for="">Estudiante: </label>

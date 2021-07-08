@@ -9,43 +9,57 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+
 </li>
 @endsection
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('content')
-<div class="main container mt-10">
-<a href="/generaciones" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+<section class="content">
+    <div class="container-fluid">
 
-    <div class="row justify-content-center"> 
-        <div class="col-md-10">
-            <h2>Agregar generacion</h2>
-                <form action="/actualizarGeneraciones/{{$generacion->id}}" method="post">
-                    @csrf
-                    @method('PUT')
-                    <div class="card-body"> 
-                        <div class="row form-group col-12">
-                            <label for="" class="row col-12">Nombre</label>
-                            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->nombre}}">
-                        </div>
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
 
-    
-                        <div class="row form-group col-12">
-                            <label for="" class="row col-12">Descripcion</label>
-                            <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Agregar Generacion</h1>
                         </div>
-                        <a href="/coordinadores/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                        <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
-                    </div>
-                </form>
+                        <form action="/actualizarGeneraciones/{{$generacion->id}}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <div class="card-body"> 
+                                <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Nombre</label>
+                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->nombre}}">
+                                </div>
+
+            
+                                <div class="row form-group col-12">
+                                    <label for="" class="row col-12">Descripcion</label>
+                                    <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
+                                </div>
+                                <a href="/coordinadores/{{$generacion->id}}" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
         </div>
     </div>
-      
-</div>
+</section>
 @endsection
