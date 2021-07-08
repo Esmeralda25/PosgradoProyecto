@@ -17,21 +17,23 @@
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link">Inicio</a>
+      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
 
 </li>
-
+@endsection
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
 @endsection
 @section('content')
-<div class="mt-10 align-content-center">
   <section class="content">
-  <a href="/coordinadores" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
     <div class="container-fluid">
+
         <div style="height:60px">
-        
-        </div> 
-          <!-- Info boxes -->
-        <div class="row justify-content-center " >
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
             <div class="col-10">
                 <div class="card col-12">
                     <div class="card-header" style="text-align: center">
@@ -39,8 +41,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
                                     <a href="{{url('/agregar')}}" class="btn btn-primary">Agregar</a>
@@ -52,10 +54,6 @@
                                                 <th scope="col">Acciones</th>
                                             <tr> 
                                         </thead>
-                                     {{-- prueba 1 de commit and push --}}
-
-
-                                
                                      <tbody>
                                      @foreach($usuarios as $usuario)
                                             <tr>

@@ -16,22 +16,13 @@
     </form>   
 @endsection
 
-@section('identificacion')
-{{ $pe->nombre}}  
-{{ \Session::get('usuario')->coordinador}} 
-@endsection
-
- 
 @section('content')
 <section class="content">
-
     <div class="container-fluid ">
-    
 
         <div style="height:60px">
-        
-        </div>  <!-- Info boxes -->  
-  
+        </div>  <!-- espacio del top -->  
+
         <div class="row justify-content-center " >
             <div class="col-10">
                 <div class="card col-12">

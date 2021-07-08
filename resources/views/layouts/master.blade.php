@@ -32,10 +32,10 @@
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li> -->
-      
+    <li class="nav-item d-none d-lg-inline-block">
+        @yield('regresar')
+      </i>
+  
       <li class="nav-item d-none d-sm-inline-block">
         @yield('submenu')
       </i>
@@ -52,7 +52,7 @@
       </ul>
     
 
-    <!-- Right navbar links -->
+    <!-- header-lado derecho -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
