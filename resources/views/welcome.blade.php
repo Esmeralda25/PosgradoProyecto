@@ -29,9 +29,9 @@
                     <div class="card-body col-12">
                         @csrf
                         <p>Correo</p>
-                        <input type="text" name="nombre" class="form-control col-12" id="" placeholder="Introduce tu email">
+                        <input type="email" name="nombre" class="form-control col-12" id="" placeholder="Introduce tu email">
                         <p class="mt-3">Contraseña</p>
-                        <input type="text" name="palabra" class="form-control col-12" id="" placeholder="Introduce tu contraseña">
+                        <input type="password" name="palabra" class="form-control col-12" id="" placeholder="Introduce tu contraseña">
                         <button type="submit" class="btn col-12 mt-3 btn-success">Iniciar</button>
                     </div>
                 </form>

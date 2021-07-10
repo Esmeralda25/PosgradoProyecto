@@ -16,13 +16,7 @@ class docenteController extends Controller
         
         $proyectos = $docente->proyectos();
 
-        /*
-        
-        $mostrar= DB::table("proyectos")
-        ->union(DB::table("estudiantes"))
-        ->get();
-        */
-        //return view('coordinador.add') ->with('docentes',$docentes);
         return view('docente.index', compact('proyectos'));
     }
+
 }

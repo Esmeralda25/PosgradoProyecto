@@ -80,7 +80,16 @@
                                     </div>
                             
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
+                                
+                                    <div class="form-group col-md-12">
                                     
+                                        <input type="button" id="rubricasid" class="btn btn-primary" value="Rubrica">
+                                        <input type="button" id="criteriosid" class="btn btn-primary"   value="Criterio">
+
+                                        <div id="idcontenido">
+
+                                        </div>
+
                                         <div class="tcontainer">
                                         <form action="" method="POST" enctype="multipart/form-data">
                                         @csrf
@@ -92,109 +101,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                    <div class="mb-3 form-group">
-                                                        <th class="row">Estructura</th> 
-                                                        <th>
-                                                        <select name="" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select> 
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="row">Nivel</th>
-                                                        <th> 
-                                                        <select name="tipo" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select>    
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="row">Apreciación</th>
-                                                        <th>  
-                                                        <select name="tipo" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select>  
-                                                    </th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="row">Claridad</th> 
-                                                        <th>
-                                                        <select name="tipo" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select> 
-                                                    </th> 
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="row">Correlacion</th> 
-                                                        <th>
-                                                        <select name="tipo" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select>
-                                                    </th>    
-                                                    </tr>
-                                                    <tr>
-                                                        <th class="row">Promedio</th>  
-                                                        <th>
-                                                        <select name="tipo" id="tipo">
-                                                        <option value="">10</option>
-                                                        <option value="">20</option>
-                                                        <option value="">30</option>
-                                                        <option value="">40</option>
-                                                        <option value="">50</option>
-                                                        <option value="">60</option>
-                                                        <option value="">70</option>
-                                                        <option value="">80</option>
-                                                        <option value="">90</option>
-                                                        <option value="">100</option>
-                                                    </select>
-                                                    </th>   
-                                                    </tr>
+                                                   
                                                     
                                                 </tbody>
                                             </table>
@@ -211,6 +118,22 @@
                                     </th>           
                                      </tr>
                                      </form>
+
+                                     <script>
+                                    var botonRubrica = document.getElementById("rubricasid")
+                                    botonRubrica.addEventListener("click",function()){
+
+                                        var icontenido = document.getElementById("idcontenido")
+                                        var textotipo = document.getElementById("tipo")
+                                        tipo.setAttribute('value','Rubrica')
+
+                                        icontenido.innerHTML = 
+                                        
+                                       
+                                        
+                                        
+                                    },false);
+                                    </script>
                                 
                                 </div>
 

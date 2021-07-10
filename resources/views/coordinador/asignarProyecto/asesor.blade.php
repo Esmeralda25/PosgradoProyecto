@@ -64,9 +64,10 @@
                                 <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                        <select name="asesor" id="nivel" style="width: 1000px; height:35px">                                          
+                                        <select name="asesor" id="sel" style="width: 1000px; height:35px">                                          
                                             
                                           @foreach($docentes as $asesor)
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
@@ -78,7 +79,7 @@
 
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
-                                        <select name="revisor1" id="nivel" style="width: 1000px; height:35px">
+                                        <select name="revisor1" id="sel" style="width: 1000px; height:35px">
                                         @foreach($docentes as $asesor)  
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                         @endforeach
@@ -86,32 +87,37 @@
                                 </div>
                                 <div class="row col-12">
                                   <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
-                                    <select name="revisor2" id="nivel" style="width: 1000px; height:35px">                                   
+                                    <select name="revisor2" id="sel" style="width: 1000px; height:35px">                                   
                                     @foreach($docentes as $asesor)  
                                       <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                     @endforeach
+                                    
+
                                     </select>
                                 </div>
                                 <div class="row col-12">
                                     <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
-                                        <select name="revisor3" id="nivel" style="width: 1000px; height:35px">
+                                        <select name="revisor3" id="sel" style="width: 1000px; height:35px">
                                           @foreach($docentes as $asesor)  
                                           <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
                                           @endforeach
                                           
                                 </div>
-                                <div class="row col-12">
-                                    <label for="" style="padding: 2px; font-size:20px">hola </label>
-                                        <select name="" id="nivel" style="width: 1000px; height:35px">
-                                </div>
+                            
                                
                                 <div class="row col-12">   
                                     <button type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px"><a>Asignar</a></button>                               
                                 </div>
+
+            
                                 </form>
                             </div>
 
-                            
+                            <script>
+                                   $(document).on('change', '.sel', function() {
+                                     $(this).closest('.form-group').siblings().find('option[value="'+$(this).val()+'"]').remove();
+                                    });
+                                </script>
                     
                     
                         </div> <!--class="card"-->
