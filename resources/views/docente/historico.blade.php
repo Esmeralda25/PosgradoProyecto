@@ -53,7 +53,7 @@
                                                <tr>
                                                    <th class="row">
                                                        <div>
-                                                            Nombre del Proyecto <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                                                            Nombre del Proyecto: {{$proyecto->titulo}}
                                                        </div>
                                                    </th> 
                                                    <th></th>  
@@ -61,7 +61,7 @@
                                                <tr>
                                                    <th class="row">
                                                        <div>
-                                                            Hipotesis <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                                                            Hipotesis: {{$proyecto->hipotesis}}
                                                        </div>
                                                    </th> 
                                                    <th></th>  
@@ -69,7 +69,7 @@
                                                <tr>
                                                    <th class="row">
                                                        <div>
-                                                            Objetivo General <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                                                            Objetivo General: {{$proyecto->objetivos}}
                                                        </div>
                                                    </th> 
                                                    <th></th>  
@@ -77,17 +77,13 @@
                                                <tr>
                                                    <th class="row">
                                                        <div>
-                                                            Objetivo especifico <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px; border:none" type="text" name="nombre" id="">
+                                                            Objetivo especificos: {{$proyecto->objetivose}}
                                                        </div>
                                                    </th> 
                                                    <th></th>  
                                                </tr>
                                                <tr>
-                                                   <th class="row">
-                                                       <div>
-                                                            Proyecto <input style="width: 100%; max-width: 850px; margin: 0 auto; height:30px"  placeholder="Sistema para Dotorado" type="text" name="nombre" id="">
-                                                       </div>
-                                                   </th> 
+                                            
                                                    <th></th>  
                                                </tr>
                                                 
@@ -104,43 +100,27 @@
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <th class="row">Revisión 1</th> 
+                                                <th class="row">Calificacion 1</th> 
                                                 <th><input type="text" style="border:none" placeholder="9.8" name="nombre" id=""></th>  
                                             </tr>
                                             <tr>
-                                                <th class="row">Revisión 2</th> 
+                                                <th class="row">Calificacion 2</th> 
                                                 <th><input type="text" style="border:none" placeholder="7.8" name="nombre" id=""></th>   
                                             </tr>
                                             <tr>
-                                                <th class="row">Revisión 3</th>  
+                                                <th class="row">Calificacion 3</th>  
                                                 <th><input type="text" style="border:none" placeholder="9.9" name="nombre" id=""></th>  
                                             </tr>
                                             <tr>
-                                                <th class="row">Revisión 4</th> 
+                                                <th class="row">Calificacion 4</th> 
                                                 <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
                                             </tr>
-                                            <tr>
-                                                <th class="row">Revisión 5</th> 
-                                                <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>   
-                                            </tr>
-                                            <tr>
-                                                <th class="row">Revisión 6</th>  
-                                                <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
-                                            </tr>
-                                            <tr>
-                                               <th class="row">Revisión 7</th>  
-                                               <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
-                                           </tr>
-                                           <tr>
-                                               <th class="row">Revisión 8</th>  
-                                               <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
-                                           </tr>
                                             
                                         </tbody>
                                     </table>
                            
                                 </div>
-                               <button><a href="{{url('/historicorev')}}">Revisión</a></button>
+                               <button><a href="/docentes">Regresar</a></button>
                                
                                
                                <div>

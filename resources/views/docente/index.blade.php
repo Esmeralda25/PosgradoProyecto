@@ -62,10 +62,10 @@
                                                             <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>        
                                                         @endif
                                                     
-                                                            <button type="button" class="btn btn-warning"><a href="/historicos/{{$proyecto->id}}" style="color: white">Historico</a></button>
+                                                            <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Historico</a></button>
 
                                                         @if ($proyecto->comiteTutorial->asesor == 1)
-                                                            <a href="/evaluaciones" class="btn btn-info">Asignar</a>        
+                                                            <a href="porcentaje-proyectos/{id}" class="btn btn-info">Asignar Avance</a>        
                                                         @endif
                                                     </td>
                                                         </th>
