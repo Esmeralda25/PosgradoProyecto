@@ -119,7 +119,7 @@
                                      </form>
 
                                      <script>
-                                    var botonRubrica = document.getElementById("rubricasid")
+                                    var botonRubrica = document.getElementById("rubricasid");
                                     botonRubrica.addEventListener("click",function()){
 
                                         var icontenido = document.getElementById("idcontenido")
@@ -127,8 +127,11 @@
                                         tipo.setAttribute('value','Rubrica')
 
                                         icontenido.innerHTML = 
-                                        
-                                       
+                                        /* foreach ($Rubricas as $Rubrica)
+                                            {
+                                                $innerHTML .= $elem->ownerDocument->saveHTML( $Rubrica );
+                                            }
+                                        */
                                         
                                         
                                     },false);
