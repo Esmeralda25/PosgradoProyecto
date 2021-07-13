@@ -20,27 +20,43 @@
 </li>
 @endsection
 @section('content')
+<section class="content">
+    <div class="container-fluid">
 
-   <div class="main container mt-10">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <form action="/create" method="POST">
-                    <label>Coordinador o Estudiante</label>
-                    <input type ="text" name="coordinador" placeholder="Nombre del coordinador">
-                    <br>
-                    <label>Correo</label>
-                    <input type ="text" name="correo" placeholder="E-mail">
-                    <br>
-                    <label>Contraseña</label>
-                    <input type ="text" name="password" placeholder="Contraseña">
-                    <br>
-                    <button type="submit">Agregar</button>
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
 
-                <form>
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">                                
+                            Docente: {{ \Session::get('usuario')->nombre}}
+                            </h1>
+                        </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                
+                        <form action="/create" method="POST">
+                            <label>Coordinador o Estudiante</label>
+                            <input type ="text" name="coordinador" placeholder="Nombre del coordinador">
+                            <br>
+                            <label>Correo</label>
+                            <input type ="text" name="correo" placeholder="E-mail">
+                            <br>
+                            <label>Contraseña</label>
+                            <input type ="text" name="password" placeholder="Contraseña">
+                            <br>
+                            <button type="submit">Agregar</button>
 
-            </div>
-        </div> 
-    </div>
+                        <form>
+
+                </div>
+            </div> 
+        </div>
+    </div> 
+</section>       
 
 @endsection
      

@@ -74,8 +74,7 @@
                                </div>
                             <div class="container">
                       
-                        
-                                <table class="col-12" style="100%">
+                                <table class="col-12">
                                     <thead>
                                         <tr>
                                             <th scope="row">
@@ -183,22 +182,12 @@
                                 <div>
                                   <button type="submit" class="btn btn-warning" style="margin: 5"><a style="color: black">Registrar</a></button>
                                 </div>
-                                  
-    
                             </div>
                         </form>
                     </div>
                     
                 </div>
             </div>
-            
-        
         </div>  
-      </section>
- 
-       </div>
-     </div>
-    
-   </div>
-  
-  @endsection
+</section>
+@endsection

@@ -20,18 +20,21 @@
 </li>
 @endsection
 @section('content')
-  <div>
-         <section class="content" style="padding-top: 10px">
-      
-        <div class="main container mt-10">
-            <div class="row justify-content-center">
-                <div class="col-md-7 mt-10">
-                    
-                    <div class="card">
-                            <form action="" method="POST">
-                                <div class="card-header text-center font-weight-bold" style="font-size: 30px">Compromisos Adquiridos</div>
-        
-    
+<section class="content">
+    <div class="container-fluid">
+
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">                                
+                                Compromisos Adquiridos                           
+                            </h1>
+                        </div>
+                            <form action="" method="POST">        
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row form-group col-12">
@@ -113,14 +116,9 @@
                     
                     </div>
                 </div>
-            
-        
             </div>
         </div>
-    
-    </section>
-      
-     </div>
+</section>
 @endsection
     
   

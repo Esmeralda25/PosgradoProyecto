@@ -16,28 +16,37 @@
 </li>
 @endsection
 @section('content')
+<section class="content">
+    <div class="container-fluid">
 
-<div class="main container mt-10">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-                            
-            <h2>editar Registros</h2>
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Editar Registros</h1>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
             
-            
-                    <div class="mb-3">
-                        Programa Educativo : {{$pe->nombre}}
-                    </div>
-                    <div class="mb-3">
-                        Nombre del coordinador : {{$pe->coordinador}}
-                    </div>
-                    <div class="mb-3">
-                        Correo del cordianador:{{$pe->correo}}
-                    </div>
-                    <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                <div class="mb-3">
+                                    Programa Educativo : {{$pe->nombre}}
+                                </div>
+                                <div class="mb-3">
+                                    Nombre del coordinador : {{$pe->coordinador}}
+                                </div>
+                                <div class="mb-3">
+                                    Correo del cordianador:{{$pe->correo}}
+                                </div>
+                                <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
-    </div>
-        
-</div>
-
-
+    </div>      
+</section>
 @endsection

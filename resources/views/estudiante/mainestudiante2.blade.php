@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>Coordinador</p>
+  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
 
 @endsection
 @section('submenu')
@@ -9,32 +9,38 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form> 
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/estudiantes')}}" class="nav-link">Inicio</a>
-</li>
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
 @endsection
 @section('content')
-  <div class="main container mt-10">
-  <a href="/estudiantes" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
+<section class="content">
+    <div class="container-fluid">
 
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-          <section class="content" style="padding-top: 10px">
+        <div style="height:60px">
+        </div>  <!-- espacio del top -->  
+
+        <div class="row justify-content-center" >
+            <div class="col-10">
+                <div class="card col-12">
+                        <div class="card-header" style="text-align: center">
+                            <h1 class="card-title font-weight-bold" style="text-align: center">                                
+                            Modificar
+                            </h1>
+                        </div>
   
-            <form action="" method="POST">
-                <div class="card-header text-center font-weight-bold" style="font-size: 30px">Modificar</div>
-        
-                    <div class="container">
-                        <table class="col-12" style="100%">
+                        <form action="" method="POST">        
+                          <table class="col-12">
                             <thead>
                                 <tr>
                                     <th scope="row">
-
                                           <div class="mb-3 form-group">
                                             <label for="nivel">Articulos JCR sometidos: </label>
                                                   <select name="nivel" id="nivel">
@@ -56,7 +62,7 @@
                                                 
                                 </tr>
                             </thead>
-                        </table>
+                          </table>
                                  <div>
                                     <h2 style="width: 100%; text-align:center; background:rgb(24, 23, 23); padding:0 0; color:white;margin-top:15px" class="font-weidth-bold">Compromisos</h2>
                                  </div>
@@ -82,9 +88,7 @@
                                                 <input type="text" placeholder="3" name="nombre" class="form-control" style="width: auto">
                                             </th>
                                      
-                                      </tr>
-                                        
-                                      
+                                      </tr>  
                           </tbody>
                         </table>
                         <table class="table" style="width: 100%">
@@ -131,17 +135,12 @@
     
                                 <div>
                                       <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
-                                </div>
-                                  
+                                </div>  
                     </div>
                 </div>      
             </form>
-          </section>
-      </div>
-    </div>
-    
-  </div>
-  @endsection
+</section>
+@endsection
     
     
         

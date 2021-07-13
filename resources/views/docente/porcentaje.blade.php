@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>{{ \Session::get('usuario')->docente}}</p>
+  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
 
 @endsection
 @section('submenu')
@@ -15,17 +15,12 @@
          </li>    
     </form>   
 @endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
-</li>
-@endsection
 @section('regresar') 
     <a href="/coordinadores" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
 @endsection
+
 @section('content')
 <section class="content">
     <div class="container-fluid">
