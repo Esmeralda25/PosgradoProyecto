@@ -22,8 +22,6 @@ class Proyecto extends Model
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
-    public function calificacion(){
-        return $this->hasOne('App\Models\Periodo','id','calificacion_id');
-    }
+    
     
 }

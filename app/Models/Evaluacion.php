@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rubrica extends Model
+class Evaluacion extends Model
 {
-    public $table = "rubricas";
-    protected $fillable=['nombre','tipo'];
+    protected $table = 'evaluaciones';
+    protected $fillable = ['calificacion','proyectos_id',];
     public $timestamps = false;
-
 
 }

@@ -78,13 +78,10 @@
                                         </div>
                                     </div>
                             
-                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
-                                
+                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica</h3>
+                                    <h5>{{$proyecto->periodo->rubricaProyectos->nombre}}</h5>
                                     <div class="form-group col-md-12">
-                                    
-                                        <input type="button" id="rubricasid" class="btn btn-primary" value="Rubrica">
-                                        <input type="button" id="criteriosid" class="btn btn-primary"   value="Criterio">
-
+                                
                                         <div id="idcontenido">
 
                                         </div>
@@ -118,24 +115,7 @@
                                      </tr>
                                      </form>
 
-                                     <script>
-                                    var botonRubrica = document.getElementById("rubricasid");
-                                    botonRubrica.addEventListener("click",function()){
-
-                                        var icontenido = document.getElementById("idcontenido")
-                                        var textotipo = document.getElementById("tipo")
-                                        tipo.setAttribute('value','Rubrica')
-
-                                        icontenido.innerHTML = 
-                                        /* foreach ($Rubricas as $Rubrica)
-                                            {
-                                                $innerHTML .= $elem->ownerDocument->saveHTML( $Rubrica );
-                                            }
-                                        */
-                                        
-                                        
-                                    },false);
-                                    </script>
+                                    
                                 </div>
                             </div>
                         </div>

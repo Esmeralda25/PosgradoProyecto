@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Proyecto;
-use App\Models\Calificacion;
-use App\Models\Criterio;
+use App\Models\Rubrica;
 
 
 use Illuminate\Http\Request;
@@ -12,8 +11,8 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $criterios = Criterio::find($id);
-        return view('docente.evaluar', compact('proyecto','criterios'));
+        $rubricas = rubrica::find($id);
+        return view('docente.evaluar', compact('proyecto','rubricas'));
     }
 
     public function store(){

@@ -10,4 +10,9 @@ class Periodo extends Model
     public $table = "periodos";
     protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];
     public $timestamps = false;
+
+    public function rubricaProyectos(){
+        return $this->hasOne('App\Models\Rubrica','id','rubrica');
+    }
 }
+
