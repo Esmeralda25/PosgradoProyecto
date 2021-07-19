@@ -97,11 +97,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   
-                                                    
+
+                                                <th>@foreach($relaciones as $relacion)
+                                                
+                                                     {{$relacion->descripcion}}
+                                                
+                                                @endforeach
+                                            </th>
+                                            
                                                 </tbody>
+                                              
+
                                             </table>
-                                
+
                                         </div>
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
                                     <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="nombre" id="">

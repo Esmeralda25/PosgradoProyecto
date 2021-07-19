@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Proyecto;
 use App\Models\Rubrica;
+use App\Models\Criterio;
 
 
 use Illuminate\Http\Request;
@@ -11,8 +12,8 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $rubricas = rubrica::find($id);
-        return view('docente.evaluar', compact('proyecto','rubricas'));
+        $relaciones = Rubrica::with('criteriosProyecto')->get();
+        return view('docente.evaluar', compact('proyecto','relaciones'));
     }
 
     public function store(){

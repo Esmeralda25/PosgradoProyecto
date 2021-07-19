@@ -10,5 +10,9 @@ class Criterio extends Model
     public $table = "criterios";
     protected $fillable=['Rubricas_id','descripcion'];
     public $timestamps = false;
+
+    public function rubricasCriterios(){
+        return $this->belongsTo('App\Models\Rubrica','id');
+    }
  
 }
