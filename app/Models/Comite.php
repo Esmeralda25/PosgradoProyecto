@@ -12,7 +12,7 @@ class Comite extends Model
     public function docenteAsesor(){
         return $this->hasOne('App\Models\Docente','id','asesor');
 
-
+ 
     }
  
 }

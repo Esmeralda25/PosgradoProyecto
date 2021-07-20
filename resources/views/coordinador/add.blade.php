@@ -21,11 +21,7 @@
 
 </li>
 @endsection
-@section('regresar') 
-    <a href="/coordinadores" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
+
 @section('content')
   <section class="content">
     <div class="container-fluid">

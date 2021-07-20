@@ -37,6 +37,7 @@ Route::resource('pes', PesController::class);
 Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
 
 Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
+Route::post('addproyectos','App\Http\Controllers\proyectosController@store');
 //Route::resource('asignar', 'App\Http\Controllers\asignarController');
 Route::get('asignar-asesores/{id_proyecto}','App\Http\Controllers\proyectosController@asignarAsesores' );
 //nota:  componer las rutas, aplicar convenciones en todo el sistema
@@ -59,12 +60,14 @@ Route::get('usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuari
 
 Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
 Route::post('add', 'App\Http\Controllers\coordinadorController@store');
-
+ 
 Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password');
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
 //Proyectos
 Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
+Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
+
 
 //Generaciones
 Route::resource('generaciones','App\Http\Controllers\GeneracionController');

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class proyectosController extends Controller
 {
-
+ 
 public function index(){
 
 
@@ -19,6 +19,7 @@ public function index(){
 
     //checar en que moemnto estamos
     //si tiene proyecto lo muestro si no que lo cree
+
     return view('estudiante.proyectos');
 
 }
@@ -27,7 +28,7 @@ public function index(){
     public function Store(Request $request){
         
         proyecto::create(request()->all());
-        
+        return redirect('/proyectos');
         
 
     } 
@@ -41,5 +42,20 @@ public function index(){
         $docentes = $pe->docentes;
         
         return view('coordinador.asignarProyecto.asesor',compact('proyecto','docentes'));
+    }
+
+    public function actualizarCompromisos(Request $request, $id){
+        //dd($request->all());
+        //manejo de transacciones en base de datos
+        //DB::beginTransaction()
+        //validaciones
+       
+        $compromiso = new Compromiso;
+        $compromiso->fill($request->all());
+        $compromiso->save();
+        $proyecto = Proyecto::find($id);
+        $proyecto->compromiso = $compromiso->id;
+        $proyecto->save();
+        return redirect("/estudiantes");
     }
 }

@@ -15,11 +15,7 @@
          </li>    
     </form>   
 @endsection
-@section('regresar') 
-    <a href="/coordinadores" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
+
 
 @section('content')
 <section class="content">
@@ -59,7 +55,7 @@
                                 <div class="row form-group col-12">
                                     <label for="">Objetivo Espesifico</label>
                                     {{ $proyecto->objetivose}}
-                                </div>
+                                </div> 
                                 
                                 <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf

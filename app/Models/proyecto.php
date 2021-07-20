@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Proyecto extends Model
 {
     protected $table = 'proyectos';
-    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose', 'avance','comite','estudiante_id', 'periodo_id','calificacion_id'];
+    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose', 'avance','comite','estudiante_id', 'periodo_id','calificacion_id', 'compromiso'];
     
-    public $timestamps = false;
+    public $timestamps = false; 
 
     public function estudiante(){
         return $this->hasOne('App\Models\estudiante','id','estudiante_id');
@@ -21,6 +21,10 @@ class Proyecto extends Model
     }
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');
+    }
+
+    public function compromiso(){
+        return $this->hasOne('App\Models\Compromiso','id','compromiso');
     }
     
     

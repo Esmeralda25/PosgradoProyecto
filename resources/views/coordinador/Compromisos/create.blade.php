@@ -22,7 +22,6 @@
   <!-- Content Wrapper. Contains page content -->
 @section('content')
 <div class="main container mt-10">
-<a href="/Compromisos" class="btn btn-warning " style="margin: 10px;" tabindex="5">Regresar</a>
 
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -37,7 +36,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12"> 
                             <!-- contenido de main imagenes -->
                                     
                                     <form action="/pes" method="POST">

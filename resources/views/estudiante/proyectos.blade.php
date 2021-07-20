@@ -9,17 +9,15 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i class="fas fa-users nav-icon"></i>    
+        </a>
+         </li>    
+    </form>   
 @endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/estudiantes')}}" class="nav-link">Inicio</a>
-</li>
-@endsection
+
 @section('content')
+    <!--ESTUDIANTE INDEX -->      
    <div class="main container">
      <div class="row justify-content-center">
        <div class="col-md-10">
@@ -33,38 +31,35 @@
                 <div class="col-md-10 mt-10">
                     
                     <div class="card col-md-10 mt-10"">
-                        <form action="/proyectos" method="POST">
-                        
+                        <form action="/addproyectos" method="POST">
+                        @csrf
                             <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
-                            @csrf 
+                             
                             <div class="justify-content-center" style="margin: 15px">
                                 <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
                                 <input type="text" name="nombre" value="{{ \Session::get('usuario')->nombre }}">
 
-                            </div>
-                            
-                                
+                            </div>  
+
                             <div class="card-body">
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Título</label>
                                     <input type="text" class="row col-12" name="titulo">
                                 </div>
 
-        
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Hipotesis</label>
                                     <input type="text" class="row col-12" name="hipotesis">
                                 </div>
 
-    
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivo General</label>
-                                    <input type="text" class="row col-12" name="objetivos">
+                                    <input type="text" class="row col-12" name="objetivo_gen">
                                 </div>
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivos Especificos</label>
-                                    <input type="text" class="row col-12" name="objetivose">
+                                    <input type="text" class="row col-12" name="objetivo_esp">
                                 </div>
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Comite</label>
@@ -74,13 +69,26 @@
                                </div>
                             <div class="container">
                       
-                                <table class="col-12">
-                                    <thead>
-                                        <tr>
-                                            <th scope="row">
-                                               <div class="mb-3 form-group">
-                                                   
-                                               <label for="sometidod" class="form-label">Articulos JRC Sometidos</label>
+                            <table class="col-12">
+                                <thead>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="mb-3 form-group">
+                                                <form action="/compromisos/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                                    <div class="row col-12">
+                                                        <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
+                                                            <select name="compromiso" id="sel" style="width: 1000px; height:35px">                                          
+                                                            @foreach($compromisos as $compromiso)
+                                                            <option value="{{$compromiso->id}}">{{$compromiso->titulo}}</option>
+                                                            @endforeach
+                                                            </select>
+                                                    </div>
+                                            
+                                                </form>
+                                              <!--  <label for="sometidod" class="form-label">Articulos JRC Sometidos</label>
                                                 <input class="form-control" list="lista" id="opciones" placeholder="Opciones">
                                                   <datalist id="lista">
                                                     <option value="Articulos JRC Sometidos">
@@ -90,7 +98,7 @@
                                                     <option value="Conferencias Internacionales">
                                                   </datalist>
                        
-                                                </div>  
+                                                </div>  --> 
                                                 
                                             </th>
                                             <th scope="row">

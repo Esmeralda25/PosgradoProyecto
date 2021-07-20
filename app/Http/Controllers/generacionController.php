@@ -63,7 +63,7 @@ class GeneracionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) 
     {
         $generacion = Generacion::find($id);
         return view('coordinador.generacion.edit')->with('generacion',$generacion); 
