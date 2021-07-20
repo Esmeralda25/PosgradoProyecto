@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Proyecto;
 use App\Models\Estudiante;
 use App\Models\Docente;
+use App\Models\Compromiso;
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,11 +17,11 @@ public function index(){
 
     $usuario = \Session::get('usuario');
 //    echo "entra estudiante: $usuario->id";
-
+    $compromisos = Compromiso::all(); //deben ser los compromisos que admite solo su p.e.
     //checar en que moemnto estamos
     //si tiene proyecto lo muestro si no que lo cree
 
-    return view('estudiante.proyectos');
+    return view('estudiante.proyectos', compact('compromisos'));
 
 }
     

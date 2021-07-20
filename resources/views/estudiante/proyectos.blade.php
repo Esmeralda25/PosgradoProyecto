@@ -74,13 +74,14 @@
                                     <tr>
                                         <th scope="row">
                                             <div class="mb-3 form-group">
-                                                <form action="/compromisos/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
+                                                {{-- action="/compromisos/{{$proyecto ?? ''->id}}" --}}
+                                                <form  method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                                                     <div class="row col-12">
                                                         <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                                            <select name="compromiso" id="sel" style="width: 1000px; height:35px">                                          
+                                                            <select name="compromiso" id="sel" style="height:35px">                                          
                                                             @foreach($compromisos as $compromiso)
                                                             <option value="{{$compromiso->id}}">{{$compromiso->titulo}}</option>
                                                             @endforeach
