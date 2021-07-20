@@ -17,7 +17,7 @@ public function index(){
 
     $usuario = \Session::get('usuario');
 //    echo "entra estudiante: $usuario->id";
-    $compromisos = Compromiso::all(); //deben ser los compromisos que admite solo su p.e.
+    $compromisos = Compromiso::all(); //deben ser los compromisos que admite solo su p.e.S
     //checar en que moemnto estamos
     //si tiene proyecto lo muestro si no que lo cree
 
