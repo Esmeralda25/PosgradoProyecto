@@ -12,7 +12,7 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $relaciones = Rubrica::with('criteriosProyecto')->get();
+        $relaciones = Rubrica::find(1)->criteriosProyecto;
         return view('docente.evaluar', compact('proyecto','relaciones'));
     }
 

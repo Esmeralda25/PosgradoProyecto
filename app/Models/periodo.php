@@ -11,7 +11,7 @@ class Periodo extends Model
     protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];
     public $timestamps = false;
 
-    public function rubricaProyectos(){
+    public function rubricaAUsar(){
         return $this->hasOne('App\Models\Rubrica','id','rubrica');
     }
 }

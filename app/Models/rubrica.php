@@ -14,11 +14,7 @@ class Rubrica extends Model
     public function criteriosProyecto(){
         return $this->hasMany('App\Models\Criterio', 'Rubricas_id','id');
 
-        $relaciones = Rubrica::find(1)->Criterio;
-        
-        foreach ($relaciones as $relacion) {
-            $relacion->descripcion;
-        }
+    
        
     }
 

@@ -75,7 +75,7 @@
                                     </div>
                             
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica</h3>
-                                    <h5>{{$proyecto->periodo->rubricaProyectos->nombre}}</h5>
+                                    <h5>{{$proyecto->periodo->rubricaAUsar->nombre}}</h5>
                                     <div class="form-group col-md-12">
                                 
                                         <div id="idcontenido">
@@ -96,9 +96,35 @@
 
                                                 <th>@foreach($relaciones as $relacion)
                                                 
-                                                     {{$relacion->descripcion}}
+                                                     {{$relacion->descripcion}}<br><br>
                                                 
                                                 @endforeach
+                                            </th>
+                                            <th>
+                                                     @if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
+                                                             <select name="">
+                                                             <option value="">0</option>
+                                                             <option value="">70</option>
+                                                             <option value="">80</option>
+                                                             <option value="">90</option>
+                                                             <option value="">100</option> 
+                                                             </select>        
+                                                        @endif
+
+                                                        @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
+                                                             <select name="">
+                                                             <option value="">No aceptable</option>
+                                                             <option value="">Regular</option>
+                                                             <option value="">Bien</option>
+                                                             <option value="">Muy Bien</option>
+                                                             <option value="">Excelente</option> 
+                                                             </select>        
+                                                        @endif
+
+                                                    
+
+                                                    
+
                                             </th>
                                             
                                                 </tbody>
