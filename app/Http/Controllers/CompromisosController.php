@@ -8,8 +8,11 @@ use App\Models\Compromiso;
 class CompromisosController extends Controller
 {
     public function index(){
-       
-        $compromisos = Compromiso::orderBy('id','DESC')->get();                  
+        $coordinador = \Session::get('usuario');
+
+        //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
+
+        $compromisos = Compromiso::orderBy('id','DESC')->where('pes_id',$coordinador->id)->get();
         return view('coordinador.Compromisos.index')->with('compromisos', $compromisos);
     }
     public function create(){ 
