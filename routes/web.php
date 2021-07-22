@@ -131,6 +131,7 @@ Route::resource('docentes', 'App\Http\Controllers\docenteController');
 
 //Docente Evaluaciones
 Route::get('evaluaciones/{id}', 'App\Http\Controllers\evaluarController@index');
+Route::post('guardar-calificaciones','App\Http\Controllers\evaluarController@store');
 Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\evaluarController@show');
 Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\evaluarController@porcentaje');
 Route::put('guardar-porcentajes/{id}','App\Http\Controllers\evaluarController@guardarPorcentajes');

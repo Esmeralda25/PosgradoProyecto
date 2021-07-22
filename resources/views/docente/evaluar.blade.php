@@ -83,58 +83,62 @@
                                         </div>
 
                                         <div class="tcontainer">
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        <form action="/guardar-calificaciones" method="POST" enctype="multipart/form-data">
                                         @csrf
                                             <table class="table">
                                                 <thead class="table-dark">
                                                     <tr>
-                                                        <th class="row">Criterios</th> 
-                                                        <th>Calificacion</th>  
+                                                        <th class="row">CRITERIOS A EVALUAR</th> 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                <th>@foreach($relaciones as $relacion)
+                                                <th>@foreach($relaciones as $relacion)<br><br>
                                                 
-                                                     {{$relacion->descripcion}}<br><br>
+                                                     {{$relacion->descripcion}}
                                                 
-                                                @endforeach
-                                            </th>
-                                            <th>
+                                            
                                                      @if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
-                                                             <select name="">
-                                                             <option value="">0</option>
-                                                             <option value="">70</option>
-                                                             <option value="">80</option>
-                                                             <option value="">90</option>
-                                                             <option value="">100</option> 
-                                                             </select>        
+                                                             <select name="calificacion[{{$loop->index}}]">
+                                                             <option value="0">0</option>
+                                                             <option value="70">70</option>
+                                                             <option value="80">80</option>
+                                                             <option value="90">90</option>
+                                                             <option value="100">100</option> 
+                                                             </select>    
+
+                                                             
+                                                            
                                                         @endif
 
                                                         @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
-                                                             <select name="">
-                                                             <option value="">No aceptable</option>
-                                                             <option value="">Regular</option>
-                                                             <option value="">Bien</option>
-                                                             <option value="">Muy Bien</option>
-                                                             <option value="">Excelente</option> 
+                                                             <select name="calificacion[{{$loop->index}}]">
+                                                             <option value="0">No aceptable</option>
+                                                             <option value="70">Regular</option>
+                                                             <option value="80">Bien</option>
+                                                             <option value="90">Muy Bien</option>
+                                                             <option value="100 ">Excelente</option> 
                                                              </select>        
                                                         @endif
 
                                                     
+                                                            
+                                                        @endforeach
 
-                                                    
-
+                                
                                             </th>
+
                                             
                                                 </tbody>
                                               
 
                                             </table>
-
+                                            <div class="mb-3">
+                                            <input name="proyectos_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
+                                            </div>
                                         </div>
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
-                                    <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="nombre" id="">
+                                    <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="observaciones" id="">
                                     
                                     <tr>
                                     <th class="row">

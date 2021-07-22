@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Proyecto;
 use App\Models\Rubrica;
+use App\Models\Evaluacion;
 use App\Models\Criterio;
 
 
@@ -16,8 +17,13 @@ class evaluarController extends Controller
         return view('docente.evaluar', compact('proyecto','relaciones'));
     }
 
-    public function store(){
+    public function store(Request $request){
 
+        $valores = $request->all();
+        dd($valores);
+        Evaluacion::create($valores);
+        $id =$valores['proyectos_id'];
+        return redirect("/docente");
     }
 
     public function show($id){
