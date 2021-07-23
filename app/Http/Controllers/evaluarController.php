@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Proyecto;
 use App\Models\Rubrica;
 use App\Models\Evaluacion;
@@ -19,11 +20,25 @@ class evaluarController extends Controller
 
     public function store(Request $request){
 
-        $valores = $request->all();
-        dd($valores);
-        Evaluacion::create($valores);
-        $id =$valores['proyectos_id'];
-        return redirect("/docente");
+        try{
+
+            DB::beginTransaction();
+
+            $valores = $request->all();
+            dd($valores);
+            $nuevo = implode($valores);
+            Evaluacion::create($nuevo);
+            $id =$nuevo['proyectos_id'];
+
+            $registro = $request->all();
+            DesgloceEvaluacion::create($registro);
+
+            DB::commit();
+
+    } catch (\Exception $e){
+        DB::rollBack();
+        
+    }
     }
 
     public function show($id){

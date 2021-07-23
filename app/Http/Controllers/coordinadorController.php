@@ -75,8 +75,9 @@ class coordinadorController extends Controller
         }elseif($request->input('nivel')=="Docente"){
             
             //Docente::insert($docente);
-            $nuevo = new Docente();
+            $nuevo = new docente();
             $nuevo->fill($docente);
+            $nuevo->password = bcrypt($request->password);
             $nuevo->save();
 
             //modificar la adscripcion  a $pe->id del $nuevo->id
@@ -191,14 +192,14 @@ class coordinadorController extends Controller
 
 
         if ($tipo == "Estudiante"){       
-             $estudiante= estudiante::find($id);
+             $estudiante= Estudiante::find($id);
              $estudiante->password = Hash::make($request->password);
              $estudiante->save();
              return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctaente');
         }else{
-            $estudiante= estudiante::find($id);
-            $estudiante->password = Hash::make($request->password);
-            $estudiante->save();
+            $docente= Docente::find($id);
+            $docente->password = Hash::make($request->password);
+            $docente->save();
             return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctamente');
         }
 
