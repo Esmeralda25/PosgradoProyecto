@@ -22,8 +22,11 @@ class CompromisosController extends Controller
     public function store(Request $request) 
     {
         //guardar los datos que vengan
+        $coordinador = \Session::get('usuario');
+
         $compromiso = new Compromiso;
         $compromiso->fill( $request->all() );
+        $compromiso->pes_id=$coordinador->id;
         $compromiso->save();
         return redirect("/Compromisos"); //que me envie con un mensaje
 

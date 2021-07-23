@@ -105,6 +105,18 @@ Route::put('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@des
 
 //Compromisos
 Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
+/*
+
+~/proyectos/doctorado:master$ php artisan route:list | grep Compromisos
+|        | POST      | Compromisos                           | Compromisos.store       | App\Http\Controllers\CompromisosController@store                | web        |
+|        | GET|HEAD  | Compromisos                           | Compromisos.index       | App\Http\Controllers\CompromisosController@index                | web        |
+|        | GET|HEAD  | Compromisos/create                    | Compromisos.create      | App\Http\Controllers\CompromisosController@create               | web        |
+|        | DELETE    | Compromisos/{Compromiso}              | Compromisos.destroy     | App\Http\Controllers\CompromisosController@destroy              | web        |
+|        | PUT|PATCH | Compromisos/{Compromiso}              | Compromisos.update      | App\Http\Controllers\CompromisosController@update               | web        |
+|        | GET|HEAD  | Compromisos/{Compromiso}              | Compromisos.show        | App\Http\Controllers\CompromisosController@show                 | web        |
+|        | GET|HEAD  | Compromisos/{Compromiso}/edit         | Compromisos.edit        | App\Http\Controllers\CompromisosController@edit                 | web        |
+El resource ya agrego las proximas tres rutas, pero deben llamarlas como su nombre es
+*/
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
@@ -119,8 +131,10 @@ Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosContro
 
 
 
+/*
+como debieron cambiar esto?
 Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
-
+*/
 
 Route::resource('asesores', 'App\Http\Controllers\asesorController');
 Route::resource('asignaciones', 'App\Http\Controllers\asignarController');

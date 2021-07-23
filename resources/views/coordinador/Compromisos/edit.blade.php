@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="/actualizarCompromisos/{{$compromiso->id}}"​​ method="post">
+                                    <form action="/Compromisos/{{$compromiso->id}}"​​ method="post">
                                             @csrf
                                             @method('PUT')
                                         <div class="card-body">
