@@ -25,13 +25,23 @@ class evaluarController extends Controller
             DB::beginTransaction();
 
             $valores = $request->all();
-            dd($valores);
             $nuevo = implode($valores);
             Evaluacion::create($nuevo);
             $id =$nuevo['proyectos_id'];
 
+            foreach($nuevo as $cal){
+                echo $cal->id;
+
+                $registro = $request->all();
+                DesgloceEvaluacion::create($registro);
+
+            }
+
             $registro = $request->all();
-            DesgloceEvaluacion::create($registro);
+            $nuevas = Evaluacion::find($id);
+            $nuevas->fill($registro);
+            $nuevas->save();
+            return redirect("/docentes");
 
             DB::commit();
 
