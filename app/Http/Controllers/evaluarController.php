@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\Models\Proyecto;
 use App\Models\Rubrica;
 use App\Models\Evaluacion;
@@ -24,16 +25,20 @@ class evaluarController extends Controller
 
             DB::beginTransaction();
 
-            $valores = $request->all();
-            $nuevo = implode($valores);
-            Evaluacion::create($nuevo);
-            $id =$nuevo['proyectos_id'];
+            $valores = DB::table('evaluaciones')->insertGetId(
+                ['proyectos_id'=> $request->proyectos_id, 
+                 'calificacion'=>$request->calificacion,
+                 'observaciones'=>$request->observaciones,
+                 'fecha'=> date('Y-m-d H:i:s')]
+            ); 
+
+            return redirect('/docentes');
 
             foreach($nuevo as $cal){
-                echo $cal->id;
+                $cal->id;
 
-                $registro = $request->all();
-                DesgloceEvaluacion::create($registro);
+                $cal = $request->all();
+                DesgloceEvaluacion::create($cal);
 
             }
 

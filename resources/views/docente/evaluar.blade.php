@@ -139,9 +139,6 @@
                                         </div>
                                     <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
                                     <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="observaciones" id="">
-
-                                    <label for="" class="row col-12">Fecha De Evaluación</label>
-                                    <input type="date" placeholder="" name="fecha" class="form-control" style="width: 300px"><br>
                                     
                                     <tr>
                                     <th class="row">
