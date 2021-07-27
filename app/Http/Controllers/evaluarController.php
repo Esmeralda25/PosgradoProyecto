@@ -15,24 +15,35 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $relaciones = Rubrica::find(1)->criteriosProyecto;
+        $relaciones = Rubrica::find(1)->criteriosProyecto; //y esto para que?
         return view('docente.evaluar', compact('proyecto','relaciones'));
     }
 
     public function store(Request $request){
-
+//dd($request->all());
         try{
 
             DB::beginTransaction();
 
             $valores = DB::table('evaluaciones')->insertGetId(
                 ['proyectos_id'=> $request->proyectos_id, 
-                 'calificacion'=>$request->calificacion,
-                 'observaciones'=>$request->observaciones,
+                 'calificacion'=>$request->calificacion, //request->calificacion es un array la calificaicon que aqui va es el promedio de las calificaicones que vienen en el arreglo, y le cambie el nombre a valor
+                 'observaciones'=>$request->observaciones, //la evaluacion no tiene observaciones
                  'fecha'=> date('Y-m-d H:i:s')]
             ); 
+            // calificacion es el promedio de los valores obtenidos en esa evaluacion....
+            return redirect('/docentes'); //si haces un return redirect no se ejecutan las lineas que siguen ....
 
-            return redirect('/docentes');
+
+
+            //nunca se ejecutara lo siguiente
+            // de donde sacas nuevo, en el que vas a iterar es en $request->calificacion
+            // y para cada desgloce de evaluacion debes saber en que criterio se le pone la calificacion y con que obseravaciones.
+            //(concepto, valor, poderacion)
+
+
+
+
 
             foreach($nuevo as $cal){
                 $cal->id;

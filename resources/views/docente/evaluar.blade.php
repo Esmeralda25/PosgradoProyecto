@@ -93,44 +93,49 @@
                                                 </thead>
                                                 <tbody>
 
-                                                <th>@foreach($relaciones as $relacion)<br><br>
-                                                
-                                                     {{$relacion->descripcion}}
-                                                
-                                            
-                                                     @if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
-                                                             <select name="calificacion[{{$loop->index}}]">
-                                                             <option value="0">0</option>
-                                                             <option value="70">70</option>
-                                                             <option value="80">80</option>
-                                                             <option value="90">90</option>
-                                                             <option value="100">100</option> 
-                                                             </select>    
-
-                                                             
-                                                            
-                                                        @endif
-
-                                                        @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
-                                                             <select name="calificacion[{{$loop->index}}]">
-                                                             <option value="0">No aceptable</option>
-                                                             <option value="70">Regular</option>
-                                                             <option value="80">Bien</option>
-                                                             <option value="90">Muy Bien</option>
-                                                             <option value="100 ">Excelente</option> 
-                                                             </select>        
-                                                        @endif
-
+                                                <th>
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Criterio</th>
+                                                                <th>Calificacion</th>
+                                                                <th>Observaciones</th>    
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach($relaciones as $relacion)<br><br>
+                                                            <tr>
+                                                                <td><input type="hidden" name="concepto[{{$loop->index}}]">
+                                                                    {{$relacion->descripcion}}</td>
+                                                                <td>@if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
+                                                                    <select name="valor[{{$loop->index}}]">
+                                                                    <option value="0">0</option>
+                                                                    <option value="70">70</option>
+                                                                    <option value="80">80</option>
+                                                                    <option value="90">90</option>
+                                                                    <option value="100">100</option> 
+                                                                    </select>                                                                
+                                                               @endif
+        
+                                                               @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
+                                                                    <select name="valor[{{$loop->index}}]">
+                                                                    <option value="0">No aceptable</option>
+                                                                    <option value="70">Regular</option>
+                                                                    <option value="80">Bien</option>
+                                                                    <option value="90">Muy Bien</option>
+                                                                    <option value="100 ">Excelente</option> 
+                                                                    </select>        
+                                                               @endif</td>
+                                                                <td><input type="text" name="observacion[{{$loop->index}}]"></td>    
+                                                            </tr>
                                                     
-                                                            
-                                                        @endforeach
-
-                                
+                                                                @endforeach
+        
+                                                        </tbody>
+                                                    </table>                               
                                             </th>
 
-                                            
                                                 </tbody>
-                                              
 
                                             </table>
                                             <div class="mb-3">

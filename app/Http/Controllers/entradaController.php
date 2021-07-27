@@ -18,6 +18,7 @@ class entradaController extends Controller
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
 
         if(!is_null($usuario) ){
+            
             //es un estudiante debo checar su password   
             $password_dieron =  $peticion->input('palabra');
             
@@ -35,6 +36,7 @@ class entradaController extends Controller
         $usuario = Pe::where('correo', $peticion->input('nombre'))->first();
         
         if(! is_null($usuario) ){
+            
             //es un coordiandor debo checar su password (checar si es informatico)
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
@@ -49,10 +51,12 @@ class entradaController extends Controller
         }
         
         $usuario = docente::where('correo', $peticion->input('nombre'))->first();
+        //dd($peticion->input('nombre'));
         if(! is_null($usuario)){
             //es un docente se debe verificar su password
             $password_dieron = $peticion->input('palabra');
             $password_guadado = $usuario->password;
+
             if (Hash::check($password_dieron, $password_guadado)) {
                 $identificacion = "Docente : " . $usuario->nombre ;
                 \Session::put('identificacion' ,  $identificacion );
@@ -70,7 +74,7 @@ class entradaController extends Controller
         }
 
         echo "USUARIO NO REGISTRADO";
-        return view('user_notfound');
+        return view('user_notfound');//si separaron la palabra user porque no separaron la palabra not
 
         }
 
