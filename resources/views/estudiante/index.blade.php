@@ -38,8 +38,10 @@
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
                                 <div class="row">
+                                @foreach($estudiantes as $estudiante)
                                     <div class="col-6">
-                                        <div class="info-box">
+                                    @if($estudiante->cursando == "registro")
+                                        <div class="info-box" style="visibility: TRUE;">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                             
                                             <div class="info-box-content">
@@ -47,18 +49,23 @@
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
-
+                                    @endif
                                     </div>
                                     <div class="col-6">
-                                        <div class="info-box">
+                                    @if($estudiante->cursando == "inicio")
+
+                                        <div class="info-box" style="visibility: TRUE;">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
                                                 <a href="{{url('/mainestudiantes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
                                                 
                                             </div>
                                         </div>
+                                    @endif    
                                     </div>
                                     <div class="col-6">
+                                    @if($estudiante->cursando == "seguimiento")
+
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
@@ -68,8 +75,11 @@
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
+                                    @endif    
                                     </div>
                                     <div class="col-6">
+                                    @if($estudiante->cursando == "reportar")
+
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                             
@@ -79,6 +89,7 @@
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
+                                    @endif    
                                     </div>
                                 </div>
                             </div>

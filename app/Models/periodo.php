@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Periodo extends Model
+class Periodo extends Model 
 {
     public $table = "periodos";
     protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];

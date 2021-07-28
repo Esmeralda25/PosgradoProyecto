@@ -20,6 +20,7 @@ public function index(){
     $compromisos = Compromiso::all(); //deben ser los compromisos que admite solo su p.e.S
     //checar en que moemnto estamos
     //si tiene proyecto lo muestro si no que lo cree
+    
 
     return view('estudiante.proyectos', compact('compromisos'));
 
@@ -59,4 +60,6 @@ public function index(){
         $proyecto->save();
         return redirect("/estudiantes");
     }
+
+
 }
