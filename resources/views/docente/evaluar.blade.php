@@ -103,18 +103,13 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach($relaciones as $relacion)<br><br>
+                                                            @foreach($relaciones as $relacion)
                                                             <tr>
                                                                 <td><input type="hidden" name="concepto[{{$loop->index}}]">
                                                                     {{$relacion->descripcion}}</td>
                                                                 <td>@if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
-                                                                    <select name="valor[{{$loop->index}}]">
-                                                                    <option value="0">0</option>
-                                                                    <option value="70">70</option>
-                                                                    <option value="80">80</option>
-                                                                    <option value="90">90</option>
-                                                                    <option value="100">100</option> 
-                                                                    </select>                                                                
+                                                                    <input type="number" name="valor[{{$loop->index}}]"
+                                                                                        min="0" max="100">                                                 
                                                                @endif
         
                                                                @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
@@ -142,8 +137,6 @@
                                             <input name="proyectos_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
                                             </div>
                                         </div>
-                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Observaciones</h3>
-                                    <input style="width: 100%; max-width: 850px; margin: 0 auto; height:70px" type="text" name="observaciones" id="">
                                     
                                     <tr>
                                     <th class="row">

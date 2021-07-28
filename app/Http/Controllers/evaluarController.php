@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Proyecto;
 use App\Models\Rubrica;
 use App\Models\Evaluacion;
+use App\Models\DesgloceEvaluacion;
 use App\Models\Criterio;
 
 
@@ -15,24 +16,51 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $relaciones = Rubrica::find(1)->criteriosProyecto; //y esto para que?
+        $relaciones = Rubrica::find(1)->criteriosProyecto; //Esto me sirve para traer todos los criterios de la rubrica ing.
         return view('docente.evaluar', compact('proyecto','relaciones'));
     }
 
     public function store(Request $request){
-//dd($request->all());
+       
         try{
 
-            DB::beginTransaction();
+          DB::beginTransaction();
 
-            $valores = DB::table('evaluaciones')->insertGetId(
-                ['proyectos_id'=> $request->proyectos_id, 
-                 'calificacion'=>$request->calificacion, //request->calificacion es un array la calificaicon que aqui va es el promedio de las calificaicones que vienen en el arreglo, y le cambie el nombre a valor
-                 'observaciones'=>$request->observaciones, //la evaluacion no tiene observaciones
+
+            $nuevos = (
+                ['proyectos_id'=> $request->proyectos_id,
+                 'calificacion'=> $request->valor,
+                 'concepto'=> $request-> concepto,
+                 'observacion' => $request->observacion,
                  'fecha'=> date('Y-m-d H:i:s')]
             ); 
+
+            
+            foreach($nuevos as $nuevo){
+
+               $id = DB::table('evaluaciones')->insertGetId([
+                    'proyectos_id'=>$nuevo,
+                    'calificacion'=>$nuevo,
+                    'fecha'=> date('Y-m-d H:i:s')
+                ]);
+
+                DesgloceEvaluacion::create([
+                    'evaluaciones_id'=>$id,
+                    'docentes_id'=>$nuevo,
+                    'concepto'=>$nuevo,
+                    'valor'=>$nuevo,
+                    'observacion'=>$nuevo,
+                ]);
+
+                
+            }
+            
+            
+            
+            
+            
             // calificacion es el promedio de los valores obtenidos en esa evaluacion....
-            return redirect('/docentes'); //si haces un return redirect no se ejecutan las lineas que siguen ....
+          //si haces un return redirect no se ejecutan las lineas que siguen ....
 
 
 
@@ -41,17 +69,6 @@ class evaluarController extends Controller
             // y para cada desgloce de evaluacion debes saber en que criterio se le pone la calificacion y con que obseravaciones.
             //(concepto, valor, poderacion)
 
-
-
-
-
-            foreach($nuevo as $cal){
-                $cal->id;
-
-                $cal = $request->all();
-                DesgloceEvaluacion::create($cal);
-
-            }
 
             $registro = $request->all();
             $nuevas = Evaluacion::find($id);
