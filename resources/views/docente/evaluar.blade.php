@@ -104,7 +104,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach($relaciones as $relacion)
-                                                            <tr>
+                                                            <tr> 
                                                                 <td><input type="hidden" name="concepto[{{$loop->index}}]">
                                                                     {{$relacion->descripcion}}</td>
                                                                 <td>@if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")

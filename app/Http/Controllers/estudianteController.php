@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Estudiante;
+use App\Models\Proyecto;
 use Illuminate\Http\Request;
 
 
@@ -13,11 +14,13 @@ class estudianteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
+        $estudiante  = \Session::get('usuario' );        
         $estudiantes = estudiante::all();
-        
+        // $proyectos = $estudiante->proyectos();
+        $proyectos = Proyecto::all();
 
-        return view('estudiante.index') ->with('estudiantes',$estudiantes);
+        return view('estudiante.index', compact('estudiantes'));
     }
 
     public function create()

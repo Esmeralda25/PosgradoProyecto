@@ -8,7 +8,7 @@ use App\Models\Estudiante;
 use App\Models\Proyecto;
 
 class docenteController extends Controller
-{ 
+{  
     public function index()
     {
         $docente  = \Session::get('usuario' );

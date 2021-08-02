@@ -11,6 +11,8 @@ class Estudiante extends Usuario
     'compromisos_id','actividades_id','periodos_id', 'cursando'];
     public $timestamps = false;
     
+
+    
     public function nivel(){
         return "Estudiante";
     }
@@ -21,6 +23,8 @@ class Estudiante extends Usuario
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','cursando');
     }
+
+    
     
 
 
