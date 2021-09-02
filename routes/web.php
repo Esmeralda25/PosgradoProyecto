@@ -35,6 +35,7 @@ Route::resource('pes', PesController::class);
 //Estudiante
 
 Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
+//Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
 
 Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
 Route::post('addproyectos','App\Http\Controllers\proyectosController@store');

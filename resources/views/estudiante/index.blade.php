@@ -37,72 +37,60 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    @foreach($estudiantes as $estudiante)
-                                    <div class="col-6">
-                                        @if($estudiante->cursando == "Registro")
-                                            <div class="info-box" style="visibility: TRUE;">
-                                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
-                                
-                                                <div class="info-box-content">
-                                                    <a href="{{url('/proyectos')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Nuevo Proyecto</span></a>  
+                                    <div class="col-6" href="/estudiante/etapa1">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>                   
+                                                    <div class="info-box-content">
+                                                        <a href="{{url('/proyectos')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Nuevo Proyecto</span></a>  
+                                                    </div>
+                                                    <!-- /.info-box-content -->
                                                 </div>
-                                                <!-- /.info-box-content -->
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="col-6">
-                                        @if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Evaluacion")
-
-                                            <div class="info-box" style="visibility: TRUE;">
-                                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
-                                                <div class="info-box-content">
-                                                    <a href="{{url('/mainestudiantes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
-                                                    
-                                                </div>
-                                            </div>
-                                        @endif    
-                                    </div>
-                                    <div class="col-6">
-                                        @if($estudiante->cursando == "Reportar")
-
-                                            <div class="info-box mb-3" style="visibility: TRUE;">
-                                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
-                                
-                                                <div class="info-box-content">
-                                                <a href="{{url('/reportes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
-                                                
-                                                </div>
-                                                <!-- /.info-box-content -->
-                                            </div>
-                                        @endif    
-                                    </div>
-                                    <div class="col-6">
-                                        @if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
-
-                                            <div class="info-box mb-3" style="visibility: TRUE;">
-                                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
-                                
-                                                <div class="info-box-content">
-                                                <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Historico</span></a>
-                                                    
-                                                </div>
-                                                <!-- /.info-box-content -->
-                                            </div>
-                                        @endif    
-                                    </div>
-                                    <div class="col-6">
-                                        @if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
-
-                                            <div class="info-box mb-3" style="visibility: TRUE;">
-                                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
-                                    
-                                                <div class="info-box-content">
-                                                    <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                            
+                                        </div>
+                                        <div class="col-6" href="/estudiante/etapa2">
+                                                <div class="info-box">
+                                                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
+                                                    <div class="info-box-content">
+                                                        <a href="{{url('/mainestudiantes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
                                                         
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endif
-                                    </div>   
+                                        </div>
+                                        <div class="col-6" href="/estudiante/etapa3">
+
+                                                <div class="info-box mb-3">
+                                                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
+                                    
+                                                    <div class="info-box-content">
+                                                    <a href="{{url('/reportes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
+                                                    
+                                                    </div>
+                                                    <!-- /.info-box-content -->
+                                                </div>
+                                        </div>
+                                        <div class="col-6" href="/estudiante/etapa4">
+
+                                                <div class="info-box mb-3">
+                                                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
+                                    
+                                                    <div class="info-box-content">
+                                                    <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Historico</span></a>
+                                                        
+                                                    </div>
+                                                    <!-- /.info-box-content -->
+                                                </div>
+                                        </div>
+                                        <div class="col-6" href="/estudiante/etapa5">
+
+                                                <div class="info-box mb-3">
+                                                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
+                                        
+                                                    <div class="info-box-content">
+                                                        <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                                            
+                                                    </div>
+                                                </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

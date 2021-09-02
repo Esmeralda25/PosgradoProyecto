@@ -19,8 +19,32 @@ class estudianteController extends Controller
         $estudiantes = estudiante::all();
         // $proyectos = $estudiante->proyectos();
         $proyectos = Proyecto::all();
+        $etapa1 = $estudiante::cursando->registro; 
 
-        return view('estudiante.index', compact('estudiantes'));
+        if ($estudiante->cursando == "Registro") 
+        { 
+            return view('estudiante.index', compact('etapa1'));
+            //return  redirect('estudiante.index.etapa1');
+            
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Evaluacion") 
+        {
+            return  redirect('estudiante.estatusAlumno.etapa2');
+
+        } else if($estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa3');
+
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa4');
+
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa5');
+        }
+        
+
+        //return view('estudiante.index', compact('estudiantes'));
     }
 
     public function create()
@@ -79,5 +103,34 @@ class estudianteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function estatusAlumno($id){
+        $estudiante = \Session::get('usuario');
+
+        $proyecto = estudiante::find($id);
+        //$estudiantes = $proyecto->estudiantes;
+
+        /* if ($estudiante->cursando == "Registro") 
+        {
+            return  redirect('estudiante.estatusAlumno.etapa1');
+            
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Evaluacion") 
+        {
+            return  redirect('estudiante.estatusAlumno.etapa2');
+
+        } else if($estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa3');
+
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa4');
+
+        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
+        {
+            return  redirect('estudiante.estatusAlumno.etapa5');
+        }
+         */
     }
 }
