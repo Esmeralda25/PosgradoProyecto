@@ -111,7 +111,10 @@
                                                 </tr>
                                             </thead>
                                         </table>
-        
+
+                                        
+                                        FALTA SUBIR REPORTE
+
                                         <div>
                                             <button class="btn btn-danger"><a href="{{url('/reportar')}}" onclick="alerta()" style="color: black">Reportar</a></button>
                                         </div>

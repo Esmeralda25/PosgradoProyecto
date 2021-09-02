@@ -18,12 +18,9 @@ class entradaController extends Controller
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
 
         if(!is_null($usuario) ){
-            
             //es un estudiante debo checar su password   
-            $password_dieron =  $peticion->input('palabra');
-            
+            $password_dieron =  $peticion->input('palabra');            
             $password_guadado = $usuario->password;
-            
             //puesto: pe : nombre
             if (Hash::check($password_dieron, $password_guadado)) {               
                 $identificacion = "Estudiante : " . $usuario->pe->nombre . ":" . $usuario->nombre ;
