@@ -56,14 +56,11 @@
                                             
                                                     <th scope="col">{{$proyecto->titulo}}</th>
                                                     <th scope="col">{{$proyecto->estudiante->nombre}}</th>
-
                                                     <td>
-                                                        @if ($proyecto->periodo->estado == "Evaluacion")
+                                                        @if ($proyecto->estudiante->semestreActual->estado == "Evaluacion")
                                                             <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>        
                                                         @endif
-                                                    
                                                             <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Historico</a></button>
-
                                                         @if ($proyecto->comiteTutorial->asesor == 1)
                                                             <a href="porcentaje-proyectos/{id}" class="btn btn-info">Asignar Avance</a>        
                                                         @endif

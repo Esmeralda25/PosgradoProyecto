@@ -137,6 +137,7 @@ class coordinadorController extends Controller
 
     }
     public function actualizarComite(Request $request, $id){
+        //no esta validando que si se pueda agregar el comite, y no valida si ya tiene no agrege otro
         //dd($request->all());
         //manejo de transacciones en base de datos
         //DB::beginTransaction()

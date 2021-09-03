@@ -16,72 +16,54 @@ class evaluarController extends Controller
 {
     public function index($id){
         $proyecto = Proyecto::find($id);
-        $relaciones = Rubrica::find(1)->criteriosProyecto; //Esto me sirve para traer todos los criterios de la rubrica ing.
-        return view('docente.evaluar', compact('proyecto','relaciones'));
+        $rubica_usada = $proyecto->estudiante->semestreActual->rubrica;
+        $criterios = Rubrica::find($rubica_usada)->criteriosProyecto; //Esto me sirve para traer todos los criterios de la rubrica ing.
+        return view('docente.evaluar', compact('proyecto','criterios'));
     }
 
     public function store(Request $request){
-       
+        $usuario  = \Session::get('usuario' );
+        $id_docente = $usuario->id; 
         try{
-
           DB::beginTransaction();
-
-
-            $nuevos = (
-                ['proyectos_id'=> $request->proyectos_id,
-                 'calificacion'=> $request->valor,
-                 'concepto'=> $request-> concepto,
-                 'observacion' => $request->observacion,
-                 'fecha'=> date('Y-m-d H:i:s')]
-            ); 
-
-            
-            foreach($nuevos as $nuevo){
-
-               $id = DB::table('evaluaciones')->insertGetId([
-                    'proyectos_id'=>$nuevo,
-                    'calificacion'=>$nuevo,
-                    'fecha'=> date('Y-m-d H:i:s')
-                ]);
-
-                DesgloceEvaluacion::create([
-                    'evaluaciones_id'=>$id,
-                    'docentes_id'=>$nuevo,
-                    'concepto'=>$nuevo,
-                    'valor'=>$nuevo,
-                    'observacion'=>$nuevo,
-                ]);
-
-                
+            $nueva_evaluacion = Evaluacion::create([
+                'proyectos_id'=> $request->proyectos_id,
+                'fecha'=> date('Y-m-d H:i:s')
+                ]  );
+//                echo "agrego una nueva evaluacion";
+            //por cada valor voy a guardarlo en la tabla de desgloce
+            $conceptos=$request->input('concepto');
+            $observaciones=$request->input('observacion');
+            $valores=$request->input('valor');
+            $i=0;
+            $suma=0;
+//           var_dump($conceptos);
+//            var_dump($observaciones);
+//              var_dump($valores);
+            foreach($valores as $calif){
+                $datos = [
+                    'evaluaciones_id'=>$nueva_evaluacion->id,
+                    'docentes_id'=>$id_docente,
+                    'concepto'=>$conceptos[$i],
+                    'valor'=> $calif,
+                    'observacion'=>$observaciones[$i],
+                ];
+                echo "<hr>";
+                print_r($datos);
+                echo "<hr>";
+                DesgloceEvaluacion::create($datos);
+                $i++;
+                $suma += $calif;
             }
-            
-            
-            
-            
-            
-            // calificacion es el promedio de los valores obtenidos en esa evaluacion....
-          //si haces un return redirect no se ejecutan las lineas que siguen ....
-
-
-
-            //nunca se ejecutara lo siguiente
-            // de donde sacas nuevo, en el que vas a iterar es en $request->calificacion
-            // y para cada desgloce de evaluacion debes saber en que criterio se le pone la calificacion y con que obseravaciones.
-            //(concepto, valor, poderacion)
-
-
-            $registro = $request->all();
-            $nuevas = Evaluacion::find($id);
-            $nuevas->fill($registro);
-            $nuevas->save();
-            return redirect("/docentes");
-
+            $promedio = $suma / $i;
+            $nueva_evaluacion->calificacion = $promedio;
+            $nueva_evaluacion->save();
             DB::commit();
-
-    } catch (\Exception $e){
-        DB::rollBack();
-        
-    }
+            return redirect("/docentes");
+        } catch (\Exception $e){
+            echo $e->getMessage();
+            DB::rollBack();
+        }
     }
 
     public function show($id){

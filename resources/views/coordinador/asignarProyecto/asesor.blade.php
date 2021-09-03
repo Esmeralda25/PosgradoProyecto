@@ -31,90 +31,65 @@
                             <h1 class="card-title font-weight-bold" style="text-align: center">Asignar Asesor</h1>
                         </div>
                             <div class="card-header text-center font-weight-bold" style="font-size: 15px " >
-                                <div class="row form-group col-12">
-                                    <label for="">Estudiante: </label>
-                                    {{ $proyecto->estudiante->nombre }}
+                                <div class="row text-left">
+                                    Estudiante: {{ $proyecto->estudiante->nombre }} <br>
+                                    Titulo del proyecto: {{ $proyecto->titulo }} <br>
+                                    Hipotesis del proyecto: {{ $proyecto->hipotesis }} <br>
+                                    Objetivo General: {{ $proyecto->objetivos }} <br>
+                                    Objetivo Espesificos: {{ $proyecto->objetivose }} <br>
                                 </div>
-                                <div class="row form-group col-12">
-                                    <label for="">Titulo: </label>
-                                    {{ $proyecto->titulo }}
-                                </div>
+                                <hr>
 
-                                <div class="row form-group col-12">
-                                    <label for="">Hipotesis: </label>
-                                    {{ $proyecto->hipotesis}}
-                                </div>
-
-
-                                <div class="row form-group col-12">
-                                    <label for="">Objetivo General</label>
-                                    {{ $proyecto->objetivos}}
-                                </div>
-
-
-                                <div class="row form-group col-12">
-                                    <label for="">Objetivo Espesifico</label>
-                                    {{ $proyecto->objetivose}}
-                                </div> 
-                                
-                                <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                                <div class="row col-12">
-                                    <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                        <select name="asesor" id="sel" style="width: 1000px; height:35px">                                          
+                                        <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+            
+                                            <div class="row col-12">
+                                                <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
+                                                    <select name="asesor" id="sel" style="width: 1000px; height:35px">                                                                                      
+                                                      @foreach($docentes as $asesor)
+                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                                      @endforeach
+                                                    </select>
+                                                    
+                                            </div>
                                             
-                                          @foreach($docentes as $asesor)
-                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                          @endforeach
-                                        </select>
-                                        
-                                </div>
-                                
+            
+                                            <div class="row col-12">
+                                                <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
+                                                    <select name="revisor1" id="sel" style="width: 1000px; height:35px">
+                                                    @foreach($docentes as $asesor)  
+                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                                    @endforeach
+                                                    </select>
+                                            </div>
+                                            <div class="row col-12">
+                                              <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
+                                                <select name="revisor2" id="sel" style="width: 1000px; height:35px">                                   
+                                                @foreach($docentes as $asesor)  
+                                                  <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                                @endforeach
+                                                
+            
+                                                </select>
+                                            </div>
+                                            <div class="row col-12">
+                                                <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
+                                                    <select name="revisor3" id="sel" style="width: 1000px; height:35px">
+                                                      @foreach($docentes as $asesor)  
+                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                                      @endforeach    
+                                            </div>
+                                                
+                                            <input type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px" value="Asignar">
 
-                                <div class="row col-12">
-                                    <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
-                                        <select name="revisor1" id="sel" style="width: 1000px; height:35px">
-                                        @foreach($docentes as $asesor)  
-                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                        @endforeach
-                                        </select>
-                                </div>
-                                <div class="row col-12">
-                                  <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
-                                    <select name="revisor2" id="sel" style="width: 1000px; height:35px">                                   
-                                    @foreach($docentes as $asesor)  
-                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                    @endforeach
-                                    
-
-                                    </select>
-                                </div>
-                                <div class="row col-12">
-                                    <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
-                                        <select name="revisor3" id="sel" style="width: 1000px; height:35px">
-                                          @foreach($docentes as $asesor)  
-                                          <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                          @endforeach
-                                          
-                                </div>
-                            
-                               
-                                <div class="row col-12">   
-                                    <button type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px"><a>Asignar</a></button>                               
-                                </div>
+                                            
+                                        </form>
+    
+ 
 
             
-                                </form>
-                            </div>
-
-                            <script>
-                                   $(document).on('change', '.sel', function() {
-                                     $(this).closest('.form-group').siblings().find('option[value="'+$(this).val()+'"]').remove();
-                                    });
-                                </script>
-                    
+                            </div>                    
                     
                         </div> <!--class="card"-->
                     </div><!--class="col-md-12"-->

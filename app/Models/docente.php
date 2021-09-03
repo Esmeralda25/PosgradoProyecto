@@ -20,6 +20,7 @@ class Docente extends Authenticatable
                             ->orWhere('revisor3', $this->id)
                         ->select(id);
         */
+        
         return Proyecto::whereIn('comite', 
         Comite::where('asesor', $this->id)
         ->orWhere('revisor1', $this->id)

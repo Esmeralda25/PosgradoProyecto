@@ -74,8 +74,7 @@
                                         </div>
                                     </div>
                             
-                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica</h3>
-                                    <h5>{{$proyecto->periodo->rubricaAUsar->nombre}}</h5>
+                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica: {{$proyecto->estudiante->semestreActual->rubricaAUsar->nombre}}</h3>
                                     <div class="form-group col-md-12">
                                 
                                         <div id="idcontenido">
@@ -85,15 +84,6 @@
                                         <div class="tcontainer">
                                         <form action="/guardar-calificaciones" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                            <table class="table">
-                                                <thead class="table-dark">
-                                                    <tr>
-                                                        <th class="row">CRITERIOS A EVALUAR</th> 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                <th>
                                                     <table>
                                                         <thead>
                                                             <tr>
@@ -103,16 +93,19 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach($relaciones as $relacion)
+                                                            @foreach($criterios as $relacion)
                                                             <tr> 
-                                                                <td><input type="hidden" name="concepto[{{$loop->index}}]">
+                                                                <td><input type="hidden" name="concepto[{{$loop->index}}]" value = "{{$relacion->descripcion}}">
                                                                     {{$relacion->descripcion}}</td>
-                                                                <td>@if($proyecto->periodo->rubricaAUsar->tipo == "Numerica")
+                                                                    @php
+//                                                                        var_dump("");
+                                                                    @endphp
+                                                                <td>@if($proyecto->estudiante->semestreActual->rubricaAUsar->tipo == "Numerica")
                                                                     <input type="number" name="valor[{{$loop->index}}]"
                                                                                         min="0" max="100">                                                 
                                                                @endif
         
-                                                               @if($proyecto->periodo->rubricaAUsar->tipo == "Alfanumerica")
+                                                               @if($proyecto->estudiante->semestreActual->rubricaAUsar->tipo == "Alfanumerica")
                                                                     <select name="valor[{{$loop->index}}]">
                                                                     <option value="0">No aceptable</option>
                                                                     <option value="70">Regular</option>
@@ -128,11 +121,6 @@
         
                                                         </tbody>
                                                     </table>                               
-                                            </th>
-
-                                                </tbody>
-
-                                            </table>
                                             <div class="mb-3">
                                             <input name="proyectos_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
                                             </div>

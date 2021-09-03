@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DesgloceEvaluacion extends Model
 {
-    protected $table = 'DesgloceEvaluaciones';
+    protected $table = 'desgloce_evaluacion';
     protected $fillable=['evaluaciones_id','docentes_id','concepto','valor','observacion'];
     public $timestamps = false;
 }
