@@ -138,10 +138,7 @@ class coordinadorController extends Controller
     }
     public function actualizarComite(Request $request, $id){
         //no esta validando que si se pueda agregar el comite, y no valida si ya tiene no agrege otro
-        //dd($request->all());
-        //manejo de transacciones en base de datos
-        //DB::beginTransaction()
-        //validaciones
+    
         $comite = new Comite;
         $comite->fill($request->all());
         $comite->save();
@@ -149,6 +146,15 @@ class coordinadorController extends Controller
         $proyecto->comite = $comite->id;
         $proyecto->save();
         return redirect("/asignaciones");
+
+        $docente  = \Session::get('usuario' );
+        $proyecto = Comite::where('asesor', $docente->id)->get();
+        if($proyecto->count() == 'asesor')
+        echo "Este proyecto ya tiene asesor y revisores asignados";
+        return redirect("/asignaciones");
+        
+        
+
     }
     
     public function destroy($id)

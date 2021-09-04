@@ -59,18 +59,19 @@
                                                     <th scope="col">
                                                         @if (is_null($proyecto->comite))
                                                             No asignado
-                                                        @else
-                                                            {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
-                                                        @endif
-                                                        
-                                                    </th>
-                                                    
-                                                    <th>
+
+                                                            <th>
                                                     
                                                     <div class="btn-group" style="padding-rigth: 12px">
                                                             <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a></buttom>
                                                         </div> 
                                                     </th>
+                                                        @else
+                                                            {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
+                                                        @endif
+                                                        
+                                                    </th>
+                                            
                                                     
                                                 <tr> 
                                                 @endforeach
