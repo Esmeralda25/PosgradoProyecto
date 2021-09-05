@@ -33,7 +33,7 @@
                     <div class="card col-md-10 mt-10"">
                         <form action="/addproyectos" method="POST">
                         @csrf
-                            <div class="card-header text-center font-weight-bold" style="font-size: 30px">Proyecto de Posgrado</div>
+                            <div class="card-header text-center font-weight-bold" style="font-size: 30px">Registrar Proyecto</div>
                              
                             <div class="justify-content-center" style="margin: 15px">
                                 <input type="text" name="estudiante_id" value="{{ \Session::get('usuario')->id }}">
@@ -89,36 +89,20 @@
                                                     </div>
                                             
                                                 </form>
-                                              <!--  <label for="sometidod" class="form-label">Articulos JRC Sometidos</label>
-                                                <input class="form-control" list="lista" id="opciones" placeholder="Opciones">
-                                                  <datalist id="lista">
-                                                    <option value="Articulos JRC Sometidos">
-                                                    <option value="Articulos JRC Aceptados o Publicados">
-                                                    <option value="Modelo de Utilidad o Patente">
-                                                    <option value="Conferencias Nacionales">
-                                                    <option value="Conferencias Internacionales">
-                                                  </datalist>
-                       
-                                                </div>  --> 
                                                 
                                             </th>
-                                            <th scope="row">
+                                           <!--  <th scope="row">
                                                 <div class="container">
-
-                                    
                                                 <button id="botonClick" for="opciones" class="btn btn-warning"><a style="color: black">Agregar</a></button>
-                                                
                                                 </div>
-                                            </th>
+                                            </th> -->
                                                 
                                         </tr>
                                     </thead>
                                  </table>
-                                 <div>
+                                 <!-- <div>
                                     <h2 style="width: 100%; text-align:center; background:rgb(24, 23, 23); padding:0 0; color:white;margin-top:15px" class="font-weidth-bold">Compromisos</h2>
                                  </div>
-                                
-                                
                                  <table class="table" style="width: 100%">
                                     
                                     <tbody style="width: 100%">
@@ -162,9 +146,8 @@
                                     </thead>
                                 </table>
                                 <div>
-                                <!-- espacio entre contenido-->
+                                 espacio entre contenido
                                 </div>
-                                
                                  <div>
                                     <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
                                  </div>
@@ -186,8 +169,7 @@
                                         <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
                                       </tr>
                                     </tbody>
-                                </table>
-    
+                                </table> -->
                                 <div>
                                   <button type="submit" class="btn btn-warning" style="margin: 5"><a style="color: black">Registrar</a></button>
                                 </div>

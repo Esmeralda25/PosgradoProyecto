@@ -29,7 +29,7 @@ public function index(){
 
     public function Store(Request $request){
         
-        proyecto::create(request()->all());
+        proyecto::create(request()->all()); //checar esta parte, se crea el proyecto, verificando por que no acepta el metodo post de addproyecto
         return redirect('/proyectos');
         
 
