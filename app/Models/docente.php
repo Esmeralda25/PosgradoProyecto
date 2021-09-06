@@ -22,12 +22,12 @@ class Docente extends Authenticatable
         */
         
         return Proyecto::whereIn('comite', 
-        Comite::where('asesor', $this->id)
-        ->orWhere('revisor1', $this->id)
-        ->orWhere('revisor2', $this->id)
-        ->orWhere('revisor3', $this->id)
-        ->select('id')
-                    )->get();
+            Comite::where('asesor', $this->id)
+            ->orWhere('revisor1', $this->id)
+            ->orWhere('revisor2', $this->id)
+            ->orWhere('revisor3', $this->id)
+            ->select('id')
+        )->get();
 
     }
 

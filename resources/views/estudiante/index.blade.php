@@ -51,14 +51,14 @@
                                     @endif
 
 
-                                    @if (in_array("Comprometerse",$hacer)   )
+                                    @if (in_array("Comienzo",$hacer) || in_array("Comprometerse",$hacer)   )
                                     {{--Adquirir compromisos  --}}
 
                                     <div class="col-6" href="/estudiante/etapa2">
                                         <div class="info-box">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/mainestudiantes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
+                                                <a href="{{url('/comprometerse')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Modificar Proyecto</span></a>
                                                 
                                             </div>
                                         </div>
@@ -78,14 +78,14 @@
                                     </div>
                                     @endif
 
-                                    @if (in_array("Seguimiento",$hacer) || in_array("Evaluacion",$hacer)  )
+                                    @if ( in_array("Inicio",$hacer) || in_array("Seguimiento",$hacer) || in_array("Evaluacion",$hacer )  )
                                      {{--Ya tengo proyecto, ya dije que es lo que voy a hacer (adquiri compromisos) ahora es tiempo de trabajar en ellos y se puede solo
                                         ver que es mi proyecto y que compromisos tengo  --}}
                                     <div class="col-6" href="/estudiante/etapa4">
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Seguimiento</span></a>
+                                            <a href="{{url('/seguimiento')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Seguimiento</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

@@ -16,8 +16,10 @@ class estudianteController extends Controller
     public function index()
     {        
         $estudiante  = \Session::get('usuario' );
-        $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
+        $estudiante = $estudiante->fresh(); 
 
+        $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
+        
         if ($proyecto->count() == 0 )
             $hacer = ["Registrar"];
         else 
@@ -87,7 +89,7 @@ class estudianteController extends Controller
 
     public function estatusAlumno($id){
         $estudiante = \Session::get('usuario');
-
+        $estudiante = $estudiante->fresh(); 
         $proyecto = estudiante::find($id);
         //$estudiantes = $proyecto->estudiantes;
 

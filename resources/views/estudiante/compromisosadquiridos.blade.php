@@ -31,7 +31,7 @@
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
                             <h1 class="card-title font-weight-bold" style="text-align: center">                                
-                                Compromisos Adquiridos                           
+                                Compromisos Adquiridos.....                          
                             </h1>
                         </div>
                             <form action="" method="POST">        

@@ -37,8 +37,20 @@ Route::resource('pes', PesController::class);
 Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
 //Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
 
-Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
-Route::post('addproyectos','App\Http\Controllers\proyectosController@store');
+//Route::resource('proyectos', 'App\Http\Controllers\proyectosController');
+Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
+Route::post('registrar','App\Http\Controllers\proyectosController@store');
+Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
+Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
+Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
+
+
+
+
+
+//Route::post('addproyectos','App\Http\Controllers\proyectosController@store');// para que lo mandas si store ya te lo da el resource de la linea 40
+
+
 //Route::resource('asignar', 'App\Http\Controllers\asignarController');
 Route::get('asignar-asesores/{id_proyecto}','App\Http\Controllers\proyectosController@asignarAsesores' );
 //nota:  componer las rutas, aplicar convenciones en todo el sistema
@@ -47,7 +59,7 @@ Route::post('proyectos','App\Http\Controllers\proyectosController@Store');
 
 Route::resource('reportes', 'App\Http\Controllers\reportarController');
 
-Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller');
+//Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller'); //solo tiene una accion pero todo lo declaran como resource
 
 
 

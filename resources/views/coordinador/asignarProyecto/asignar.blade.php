@@ -51,29 +51,33 @@
                                             <tbody>
                                             @foreach($proyectos as $proyecto)
                                             <tr>
-                                            
-                                                    <th scope="col">{{$proyecto->id}}</th>
-                                                    <th scope="col">{{$proyecto->titulo}}</th>
-                                        
-                                                    <th scope="col">{{$proyecto->estudiante->nombre}}</th>
-                                                    <th scope="col">
-                                                        @if (is_null($proyecto->comite))
-                                                            No asignado
+                                                {{-- no son th si no td --}}
+                                                <td>{{$proyecto->id}}</td>
+                                                <td>{{$proyecto->titulo}}</td>
+                                                <td>{{$proyecto->estudiante->nombre}}</td>
 
-                                                            <th>
-                                                    
+
+                                                @if ($proyecto->comite != null )
+                                                <td colspan="2">
+                                                    {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
+                                                </td>
+                                                @else
+                                                <td>
+                                                    No asignado.
+                                                </td>
+                                                <td>
                                                     <div class="btn-group" style="padding-rigth: 12px">
-                                                            <buttom class="btn btn-danger" style="padding-rigth: 12px"> <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a></buttom>
-                                                        </div> 
-                                                    </th>
-                                                        @else
-                                                            {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
-                                                        @endif
-                                                        
-                                                    </th>
-                                            
-                                                    
-                                                <tr> 
+                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px"> 
+                                                            <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a>
+                                                        </buttom>
+                                                    </div> 
+                                                </td>
+
+                                                @endif
+
+
+
+                                            <tr> 
                                                 @endforeach
                                             </tbody>
                                         </table>  

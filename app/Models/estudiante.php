@@ -9,6 +9,7 @@ class Estudiante extends Usuario
  
     protected $fillable=['nombre','correo','password','pes_id',
     'compromisos_id','actividades_id','periodos_id', 'cursando'];
+    
     public $timestamps = false;
     
 
@@ -28,6 +29,10 @@ class Estudiante extends Usuario
         return $this->hasOne('App\Models\Periodo','id','periodos_id');
     }
     
+    public function proyecto(){
+        return $this->belongsTo('App\Models\Proyecto','id','estudiante_id');
+    }
+
 
 
 }
