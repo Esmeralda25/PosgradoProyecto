@@ -87,22 +87,31 @@
                                 </div>
                             </div>
                            
-                            
+                                Promedio de cada uno de los revisores y la fecha en la que se evaluó en proyecto:
                                 <div class="tcontainer">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                            @foreach($evaluacion as $nuevo)
-   
-                                            <th class="row">Calificacion</th> 
-                                               
-                                              {{$nuevo->evaluacion_id}}
-                                              {{$nuevo->docentes_id}}
-                                              {{$nuevo->valor}}  
-                                            </tr>
+                                <table class="table table-dark table-striped mt-4">
+                                                <thead class="table table-dark table-striped mt-4">
                                             
-                                        </tbody>
-                                    </table>
+                                                    <tr>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">Promedio</th>
+                                                        <th scope="col">Fecha</th>
+                                                    <tr> 
+                                                </thead>
+                                                @foreach($nuevo as $evalua) 
+                                                <tr> 
+                                                    <th scope="col">{{$evalua->id}}</th>
+                                                    <th scope="col">{{$evalua->calificacion}}</th>
+                                                    <th scope="col">{{$evalua->fecha}}</th>
+
+                                                   
+                                                        </th>
+                                                        <tr> 
+                                                @endforeach
+                                            
+                                                <tbody>                                               
+                                                </tbody>
+                                            </table>
                            
                                 </div>
                                <button><a href="/docentes">Regresar</a></button>

@@ -68,8 +68,8 @@ class evaluarController extends Controller
 
     public function show($id){
         $proyecto = Proyecto::find($id);
-        $evaluacion = DesgloceEvaluacion::find($id);
-        return view('docente.historico', compact('proyecto','evaluacion'));
+        $nuevo = Evaluacion::get();
+        return view('docente.historico', compact('proyecto','nuevo'));
     }
 
     public function porcentaje($id){

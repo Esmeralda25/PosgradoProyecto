@@ -17,18 +17,7 @@ use App\Http\Controllers\PesController;
 Route::get('/', function () {
     return view('welcome');
 });
-//Informatico
-//verificar-declaraciones en route _ se comento la ruta original de pes
-//Route::prefix('pe')->group(function (){
-  //  Route::resource('pes', 'App\Http\Controllers\PesController');
-    //Route::get('pes/{id}/destroy',[
-    //'uses' => 'PesController@destroy',
-    //'as' => 'pes.destroy'
-    //]);
-//});
 
-//Route::resource('pes', 'App\Http\Controllers\PesController');
-//con esta ruta puedo acceder a todos los metodos, creando instantaneamente una url para cada una(los metodos que esten en ese controlador)
 Route::resource('pes', PesController::class);
 
 
