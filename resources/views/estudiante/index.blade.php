@@ -43,7 +43,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>                   
                                             <div class="info-box-content">
-                                                <a href="{{url('/proyectos')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Nuevo Proyecto</span></a>  
+                                                <a href="{{url('/registrar')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Nuevo Proyecto</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>                                    
@@ -95,6 +95,8 @@
                                     
                                     @if (in_array("Concluido",$hacer) )
                                     <div class="col-6">
+                                        <!-- /.historico -->
+
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">

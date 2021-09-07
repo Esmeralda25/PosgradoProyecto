@@ -7,6 +7,8 @@ use App\Models\Adquirido;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Compromiso;
+use App\Models\Periodo;
+
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +22,8 @@ class proyectosController extends Controller
 
     }
     public function Store(Request $request){
-        proyecto::create(request()->all()); //checar esta parte, se crea el proyecto, verificando por que no acepta el metodo post de addproyecto
-        return redirect('/estudiantes'); //porque redirige a proyectos deberia redirigir a "estudiantes"
+        proyecto::create(request()->all()); 
+        return redirect('/estudiantes'); //error al redireccionar, manda estado del estudiante nulo
     } 
  
     public function show()

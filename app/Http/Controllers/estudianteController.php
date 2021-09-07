@@ -93,26 +93,6 @@ class estudianteController extends Controller
         $proyecto = estudiante::find($id);
         //$estudiantes = $proyecto->estudiantes;
 
-        /* if ($estudiante->cursando == "Registro") 
-        {
-            return  redirect('estudiante.estatusAlumno.etapa1');
-            
-        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Evaluacion") 
-        {
-            return  redirect('estudiante.estatusAlumno.etapa2');
-
-        } else if($estudiante->cursando == "Reportar")
-        {
-            return  redirect('estudiante.estatusAlumno.etapa3');
-
-        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
-        {
-            return  redirect('estudiante.estatusAlumno.etapa4');
-
-        } else if($estudiante->cursando == "Inicio" and $estudiante->cursando == "Seguimiento" and $estudiante->cursando == "Comprometerse" and $estudiante->cursando == "Evaluacion" and $estudiante->cursando == "Reportar")
-        {
-            return  redirect('estudiante.estatusAlumno.etapa5');
-        }
-         */
+        
     }
 }
