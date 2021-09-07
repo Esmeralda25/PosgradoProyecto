@@ -87,26 +87,18 @@
                                 </div>
                             </div>
                            
-                            <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubricas</h3>
                             
                                 <div class="tcontainer">
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <th class="row">Calificacion 1</th> 
-                                                <th><input type="text" style="border:none" placeholder="9.8" name="nombre" id=""></th>  
-                                            </tr>
-                                            <tr>
-                                                <th class="row">Calificacion 2</th> 
-                                                <th><input type="text" style="border:none" placeholder="7.8" name="nombre" id=""></th>   
-                                            </tr>
-                                            <tr>
-                                                <th class="row">Calificacion 3</th>  
-                                                <th><input type="text" style="border:none" placeholder="9.9" name="nombre" id=""></th>  
-                                            </tr>
-                                            <tr>
-                                                <th class="row">Calificacion 4</th> 
-                                                <th style="background: white; width: 15px"><a href="{{url('/')}}"> Calificacion</a></th>  
+                                            @foreach($evaluacion as $nuevo)
+   
+                                            <th class="row">Calificacion</th> 
+                                               
+                                              {{$nuevo->evaluacion_id}}
+                                              {{$nuevo->docentes_id}}
+                                              {{$nuevo->valor}}  
                                             </tr>
                                             
                                         </tbody>

@@ -12,7 +12,6 @@ class asignarController extends Controller
         $usuario  = \Session::get('usuario' );
         $usuario = $usuario->fresh(); 
         $proyectos = $usuario->proyectos;
-        $comite = Comite::get();//no tiene caso tomar el comite aqui, para que lo haces, que regresa? no tiene caso que lo pases a la vista.
         return view('coordinador.asignarProyecto.asignar',compact('proyectos'));
     }
     
