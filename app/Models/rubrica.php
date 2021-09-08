@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rubrica extends Model
 {
     public $table = "rubricas";
-    protected $fillable=['nombre','tipo'];
+    protected $fillable=['nombre','tipo','pe_id'];
     public $timestamps = false;
 
     public function criteriosProyecto(){

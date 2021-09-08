@@ -46,6 +46,7 @@
 
                                         <form action="/guardar-rubricas" method="POST" enctype="multipart/form-data">
                                             @csrf
+                                                <input type="hidden" name="pe_id" value="{{$pe->id}}">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Titulo</label>
                                                     <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">

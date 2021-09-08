@@ -33,7 +33,7 @@
             <div class="col-10">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">Agregar Generaciones</h1>
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Editar un criterio de la rubrica</h1>
                         </div>
                         <form action="/actualizar-criterios/{{$criterio->id}}" method="post">
                             @csrf

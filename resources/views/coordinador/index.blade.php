@@ -44,11 +44,12 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="info-box">
-                                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
+                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/generaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
-                                                
+                                            <a href="{{url('/rubricas')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
                                             </div>
+                                            <!-- /.info-box-content -->
+
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -64,13 +65,11 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
-                            
+                                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/rubricas')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
-                                                
+                                                <a href="{{url('/generaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
                                             </div>
-                                            <!-- /.info-box-content -->
+
                                         </div>
                                     </div>
                                     <div class="col-6">

@@ -8,8 +8,9 @@ use App\Models\Rubrica;
 class CriteriosController extends Controller
 {
     public function index($id){ 
+        //el id que envias es el id del criterio no de la rubrica
         $rubrica = Rubrica::find($id);
-        $criterios = Criterio::where('Rubricas_id', $rubrica->id)->get();
+        $criterios = Criterio::where('rubrica_id', $rubrica->id)->get(); //las convenciones dicen que todos los campos osn en minusculas, esta es una llave foranea que debe ser "rubrica_id"
         return view('coordinador.criterio.index', compact('rubrica','criterios'));
     
     }
@@ -26,7 +27,7 @@ class CriteriosController extends Controller
     {
         $valores = $request->all();
         Criterio::create($valores);
-        $id =$valores['Rubricas_id'];
+        $id =$valores['rubrica_id'];
         return redirect("/criterios/$id");
         
     }
@@ -76,7 +77,9 @@ class CriteriosController extends Controller
         $registro = Criterio::find($id);
         $registro->fill($criterios);
         $registro->save();
-        return redirect("/criterios/$id");
+        //este id es el id del criterio necesitas saber de que rubrica estas hablando.
+        $idr = $registro->rubrica->id;
+        return redirect("/criterios/$idr");
     }
 
     /**

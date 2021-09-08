@@ -2,25 +2,35 @@
 
 namespace App\Http\Controllers;
 use App\Models\Rubrica;
+use App\Models\Pe;
 use Illuminate\Http\Request;
 
 class RubricaController extends Controller
 {
     public function index(){ 
+        /*
         $rubricas = \DB::table('rubricas')
         ->get();
+        */
+        //USAR EL MODELO NO QUERYBUILDER
+        $pe  = \Session::get('usuario' );
+        $pe = $pe->fresh();
+
+        $rubricas = Rubrica::where('pe_id', $pe->id)->get();
         return view('coordinador.rubrica.index',compact('rubricas',$rubricas));
     }
  
     public function create(){
-        
-        return view('coordinador.rubrica.create');
+        $pe  = \Session::get('usuario' );
+        $pe = $pe->fresh();
+        return view('coordinador.rubrica.create',compact('pe'));
 
         
     }
     
     public function store(Request $request) 
     {
+        //dd($request->all());
         rubrica::create(request()->all());
         return redirect('/rubricas');
         

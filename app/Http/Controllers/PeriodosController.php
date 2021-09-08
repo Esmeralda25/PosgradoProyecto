@@ -17,11 +17,12 @@ class PeriodosController extends Controller
     }
 
     public function create($id){
-        
+        $pe  = \Session::get('usuario' );
+        $pe = $pe->fresh();
+
         $generacion = Generacion::find($id);
-        $rubricas = Rubrica::all();
-        
-        
+        $rubricas = Rubrica::where('pe_id', $pe->id)->get();
+
         return view('coordinador.periodo.create', compact('generacion','rubricas') );
         
     }

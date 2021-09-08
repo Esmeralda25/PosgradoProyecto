@@ -57,8 +57,9 @@ Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinad
 
 Route::get('listar-proyectos', 'App\Http\Controllers\proyectosController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
 Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\proyectosController@asignarComite' );
-Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
+//Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
 
+Route::put('comites/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
 
 
 Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
@@ -73,7 +74,7 @@ Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\GeneracionControl
 
 //Periodos
 Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
-Route::get('agregar-periodos/{id}','App\Http\Controllers\PeriodosController@create');
+Route::get('agregar-periodos/{id}',['App\Http\Controllers\PeriodosController','create']);
 Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
 Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit');
 Route::put('actualizar-periodos/{id}','App\Http\Controllers\PeriodosController@update');

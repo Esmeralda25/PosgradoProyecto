@@ -23,6 +23,10 @@
 @endsection
 
 @section('content')
+@if ($rubricas->count()==0)
+   "NO HAY RUBRICAS REGISTRADAS PARA ESTE PROGRAMA EDUCATIVO";
+    
+@endif
 <section class="content">
     <div class="container-fluid">
 

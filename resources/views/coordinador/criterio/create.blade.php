@@ -33,8 +33,7 @@
             <div class="col-10">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">Crear Criterios</h1>
-                            <h3 class="card-title font-weight-bold" style="text-align: center">Rubrica</h3><br>
+                            <h3 class="card-title font-weight-bold" style="text-align: center">Crear Criterio en la rubrica: {{$rubrica->nombre}}</h3><br>
                         </div>
                         <form action="/guardar-criterios" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -43,7 +42,7 @@
                                 <input name="descripcion" type="text" class="form-control" tabindex="2">
                             </div>
                             <div class="mb-3">
-                                <input name="Rubricas_id" type="hidden" class="form-control" tabindex="2" value="{{$rubrica->id}}">
+                                <input name="rubrica_id" type="hidden" class="form-control" tabindex="2" value="{{$rubrica->id}}">
                             </div>
                             
                             
