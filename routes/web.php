@@ -18,54 +18,49 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
+Route::get('logout', 'App\Http\Controllers\entradaController@logout');
+Route::resource('info', 'App\Http\Controllers\infoController');
+
 Route::resource('pes', PesController::class);
 
 
-//Estudiante
-
-Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
-//Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
-Route::post('registros','App\Http\Controllers\proyectosController@Store');
-
-Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
-Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
-Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
-Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
-
-
-
-
-
-//Route::post('addproyectos','App\Http\Controllers\proyectosController@store');// para que lo mandas si store ya te lo da el resource de la linea 40
-
-
-//Route::resource('asignar', 'App\Http\Controllers\asignarController');
-Route::get('asignar-asesores/{id_proyecto}','App\Http\Controllers\proyectosController@asignarAsesores' );
-//nota:  componer las rutas, aplicar convenciones en todo el sistema
-
-
-Route::resource('reportes', 'App\Http\Controllers\reportarController');
-
-//Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller'); //solo tiene una accion pero todo lo declaran como resource
-
-
-
-//Coordinador->index(listar), sotre(guardar), create, show, edit, update, delete
-Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarLista');
-Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarLista');
-
+//USUARIO COORDINADOR
+//no todo es resources......
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
 
-Route::get('usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
+/*crud
+listar-
+agregar-
+agregar-
+mostrar-
+actualizar-
+actualizar-
+eliminar-
+*/
 
-Route::get('agregar', 'App\Http\Controllers\coordinadorController@create');
-Route::post('add', 'App\Http\Controllers\coordinadorController@store');
+//Usuarios
+Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios'); //muestra la lista de usuarios
+Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
+Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
+Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarUsuario');
+Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarUsuario');
+Route::delete('eliminar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@eliminarUsuario');
  
-Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password');
+Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password'); //funciona la ñ pero no es insternacional en lugar de la palabra contraseña pon password
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
 //Proyectos
+    Route::resource('asesores', 'App\Http\Controllers\asesorController');
+    //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
+    Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
+
+Route::get('listar-proyectos', 'App\Http\Controllers\proyectosController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
+Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\proyectosController@asignarComite' );
 Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
+
+
+
 Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
 
 
@@ -77,8 +72,6 @@ Route::get('editarGeneraciones/{id}','App\Http\Controllers\GeneracionController@
 Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\GeneracionController@update');
 
 //Periodos
-
-
 Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
 Route::get('agregar-periodos/{id}','App\Http\Controllers\PeriodosController@create');
 Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
@@ -136,8 +129,35 @@ como debieron cambiar esto?
 Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 */
 
-Route::resource('asesores', 'App\Http\Controllers\asesorController');
-Route::resource('asignaciones', 'App\Http\Controllers\asignarController');
+
+
+
+//Estudiante
+
+Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
+//Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
+Route::post('registros','App\Http\Controllers\proyectosController@Store');
+
+Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
+Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
+Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
+Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
+
+
+
+
+
+//Route::post('addproyectos','App\Http\Controllers\proyectosController@store');// para que lo mandas si store ya te lo da el resource de la linea 40
+
+
+//Route::resource('asignar', 'App\Http\Controllers\asignarController');
+
+
+Route::resource('reportes', 'App\Http\Controllers\reportarController');
+
+//Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller'); //solo tiene una accion pero todo lo declaran como resource
+
+
 
 //Docente 
 
@@ -165,9 +185,6 @@ Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
 
 
-Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
-Route::get('logout', 'App\Http\Controllers\entradaController@logout');
-Route::resource('info', 'App\Http\Controllers\infoController');
 
 
 

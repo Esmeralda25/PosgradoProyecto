@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Auth;
 class proyectosController extends Controller
 {
 
+    public function listarProyectos(){
+        $usuario  = \Session::get('usuario' );
+        $usuario = $usuario->fresh(); 
+        $proyectos = $usuario->proyectos;
+        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
+
+
+    }
+
     public function registrar(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
@@ -72,11 +81,12 @@ public function index(){
 }
     
 
-    public function asignarAsesores($id_proyecto){
+    public function asignarComite($id_proyecto){
         $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
         $proyecto = proyecto::find($id_proyecto);
         $docentes = $pe->docentes;
-        return view('coordinador.asignarProyecto.asesor',compact('proyecto','docentes'));
+        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
     }
 
     public function actualizarCompromisos(Request $request, $id){

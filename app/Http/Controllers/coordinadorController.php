@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use App\Models\Docente;
+use App\Models\Adscripcion;
+
 use App\Models\Pe;
 use App\Models\Comite;
 use App\Models\Proyecto;
-use App\Models\Adscripcion;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,13 +20,15 @@ class coordinadorController extends Controller
     public function index()
     {
         $usuario = \Session::get('usuario');
+        $usuario = $usuario->fresh();
        //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
        return view('coordinador.index')->with('pe',$usuario);
         //return view('coordinador.index');//->with('add',$add);
     }
 
-    public function agregarUsuarios(){
+    public function listarUsuarios(){
         $coordinador = \Session::get('usuario');
+        $coordinador = $coordinador->fresh();
 
         //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
 
@@ -39,27 +43,63 @@ class coordinadorController extends Controller
         ->get();
         // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
         // 
-/*
- "SELECT nombre FROM estudiantes where pes_id = 5"
- UNION
- "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
 
-*/
-
-
-
-        return view('coordinador.add',compact('usuarios'));
+        return view('coordinador.listar-usuarios',compact('usuarios'));
     }
 
-    public function create()
+
+    public function password($tipo, $id){
+        if ($tipo == "Estudiante"){
+            $estudiante= Estudiante::find($id);
+            return view('coordinador.password-estudiante')->with('estudiante',$estudiante);  
+        }else{
+            $docente= Docente::find($id);
+            return view('coordinador.password-docente')->with('docente',$docente);    
+        }
+
+    }
+
+    public function eliminarUsuario($tipo, $id)
     {
-            return view('coordinador.create');
+
+        //CESAR POR VIGESIMA OCACION TE COMENTO QUE LO QUE ESTA DESPUES DE UN RETRUN NO SE LEE, PORQUE NO PUSISTE UN CONDICIONAL ANTES, TODO ESTA SECUENCIAL
+        if ($tipo == "Estudiante"){
+            try{
+                Estudiante::destroy($id);
+                return redirect('listar-usuarios');
+            } catch (\Throwable $th) {
+                return redirect('listar-usuarios'); //no tiene caso que envies al mismo lugar sin decirle porque no se pudo eliminar
+            }    
+        }else{
+            try{
+                //primero debes eliminar la asignacion
+                Adscripcion::where('docentes_id',$id)->delete(); //deberia ser docente_id por ser llave foranea
+                Docente::destroy($id);
+                return redirect('listar-usuarios');
+                echo 'Usuario borrado correctamente'; //este echo se pierde, deberia de ser un ->with
+            } catch (\Throwable $th) {
+                return redirect('listar-usuarios');
+                echo 'El usuario no se pudo borrar, verifiue de nuevo'; //este echo se pierde, deberia de ser un ->with
+            }
+    
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+    public function agregarUsuarios()
+    {
+            return view('coordinador.agregar-usuarios');
         
     }
-
-    
-
-    public function store(Request $request)
+    public function store(Request $request) //lo dejaré pero no todo es un resource y si lo es entonces no esta en su controlador
     {
         $pe = \Session::get('usuario');
         $estudiante = request()->except(['_token','nivel']);
@@ -70,16 +110,14 @@ class coordinadorController extends Controller
         if($request->input('nivel')=="Estudiante"){
             //echo "agregar estudiante";
             $estudiante['pes_id'] = $pe->id;
+            $estudiante['password'] = bcrypt($request->password);
             Estudiante::insert($estudiante);
-
         }elseif($request->input('nivel')=="Docente"){
-            
             //Docente::insert($docente);
             $nuevo = new docente();
             $nuevo->fill($docente);
             $nuevo->password = bcrypt($request->password);
             $nuevo->save();
-
             //modificar la adscripcion  a $pe->id del $nuevo->id
             $add = new Adscripcion();
             $add->pes_id = $pe->id;
@@ -87,7 +125,7 @@ class coordinadorController extends Controller
             $add->save();
 
         }
-        return redirect("/usuarios");
+        return redirect('listar-usuarios');
 
     }
 
@@ -98,7 +136,7 @@ class coordinadorController extends Controller
     }
 
     
-    public function editarLista($tipo, $id)
+    public function editarUsuario($tipo, $id)
     {
 
         if ($tipo == "Estudiante"){
@@ -111,7 +149,7 @@ class coordinadorController extends Controller
 
     }
 
-    public function actualizarLista(Request $request, $tipo, $id)
+    public function actualizarUsuario(Request $request, $tipo, $id)
     {
         
         if ($tipo == "Estudiante"){
@@ -133,54 +171,34 @@ class coordinadorController extends Controller
 
         }
 
-        return redirect("/usuarios"); //debe informar que paso
+        return redirect('listar-usuarios'); //debe informar que paso
 
     }
     public function actualizarComite(Request $request, $id){
         //no esta validando que si se pueda agregar el comite, y no valida si ya tiene no agrege otro
+        //tiene que hacer 12 ifs para saber que no este repetido y usen algo asi como firstdOrCreate
+
         $docente  = \Session::get('usuario' );
-        $proyecto = Comite::where('asesor', $docente->id)->get();
-        $comite = new Comite;
-        $comite->fill($request->all());
-        $comite->save();
+        $docente = $docente->fresh();
+
+        //reviso si ese proyecto ya tenia un comite
         $proyecto = Proyecto::find($id);
-        $proyecto->comite = $comite->id;
-        $proyecto->save();
-        return redirect("/asignaciones");
+        $res = is_null($proyecto->comite);
+        if(is_null($proyecto->comite)){
+            $comite = new Comite;
+            $comite->fill($request->all());
+            $comite->save();    
+            $proyecto->comite = $comite->id;
+            $proyecto->save();    
+        }else{
+            $comite =  Comite::find($proyecto->comite);
+            $comite->fill($request->all());
+            $comite->save();    
+        }
 
-        
-
+        return redirect("/listar-proyectos");
     }
     
-    public function destroy($id)
-    {
-        try{
-            Estudiante::destroy($id);
-            return redirect('add');
-        } catch (\Throwable $th) {
-            return redirect('add');
-        }
-
-        try{
-            Docente::destroy($id);
-            return redirect('add');
-            echo 'Usuario borrado correctamente';
-        } catch (\Throwable $th) {
-            return redirect('add');
-            echo 'El usuario no se pudo borrar, verifiue de nuevo';
-        }
-    }
-
-    public function password($tipo, $id){
-        if ($tipo == "Estudiante"){
-            $estudiante= Estudiante::find($id);
-            return view('coordinador.password-estudiante')->with('estudiante',$estudiante);  
-        }else{
-            $docente= Docente::find($id);
-            return view('coordinador.password-docente')->with('docente',$docente);    
-        }
-
-    }
 
     public function guardarPassword(Request $request, $tipo, $id){
 
@@ -197,12 +215,12 @@ class coordinadorController extends Controller
              $estudiante= Estudiante::find($id);
              $estudiante->password = Hash::make($request->password);
              $estudiante->save();
-             return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctaente');
+             return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctaente');
         }else{
             $docente= Docente::find($id);
             $docente->password = Hash::make($request->password);
             $docente->save();
-            return redirect("/usuarios")->with('mensaje','Contraseña cambiada correctamente');
+            return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctamente');
         }
 
     

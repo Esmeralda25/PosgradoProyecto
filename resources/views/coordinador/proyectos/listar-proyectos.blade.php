@@ -68,7 +68,8 @@
                                                 <td>
                                                     <div class="btn-group" style="padding-rigth: 12px">
                                                         <buttom class="btn btn-danger" style="padding-rigth: 12px"> 
-                                                            <a href="/asignar-asesores/{{$proyecto->id}}" style="color: black">ASIGNAR</a>
+                                                            <a href="/asignar-comite/{{$proyecto->id}}" style="color: black">ASIGNAR</a> 
+                                                            {{--no le asiganas solo asesores, le asignas comite tutortial--}}
                                                         </buttom>
                                                     </div> 
                                                 </td>

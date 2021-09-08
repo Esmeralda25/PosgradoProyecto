@@ -40,9 +40,7 @@ class entradaController extends Controller
             if (Hash::check($password_dieron, $password_guadado)) {
                 $identificacion = "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
                 \Session::put('identificacion' ,  $identificacion );
-                
                 \Session::put('usuario' ,  $usuario );
-
                 return  redirect('/coordinadores');
             }
         }

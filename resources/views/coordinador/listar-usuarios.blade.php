@@ -41,7 +41,7 @@
                             <div class="col-12">
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
-                                    <a href="{{url('/agregar')}}" class="btn btn-primary">Agregar</a>
+                                    <a href="{{url('/agregar-usuarios')}}" class="btn btn-primary">Agregar</a>
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
                                             <tr>
@@ -60,7 +60,7 @@
                                                     <td>
                                                     <a href="editar-usuarios/{{$usuario->nivel }}/{{$usuario->id}}" class="btn btn-info">EDITAR</a>
                                                     <a href="editar-contraseñas/{{$usuario->nivel }}/{{$usuario->id}}" class="btn btn-warning">CONTRASEÑA</a>
-                                                    <form action="coordinador/{{$usuario->id}}" style="display:inline" method="post" >
+                                                    <form action="eliminar-usuarios/{{$usuario->nivel }}/{{$usuario->id}}" style="display:inline" method="post" >
                                                     @csrf
                                                     @method('delete')
                                                     

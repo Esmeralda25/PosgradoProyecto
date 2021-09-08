@@ -36,7 +36,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/usuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
+                                                <a href="{{url('/listar-usuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
@@ -56,7 +56,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/asignaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
+                                            <a href="{{url('/listar-proyectos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->

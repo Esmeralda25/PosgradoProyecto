@@ -57,10 +57,6 @@
                                                     <label for="" class="form-label">Correo</label>
                                                     <input id="correo" name="correo" type="text" class="form-control" tabindex="3" value="{{$docente->correo}}">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="" class="form-label">Contraseña</label>
-                                                    <input id="password" name="password" type="text" class="form-control" tabindex="3" value="{{$docente->password}}">
-                                                </div>
                                         
                                                 <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>
                                                 <input type="submit" value="Guardar" class="btn btn-warning">

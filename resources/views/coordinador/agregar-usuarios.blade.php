@@ -44,7 +44,7 @@
                                     <div class="container">
                                         
 
-                                        <form action="/add" method="POST" enctype="multipart/form-data">
+                                        <form action="/agregar-usuarios" method="POST" enctype="multipart/form-data">
                                         @csrf
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Nombre</label>

@@ -48,11 +48,11 @@
                             </div>
                             <div class="mb-3">
                                 Contraseña
-                                <input type="text" name="password"  class="form-control" tabindex="3">
+                                <input type="password" name="password"  class="form-control" tabindex="3">
                             </div>
                             <div class="mb-3">
                                 Repita la Contraseña
-                                <input  type="text" name="password2"  class="form-control" tabindex="3">
+                                <input  type="password" name="password2"  class="form-control" tabindex="3">
                             </div>
 
                             <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>
