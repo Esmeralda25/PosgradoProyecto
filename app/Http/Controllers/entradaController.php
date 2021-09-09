@@ -68,6 +68,11 @@ class entradaController extends Controller
             }
         }
 
+        if($peticion->input('nombre') == "informatico@gmail.com" ){
+            if( $peticion->input('palabra') == "asd" ){
+                return  redirect('/pes');
+            }
+        }
         echo "USUARIO NO REGISTRADO";
         return view('user_notfound');//si separaron la palabra user porque no separaron la palabra not
 
@@ -83,7 +88,8 @@ class entradaController extends Controller
                 //header('Location:'.$URL.'/welcome');
                 return  redirect('/');
             }else{
-                echo "No existe sesión";
+                return  redirect('/');
+//                echo "No existe sesión";
             }
         }  
 }

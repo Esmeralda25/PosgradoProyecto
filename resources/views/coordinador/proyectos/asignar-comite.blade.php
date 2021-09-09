@@ -40,7 +40,7 @@
                                 </div>
                                 <hr>
 
-                                        <form action="/comites/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
+                                        <form action="/asignar-comite/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
             

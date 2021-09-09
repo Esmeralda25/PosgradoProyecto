@@ -176,8 +176,13 @@ class coordinadorController extends Controller
     }
     public function actualizarComite(Request $request, $id){
         //no esta validando que si se pueda agregar el comite, y no valida si ya tiene no agrege otro
-        //tiene que hacer 12 ifs para saber que no este repetido y usen algo asi como firstdOrCreate
-
+        //tiene que hacer 12 ifs  
+/*
+        if(asesor = revisro1 or asesor = revisor2 or asesor = revisor3 o 
+         o revisor1 = revisor2 o revisor1 = revisro3 o 
+         revisor2 = revisor3 o
+          )
+*/
         $docente  = \Session::get('usuario' );
         $docente = $docente->fresh();
 

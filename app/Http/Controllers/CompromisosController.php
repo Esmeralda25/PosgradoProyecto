@@ -12,7 +12,7 @@ class CompromisosController extends Controller
 
         //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
 
-        $compromisos = Compromiso::orderBy('id','DESC')->where('pes_id',$coordinador->id)->get();
+        $compromisos = Compromiso::orderBy('titulo','DESC')->where('pes_id',$coordinador->id)->orWhereNull('pes_id')->get();
         return view('coordinador.Compromisos.index')->with('compromisos', $compromisos);
     }
     public function create(){ 

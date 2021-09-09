@@ -77,7 +77,7 @@
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/Compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
+                                            <a href="{{url('/listar-compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Compromisos</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->

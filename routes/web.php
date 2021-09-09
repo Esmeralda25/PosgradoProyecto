@@ -53,13 +53,12 @@ Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinad
 //Proyectos
     Route::resource('asesores', 'App\Http\Controllers\asesorController');
     //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
-    Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
+    //Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
 
 Route::get('listar-proyectos', 'App\Http\Controllers\proyectosController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
 Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\proyectosController@asignarComite' );
+Route::put('asignar-comite/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
 //Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
-
-Route::put('comites/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
 
 
 Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
@@ -92,12 +91,13 @@ Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show'
 Route::get('criterios/{id}','App\Http\Controllers\CriteriosController@index');
 Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@create');
 Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
-Route::get('editar-criterios/{id}','App\Http\Controllers\CriteriosController@edit');
+Route::get('editar-criterios/{id}',['App\Http\Controllers\CriteriosController','edit']);
 Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
 Route::put('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
 
-
 //Compromisos
+Route::get('listar-compromisos',['App\Http\Controllers\CompromisosController' , 'index' ]);
+
 Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
 /*
 

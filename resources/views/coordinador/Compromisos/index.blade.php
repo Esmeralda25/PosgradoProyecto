@@ -31,7 +31,7 @@
             <div class="col-10">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">Agregar Compromisos</h1>
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Agregar Compromisos del programa educativo</h1>
                         </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -53,14 +53,15 @@
                                            <tr>
                                            <th scope="col">{{$compromiso->titulo}}</th>
                                                 <th scope="col"> 
+                                                    @if (!is_null($compromiso->pes_id))
+                                                        <a href="editarCompromisos/{{$compromiso->id}}" class="btn btn-primary">Editar</a>                                                       
+                                                        <form action="Compromisos/{{$compromiso->id}}" style="display:inline" method="post" >
+                                                            @csrf
+                                                            @method('delete')
+                                                            <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                        </form> 
+                                                    @endif
                                                  
-                                                    <a href="editarCompromisos/{{$compromiso->id}}" class="btn btn-primary">Editar</a>       
-                                                    
-                                                <form action="Compromisos/{{$compromiso->id}}" style="display:inline" method="post" >
-                                                     @csrf
-                                                    @method('delete')
-                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
-                                                </form> 
                                                 </th>                                               
                                             <tr>  
                                             @endforeach
