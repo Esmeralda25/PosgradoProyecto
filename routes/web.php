@@ -147,7 +147,7 @@ Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
 Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
 Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
 
-Route::delete('comprometerse','App\Http\Controllers\proyectosController@update');
+Route::delete('comprometerse/{id}','App\Http\Controllers\proyectosController@destroy');
 
 
 

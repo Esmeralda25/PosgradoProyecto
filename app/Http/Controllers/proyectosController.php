@@ -103,5 +103,16 @@ public function index(){
         return redirect("/estudiantes");
     }
 
+    public function destroy($id)
+    {
+        try{
+            Adquirido::destroy($id);
+            return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
+        } catch (\Throwable $th) {
+            return redirect('comprometerse');//detalle: que avise por que no pudo borrar
+            alert("No se pudo borrar");
+        }
+    }
+
 
 }

@@ -106,7 +106,11 @@
                                   {{$compromiso->que}}
                                 </td>
                                 <td>
-                                  <button class="btn btn-warning" style="width:60px"><i class="fas fa-minus-circle"></i></button>
+                                  <form action="/comprometerse/{{$compromiso->id}}" method="post" style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-warning" style="width:60px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
+                                  </form>
                                   {{$compromiso->cuantos_prog}}
                                 </td>
                               </tr>  
