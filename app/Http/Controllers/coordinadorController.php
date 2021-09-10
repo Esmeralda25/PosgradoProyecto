@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 
+
 class coordinadorController extends Controller
 {
     public function index()
@@ -175,14 +176,25 @@ class coordinadorController extends Controller
 
     }
     public function actualizarComite(Request $request, $id){
-        //no esta validando que si se pueda agregar el comite, y no valida si ya tiene no agrege otro
-        //tiene que hacer 12 ifs  
-/*
-        if(asesor = revisro1 or asesor = revisor2 or asesor = revisor3 o 
-         o revisor1 = revisor2 o revisor1 = revisro3 o 
-         revisor2 = revisor3 o
-          )
-*/
+        
+        if($request->asesor == $request->revisor1){
+            return back()->withInput();       
+         }else
+        if($request->asesor == $request->revisor2){
+            return back()->withInput(); 
+         }else
+        if($request->asesor == $request->revisor3){
+            return back()->withInput();    
+        }else
+        if($request->revisor1 == $request->revisor2){
+            return back()->withInput();        
+        }else
+        if($request->revisor1 == $request->revisor3){
+            return back()->withInput();   
+        }else
+        if($request->revisor2 == $request->revisor3){
+            return back()->withInput();        
+        }else
         $docente  = \Session::get('usuario' );
         $docente = $docente->fresh();
 

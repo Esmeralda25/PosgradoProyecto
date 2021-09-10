@@ -32,6 +32,7 @@
                                                     <tr>
                                                         <th scope="col">Nombres</th>
                                                         <th scope="col">Número de Control</th>
+                                                        <th scope="col">Carrera:</th>
                                                         
                                                     <tr>
                                                 </thead>
@@ -39,11 +40,14 @@
                                                
                                                 <tr> 
                                                     <th scope="col">Montejo Vázquez Keyla Esmeralda </th>
-                                                    <th scope="col">16270804</th>   
+                                                    <th scope="col">16270804</th> 
+                                                    <th scope="col">Ingenieria en Sistemas Computacionales</th>   
                                                 </tr> 
                                                 <tr>
                                                     <th scope="col">Morales Gutierrez César Gabriel</th>
                                                     <th scope="col">16270808</th>
+                                                    <th scope="col">Ingenieria en Sistemas Computacionales</th>   
+
                                                 </tr>
                                                 </tbody>
                                             </table>

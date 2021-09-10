@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
+  <p></p>
 
 @endsection
 @section('submenu')
@@ -23,10 +23,7 @@
 @endsection
 
 @section('content')
-@if ($rubricas->count()==0)
-   "NO HAY RUBRICAS REGISTRADAS PARA ESTE PROGRAMA EDUCATIVO";
-    
-@endif
+
 <section class="content">
     <div class="container-fluid">
 
@@ -46,8 +43,13 @@
                         <!-- contenido de main imagenes -->
                                 <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
                                 <div class="container">
-                                    
+                                <br>@if ($rubricas->count()==0)
+                                 No existen rubricas para este programa educativo.<br>
+                                 Por favor, agregalas.<br>
+                                 <a href="/rubricas" class="btn btn-warning" tabindex="5">Rubricas</a><br>
+                                @endif
 
+                                @if ($rubricas->count())
                                     <form action="/guardar-periodos" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <input type="hidden" name="generacion_id" value="{{$generacion->id}}">       
@@ -77,6 +79,7 @@
                                             <a href="/periodos/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                             <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>
