@@ -80,7 +80,11 @@ class GeneracionController extends Controller
         $registro = Generacion::find($id);
         $registro->fill($generacion);
         $registro->save();
+<<<<<<< HEAD
         return redirect("/listar-generaciones")->with('mensaje','Generacion actualizada correctamente');
+=======
+        return redirect("/generaciones")->with('mensaje','Generacion actualizada correctamente');
+>>>>>>> 22dca870b6ab1dd28cfdf28c16ee99db3fcc5f0d
     }
 
     /**
@@ -93,7 +97,11 @@ class GeneracionController extends Controller
     {
         try{
             Generacion::destroy($id);
+<<<<<<< HEAD
             return redirect('listar-generaciones')->with('borrar','Generacion eliminada correctamente');
+=======
+            return redirect('generaciones')->with('borrar','Generacion eliminada correctamente');
+>>>>>>> 22dca870b6ab1dd28cfdf28c16ee99db3fcc5f0d
         } catch (\Throwable $th) {
             return redirect('listar-generaciones');//detalle: que avise por que no pudo borrar
             alert("No se pudo borrar");
