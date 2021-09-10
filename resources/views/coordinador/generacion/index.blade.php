@@ -75,7 +75,7 @@
                                                     <th scope="col">{{$generacion->descripcion}}</th>
 
                                                     <td>
-                                                    <a href="editarGeneraciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
+                                                    <a href="editar-generaciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="periodos/{{$generacion->id}}" style="color: white">PERIODOS</a></button>
                                                      
                                                      <form action="eliminar-generaciones/{{$generacion->id}}" style="display:inline" method="post" >
