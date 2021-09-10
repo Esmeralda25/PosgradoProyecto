@@ -66,7 +66,7 @@
                                             <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos</h2>
                                         </div>
                                         @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
-                                            <li>{{$compromiso->que}}</li>
+                                            <li>{{$compromiso->que}}, se programo:  {{$compromiso->cuantos_prog}}</li>
                                         @empty
                                             Sin compromisos definidos para este semestre
                                         @endforelse
@@ -74,7 +74,7 @@
                                             <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
                                         </div>
                                         @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
-                                            <li>{{$actividad->nombre}}</li>
+                                            <li>{{$actividad->nombre}} - en el periodo "{{$actividad->periodo}}"</li>
                                         @empty
                                             Sin actividades definidas para este semestre
                                         @endforelse

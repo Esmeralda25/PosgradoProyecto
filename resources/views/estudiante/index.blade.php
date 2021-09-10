@@ -71,7 +71,7 @@
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/reportes')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
+                                                <a href="{{url('/reportar')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Reportar Avance</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>
@@ -100,7 +100,7 @@
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/compromisos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Como Fue</span></a>
+                                            <a href="{{url('/historico')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Como Fue</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

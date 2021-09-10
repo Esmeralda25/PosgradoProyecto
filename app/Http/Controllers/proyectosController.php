@@ -30,7 +30,7 @@ class proyectosController extends Controller
         return view('estudiante.registrar', compact('estudiante'));
 
     }
-    public function Store(Request $request){
+    public function store(Request $request){
         proyecto::create(request()->all()); 
         return redirect('/estudiantes'); //error al redireccionar, manda estado del estudiante nulo
     } 
@@ -40,7 +40,7 @@ class proyectosController extends Controller
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
 
-        return view('estudiante.seguimineto' , compact('estudiante'));//->with('add',$add);
+        return view('estudiante.seguimineto' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
     }
 
 
@@ -59,6 +59,11 @@ class proyectosController extends Controller
         return redirect('/comprometerse');
     }
 
+    public function reportar(){
+        $estudiante = \Session::get('usuario');
+        $estudiante = $estudiante->fresh(); 
+        return view('estudiante.reportar' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
+    }
 
 
 

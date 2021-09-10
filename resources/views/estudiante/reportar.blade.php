@@ -46,74 +46,48 @@
                                         <div>
                                             <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
                                         </div>
-                                        <table class="table">
-                                            <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">Busqueda de informacion</th>
-                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
-                                                
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">Creacion de la herramienta</th>
-                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Difucion del trabajo</th>
-                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
+                                            <li>{{$actividad->nombre}} - en el periodo "{{$actividad->periodo}}"</li>
+                                        @empty
+                                            Sin actividades definidas para este semestre
+                                        @endforelse
+                                        <div>
+                                            <!-- espacio entre contenido-->
+                                        </div>
+                                        <div>
+                                            <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos Adquiridos</h2>
+                                        </div>
+
+                                        
                                         <table class="table table-striped col-12">
                                             <thead>
-                                                <tr>
-                                                    <div style="height: 10px">
-                                                        <!-- espacio entre contenido-->
-                                                    </div>
-                                                </tr>
-                                                <tr>
-                                                    <h2 style="text-align: center; background:black">Compromisos Adquiridos</h2>
-                                                </tr>
-                                                <tr class="table-dark" style="background: rgba(0, 0, 0, 0.692)">
+                                                <tr class="table-dark" >
                                                     <th scope="col">Compromisos</th>
                                                     <th scope="col">Programado</th>
                                                     <th scope="col">Realizado</th>
                                                     <th scope="col">Evidencias</th>
                                                 </tr>
-                                                <tr>
-                                                    <th>Articulos JCR sometidos</th>
-                                                    <td><input type="text" placeholder="2" name="nombre" class="form-control"></td>
-                                                    <td><input type="text" name="nombre" class="form-control"></td>
-                                                    <td style="padding: 5px">
-                                                        <button>Seleccionar archihvo..</button>
-                                                        <button>Seleccionar archihvo..</button>
-                                                    </td> <!-- este buttom es un ejemplo, se hace con jquery-->
-                                                </tr>
-                                                <tr>
-                                                    <th>Articulos JCR aceptados</th>
-                                                    <td><input type="text" placeholder="1" name="nombre" class="form-control"></td>
-                                                    <td><input type="text" name="nombre" class="form-control"></td>
-                                                    <td style="padding: 5px">
-                                                        <button>Seleccionar archihvo..</button>
-                                                        
-                                                    </td> <!-- este buttom es un ejemplo, se hace con jquery-->
-                                                </tr>
-                                                <tr>
-                                                    <th>Conferencias Nacionales</th>
-                                                    <td><input type="text" placeholder="2" name="nombre" class="form-control"></td>
-                                                    <td><input type="text" name="nombre" class="form-control"></td>
-                                                    <td style="padding: 5px; heigth:15px" >
-                                                        <button>Seleccionar archihvo..</button>
-                                                        <button>Seleccionar archihvo..</button>
-                                                        <button>Seleccionar archihvo..</button>
-                                                    </td> <!-- este buttom es un ejemplo, se hace con jquery-->
-                                                </tr>
                                             </thead>
+                                            <tbody>
+                                                @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
+                                                    <tr>
+                                                        <th>{{$compromiso->que}}</th>
+                                                        <td>{{$compromiso->cuantos_prog}}</td>
+                                                        <td><input type="text" name="logrados[$loop->iteration]" class="form-control"></td>
+                                                        <td style="padding: 5px">
+                                                            <input type="file" name="" id="">
+                                                        </td> <!-- este buttom es un ejemplo, se hace con jquery-->
+                                                    </tr>
+                                                @empty
+                                                <tr>
+                                                    <td colspan="4">Sin compromisos definidos para este semestre</td>
+                                                </tr>
+                                                @endforelse
+                                            </tbody>
                                         </table>
 
                                         
-                                        FALTA SUBIR REPORTE
+                                        REPORTE: <input type="file" name="" id="">
 
                                         <div>
                                             <button class="btn btn-danger"><a href="{{url('/reportar')}}" onclick="alerta()" style="color: black">Reportar</a></button>

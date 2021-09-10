@@ -30,7 +30,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-10 mt-10">
                     <div class="card col-md-10 mt-10"">
-                        <form action="/registros" method="POST">
+                        <form action="/registrar" method="POST">
                         @csrf
                             <div class="card-header text-center font-weight-bold" style="font-size: 30px">Registrar Proyecto</div>
                             <div class="justify-content-center" style="margin: 15px">

@@ -39,7 +39,7 @@ actualizar-
 eliminar-
 */
 
-//Usuarios
+//opcion: Usuarios
 Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios'); //muestra la lista de usuarios
 Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
 Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
@@ -50,8 +50,8 @@ Route::delete('eliminar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorC
 Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password'); //funciona la ñ pero no es insternacional en lugar de la palabra contraseña pon password
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
-//Proyectos
-    Route::resource('asesores', 'App\Http\Controllers\asesorController');
+//opcion: Proyectos
+    //Route::resource('asesores', 'App\Http\Controllers\asesorController');
     //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
     //Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
 
@@ -61,10 +61,7 @@ Route::put('asignar-comite/{id}',['App\Http\Controllers\coordinadorController' ,
 //Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
 
 
-Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
-
-
-//Generaciones
+//opcion: Generaciones
 Route::resource('generaciones','App\Http\Controllers\GeneracionController');
 Route::get('listar-generaciones','App\Http\Controllers\GeneracionController@index');
 Route::get('agregar-generaciones','App\Http\Controllers\GeneracionController@create');
@@ -74,7 +71,7 @@ Route::put('actualizar-generaciones/{id}','App\Http\Controllers\GeneracionContro
 Route::delete('eliminar-generaciones/{id}','App\Http\Controllers\GeneracionController@destroy');
 
 
-//Periodos
+//opcion: Periodos
 Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
 Route::get('agregar-periodos/{id}',['App\Http\Controllers\PeriodosController','create']);
 Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
@@ -82,7 +79,7 @@ Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit'
 Route::put('actualizar-periodos/{id}','App\Http\Controllers\PeriodosController@update');
 Route::get('estadisticos','App\Http\Controllers\PeriodosController@estadistico');
 
-// Rubricas
+//opcion: Rubricas
 Route::resource('rubricas', 'App\Http\Controllers\RubricaController');
 Route::get('agregar-rubricas','App\Http\Controllers\RubricaController@create');
 Route::post('guardar-rubricas','App\Http\Controllers\RubricaController@store');
@@ -90,7 +87,7 @@ Route::get('editar-rubricas/{id}','App\Http\Controllers\RubricaController@edit')
 Route::put('actualizar-rubricas/{id}','App\Http\Controllers\RubricaController@update');
 Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show');
 
-//Criterios
+//opcion: Criterios
 Route::get('criterios/{id}','App\Http\Controllers\CriteriosController@index');
 Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@create');
 Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
@@ -98,72 +95,36 @@ Route::get('editar-criterios/{id}',['App\Http\Controllers\CriteriosController','
 Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
 Route::put('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
 
-//Compromisos
+//opcion: Compromisos
+Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
 Route::get('listar-compromisos',['App\Http\Controllers\CompromisosController' , 'index' ]);
-
 Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
-/*
-
-~/proyectos/doctorado:master$ php artisan route:list | grep Compromisos
-|        | POST      | Compromisos                           | Compromisos.store       | App\Http\Controllers\CompromisosController@store                | web        |
-|        | GET|HEAD  | Compromisos                           | Compromisos.index       | App\Http\Controllers\CompromisosController@index                | web        |
-|        | GET|HEAD  | Compromisos/create                    | Compromisos.create      | App\Http\Controllers\CompromisosController@create               | web        |
-|        | DELETE    | Compromisos/{Compromiso}              | Compromisos.destroy     | App\Http\Controllers\CompromisosController@destroy              | web        |
-|        | PUT|PATCH | Compromisos/{Compromiso}              | Compromisos.update      | App\Http\Controllers\CompromisosController@update               | web        |
-|        | GET|HEAD  | Compromisos/{Compromiso}              | Compromisos.show        | App\Http\Controllers\CompromisosController@show                 | web        |
-|        | GET|HEAD  | Compromisos/{Compromiso}/edit         | Compromisos.edit        | App\Http\Controllers\CompromisosController@edit                 | web        |
-El resource ya agrego las proximas tres rutas, pero deben llamarlas como su nombre es
-*/
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-
-
-Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController');
-
-
-
-
-
-
-
+    //Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController'); //no creo que sirva es un controlador que solo tiene un metodo
 
 /*
 como debieron cambiar esto?
 Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 */
 
-
-
-
-//Estudiante
-
+//USUARIO Estudiante
 Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
 //Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
-Route::post('registros','App\Http\Controllers\proyectosController@Store');
 
 Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
+Route::post('registrar','App\Http\Controllers\proyectosController@store');
 Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
 Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
 Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
-
 Route::delete('comprometerse/{id}','App\Http\Controllers\proyectosController@destroy');
 
-
-
-
-
 //Route::post('addproyectos','App\Http\Controllers\proyectosController@store');// para que lo mandas si store ya te lo da el resource de la linea 40
-
-
 //Route::resource('asignar', 'App\Http\Controllers\asignarController');
-
-
-Route::resource('reportes', 'App\Http\Controllers\reportarController');
-
+//    Route::resource('reportes', 'App\Http\Controllers\reportarController'); //este resource solo tiene un metodo en el controller
+Route::get('reportar','App\Http\Controllers\proyectosController@reportar');
 //Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller'); //solo tiene una accion pero todo lo declaran como resource
-
-
 
 //Docente 
 
