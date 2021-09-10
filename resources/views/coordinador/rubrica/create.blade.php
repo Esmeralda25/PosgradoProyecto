@@ -10,17 +10,22 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
+@section('regresar') 
+    <a href="/rubricas" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
 </li>
 @endsection
+
 
 @section('content')
 <section class="content">
@@ -41,9 +46,7 @@
                                 <div class="col-md-12">
                                     <!-- contenido de main imagenes -->
                                     <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
-                                    <div class="container">
-                                        
-
+                                    
                                         <form action="/guardar-rubricas" method="POST" enctype="multipart/form-data">
                                             @csrf
                                                 <input type="hidden" name="pe_id" value="{{$pe->id}}">
@@ -61,10 +64,9 @@
                     
                                                 </div> 
                                         
-                                                <a href="/rubricas" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                                <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
+                                                <a href="/rubricas" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                                <button type="submit" class="btn btn-warning" tabindex="4"><a>Guardar</a></button>
                                         </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>

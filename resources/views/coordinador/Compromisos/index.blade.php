@@ -10,16 +10,16 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
-<!-- @section('regresar') 
+@section('regresar') 
     <a href="/coordinadores" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
-@endsection -->
+@endsection 
 @section('content')
 <section class="content">
     <div class="container-fluid">

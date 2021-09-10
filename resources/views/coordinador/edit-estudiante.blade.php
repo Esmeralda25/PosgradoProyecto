@@ -10,15 +10,19 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
+@section('regresar') 
+    <a href="/listar-usuarios" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
 </li>
 @endsection
 
@@ -41,7 +45,6 @@
                                 <div class="col-md-12">
                             <!-- contenido de main imagenes -->
                                     <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
-                                    <div class="container">
                                         <form action="/actualizar-usuarios/Estudiante/{{$estudiante->id}}" method="post"  enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
@@ -56,10 +59,9 @@
                                                     <input id="correo" name="correo" type="text" class="form-control" tabindex="3" value="{{$estudiante->correo}}">
                                                 </div>
                                        
-                                                <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                                <a href="/listar-usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>
                                                 <input type="submit" value="Guardar" class="btn btn-warning">
                                         </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -10,17 +10,22 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
+@section('regresar') 
+    <a href="/generaciones" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
 </li>
 @endsection
+
 
 @section('content')
 <section class="content">
@@ -49,7 +54,7 @@
                                     <label for="" class="row col-12">Descripcion</label>
                                     <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
                                 </div>
-                                <a href="/coordinadores/{{$generacion->id}}" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                <a href="/generaciones" class="btn btn-danger" tabindex="5">Cancelar</a>
                                 <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>
                             </div>
                         </form>

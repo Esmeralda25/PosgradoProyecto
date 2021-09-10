@@ -10,7 +10,7 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
@@ -83,6 +83,18 @@
                                             <!-- /.info-box-content -->
                                         </div>
                                     </div>
+                                    <!-- liga para descargar manuales -->
+                                    <div class="col-6">
+                                        <div class="info-box mb-3">
+                                            <span class="info-box-icon bg-success elevation-1"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                            
+                                            <div class="info-box-content">
+                                            <a href="{{url('')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Manuales de Usuario</span></a>
+                                                
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,6 +105,8 @@
         </div>
     </div>
 </section>
+
+
 @endsection
   <!-- Content Wrapper. Contains page content -->
 

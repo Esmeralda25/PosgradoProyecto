@@ -10,7 +10,7 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
@@ -18,7 +18,6 @@
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
 </li>
 @endsection
 

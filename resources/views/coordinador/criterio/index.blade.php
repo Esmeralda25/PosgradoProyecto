@@ -10,12 +10,16 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
-
+@section('regresar') 
+    <a href="/rubricas" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection 
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -27,7 +31,7 @@
             <div class="col-10">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
-                            <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Criterio</h5><br><br>
+                            <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Lista de criterios</h5><br><br>
                             <h3 class="card-title font-weight-bold" style="text-align: center">Rubrica: {{$rubrica->nombre}}</h3>
                         </div>
                             <!-- /.card-header -->

@@ -10,11 +10,22 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
+@section('regresar') 
+    <a href="/generaciones" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
+@section('inicio')
+<li class="nav-item d-none d-sm-inline-block">
+      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+</li>
+@endsection
+
 
 @section('content')
 <section class="content">
@@ -26,15 +37,16 @@
         <div class="row justify-content-center" >
             <div class="col-10">
                 <div class="card col-12">
-                        <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Periodo</h5><br><br>
-                        <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>
+                    <div class="card-header" style="text-align: center">
+                        <h5 class="card-title font-weight-bold" style="font-size: 35px;">Agregar Periodo</h5><br><br>
+                        <h3 class="card-title font-weight-bold" >Generacion: {{$generacion->nombre}}</h3>
+                    </div>
                     <!-- /.card-header -->
                       <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
                                   <!-- contenido de main imagenes -->
-                                  <a style="margin: 10px auto;" href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary">Agregar</a>
+                                  <a href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary">Agregar</a>
 
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">

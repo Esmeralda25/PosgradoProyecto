@@ -10,12 +10,16 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
-
+@section('regresar') 
+    <a href="/coordinadores" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection 
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -34,7 +38,6 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <!-- contenido de main imagenes -->
-                                        <div class="container">
                                             <a style="margin: 10px auto;" href="{{url('/agregar-rubricas')}}" class="btn btn-primary">Agregar</a>
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
@@ -50,7 +53,7 @@
                                                     <th scope="col">{{$rubrica->nombre}}</th>
                                                     <th scope="col">{{$rubrica->tipo}}</th>
                                                     <td>
-                                                    <a href="editar-rubricas/{{$rubrica->id}}" class="btn btn-info">EDITAR</a>
+                                                    <a href="editar-rubricas/{{$rubrica->id}}" class="btn btn-success">EDITAR</a>
                                                     <a href="criterios/{{$rubrica->id}}" class="btn btn-info">CRITERIOS</a>
                                                      <button type="button" class="btn btn-warning"><a href="mostrar-rubricas/{{$rubrica->id}}" style="color: white">Mostrar</a></button>
                                                      <form action="rubricas/{{$rubrica->id}}" style="display:inline" method="post" >
@@ -65,7 +68,6 @@
                                                 <tbody>                                               
                                                 </tbody>
                                             </table>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -10,17 +10,22 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
+@section('regresar') 
+    <a href="/periodos/{{$generacion->id}}" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
-
 </li>
 @endsection
+
 
 @section('content')
 
@@ -33,19 +38,18 @@
         <div class="row justify-content-center" >
             <div class="col-10">
                 <div class="card col-12">
-                        <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center">Agregar Periodo</h5><br><br>
+                <div class="card-header" style="text-align: center">
+                        <h5 class="card-title font-weight-bold" style="text-align: center">Agregar Periodo</h5><br>
                         <h3 class="card-title font-weight-bold" style="text-align: center">Generacion: {{$generacion->nombre}}</h3>                       
-                    <!-- /.card-header -->
+                   </div> <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
                                 <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
-                                <div class="container">
-                                <br>@if ($rubricas->count()==0)
-                                 No existen rubricas para este programa educativo.<br>
-                                 Por favor, agregalas.<br>
+                                @if ($rubricas->count()==0)
+                                 No existen rubricas para este programa educativo.
+                                 Por favor, agregalas.
                                  <a href="/rubricas" class="btn btn-warning" tabindex="5">Rubricas</a><br>
                                 @endif
 
@@ -53,12 +57,11 @@
                                     <form action="/guardar-periodos" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <input type="hidden" name="generacion_id" value="{{$generacion->id}}">       
-
                                             <div class="card-body">
-                                            <div class="row form-group col-12">
-                                            <label for="" class="row col-12">Nombre</label>
-                                            <input type="text" class="row col-12" name="nombre">
-                                            </div>
+                                                <div class="row form-group col-12">
+                                                <label for="" class="row col-12">Nombre</label>
+                                                <input type="text" class="row col-12" name="nombre">
+                                                </div>
                             
                                             <label for="" class="row col-12">Fecha Inicio</label>
                                             <input type="date" placeholder="" name="fechaInicio" class="form-control" style="width: 300px">
@@ -76,11 +79,10 @@
                                                 @endforeach
                                             </select>
                                             </div> 
-                                            <a href="/periodos/{{$generacion->id}}" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                            <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
+                                            <a href="/periodos/{{$generacion->id}}" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                            <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>
                                     </form>
                                     @endif
-                                </div>
                             </div>
                         </div>
                     </div>
