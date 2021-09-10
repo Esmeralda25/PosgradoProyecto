@@ -40,7 +40,7 @@
                         <div class="card-header" style="text-align: center">
                             <h1 class="card-title font-weight-bold" style="text-align: center">Agregar Generacion</h1>
                         </div>
-                        <form action="/actualizarGeneraciones/{{$generacion->id}}" method="post">
+                        <form action="/actualizar-generaciones/{{$generacion->id}}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="card-body"> 

@@ -81,36 +81,42 @@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <select name="estado">                                                       
+                                                        {{--
+                                                            'Inicio','Comprometerse','Seguimiento','Reportar','Evaluacion','Concluido'
+                                                        --}} 
                                                         @if ($periodo->estado=="Inicio")
                                                             <option value="Inicio" selected>Inicio</option>
                                                         @else
                                                             <option value="Inicio">Inicio</option>
                                                         @endif
-
-                                                        @if ($periodo->estado=="Comienzo")
-                                                            <option value="Comienzo" selected>Comienzo</option>
+                                                        @if ($periodo->estado=="Comprometerse")
+                                                            <option value="Comprometerse" selected>Comprometerse</option>
                                                         @else
-                                                            <option value="Comienzo">Comienzo</option>
+                                                            <option value="Comprometerse">Comprometerse</option>
                                                         @endif
-
                                                         @if ($periodo->estado=="Seguimiento")
                                                             <option value="Seguimiento" selected>Seguimiento</option>
                                                         @else
                                                             <option value="Seguimiento">Seguimiento</option>
                                                         @endif
-
+                                                        @if ($periodo->estado=="Reportar")
+                                                            <option value="Reportar" selected>Reportar</option>
+                                                        @else
+                                                            <option value="Reportar">Reportar</option>
+                                                        @endif
                                                         @if ($periodo->estado=="Evaluacion")
                                                             <option value="Evaluacion" selected>Evaluacion</option>
                                                         @else
                                                             <option value="Evaluacion">Evaluacion</option>
                                                         @endif
-
+{{--
+    una vez evaluado regresa a Seguimiento
                                                         @if ($periodo->estado=="Evaluado")
                                                             <option value="Evaluado" selected>Evaluado</option>
                                                         @else
                                                             <option value="Evaluado">Evaluado</option>
                                                         @endif
-
+--}}
                                                         @if ($periodo->estado=="Concluido")
                                                             <option value="Concluido" selected>Concluido</option>
                                                         @else

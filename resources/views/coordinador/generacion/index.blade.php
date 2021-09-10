@@ -38,7 +38,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <!-- contenido de main imagenes -->
-                                            <a style="margin: 10px auto;" href="{{url('/agregarGeneraciones')}}" class="btn btn-primary">Agregar</a>
+                                            <a style="margin: 10px auto;" href="{{url('/agregar-generaciones')}}" class="btn btn-primary">Agregar</a>
                                     
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
@@ -56,10 +56,10 @@
                                                     <th scope="col">{{$generacion->descripcion}}</th>
 
                                                     <td>
-                                                    <a href="editarGeneraciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
+                                                    <a href="editar-generaciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="periodos/{{$generacion->id}}" style="color: white">Periodos</a></button>
                                                      
-                                                     <form action="generaciones/{{$generacion->id}}" style="display:inline" method="post" >
+                                                     <form action="eliminar-generaciones/{{$generacion->id}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">

@@ -92,7 +92,7 @@
                           <thead>
                             <tr class="col-12">
                               <th>
-                              Actividad comprometida
+                                Actividad comprometida
                               </th>
                               <th>
                                 Cantidad comprometida
@@ -101,17 +101,15 @@
                           </thead>                                    
                           <tbody>
                             @foreach ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
-
-                            <tr>
-                              <td >
-                                {{$compromiso->que}}
-                              </td>
-                              <td>
-                                {{$compromiso->cuantos_prog}}
-                              </td>
-                       
-                        </tr>  
-
+                              <tr>
+                                <td >
+                                  {{$compromiso->que}}
+                                </td>
+                                <td>
+                                  <button class="btn btn-warning" style="width:60px"><i class="fas fa-minus-circle"></i></button>
+                                  {{$compromiso->cuantos_prog}}
+                                </td>
+                              </tr>  
                             @endforeach
 
                           </tbody>

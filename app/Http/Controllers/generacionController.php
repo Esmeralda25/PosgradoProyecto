@@ -13,7 +13,7 @@ class GeneracionController extends Controller
     public function index(){ 
         
         $pe = \Session::get('usuario');
-
+        $pe= $pe->fresh();
         //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
 
         $generaciones = Generacion::where('pes_id', $pe->id)->get();
@@ -32,7 +32,7 @@ class GeneracionController extends Controller
     public function store(Request $request) 
     {
         generacion::create(request()->all());
-        return redirect('/generaciones');
+        return redirect('/listar-generaciones');
         
 
     }
@@ -82,7 +82,7 @@ class GeneracionController extends Controller
         $registro = Generacion::find($id);
         $registro->fill($generacion);
         $registro->save();
-        return redirect("/generaciones");
+        return redirect("/listar-generaciones");
     }
 
     /**
@@ -95,10 +95,10 @@ class GeneracionController extends Controller
     {
         try{
             Generacion::destroy($id);
-            return redirect('generaciones');//detalle: que avise que si borro
+            return redirect('listar-generaciones');//detalle: que avise que si borro
             alert("Se borró correctamente");
         } catch (\Throwable $th) {
-            return redirect('generaciones');//detalle: que avise que no pudo borrar
+            return redirect('listar-generaciones');//detalle: que avise que no pudo borrar
             alert("No se pudo borrar");
 
         }

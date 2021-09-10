@@ -47,7 +47,7 @@
                         <!-- contenido de main imagenes -->
                                 <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->                                    
 
-                                    <form action="/guardarGeneraciones" method="POST" enctype="multipart/form-data">
+                                    <form action="/guardar-generaciones" method="POST" enctype="multipart/form-data">
                                     @csrf
                                            
                                     <div class="card-body">

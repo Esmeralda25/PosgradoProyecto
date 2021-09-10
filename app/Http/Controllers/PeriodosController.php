@@ -102,7 +102,7 @@ class PeriodosController extends Controller
             alert("Se borró correctamente");
         } catch (\Throwable $th) {
             return redirect('periodos');//detalle: que avise que no pudo borrar
-            alert("No se pudo borrar");
+            alert("No se pudo borrar"); //¿por qué razon?
 
         }
     }

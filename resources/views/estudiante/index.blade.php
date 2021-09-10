@@ -51,7 +51,7 @@
                                     @endif
 
 
-                                    @if (in_array("Comienzo",$hacer) || in_array("Comprometerse",$hacer)   )
+                                    @if ( in_array("Comprometerse",$hacer)   )
                                     {{--Adquirir compromisos  --}}
 
                                     <div class="col-6" href="/estudiante/etapa2">

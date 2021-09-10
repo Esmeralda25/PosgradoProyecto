@@ -66,10 +66,13 @@ Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actual
 
 //Generaciones
 Route::resource('generaciones','App\Http\Controllers\GeneracionController');
-Route::get('agregarGeneraciones','App\Http\Controllers\GeneracionController@create');
-Route::post('guardarGeneraciones','App\Http\Controllers\GeneracionController@store');
-Route::get('editarGeneraciones/{id}','App\Http\Controllers\GeneracionController@edit');
-Route::put('actualizarGeneraciones/{id}','App\Http\Controllers\GeneracionController@update');
+Route::get('listar-generaciones','App\Http\Controllers\GeneracionController@index');
+Route::get('agregar-generaciones','App\Http\Controllers\GeneracionController@create');
+Route::post('guardar-generaciones','App\Http\Controllers\GeneracionController@store');
+Route::get('editar-generaciones/{id}','App\Http\Controllers\GeneracionController@edit');
+Route::put('actualizar-generaciones/{id}','App\Http\Controllers\GeneracionController@update');
+Route::delete('eliminar-generaciones/{id}','App\Http\Controllers\GeneracionController@destroy');
+
 
 //Periodos
 Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
@@ -143,6 +146,8 @@ Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
 Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
 Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
 Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
+
+Route::delete('comprometerse','App\Http\Controllers\proyectosController@update');
 
 
 
