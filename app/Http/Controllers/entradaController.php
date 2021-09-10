@@ -70,6 +70,8 @@ class entradaController extends Controller
 
         if($peticion->input('nombre') == "informatico@gmail.com" ){
             if( $peticion->input('palabra') == "asd" ){
+                \Session::put('usuario' ,  ["nombre" => "informático"] );
+
                 return  redirect('/pes');
             }
         }
