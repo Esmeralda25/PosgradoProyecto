@@ -10,12 +10,16 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
-
+@section('regresar') 
+    <a href="/docentes" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 
 @section('content') 
 <section class="content">
@@ -31,7 +35,7 @@
                             <h1 class="card-title font-weight-bold" style="text-align: center">                                
                             Pagina Principal
                             </h1>
-                        </div>
+                        </div> 
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
