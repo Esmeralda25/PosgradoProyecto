@@ -37,6 +37,25 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
+                                    @if (session('message'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('mensaje'))
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('borrar'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('borrar')}}
+                                        </div> 
+                                     @endif
+                                
                                         <!-- contenido de main imagenes -->
                                             <a style="margin: 10px auto;" href="{{url('/agregarGeneraciones')}}" class="btn btn-primary">Agregar</a>
                                     
@@ -57,7 +76,7 @@
 
                                                     <td>
                                                     <a href="editarGeneraciones/{{$generacion->id}}" class="btn btn-info">EDITAR</a>
-                                                     <button type="button" class="btn btn-warning"><a href="periodos/{{$generacion->id}}" style="color: white">Periodos</a></button>
+                                                     <button type="button" class="btn btn-warning"><a href="periodos/{{$generacion->id}}" style="color: white">PERIODOS</a></button>
                                                      
                                                      <form action="generaciones/{{$generacion->id}}" style="display:inline" method="post" >
                                                      @csrf

@@ -28,7 +28,7 @@ class CompromisosController extends Controller
         $compromiso->fill( $request->all() );
         $compromiso->pes_id=$coordinador->id;
         $compromiso->save();
-        return redirect("/Compromisos"); //que me envie con un mensaje
+        return redirect("/Compromisos")->with('message','Compromiso agregado correctamente'); //que me envie con un mensaje
 
         
        
@@ -79,16 +79,12 @@ class CompromisosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $generacion = $request->all();
-        $registro = Generacion::find($id);
-        $registro->fill($generacion);
-        $registro->save();
-        return redirect("/generaciones"); */
+       
         $compromiso = $request->all();
         $registro = Compromiso::find($id);
         $registro->fill($compromiso);
         $registro->save();
-        return redirect("/Compromisos");
+        return redirect("/Compromisos")->with('mensaje','Compromiso actualizado correctamente');
 
         
     }
@@ -103,9 +99,9 @@ class CompromisosController extends Controller
     {
         try{
             Compromiso::destroy($id);
-            return redirect('Compromisos');//detalle: que avise que si borro
+            return redirect('Compromisos')->with('borrar','Compromiso eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect('Compromisos');//detalle: que avise que no pudo borrar
+            return redirect('Compromisos')->with('nborrar','No se pudo eliminar el compromiso, verifique');
             
         }
     }

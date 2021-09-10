@@ -32,8 +32,7 @@ class GeneracionController extends Controller
     public function store(Request $request) 
     {
         generacion::create(request()->all());
-        return redirect('/generaciones');
-        
+        return redirect('/generaciones')->with('message','Generacion agregada correctamente');
 
     }
 
@@ -82,7 +81,7 @@ class GeneracionController extends Controller
         $registro = Generacion::find($id);
         $registro->fill($generacion);
         $registro->save();
-        return redirect("/generaciones");
+        return redirect("/generaciones")->with('mensaje','Generacion actualizada correctamente');
     }
 
     /**
@@ -95,8 +94,7 @@ class GeneracionController extends Controller
     {
         try{
             Generacion::destroy($id);
-            return redirect('generaciones');//detalle: que avise que si borro
-            alert("Se borró correctamente");
+            return redirect('generaciones')->with('borrar','Generacion eliminada correctamente');
         } catch (\Throwable $th) {
             return redirect('generaciones');//detalle: que avise que no pudo borrar
             alert("No se pudo borrar");

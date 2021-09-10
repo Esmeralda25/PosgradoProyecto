@@ -29,7 +29,6 @@
 
 @section('content')
 
-
 <section class="content">
     <div class="container-fluid">
 
@@ -51,7 +50,13 @@
                                     Objetivo Espesificos: {{ $proyecto->objetivose }} <br>
                                 </div>
                                 <hr>
-
+                                @if (session('message'))
+                                <div class="alert alert-danger alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Error!,</strong> {{Session::get('message')}}
+                                    </div> 
+                                @endif
+                                
                                         <form action="/asignar-comite/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')

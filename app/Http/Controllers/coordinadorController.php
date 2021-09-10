@@ -62,24 +62,22 @@ class coordinadorController extends Controller
 
     public function eliminarUsuario($tipo, $id)
     {
-
-        //CESAR POR VIGESIMA OCACION TE COMENTO QUE LO QUE ESTA DESPUES DE UN RETRUN NO SE LEE, PORQUE NO PUSISTE UN CONDICIONAL ANTES, TODO ESTA SECUENCIAL
         if ($tipo == "Estudiante"){
             try{
                 Estudiante::destroy($id);
-                return redirect('listar-usuarios');
+                return redirect('listar-usuarios')->with('sborrae','Estuadiante eliminado correctamente');
             } catch (\Throwable $th) {
-                return redirect('listar-usuarios'); //no tiene caso que envies al mismo lugar sin decirle porque no se pudo eliminar
+                return redirect('listar-usuarios')->with('nborrae','No se pudo eliminar al estudiante, verifique');
             }    
         }else{
             try{
                 //primero debes eliminar la asignacion
                 Adscripcion::where('docentes_id',$id)->delete(); //deberia ser docente_id por ser llave foranea
                 Docente::destroy($id);
-                return redirect('listar-usuarios');
+                return redirect('listar-usuarios')->with('sborrad','Docente eliminado correctamente');
                 echo 'Usuario borrado correctamente'; //este echo se pierde, deberia de ser un ->with
             } catch (\Throwable $th) {
-                return redirect('listar-usuarios');
+                return redirect('listar-usuarios')->with('nborrad','No se pudo eliminar al docente ya que pertenece a un comite tutorial de un proyecto activo');
                 echo 'El usuario no se pudo borrar, verifiue de nuevo'; //este echo se pierde, deberia de ser un ->with
             }
     
@@ -126,7 +124,7 @@ class coordinadorController extends Controller
             $add->save();
 
         }
-        return redirect('listar-usuarios');
+        return redirect('listar-usuarios')->with('message','Usuario agregado correctamente');
 
     }
 
@@ -172,28 +170,28 @@ class coordinadorController extends Controller
 
         }
 
-        return redirect('listar-usuarios'); //debe informar que paso
+        return redirect('listar-usuarios')->with('editar','Usuario actualizado correctamente'); 
 
     }
     public function actualizarComite(Request $request, $id){
         
         if($request->asesor == $request->revisor1){
-            return back()->withInput();       
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');       
          }else
         if($request->asesor == $request->revisor2){
-            return back()->withInput(); 
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.'); 
          }else
         if($request->asesor == $request->revisor3){
-            return back()->withInput();    
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');    
         }else
         if($request->revisor1 == $request->revisor2){
-            return back()->withInput();        
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
         }else
         if($request->revisor1 == $request->revisor3){
-            return back()->withInput();   
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');   
         }else
         if($request->revisor2 == $request->revisor3){
-            return back()->withInput();        
+            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
         }else
         $docente  = \Session::get('usuario' );
         $docente = $docente->fresh();
@@ -232,7 +230,7 @@ class coordinadorController extends Controller
              $estudiante= Estudiante::find($id);
              $estudiante->password = Hash::make($request->password);
              $estudiante->save();
-             return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctaente');
+             return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctamente');
         }else{
             $docente= Docente::find($id);
             $docente->password = Hash::make($request->password);

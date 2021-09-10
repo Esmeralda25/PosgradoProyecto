@@ -38,6 +38,48 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-12">
+                                     @if (session('message'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('sborrae'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('sborrae')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('nborrae'))
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Aviso!,</strong> {{Session::get('nborrae')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('sborrad'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('sborrad')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('nborrad'))
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Aviso!,</strong> {{Session::get('nborrad')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('editar'))
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('editar')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('mensaje'))
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                                        </div> 
+                                     @endif
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
                                     <a href="{{url('/agregar-usuarios')}}" class="btn btn-primary">Agregar</a>

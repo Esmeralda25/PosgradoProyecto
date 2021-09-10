@@ -36,6 +36,12 @@
                                 <div class="row">
                                 
                                     <div class="col-md-12">
+                                    @if (session('message'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                        </div> 
+                                     @endif
                                 <!-- contenido de main imagenes -->
                                         <div class="row">
                                             <table class="table table-dark table-striped mt-4">

@@ -28,7 +28,7 @@ class CriteriosController extends Controller
         $valores = $request->all();
         Criterio::create($valores);
         $id =$valores['rubrica_id'];
-        return redirect("/criterios/$id");
+        return redirect("/criterios/$id")->with('message','Criterio agregado correctamente');
         
     }
 
@@ -79,7 +79,7 @@ class CriteriosController extends Controller
         $registro->save();
         //este id es el id del criterio necesitas saber de que rubrica estas hablando.
         $idr = $registro->rubrica->id;
-        return redirect("/criterios/$idr");
+        return redirect("/criterios/$idr")->with('mensaje','Citerio actualizado correctamente');
     }
 
     /**
