@@ -32,7 +32,7 @@ class RubricaController extends Controller
     {
         //dd($request->all());
         rubrica::create(request()->all());
-        return redirect('/rubricas');
+        return redirect('/rubricas')->with('message','Rurbica guardada correctamente');
         
     }
 
@@ -95,8 +95,7 @@ class RubricaController extends Controller
     {
         try{
             Rubrica::destroy($id);
-            return redirect('rubricas');//detalle: que avise que si borro
-            alert("Se borró correctamente");
+            return redirect('rubricas')->with('borrar','Rubrica eliminada correctamente');//detalle: que avise que si borro
         } catch (\Throwable $th) {
             return redirect('rubricas');//detalle: que avise que no pudo borr
             alert("No se pudo borrar");

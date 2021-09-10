@@ -37,6 +37,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
+                                     @if (session('message'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('mensaje'))
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('borrar'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('borrar')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('nborrar'))
+                                        <div class="alert alert-info alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('nborrar')}}
+                                        </div> 
+                                     @endif
                         <!-- contenido de main imagenes -->
                                 <div class="row">
                                     <table class="table table-dark table-striped mt-4">
@@ -54,7 +78,7 @@
                                            <th scope="col">{{$compromiso->titulo}}</th>
                                                 <th scope="col"> 
                                                     @if (!is_null($compromiso->pes_id))
-                                                        <a href="editarCompromisos/{{$compromiso->id}}" class="btn btn-primary">Editar</a>                                                       
+                                                        <a href="editarCompromisos/{{$compromiso->id}}" class="btn btn-primary">EDITAR</a>                                                       
                                                         <form action="Compromisos/{{$compromiso->id}}" style="display:inline" method="post" >
                                                             @csrf
                                                             @method('delete')

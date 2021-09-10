@@ -59,7 +59,7 @@ class evaluarController extends Controller
             $nueva_evaluacion->calificacion = $promedio;
             $nueva_evaluacion->save();
             DB::commit();
-            return redirect("/docentes");
+            return redirect("/docentes")->with('message','Calificaciones asignadas al proyecto');
         } catch (\Exception $e){
             echo $e->getMessage();
             DB::rollBack();
@@ -75,7 +75,7 @@ class evaluarController extends Controller
     public function porcentaje($id){
     
         $proyecto = Proyecto::find($id);
-        return view('docente.porcentaje')->with('proyecto',$proyecto);
+        return view('docente.porcentaje',compact('proyecto'));
     }
 
     public function guardarPorcentajes(Request $request, $id){
@@ -84,7 +84,7 @@ class evaluarController extends Controller
         $registro->fill($proyecto);
         $registro->save();
         echo "Avance asignado";
-        return redirect("/docentes");
+        return redirect("/docentes")->with('avance','Avance asignado');
     }
 
     

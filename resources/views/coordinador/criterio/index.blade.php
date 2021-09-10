@@ -38,6 +38,19 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
+                                @if (session('message'))
+                                <div class="alert alert-success alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                    </div> 
+                                @endif
+                                @if (session('mensaje'))
+                                <div class="alert alert-info alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                                    </div> 
+                                @endif
+                                
                                   <!-- contenido de main imagenes -->
                                   <a style="margin: 10px auto;" href="/agregar-criterios/{{$rubrica->id}}" class="btn btn-primary">Agregar</a>
 

@@ -32,7 +32,7 @@ class PeriodosController extends Controller
         $valores = $request->all();
         periodo::create($valores);
         $id =$valores['generacion_id'];
-        return redirect("/periodos/$id");
+        return redirect("/periodos/$id")->with('message','Periodo agregado correctamente');
         
     }
 
@@ -85,7 +85,7 @@ class PeriodosController extends Controller
         $registro = Periodo::find($id);
         $registro->fill($periodo);
         $registro->save();
-        return redirect("/periodos/$registro->generacion_id");
+        return redirect("/periodos/$registro->generacion_id")->with('mensaje','Periodo actalizado correctamente');
     }
 
     /**
@@ -98,8 +98,8 @@ class PeriodosController extends Controller
     {
         try{
             Periodo::destroy($id);
-            return redirect('periodos');//detalle: que avise que si borro
-            alert("Se borró correctamente");
+            return redirect('periodos')->with('borrar','Periodo eliminado correctamente');//detalle: que avise que si borro
+           
         } catch (\Throwable $th) {
             return redirect('periodos');//detalle: que avise que no pudo borrar
             alert("No se pudo borrar"); //¿por qué razon?

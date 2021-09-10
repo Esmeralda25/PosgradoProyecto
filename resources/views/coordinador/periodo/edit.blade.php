@@ -56,12 +56,12 @@
                                                 <label for="" class="row col-12">Nombre</label>
                                                 <input name="nombre" type="text" class="form-control" tabindex="2" value="{{$periodo->nombre}}">                                        
                                             </div>
-                            
+                                            
                                             <label for="" class="row col-12">Fecha Inicio</label>
-                                            <input name="fechaInicio" type="text" class="form-control" tabindex="2" value="{{$periodo->fechaInicio}}">                                        
+                                            <input name="fechaInicio" type="date" class="form-control" style="width: 170px" value="{{$periodo->fechaInicio}}">                                        
         
                                             <label for="" class="row col-12">Fecha Fin</label>
-                                            <input name="fechaFin" type="text" class="form-control" tabindex="2" value="{{$periodo->fechaFin}}">                                        
+                                            <input name="fechaFin" type="date" class="form-control" style="width: 170px" value="{{$periodo->fechaFin}}">                                        
 
                                             <label for="" class="row col-12">Rubrica</label>
 

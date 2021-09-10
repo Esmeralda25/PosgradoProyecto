@@ -37,6 +37,25 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
+                                    @if (session('message'))
+                                    <div class="alert alert-success alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                    </div>
+                                    @endif 
+                                    @if (session('mensaje'))
+                                    <div class="alert alert-info alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                                    </div>
+                                    @endif 
+                                    @if (session('borrar'))
+                                    <div class="alert alert-warning alert-dismissable">
+                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>¡Bien!,</strong> {{Session::get('borrar')}}
+                                    </div>
+                                    @endif 
+
                                         <!-- contenido de main imagenes -->
                                             <a style="margin: 10px auto;" href="{{url('/agregar-rubricas')}}" class="btn btn-primary">Agregar</a>
                                             <table class="table table-dark table-striped mt-4">
@@ -55,7 +74,7 @@
                                                     <td>
                                                     <a href="editar-rubricas/{{$rubrica->id}}" class="btn btn-success">EDITAR</a>
                                                     <a href="criterios/{{$rubrica->id}}" class="btn btn-info">CRITERIOS</a>
-                                                     <button type="button" class="btn btn-warning"><a href="mostrar-rubricas/{{$rubrica->id}}" style="color: white">Mostrar</a></button>
+                                                     <button type="button" class="btn btn-warning"><a href="mostrar-rubricas/{{$rubrica->id}}" style="color: white">MOSTRAR</a></button>
                                                      <form action="rubricas/{{$rubrica->id}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
