@@ -34,45 +34,51 @@
           </div>
             <div class="card-body">
 
-                      <!-- TITULO -->  
-                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
-                    <div style="color: white;font-size: 27px; " class="col-12 ">
-                      <label for="" >Título:</label>
-                    </div>
-                    <div style="color: white;font-size: 20px; " class="col-12 ">
-                      {{$estudiante->proyecto->titulo}} 
-                    </div>
-                  </div>
+                <table class="table table-striped table-hover">
+                            <thead>
+                                <tr style="text-align: center;background-color: black;">
+                                        <th style="font-size: 25px;">
+                                            Detalles del Proyecto
+                                        </th>
+                                </tr> 
+                            </thead>  
+                            <tbody>
+                                <tr>
+                                    <!-- TITULO -->  
+                                    <th>
+                                        <label for="" style="font-family:Arial; color: white;font-size: 25px;">Título: </label>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->titulo}}</small>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <!-- HIPOTESIS -->  
+                                    <th>
+                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Hipótesis: </label> 
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->hipotesis}}</small> 
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <!-- OBJETIVO GENERAL -->  
+                                    <th>
+                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo General: </label>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivos}}</small> 
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <!-- OBJETIVO ESPECIFICO --> 
+                                    <th>
+                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo Específico:  </label>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivose}}</small>
+                                    </th> 
 
-                  <!-- HIPOTESIS -->  
-                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
-                      <div style="color: white;font-size: 27px; " class="col-12 ">
-                        <label for="" >Hipótesis:</label>
-                      </div>
-                      <div style="color: white;font-size: 20px; " class="col-12 ">
-                      {{$estudiante->proyecto->hipotesis}}
-                      </div>
-                  </div>
+                                </tr>
+                                                              
+                            </tbody>        
+                </table>
+                    
+                <div style="height:20px;"></div>
 
-                    <!-- OBJETIVO GENERAL -->  
-                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
-                      <div style="color: white;font-size: 27px; " class="col-12">
-                        <label for="" >Objetivo General:</label>
-                      </div>
-                      <div style="color: white;font-size: 20px; " class="col-12 ">
-                      {{$estudiante->proyecto->objetivos}}
-                      </div>
-                  </div>
-
-                 <!-- OBJETIVO ESPECIFICO -->  
-                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
-                    <div style="color: white;font-size: 27px; " class="col-12">
-                      <label for="" >Objetivo Específico:</label>
-                    </div>
-                    <div style="color: white;font-size: 20px; " class="col-12 ">
-                    {{$estudiante->proyecto->objetivose}}
-                    </div>
-                  </div>
+                  
 
               <!-- TABLA DE COMPROMISOS -->
               <div>
@@ -102,12 +108,10 @@
 
                       </form>  
                     </tr> 
-                  </thead>  
-                  <tbody>
-                    <tr>
-                      <th style="background-color:black  ; height:5px"></th>
-                    </tr>
-                  <table class="table table-dark table-striped">
+                  </thead>         
+                </table>
+
+                <table class="table table-dark table-striped" style="margin-top: 10px;">
                       <thead class="table table-dark">
                             <tr class="col-12">
                               <th>
@@ -136,9 +140,9 @@
                             @endforeach
 
                           </tbody>
-                        </table>                                            
-                  </tbody>        
-                </table>
+                        </table>
+                        <div style="height:20px;"></div>
+
                   <div style="margin-top: 20px;">
                     <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Actividades</h2>
                   </div>
