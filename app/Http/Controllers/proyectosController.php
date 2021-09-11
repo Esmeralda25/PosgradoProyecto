@@ -7,6 +7,7 @@ use App\Models\Adquirido;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Compromiso;
+use App\Models\Actividad;
 use App\Models\Periodo;
 
 use App\Http\Requests\proyectosRequest;
@@ -20,7 +21,7 @@ class proyectosController extends Controller
         $usuario = $usuario->fresh(); 
         $proyectos = $usuario->proyectos;
         return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
-
+ 
 
     }
 
@@ -46,15 +47,36 @@ class proyectosController extends Controller
 
     public function edit(){
         $estudiante = \Session::get('usuario');
-        $estudiante = $estudiante->fresh(); 
         $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        return view('estudiante.comprometerse', compact('estudiante','compromisos'));
+        if(!is_null($compromisos)){
+            //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
+            $estudiante = $estudiante->fresh(); 
+            $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
+            return view('estudiante.comprometerse', compact('estudiante','compromisos'));  
+        }
+
+        $actividades = Actividad::where('periodos_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
+        if(!is_null($actividades)){
+            //esta adquiriendo actividades
+            $estudiante = $estudiante->fresh(); 
+            //me confunde que llave foranea llamare o declarare para actividades
+            //preguntar si se consultara el programa educativo de estudiante en esta parte
+            $actividades = Actividad::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
+            return view('estudiante.comprometerse', compact('estudiante','actividades'));
+        }
+        
     }
     
 
     public function update(Request $request){
+        //corroborar si queda con un if o así
         $nuevo = new Adquirido();
         $nuevo->fill($request->all());
+        $nuevo->save();
+        return redirect('/comprometerse');
+
+        $nuevo2 = new Actividad();
+        $nuevo2->fill($request->all());
         $nuevo->save();
         return redirect('/comprometerse');
     }
@@ -64,6 +86,8 @@ class proyectosController extends Controller
         $estudiante = $estudiante->fresh(); 
         return view('estudiante.reportar' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
     }
+
+    //adquiere actividades
 
 
 

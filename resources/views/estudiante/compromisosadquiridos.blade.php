@@ -9,10 +9,16 @@
     <form action="/logout">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link active far fa-circle nav-icon">Cerrar Sesión</a>
-        </li>    
-    </form>
-    
+            <a href="/logout" class="nav-link"> 
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
+        </a>
+         </li>    
+    </form>   
+@endsection
+@section('regresar') 
+    <a href="/estudiantes" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">

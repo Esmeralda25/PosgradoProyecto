@@ -15,87 +15,106 @@
          </li>    
     </form>   
 @endsection
-
+@section('regresar') 
+    <a href="/estudiantes" class="nav-link">
+    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
+    </a>
+@endsection
 @section('content')
 <section class="content">
-    <div class="container-fluid">
+  <div class="container-fluid">
+    <div style="height:60px">
+    </div> 
+    <!-- espacio del top -->  
+    <div class="row justify-content-center" >
+      <div class="col-10">
+        <div class="card col-12">
+          <div class="card-header">
+            <h1 class="card-title font-weight-bold" style="font-size: 40px;">Comprometerse</h1>
+          </div>
+            <div class="card-body">
 
-        <div style="height:60px">
-        </div>  <!-- espacio del top -->  
+                      <!-- TITULO -->  
+                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
+                    <div style="color: white;font-size: 27px; " class="col-12 ">
+                      <label for="" >Título:</label>
+                    </div>
+                    <div style="color: white;font-size: 20px; " class="col-12 ">
+                      {{$estudiante->proyecto->titulo}} 
+                    </div>
+                  </div>
 
-        <div class="row justify-content-center" >
-            <div class="col-10">
-                <div class="card col-12">
-                        <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">                                
-                            Comprometerse
-                            </h1>
-                        </div>
-                        <div class="card-body">
-                          <div class="row form-group col-12">
-                              <label for="" class="row col-12">Titulo</label>
-                              {{$estudiante->proyecto->titulo}}
-                          </div>
+                  <!-- HIPOTESIS -->  
+                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
+                      <div style="color: white;font-size: 27px; " class="col-12 ">
+                        <label for="" >Hipótesis:</label>
+                      </div>
+                      <div style="color: white;font-size: 20px; " class="col-12 ">
+                      {{$estudiante->proyecto->hipotesis}}
+                      </div>
+                  </div>
 
-  
-                          <div class="row form-group col-12">
-                              <label for="" class="row col-12">Hipotesis</label>
-                              {{$estudiante->proyecto->hipotesis}}
-                          </div>
+                    <!-- OBJETIVO GENERAL -->  
+                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
+                      <div style="color: white;font-size: 27px; " class="col-12">
+                        <label for="" >Objetivo General:</label>
+                      </div>
+                      <div style="color: white;font-size: 20px; " class="col-12 ">
+                      {{$estudiante->proyecto->objetivos}}
+                      </div>
+                  </div>
 
+                 <!-- OBJETIVO ESPECIFICO -->  
+                  <div class="row form-group col-12" style="text-size-adjust: 20px;">
+                    <div style="color: white;font-size: 27px; " class="col-12">
+                      <label for="" >Objetivo Específico:</label>
+                    </div>
+                    <div style="color: white;font-size: 20px; " class="col-12 ">
+                    {{$estudiante->proyecto->objetivose}}
+                    </div>
+                  </div>
 
-                          <div class="row form-group col-12">
-                              <label for="" class="row col-12">Objetivo General</label>
-                              {{$estudiante->proyecto->objetivos}}
+              <!-- TABLA DE COMPROMISOS -->
+              <div>
+                <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Compromisos</h2>
+              </div>
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr class="row col-12">
+                      <form action="/comprometerse" method="POST">    
+                        @csrf
+                          @method('PUT')    
+                            <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                            <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
+                        <th class="col-7">
+                          A que te comprometes: 
+                          <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">
+                            @foreach ($compromisos as $compromiso)
+                                <option>{{$compromiso->titulo}}</option>
+                            @endforeach
+                          </select>
+                        </th>
+                        <th class="row col-5">
+                          Cantidad: 
+                          <input type="number" name="cuantos_prog" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
+                          <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+                        </th>
 
-                          </div>
-                          <div class="row form-group col-12">
-                              <label for="" class="row col-12">Objetivo Especifico</label>
-                              {{$estudiante->proyecto->objetivose}}
-                          </div>
-                      <div>
-
-
-
-
-                        <div>
-                                    <h2 style="width: 100%; text-align:center; background:rgb(24, 23, 23); padding:0 0; color:white;margin-top:15px" class="font-weidth-bold">Compromisos</h2>
-                                 </div>
-  
-                                 <form action="/comprometerse" method="POST">    
-                                  @csrf
-                                  @method('PUT')    
-                                  <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
-                                  <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
-
-                                  <div class="row">
-                                    <div class="col-4">
-                                      <label>A que te comprometes: </label>
-                                      <select name="que" id="nivel">
-                                        @foreach ($compromisos as $compromiso)
-                                          <option>{{$compromiso->titulo}}</option>
-                                        @endforeach
-                                      </select>
-                                    </div>
-                                    <div class="col-4">
-
-                                      <label>A cuantos te comprometes: </label>
-                                      <input type="number" name="cuantos_prog" min="1" max="3"  step="1" value="1">
-                                    </div>
-                                    <div class="col-4">
-                                      <button class="btn btn-primary" style="width:60px"><i class="fas fa-plus-circle"></i></button>
-                                    </div>
-                                  </div>
-                                 </form>
-
-                        <table class="table" style="width: 100%">
-                          <thead>
+                      </form>  
+                    </tr> 
+                  </thead>  
+                  <tbody>
+                    <tr>
+                      <th style="background-color:black  ; height:5px"></th>
+                    </tr>
+                  <table class="table table-dark table-striped">
+                      <thead class="table table-dark">
                             <tr class="col-12">
                               <th>
-                                Actividad comprometida
+                                ACTIVIDAD COMPROMETIDA: 
                               </th>
                               <th>
-                                Cantidad comprometida
+                                CANTIDAD COMPROMETIDA:
                               </th>                                    
                           </tr>
                           </thead>                                    
@@ -106,71 +125,76 @@
                                   {{$compromiso->que}}
                                 </td>
                                 <td>
+                                  {{$compromiso->cuantos_prog}}
                                   <form action="/comprometerse/{{$compromiso->id}}" method="post" style="display: inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-warning" style="width:60px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
+                                    <button  type="submit" class="btn btn-warning" style="width:60px; margin-right: 5px; margin-left:6px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
                                   </form>
-                                  {{$compromiso->cuantos_prog}}
                                 </td>
                               </tr>  
                             @endforeach
 
                           </tbody>
-                        </table>
+                        </table>                                            
+                  </tbody>        
+                </table>
+                  <div style="margin-top: 20px;">
+                    <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Actividades</h2>
+                  </div>
+                        <!-- TABLA DE ACTIVIDADES -->
 
-
-
-
-                                <div>
-                                <!-- espacio entre contenido-->
-                                </div>
+                  <table class="table table-dark table-striped">
+                    <thead class="table table-dark">
+                        <tr class="col-12">
+                          <th class="col-5">
+                            <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                          </th>
+                          <th class="row col-7">
+                            <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 200px">
+                            <button class="btn btn-success" style="margin-right: 5px; margin-left:4px;"><i class="fas fa-plus-circle"></i></button>
+                          </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <form action="/comprometerse_act" method="POST">    
+                            @csrf
+                              @method('PUT')    
+                                <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                                <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
+                            <th class="col-7">
                                 
-                        <div>
-                          <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Actividades</h2>
-                        </div>
-                        <table class="table" style="width: 100%">
-                          <thead>
-                              <tr class="col-12">
-                                  <th class="col-4">
-                                    <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="width: 200px">
-                                  </th>
-                                  <th class="col-4">
-                                    <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 300px">
-                                  </th>
-                                  <th scope="row" class="col-4">
-                                    <button class="btn btn-primary" style="width:37px"><i class="fas fa-plus-circle"></i></button>
-                                  </th> 
-                                </tr>
-                          </thead>
-                      </table>
+                            A que te comprometes: 
+                              <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">
+                                @foreach ($compromisos as $compromiso)
+                                    <option>{{$compromiso->titulo}}</option>
+                                @endforeach
+                              </select>
+                            </th>
+                            <th class="row col-5">
+                              Cantidad: 
+                              <input type="number" name="cuantos_prog" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
+                              <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+                            </th>
 
-                        <table class="table">
-                          <thead class="thead-dark">
-                              <tr>
-                                  <th scope="col">Busqueda de informacion</th>
-                                  <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
-                                        
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Creacion de la herramienta</th>
-                                  <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
-                            </tr>
+                        </form>  
+                      </tr>
                             <tr>
                               <th scope="row">Difucion del trabajo</th>
                               <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
                             </tr>
                           </tbody>
-                        </table>
-    
-                                <div>
-                                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
-                                </div>  
-                    </div>
-                </div>      
-            </form>
+                  </table>
+
+                  <div>
+                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
+                  </div>  
+            </div>
+        </div>      
+      </div>
+    </div>   
+  </div>   
 </section>
 @endsection
     

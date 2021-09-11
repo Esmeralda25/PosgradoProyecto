@@ -43,7 +43,7 @@ class entradaController extends Controller
                 \Session::put('usuario' ,  $usuario );
                 return  redirect('/coordinadores');
             }
-        }
+        } 
         
         $usuario = docente::where('correo', $peticion->input('nombre'))->first();
         //dd($peticion->input('nombre'));
