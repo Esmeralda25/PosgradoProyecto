@@ -95,8 +95,7 @@ class GeneracionController extends Controller
             Generacion::destroy($id);
             return redirect('listar-generaciones')->with('borrar','Generacion eliminada correctamente');
         } catch (\Throwable $th) {
-            return redirect('listar-generaciones');//detalle: que avise por que no pudo borrar
-            alert("No se pudo borrar");
+            return redirect('listar-generaciones')->with('nborrar','Esta generación no se pudo borrar ya que tiene periodos agregados');
         }
     }
 }

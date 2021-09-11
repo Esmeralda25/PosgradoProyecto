@@ -98,11 +98,10 @@ class PeriodosController extends Controller
     {
         try{
             Periodo::destroy($id);
-            return redirect('periodos')->with('borrar','Periodo eliminado correctamente');//detalle: que avise que si borro
+            return redirect("/periodos/$id")->with('borrar','Periodo eliminado correctamente');
            
         } catch (\Throwable $th) {
-            return redirect('periodos');//detalle: que avise que no pudo borrar
-            alert("No se pudo borrar"); //¿por qué razon?
+            return redirect("/periodos/$id")->with('nborrar','No se pudo eliminar el periodo ya que se encuentra activo');
 
         }
     }

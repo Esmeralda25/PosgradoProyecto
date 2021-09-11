@@ -50,9 +50,21 @@
                                         <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
                                     </div> 
                                 @endif
+                                @if (session('borrar'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('sborrae')}}
+                                        </div> 
+                                     @endif
+                                     @if (session('nborrar'))
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Aviso!,</strong> {{Session::get('nborrae')}}
+                                        </div> 
+                                     @endif
                                 
                                   <!-- contenido de main imagenes -->
-                                  <a style="margin: 10px auto;" href="/agregar-criterios/{{$rubrica->id}}" class="btn btn-primary">Agregar</a>
+                                  <a style="margin: 10px auto;" href="/agregar-criterios/{{$rubrica->id}}" class="btn btn-primary btn-block">Agregar</a>
 
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
@@ -67,11 +79,11 @@
                                                 <th scope="col"> {{$criterio->descripcion}}</th>                                              
                                                 <td>                                                  
                                                 <a href="/editar-criterios/{{$criterio->id}}" class="btn btn-info">EDITAR</a>               
-                                                    <form action="criterios/{{$criterio->id}}" style="display:inline" method="post" >
-                                                     @csrf
-                                                    @method('delete')
-                                                    <input type="submit" value="ELIMINAR"  class="btn btn-danger">
-                                                </form>                                 
+                                                            <form action="/borrar-criterios/{{$criterio->id}}" style="display:inline" method="post" >
+                                                            @csrf
+                                                            @method('delete')
+                                                            <input type="submit" value="ELIMINAR"  class="btn btn-danger">
+                                                        </form>                           
                                                     </td>                                     
                                             </th>
                                                 <tr> 

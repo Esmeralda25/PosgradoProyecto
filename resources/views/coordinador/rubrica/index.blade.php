@@ -57,7 +57,7 @@
                                     @endif 
 
                                         <!-- contenido de main imagenes -->
-                                            <a style="margin: 10px auto;" href="{{url('/agregar-rubricas')}}" class="btn btn-primary">Agregar</a>
+                                            <a style="margin: 10px auto;" href="{{url('/agregar-rubricas')}}" class="btn btn-primary btn-block">Agregar</a>
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
                                             

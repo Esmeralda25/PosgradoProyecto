@@ -82,7 +82,7 @@
                                      @endif
                                 <!-- contenido de main imagenes -->
                                 <div class="container">
-                                    <a href="{{url('/agregar-usuarios')}}" class="btn btn-primary">Agregar</a>
+                                    <a href="{{url('/agregar-usuarios')}}" class="btn btn-primary btn-block">Agregar</a>
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
                                             <tr>

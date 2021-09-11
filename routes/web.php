@@ -78,6 +78,7 @@ Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
 Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit');
 Route::put('actualizar-periodos/{id}','App\Http\Controllers\PeriodosController@update');
 Route::get('estadisticos','App\Http\Controllers\PeriodosController@estadistico');
+Route::delete('borrar-periodos/{id}','App\Http\Controllers\PeriodosController@destroy');
 
 //opcion: Rubricas
 Route::resource('rubricas', 'App\Http\Controllers\RubricaController');
@@ -93,7 +94,8 @@ Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@cr
 Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
 Route::get('editar-criterios/{id}',['App\Http\Controllers\CriteriosController','edit']);
 Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
-Route::put('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
+Route::delete('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
+
 
 //opcion: Compromisos
 Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');

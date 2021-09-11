@@ -64,7 +64,13 @@
                                              <strong>¡Bien!,</strong> {{Session::get('borrar')}}
                                         </div> 
                                      @endif
-                                  <a href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary">Agregar</a>
+                                     @if (session('nborrar'))
+                                        <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('nborrar')}}
+                                        </div> 
+                                     @endif
+                                  <a href="/agregar-periodos/{{$generacion->id}}" class="btn btn-primary btn-block">Agregar</a>
 
                                     <table class="table table-dark table-striped mt-4">
                                         <thead class="table table-dark table-striped mt-4">
@@ -89,7 +95,7 @@
                                                     <!-- -->
                                                     <a href="/editar-periodos/{{$periodo->id}}" class="btn btn-info">EDITAR</a>
                                                      <button type="button" class="btn btn-warning"><a href="/estadisticos" style="color: white">ESTADISTICOS</a></button>
-                                                     <form action="periodos/{{$periodo->id}}" style="display:inline" method="post" >
+                                                     <form action="/borrar-periodos/{{$periodo->id}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">

@@ -55,9 +55,15 @@
                                              <strong>¡Bien!,</strong> {{Session::get('borrar')}}
                                         </div> 
                                      @endif
+                                     @if (session('nborrar'))
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Aviso!,</strong> {{Session::get('nborrar')}}
+                                        </div> 
+                                     @endif
                                 
                                         <!-- contenido de main imagenes -->
-                                            <a style="margin: 10px auto;" href="{{url('/agregar-generaciones')}}" class="btn btn-primary">Agregar</a>
+                                            <a style="margin: 10px auto;" href="{{url('/agregar-generaciones')}}" class="btn btn-primary btn-block">Agregar</a>
                                     
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">

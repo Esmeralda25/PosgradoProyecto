@@ -92,12 +92,9 @@ class CriteriosController extends Controller
     {
         try{
             Criterio::destroy($id);
-            return redirect('/criterios');//detalle: que avise que si borro
-            alert("Se borró correctamente");
+            return redirect("/criterios/$id")->with('borrar','Criterio eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect('/criterios');//detalle: que avise que no pudo borrar
-            alert("No se pudo borrar");
-
+            return redirect("/criterios/$id")->with('nborrar','No se pudo eliminar el criterio, verifiue');
         }
     }
 
