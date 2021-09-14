@@ -45,40 +45,36 @@ class proyectosController extends Controller
     }
 
 
-    public function edit(){
+    public function edit(){ 
         $estudiante = \Session::get('usuario');
+        //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
+        $estudiante = $estudiante->fresh(); 
         $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        if(!is_null($compromisos)){
-            //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
-            $estudiante = $estudiante->fresh(); 
-            $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-            return view('estudiante.comprometerse', compact('estudiante','compromisos'));  
-        }
-
-        $actividades = Actividad::where('periodos_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        if(!is_null($actividades)){
-            //esta adquiriendo actividades
-            $estudiante = $estudiante->fresh(); 
-            //me confunde que llave foranea llamare o declarare para actividades
-            //preguntar si se consultara el programa educativo de estudiante en esta parte
-            $actividades = Actividad::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-            return view('estudiante.comprometerse', compact('estudiante','actividades'));
-        }
+        $periodos = Estudiante::where('periodos_id', $estudiante->periodos)->get();
+        return view('estudiante.comprometerse', compact('estudiante','compromisos', 'periodos'));  
+    
         
     }
     
 
     public function update(Request $request){
-        //corroborar si queda con un if o así
+    
+        if($request->periodos_id && $request->proyectos_id && $request->que && $request->cuantos_prog){
+            //corroborar si queda con un if o así
         $nuevo = new Adquirido();
         $nuevo->fill($request->all());
         $nuevo->save();
-        return redirect('/comprometerse');
+        return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
+        } else{
+            $nuevop = new Actividad();
+            $nuevop->fill($request->all());
+            $nuevop->save();
+            return redirect('/comprometerse')->with('message','Se agregó actividad correctamente.');
+        }
 
-        $nuevo2 = new Actividad();
-        $nuevo2->fill($request->all());
-        $nuevo->save();
-        return redirect('/comprometerse');
+        
+
+       
     }
 
     public function reportar(){
@@ -134,14 +130,34 @@ public function index(){
 
     public function destroy($id)
     {
+        //esta mal mi if
+        /* Adquirido::destroy($id);
+        if(!is_null(Adquirido)){
+            try{
+                Adquirido::destroy($id);
+                return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
+            } catch (\Throwable $th) {
+                return redirect('comprometerse');
+                alert("No se pudo borrar");
+            }
+        } else{
+            try{
+                Actividad::destroy($id);
+                return redirect('comprometerse')->with('borrar','Actividad eliminada correctamente');
+            } catch (\Throwable $th) {
+                return redirect('comprometerse');
+                alert("No se pudo borrar");
+            }
+        }
+ */
+
         try{
             Adquirido::destroy($id);
             return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
         } catch (\Throwable $th) {
-            return redirect('comprometerse');//detalle: que avise por que no pudo borrar
+            return redirect('comprometerse');
             alert("No se pudo borrar");
         }
     }
-
 
 }

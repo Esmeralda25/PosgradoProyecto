@@ -13,7 +13,7 @@ class Estudiante extends Usuario
     public $timestamps = false;
     
 
-    
+     
     public function nivel(){
         return "Estudiante";
     }

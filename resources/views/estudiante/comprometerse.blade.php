@@ -77,8 +77,18 @@
                 </table>
                     
                 <div style="height:20px;"></div>
-
-                  
+                @if (session('message'))
+                    <div class="alert alert-success alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>¡Bien!,</strong> {{Session::get('message')}}
+                    </div> 
+                @endif
+                @if (session('borrar'))
+                    <div class="alert alert-warning alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>¡Aviso!,</strong> {{Session::get('borrar')}}
+                    </div> 
+                @endif  
 
               <!-- TABLA DE COMPROMISOS -->
               <div>
@@ -133,7 +143,7 @@
                                   <form action="/comprometerse/{{$compromiso->id}}" method="post" style="display: inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button  type="submit" class="btn btn-warning" style="width:60px; margin-right: 5px; margin-left:6px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
+                                    <button id="com"  type="submit" class="btn btn-warning" style="width:60px; margin-right: 5px; margin-left:6px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
                                   </form>
                                 </td>
                               </tr>  
@@ -147,52 +157,48 @@
                     <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Actividades</h2>
                   </div>
                         <!-- TABLA DE ACTIVIDADES -->
-
                   <table class="table table-dark table-striped">
                     <thead class="table table-dark">
                         <tr class="col-12">
-                          <th class="col-5">
-                            <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
-                          </th>
-                          <th class="row col-7">
-                            <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 200px">
-                            <button class="btn btn-success" style="margin-right: 5px; margin-left:4px;"><i class="fas fa-plus-circle"></i></button>
-                          </th> 
+                          <form action="/comprometerse" method="POST">    
+                              @csrf
+                                @method('PUT')    
+                                  <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                                  <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
+                                  <th class="col-3">
+                                    <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                                  </th>
+                                  <th class="row col-9">
+                                  <input type="text" placeholder="Periodo..." name="periodo" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+
+                                    <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+                                  </th> 
+                          </form>  
                         </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <form action="/comprometerse_act" method="POST">    
-                            @csrf
-                              @method('PUT')    
-                                <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
-                                <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
+                        <tr>
+                        @foreach ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
+
                             <th class="col-7">
-                                
-                            A que te comprometes: 
-                              <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">
-                                @foreach ($compromisos as $compromiso)
-                                    <option>{{$compromiso->titulo}}</option>
-                                @endforeach
-                              </select>
+                            {{$actividad->nombre}}
+
                             </th>
                             <th class="row col-5">
-                              Cantidad: 
-                              <input type="number" name="cuantos_prog" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
-                              <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+                            {{$actividad->periodo}}
+                            <form action="/comprometerse/{{$actividad->id}}" method="post" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+                                <button id="act" type="submit" class="btn btn-warning" style="width:60px; margin-right: 5px; margin-left:6px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
+                            </form>
                             </th>
-
-                        </form>  
-                      </tr>
-                            <tr>
-                              <th scope="row">Difucion del trabajo</th>
-                              <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
-                            </tr>
-                          </tbody>
+                        </tr>
+                        @endforeach
+                        </tbody>
                   </table>
 
                   <div>
-                      <button class="btn btn-danger"><a href="{{url('/mainestudiante2')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
+                      <button class="btn btn-danger"><a href="{{url('/estudiantes')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
                   </div>  
             </div>
         </div>      
