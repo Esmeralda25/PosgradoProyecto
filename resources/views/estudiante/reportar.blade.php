@@ -38,9 +38,10 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                            <form action="" method="POST">
-                                <div class="card-header text-center font-weight-bold" style="font-size: 30px">Reportar</div>
-        
+                            <form action="reportar" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
+                                <div class="card-header text-center font-weight-bold" style="font-size: 30px">Reportar</div>        
     
                                     <div class="container">
                                         <div>
@@ -61,7 +62,7 @@
                                         <div>
                                             <h2 style="width: 100%; text-align:center; background:rgba(0, 0, 0, 0.603); padding:0 0; color:white;margin-top:15px">Compromisos Adquiridos</h2>
                                         </div>
-
+                                        <!-- este los file solo deben dejar subir pdf s-->
                                         
                                         <table class="table table-striped col-12">
                                             <thead>
@@ -75,12 +76,15 @@
                                             <tbody>
                                                 @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
                                                     <tr>
+                                                        <input type="hidden" name="cual[{{$loop->iteration}}]" value="{{$compromiso->id}}">
                                                         <th>{{$compromiso->que}}</th>
                                                         <td>{{$compromiso->cuantos_prog}}</td>
-                                                        <td><input type="text" name="logrados[$loop->iteration]" class="form-control"></td>
+
+                                                        <td><input type="number" name="logrados[{{$loop->iteration}}]" class="form-control" value="{{$compromiso->cuantos_cumplidos}}"
+                                                            min="1" max="{{$compromiso->cuantos_prog}}"></td>
                                                         <td style="padding: 5px">
-                                                            <input type="file" name="" id="">
-                                                        </td> <!-- este buttom es un ejemplo, se hace con jquery-->
+                                                            <input type="file" name="evidencia[{{$loop->iteration}}]" >
+                                                        </td> 
                                                     </tr>
                                                 @empty
                                                 <tr>
@@ -91,10 +95,12 @@
                                         </table>
 
                                         
-                                        REPORTE: <input type="file" name="" id="">
+                                        REPORTE: <input type="file" name="reporte">
 
                                         <div>
-                                            <button class="btn btn-danger"><a href="{{url('/reportar')}}" onclick="alerta()" style="color: black">Reportar</a></button>
+                                            <input type="submit"  class="btn btn-danger" value="REPORTAR">
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>

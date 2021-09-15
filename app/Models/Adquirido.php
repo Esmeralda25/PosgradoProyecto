@@ -10,4 +10,7 @@ class Adquirido extends Model
     protected $fillable=[  'que', 'cuantos_prog', 'cuantos_cumplidos', 'proyectos_id', 'periodos_id'];
     public $timestamps = false;
 
+    public function evidencia(){
+        return $this->belongsTo('App\Models\Evidencia');
+    }
 }  

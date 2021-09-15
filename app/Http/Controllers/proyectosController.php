@@ -55,7 +55,7 @@ class proyectosController extends Controller
     
         
     }
-    
+
 
     public function update(Request $request){
     
@@ -70,17 +70,36 @@ class proyectosController extends Controller
             $nuevop->fill($request->all());
             $nuevop->save();
             return redirect('/comprometerse')->with('message','Se agregó actividad correctamente.');
-        }
-
-        
-
-       
+        }       
     }
 
     public function reportar(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
         return view('estudiante.reportar' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
+    }
+
+    public function guardarReporte(Request $request){
+
+        $estudiante = \Session::get('usuario');
+        $estudiante = $estudiante->fresh(); 
+
+        $cuales = $request->input('cual');
+        $logrados = $request->input('logrados');
+        
+        foreach ($cuales as $key => $cual) {
+            //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
+            
+            $compromiso = Adquirido::find($cual);        
+            $compromiso->cuantos_cumplidos = $logrados[$key];
+            $compromiso->save(); 
+        }
+        //falta subir los archivos y falta mostrarlos en la vista de reportar y cuando el docente evalua tambien, 
+
+        
+        return redirect('reportar');
+//        dd($request->all());
+
     }
 
     //adquiere actividades
