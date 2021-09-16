@@ -89,6 +89,12 @@
                           <strong>¡Aviso!,</strong> {{Session::get('borrar')}}
                     </div> 
                 @endif  
+                @if (session('incorrecto'))
+                    <div class="alert alert-danger alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>¡Aviso!,</strong> {{Session::get('incorrecto')}}
+                    </div> 
+                @endif 
 
               <!-- TABLA DE COMPROMISOS -->
               <div>
@@ -180,12 +186,15 @@
                         <tr>
                         @foreach ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
 
-                            <th class="col-7">
+                            <th class="col-5">
                             {{$actividad->nombre}}
 
                             </th>
-                            <th class="row col-5">
+                            <th class="row col-6">
                             {{$actividad->periodo}}
+                          
+                            </th>
+                            <th>
                             <form action="/comprometerse/{{$actividad->id}}" method="post" style="display: inline">
                                 @csrf
                                 @method('DELETE')

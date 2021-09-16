@@ -66,7 +66,7 @@ class loginController extends Controller
     
     public function validar (Request $peticion){
         switch ($peticion->input('nombre')) {
-            case 'coordinador':
+            case 'coordinador': 
                return redirect('coordinador');
                 break;
 

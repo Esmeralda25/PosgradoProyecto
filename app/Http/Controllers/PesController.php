@@ -92,7 +92,7 @@ class PesController extends Controller
     public function update(Request $request, $id)
     {
 
-        $campos = $request->all();
+        $campos = $request->all(); 
         if ( $campos['password'] !=  $campos['password2']) 
             return redirect()->back(); //detalle quiero que regrese y no vuelva a escribir y ademas que le avise  "error, no repetiste bien las contraseñas";
         

@@ -60,17 +60,17 @@ class proyectosController extends Controller
     public function update(Request $request){
     
         if($request->periodos_id && $request->proyectos_id && $request->que && $request->cuantos_prog){
-            //corroborar si queda con un if o así
         $nuevo = new Adquirido();
         $nuevo->fill($request->all());
         $nuevo->save();
         return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
-        } else{
+        } else {
             $nuevop = new Actividad();
             $nuevop->fill($request->all());
             $nuevop->save();
             return redirect('/comprometerse')->with('message','Se agregó actividad correctamente.');
-        }       
+        }
+        
     }
 
     public function reportar(){
@@ -148,28 +148,12 @@ public function index(){
     }
 
     public function destroy($id)
-    {
-        //esta mal mi if
-        /* Adquirido::destroy($id);
-        if(!is_null(Adquirido)){
-            try{
-                Adquirido::destroy($id);
-                return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
-            } catch (\Throwable $th) {
-                return redirect('comprometerse');
-                alert("No se pudo borrar");
-            }
-        } else{
-            try{
-                Actividad::destroy($id);
-                return redirect('comprometerse')->with('borrar','Actividad eliminada correctamente');
-            } catch (\Throwable $th) {
-                return redirect('comprometerse');
-                alert("No se pudo borrar");
-            }
-        }
- */
+    { 
 
+    $adquirido = Adquirido::find($id);
+    $actividad = Actividad::find($id); 
+//compromisos
+    if(!is_null($adquirido)){
         try{
             Adquirido::destroy($id);
             return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
@@ -177,6 +161,19 @@ public function index(){
             return redirect('comprometerse');
             alert("No se pudo borrar");
         }
+    }
+    else if(!is_null($actividad)){
+    //actividades
+        try{
+            Actividad::destroy($id);
+            return redirect('comprometerse')->with('borrar','Actividad eliminada correctamente');
+        } catch (\Throwable $th) {
+            return redirect('comprometerse');
+            alert("No se pudo borrar");
+        }
+    }
+
+        
     }
 
 }

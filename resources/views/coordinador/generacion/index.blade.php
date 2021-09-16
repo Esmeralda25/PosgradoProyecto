@@ -53,7 +53,7 @@
                                         <div class="alert alert-warning alert-dismissable">
                                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                                              <strong>¡Bien!,</strong> {{Session::get('borrar')}}
-                                        </div> 
+                                        </div>  
                                      @endif
                                      @if (session('nborrar'))
                                         <div class="alert alert-danger alert-dismissable">
