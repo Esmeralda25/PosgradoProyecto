@@ -17,7 +17,7 @@ class Proyecto extends Model
     }
     public function comiteTutorial(){
         return $this->hasOne('App\Models\Comite','id','comite');
-        
+         
     }
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');

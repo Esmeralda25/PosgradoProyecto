@@ -68,10 +68,10 @@ class proyectosController extends Controller
                 'cuantos_prog.required' => 'No puedes dejar los campos vacios'
             ];
             $this->validate($request, $rules, $messages);
-        $nuevo = new Adquirido();
-        $nuevo->fill($request->all());
-        $nuevo->save();
-        return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
+            $nuevo = new Adquirido();
+            $nuevo->fill($request->all());
+            $nuevo->save();
+            return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
         } else {
             $rules = [
                 'nombre'=>'required',
@@ -90,7 +90,7 @@ class proyectosController extends Controller
         }
         
     }
-
+ //REPORTAR Y GUARDARREPORTE- REPORTAR AVANCE
     public function reportar(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
@@ -108,9 +108,20 @@ class proyectosController extends Controller
         foreach ($cuales as $key => $cual) {
             //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
             try{
+                //validar tambien si no subio una imagen o un documento
+                /* $rules = [
+                    'evidencia'=>'required'
+                ];
+                $messages = [
+                    'evidencia.required' => 'Debes subir una imagen o un documento.'
+                    
+                ];
+                $this->validate($request, $rules, $messages); */
+    
             $compromiso = Adquirido::find($cual);        
             $compromiso->cuantos_cumplidos = $logrados[$key];
             $compromiso->save(); 
+
             }catch(\Throwable $th){
 
             }
@@ -123,29 +134,15 @@ class proyectosController extends Controller
 
     }
 
-    //adquiere actividades
 
+    public function index(){
+        $usuario = \Session::get('usuario');
+        $usuario = $usuario->fresh(); 
+        return view('estudiante.proyectos', compact('compromisos'));
 
-
-
-
-
-
-public function index(){
-    $usuario = \Session::get('usuario');
-    $usuario = $usuario->fresh(); 
-
-//    echo "entra estudiante: $usuario->id";
-//para que cargar los compromisos, esto solo deberia ser en comprometerse (actualizar)
-//    $compromisos = Compromiso::all(); //deben ser los compromisos que admite solo su p.e.S 
-
-    //checar en que moemnto estamos
-    //si tiene proyecto lo muestro si no que lo cree
-    return view('estudiante.proyectos', compact('compromisos'));
-
-}
-    
-
+    }
+        
+ 
     public function asignarComite($id_proyecto){
         $pe = \Session::get('usuario');
         $pe = $pe->fresh(); 

@@ -16,7 +16,7 @@ class Estudiante extends Usuario
      
     public function nivel(){
         return "Estudiante";
-    }
+    } 
     public function pe(){
         return $this->belongsTo('App\Models\Pe','pes_id','id');
     }

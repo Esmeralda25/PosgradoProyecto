@@ -28,7 +28,7 @@
         </div>  <!-- espacio del top -->  
 
         <div class="row justify-content-center" >
-            <div class="col-10">
+            <div class="col-10"> 
                 <div class="card col-12">
                     <div class="card-header">
                         <h1 class="card-title font-weight-bold" style="font-size: 40px;">Seguimiento</h1>
@@ -75,7 +75,7 @@
                                 </tr>
                                                               
                             </tbody>        
-                        </table>
+                    </table>
                     
                         <div style="height:20px;"></div>
                         <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
