@@ -180,6 +180,16 @@
                                     <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
                                   </th> 
                           </form>  
+                          @if (count($errors) > 0)
+                              <div class="alert alert-danger">
+                               <ul>
+                                 @foreach ($errors->all() as $messages)
+                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                   <li>{{ $messages }}</li>
+                                 @endforeach
+                              </ul>
+                            </div>
+                          @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -200,6 +210,15 @@
                                 @method('DELETE')
                                 <button id="act" type="submit" class="btn btn-warning" style="width:60px; margin-right: 5px; margin-left:6px" style="display: inline"><i class="fas fa-minus-circle"></i></button>
                             </form>
+                            @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                  <ul>
+                                      @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                      @endforeach
+                                      </ul>
+                                      </div>
+                            @endif
                             </th>
                         </tr>
                         @endforeach

@@ -9,7 +9,7 @@ use App\Models\Docente;
 use App\Models\Compromiso;
 use App\Models\Actividad;
 use App\Models\Periodo;
-
+use Illuminate\Support\MessageBag;
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,12 +59,30 @@ class proyectosController extends Controller
 
     public function update(Request $request){
     
+
         if($request->periodos_id && $request->proyectos_id && $request->que && $request->cuantos_prog){
+            $rules = [
+                'cuantos_prog'=>'required'
+            ];
+            $messages = [
+                'cuantos_prog.required' => 'No puedes dejar los campos vacios'
+            ];
+            $this->validate($request, $rules, $messages);
         $nuevo = new Adquirido();
         $nuevo->fill($request->all());
         $nuevo->save();
         return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
         } else {
+            $rules = [
+                'nombre'=>'required',
+                'periodo'=>'required'
+            ];
+            $messages = [
+                'nombre.required' => 'No puedes dejar el campo "Actividad" vacio',
+                'periodo.required' => 'No puedes dejar el campo "Periodo" vacio'
+            ];
+            $this->validate($request, $rules, $messages);
+
             $nuevop = new Actividad();
             $nuevop->fill($request->all());
             $nuevop->save();
@@ -89,10 +107,13 @@ class proyectosController extends Controller
         
         foreach ($cuales as $key => $cual) {
             //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
-            
+            try{
             $compromiso = Adquirido::find($cual);        
             $compromiso->cuantos_cumplidos = $logrados[$key];
             $compromiso->save(); 
+            }catch(\Throwable $th){
+
+            }
         }
         //falta subir los archivos y falta mostrarlos en la vista de reportar y cuando el docente evalua tambien, 
 
@@ -156,10 +177,9 @@ public function index(){
     if(!is_null($adquirido)){
         try{
             Adquirido::destroy($id);
-            return redirect('comprometerse')->with('borrar','Generacion eliminada correctamente');
+            return redirect('comprometerse')->with('borrar','Compromiso eliminado correctamente');
         } catch (\Throwable $th) {
             return redirect('comprometerse');
-            alert("No se pudo borrar");
         }
     }
     else if(!is_null($actividad)){
@@ -169,7 +189,6 @@ public function index(){
             return redirect('comprometerse')->with('borrar','Actividad eliminada correctamente');
         } catch (\Throwable $th) {
             return redirect('comprometerse');
-            alert("No se pudo borrar");
         }
     }
 
