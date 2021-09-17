@@ -224,10 +224,6 @@
                         @endforeach
                         </tbody>
                   </table>
-
-                  <div>
-                      <button class="btn btn-danger"><a href="{{url('/estudiantes')}}" style="color: rgb(0, 0, 0)" onclick="alerta()">Someter/Modificar</a></button>
-                  </div>  
             </div>
         </div>      
       </div>

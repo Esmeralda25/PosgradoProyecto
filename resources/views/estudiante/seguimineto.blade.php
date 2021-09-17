@@ -120,16 +120,9 @@
                                         @endforelse
                                     </th>
                                 </tr>
-                                                              
                             </tbody>        
-                        </table>
-
-                       <div>
-                            <button class="btn btn-danger" style="margin: 15px;"><a href="{{url('/estudiantes')}}" onclick="alerta()" style="color: black">Aceptar</a></button>
-                        </div>
-                                      
-                    </div>
-                            
+                        </table>                                      
+                    </div>                            
                         </div>
                     
                     </div>

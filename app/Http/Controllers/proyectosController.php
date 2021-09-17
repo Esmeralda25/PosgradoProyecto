@@ -126,6 +126,29 @@ class proyectosController extends Controller
 
             }
         }
+/*
+    AUN FALTA SUBIR ARCHIVOS Y QUE SOLO SEAN PDFs
+    QUE LOS ARCHIVOS TENGAN UN FORMATO...
+    POR EJEMPLO
+    
+    DONDE EL PRIMER NUMERO SERIA EL ID DEL USUARIO EL SEGUNDO NUMERO SERIA EL ID DEL PROYECTO Y EL TERCER NUMERO SERIA YA SEA
+    NUMERO DE LA EVIDENCIA O EL NUMERO DEL PERIODO QUE ESTA REPORTANDO
+    #_#_#_e_
+    #_#_#_r_        
+
+    POR EJEMPLO
+    Hugo es el estudiante 20 y tiene el proyecto 7  actualmente esta en el perido 16 (semestreAcrtual->id)
+    en esete semestre el se comprometio en tres cosas (el compromsio 6, 10 y 11): 
+    compromiso 6 es el "Compromiso 1p" de los que programo 1 y cumplio 1 pero si la evidencia (supongamos que es una conferencia 
+    y va a mostrar el reconocmineto y lo subio como constanciaxyz.pdf ) por lo que se llamaria 
+    20_7_6_e_constanciaxyz.pdf
+
+    en el caso del reporte (el archivo que sube se llama protocolo.pdf) aqui se llamaria  
+    20_7_16_r_protocolo.pdf
+
+    para que el docente lo pueda ver...
+*/
+
         //falta subir los archivos y falta mostrarlos en la vista de reportar y cuando el docente evalua tambien, 
 
         

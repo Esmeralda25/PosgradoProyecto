@@ -12,10 +12,7 @@ class Rubrica extends Model
     public $timestamps = false;
 
     public function criteriosProyecto(){
-        return $this->hasMany('App\Models\Criterio', 'Rubricas_id','id');
-
-    
-       
+        return $this->hasMany('App\Models\Criterio', 'rubrica_id','id');       
     }
 
 
