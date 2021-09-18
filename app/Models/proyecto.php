@@ -37,6 +37,10 @@ class Proyecto extends Model
         ;
 
     }
+
+    public function calificacion(){
+        return $this->hasMany('App\Models\Evaluacion','proyectos_id','id');
+    }
     
     
 }
