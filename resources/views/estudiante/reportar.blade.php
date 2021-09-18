@@ -38,10 +38,7 @@
                             <!-- /.card-header -->
                     <div class="card-body">
 
-                        <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->
-                        <form action="reportar" method="POST" enctype="multipart/form-data">
-                            @csrf
-                                <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">  
+                        <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr class="row col-12" style="text-align: center;">
@@ -74,6 +71,8 @@
                                 </thead>
                             </table>    
                             <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
+                            <form action="reportar" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <table class="table table-dark table-striped">
                                 <thead>
                                     <tr class="col-12" >

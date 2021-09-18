@@ -163,6 +163,19 @@
                     <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Actividades</h2>
                   </div>
                         <!-- TABLA DE ACTIVIDADES -->
+                         @if (session('mensaje'))
+                           <div class="alert alert-success alert-dismissable">
+                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                               <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
+                            </div> 
+                          @endif
+
+                          @if (session('nborrar'))
+                             <div class="alert alert-warning alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>¡Aviso!,</strong> {{Session::get('nborrar')}}
+                              </div> 
+                          @endif  
                   <table class="table table-dark table-striped">
                     <thead class="table table-dark">
                         <tr class="col-12">

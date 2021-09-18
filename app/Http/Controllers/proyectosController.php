@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Proyecto;
 use App\Models\Adquirido;
+use App\Models\Evidencia;
 use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Compromiso;
@@ -86,7 +87,7 @@ class proyectosController extends Controller
             $nuevop = new Actividad();
             $nuevop->fill($request->all());
             $nuevop->save();
-            return redirect('/comprometerse')->with('message','Se agregó actividad correctamente.');
+            return redirect('/comprometerse')->with('mensaje','Se agregó actividad correctamente.');
         }
         
     }
@@ -109,14 +110,14 @@ class proyectosController extends Controller
             //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
             try{
                 //validar tambien si no subio una imagen o un documento
-                /* $rules = [
+                $rules = [
                     'evidencia'=>'required'
                 ];
                 $messages = [
                     'evidencia.required' => 'Debes subir una imagen o un documento.'
                     
                 ];
-                $this->validate($request, $rules, $messages); */
+                $this->validate($request, $rules, $messages);
     
             $compromiso = Adquirido::find($cual);        
             $compromiso->cuantos_cumplidos = $logrados[$key];
@@ -124,6 +125,24 @@ class proyectosController extends Controller
 
             }catch(\Throwable $th){
 
+            }
+        }
+
+        if($request->hasFile("evidencia")){
+            $files=$request->file('evidencia');
+
+            foreach($files as $file)
+            $nombre ="pdf_".time().".".$file->guessExtension();
+
+            $ruta = public_path("pdf/".$nombre);
+            if($file->guessExtension()=="pdf"){
+                copy($file, $ruta);
+                Evidencia::create([
+                    'archivo'
+                ]);
+
+            }else{
+                echo"no es un pdf";
             }
         }
 /*
@@ -206,7 +225,7 @@ class proyectosController extends Controller
     //actividades
         try{
             Actividad::destroy($id);
-            return redirect('comprometerse')->with('borrar','Actividad eliminada correctamente');
+            return redirect('comprometerse')->with('nborrar','Actividad eliminada correctamente');
         } catch (\Throwable $th) {
             return redirect('comprometerse');
         }

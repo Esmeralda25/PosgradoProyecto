@@ -126,13 +126,10 @@ Route::get('comprometerse_act','App\Http\Controllers\proyectosController@edit');
 Route::put('comprometerse_act','App\Http\Controllers\proyectosController@update');
 Route::delete('comprometerse_act/{id}','App\Http\Controllers\proyectosController@destroy');
 
-//Route::post('addproyectos','App\Http\Controllers\proyectosController@store');// para que lo mandas si store ya te lo da el resource de la linea 40
-//Route::resource('asignar', 'App\Http\Controllers\asignarController');
-//    Route::resource('reportes', 'App\Http\Controllers\reportarController'); //este resource solo tiene un metodo en el controller
+
 Route::get('reportar','App\Http\Controllers\proyectosController@reportar');
 Route::post('reportar','App\Http\Controllers\proyectosController@guardarReporte');
 
-//Route::resource('mainestudiantes', 'App\Http\Controllers\mainestudiante2Controller'); //solo tiene una accion pero todo lo declaran como resource
 
 //Docente 
 
