@@ -128,21 +128,24 @@ class proyectosController extends Controller
             }
         }
 
+
         if($request->hasFile("evidencia")){
             $files=$request->file('evidencia');
 
-            foreach($files as $file)
+            foreach($files as $file){
             $nombre ="pdf_".time().".".$file->guessExtension();
 
             $ruta = public_path("pdf/".$nombre);
             if($file->guessExtension()=="pdf"){
                 copy($file, $ruta);
                 Evidencia::create([
+                    'adquirido_id'=> $request->$cual,
                     'archivo'
                 ]);
 
             }else{
                 echo"no es un pdf";
+            }
             }
         }
 /*
