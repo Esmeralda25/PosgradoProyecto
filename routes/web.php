@@ -14,9 +14,13 @@ use App\Http\Controllers\PesController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
 
 Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
 Route::get('logout', 'App\Http\Controllers\entradaController@logout');
@@ -28,6 +32,8 @@ Route::resource('pes', PesController::class);
 //USUARIO COORDINADOR
 //no todo es resources......
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
+Route::get('manual', 'App\Http\Controllers\coordinadorController@Manual');
+//-----------------------------------------
 
 /*crud
 listar-

@@ -4,7 +4,7 @@
   <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
-@section('submenu')
+@section('submenu') 
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
     <form action="/logout">
         <li class="nav-item"> 
@@ -89,7 +89,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fa fa-id-card" aria-hidden="true"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Manuales de Usuario</span></a>
+                                            <a href="{{url('/manual')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Manuales de Usuario</span></a>
                                                 
                                             </div>
                                             <!-- /.info-box-content -->

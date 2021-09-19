@@ -50,6 +50,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">SII</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{url('/manual')}}" class="nav-link">Manuales de Usuario</a>
+      </li>
         
       </ul>
     

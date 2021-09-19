@@ -240,5 +240,11 @@ class coordinadorController extends Controller
 
     
         }
+        public function Manual()
+        {
+            return redirect('manual');
+
+        }
+
    
 }
