@@ -131,22 +131,22 @@ class proyectosController extends Controller
 
         if($request->hasFile("evidencia")){
             $files=$request->file('evidencia');
+            $cuantos = $request->input('cual');
+            $reporte = $request->input('reporte');
+            $i=0;
 
-            foreach($files as $file){
-            $nombre ="pdf_".time().".".$file->guessExtension();
+            foreach($cuantos as $file){
+                $datos = [
+                    'adquirido_id' => $file,
+                ];
+                echo "<hr>";
+                print_r($datos);
+                echo "<hr>";
 
-            $ruta = public_path("pdf/".$nombre);
-            if($file->guessExtension()=="pdf"){
-                copy($file, $ruta);
-                Evidencia::create([
-                    'adquirido_id'=> $request->$cual,
-                    'archivo'
-                ]);
-
-            }else{
-                echo"no es un pdf";
+                Evidencia::create($datos);
+               
             }
-            }
+           
         }
 /*
     AUN FALTA SUBIR ARCHIVOS Y QUE SOLO SEAN PDFs

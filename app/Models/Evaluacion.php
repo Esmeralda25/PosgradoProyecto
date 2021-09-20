@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluacion extends Model
 {
     protected $table = 'evaluaciones';
-    protected $fillable = ['calificacion','proyectos_id','fecha'];
+    protected $fillable = ['calificacion','proyecto_id','fecha'];
     public $timestamps = false;
 
 }

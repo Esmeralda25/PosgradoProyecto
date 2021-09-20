@@ -127,7 +127,7 @@
                                                         </tbody>
                                                     </table>                               
                                             <div class="mb-3">
-                                            <input name="proyectos_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
+                                            <input name="proyecto_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
                                             </div>
                                         </div>
                                     

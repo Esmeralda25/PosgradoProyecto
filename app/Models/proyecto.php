@@ -38,8 +38,14 @@ class Proyecto extends Model
 
     }
 
-    public function calificacion(){
-        return $this->hasMany('App\Models\Evaluacion','proyectos_id','id');
+    public function calificaciones()
+    {
+        return $this->hasManyThrough(DesgloceEvaluacion::class, Evaluacion::class);
+    }
+
+    public function promedio()
+    {
+        return $this->hasMany('App\Models\Evaluacion','proyecto_id','id');
     }
     
     

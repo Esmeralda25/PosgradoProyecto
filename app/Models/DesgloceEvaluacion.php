@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class DesgloceEvaluacion extends Model
 {
     protected $table = 'desgloce_evaluacion';
-    protected $fillable=['evaluaciones_id','docentes_id','concepto','valor','observacion'];
+    protected $fillable=['evaluacion_id','docentes_id','concepto','valor','observacion'];
     public $timestamps = false;
+
+
+    public function calificadores(){
+    
+        return $this->hasOne('App\Models\Docente','id','docentes_id');
+    }
 }
+
+

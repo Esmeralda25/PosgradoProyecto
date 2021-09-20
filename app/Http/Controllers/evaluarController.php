@@ -28,7 +28,7 @@ class evaluarController extends Controller
         try{
           DB::beginTransaction();
             $nueva_evaluacion = Evaluacion::create([
-                'proyectos_id'=> $request->proyectos_id,
+                'proyecto_id'=> $request->proyecto_id,
                 'fecha'=> date('Y-m-d H:i:s')
                 ]  );
 //                echo "agrego una nueva evaluacion";
@@ -43,7 +43,7 @@ class evaluarController extends Controller
 //              var_dump($valores);
             foreach($valores as $calif){
                 $datos = [
-                    'evaluaciones_id'=>$nueva_evaluacion->id,
+                    'evaluacion_id'=>$nueva_evaluacion->id,
                     'docentes_id'=>$id_docente,
                     'concepto'=>$conceptos[$i],
                     'valor'=> $calif,
@@ -70,9 +70,7 @@ class evaluarController extends Controller
     public function show($id){
         $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
-        $evaluacion = DesgloceEvaluacion::get();
-        $nuevo = Evaluacion::get();
-        return view('docente.historico', compact('proyecto','nuevo','evaluacion'));
+        return view('docente.historico', compact('proyecto'));
     }
 
     public function porcentaje($id){
