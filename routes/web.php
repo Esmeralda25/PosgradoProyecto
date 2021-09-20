@@ -32,7 +32,7 @@ Route::resource('pes', PesController::class);
 //USUARIO COORDINADOR
 //no todo es resources......
 Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
-Route::get('manual', 'App\Http\Controllers\coordinadorController@Manual');
+Route::get('manual', 'App\Http\Controllers\coordinadorController@manual');
 //-----------------------------------------
 
 /*crud
@@ -48,6 +48,8 @@ eliminar-
 //opcion: Usuarios
 Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios'); //muestra la lista de usuarios
 Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
+//Route::get('historico', 'App\Http\Controllers\coordinadorController@historicoCoordinador');//historico docente
+
 Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
 Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarUsuario');
 Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarUsuario');

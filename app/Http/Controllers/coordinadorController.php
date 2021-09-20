@@ -88,11 +88,6 @@ class coordinadorController extends Controller
 
     }
 
-
-
-
-
-
     public function agregarUsuarios()
     {
             return view('coordinador.agregar-usuarios');
@@ -240,11 +235,13 @@ class coordinadorController extends Controller
 
     
         }
-        public function Manual()
-        {
-            return redirect('manual');
+    public function manual()
+    {
+        return view('manual');
 
-        }
+    }
+
+    
 
    
 }

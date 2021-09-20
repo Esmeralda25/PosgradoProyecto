@@ -65,12 +65,14 @@ class evaluarController extends Controller
             echo $e->getMessage();
             DB::rollBack();
         }
-    }
+    } 
 
     public function show($id){
+        $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
+        $evaluacion = DesgloceEvaluacion::get();
         $nuevo = Evaluacion::get();
-        return view('docente.historico', compact('proyecto','nuevo'));
+        return view('docente.historico', compact('proyecto','nuevo','evaluacion'));
     }
 
     public function porcentaje($id){

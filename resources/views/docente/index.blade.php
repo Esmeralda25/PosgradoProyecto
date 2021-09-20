@@ -12,7 +12,7 @@
             <a href="/logout" class="nav-link"> 
             <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
-         </li>    
+         </li>     
     </form>   
 @endsection
 

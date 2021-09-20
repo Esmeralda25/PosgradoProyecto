@@ -33,5 +33,11 @@ class Docente extends Authenticatable
 
     public function estudiante(){
         return $this->hasMany('App\Models\Estudiante','id','nombre');
+    } 
+    /* public function evaluacion(){
+        return $this->belongsTo('App\Models\Evaluacion','proyectos_id','id');
+    } */
+    public function desgloceEvaluacion(){
+        return $this->belongsTo('App\Models\DesgloceEvaluacion','evaluaciones_id','id');
     }
 }
