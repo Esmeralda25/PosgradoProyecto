@@ -94,15 +94,22 @@
                                                         <th scope="col">Proyecto</th>
                                                         <th scope="col">Promedio</th>
                                                         <th scope="col">Fecha en la que se evalúo</th>
+                                                        <th scope="col">Acciones</th>
+
 
                                                     <tr> 
                                                 </thead>
-                                                @foreach($proyecto->promedio as $cal) 
+                                                @foreach($evaluacion as $cal) 
                                                 <tr>
                                                     
                                                     <th scope="col">{{$cal->proyecto_id}}</th>
                                                     <th scope="col">{{$cal->calificacion}}</th>
                                                     <th scope="col">{{$cal->fecha}}</th>
+                                                    <td>
+                                                    <a href="mostrar-conceptos/{{$proyecto->id}}" class="btn btn-info">VER</a>
+
+                                               
+                                                     </td>
 
                                                    
                                                         </th>

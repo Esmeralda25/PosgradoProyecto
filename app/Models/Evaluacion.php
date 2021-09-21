@@ -11,4 +11,7 @@ class Evaluacion extends Model
     protected $fillable = ['calificacion','proyecto_id','fecha'];
     public $timestamps = false;
 
+    public function comoFue(){
+        return $this->hasMany('App\Models\DesgloceEvaluacion', 'evaluacion_id','id');       
+    }
 }

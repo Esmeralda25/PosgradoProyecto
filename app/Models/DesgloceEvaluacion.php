@@ -16,6 +16,9 @@ class DesgloceEvaluacion extends Model
     
         return $this->hasOne('App\Models\Docente','id','docentes_id');
     }
+    public function cali(){
+        return $this->belongsTo('App\Models\Evaluacion');
+    }
 }
 
 

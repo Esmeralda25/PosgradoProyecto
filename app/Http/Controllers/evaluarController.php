@@ -70,7 +70,14 @@ class evaluarController extends Controller
     public function show($id){
         $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
-        return view('docente.historico', compact('proyecto'));
+        $evaluacion = Evaluacion::where('proyecto_id', $proyecto->id)->get();
+        return view('docente.historico', compact('proyecto','evaluacion'));
+    }
+    
+    public function conceptos($id){
+    
+        $evalua = Evaluacion::find($id);
+        return view('docente.conceptos',compact('evalua'));
     }
 
     public function porcentaje($id){
