@@ -40,32 +40,42 @@
                    
                     <!--abajo esta lo normal-->
             
-                                Promedio de cada uno de los revisores y la fecha en la que se evaluó en proyecto:
-                            
-         
-
+                                DESGLOCE DE COMO FUE EVALUADO EL PROYECTO:
+                    
                                 <div class="tcontainer">
                                     <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">Proyecto</th>
-                                                        <th scope="col">Promedio</th>
-                                                        <th scope="col">Fecha en la que se evalúo</th>
-                                                        <th scope="col">Acciones</th>
-
+                                                        <th scope="col">Docente</th>
+                                                        <th scope="col">Concepto</th>
+                                                        <th scope="col">Valor</th>
+                                                        <th scope="col">Observacion</th>
                                                     <tr> 
                                                 </thead>
 
+                                                @foreach($nuevo as $evalua) 
+                                                <tr> 
+                                                    <th scope="col">{{$evalua->calificadores->nombre}}</th>
+                                                    <th scope="col">{{$evalua->concepto}}</th>
+                                                    <th scope="col">{{$evalua->valor}}</th>
+                                                    <th scope="col">{{$evalua->observacion}}</th>
+
+                                                   
+                                                        </th>
+                                                        <tr> 
+                                                @endforeach
+
+                                
                                             
                                                 <tbody>                                               
                                                 </tbody>
                                     </table>
                            
                                 </div>
-                               <button><a href="/docentes">Regresar</a></button>
                         
                     </div>
+                    <a href="/mostrar-calificaciones/{{$evaluacion->id}}" class="btn btn-warning" tabindex="5">Regresar</a>
             
                 </div>
             </div>

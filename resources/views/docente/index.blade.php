@@ -68,8 +68,8 @@
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Concluido")
                                                             <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Historico</a></button>
                                                         @endif
-                                                        @if ($proyecto->comiteTutorial->asesor == 1)
-                                                            <a href="porcentaje-proyectos/{id}" class="btn btn-info">Asignar Avance</a>        
+                                                        @if ($proyecto->comiteTutorial->asesor)
+                                                            <a href="porcentaje-proyectos/{{$proyecto->id}}" class="btn btn-info">Asignar Avance</a>        
                                                         @endif
                                                     </td>
                                                         </th>

@@ -82,9 +82,7 @@
                    
                     <!--abajo esta lo normal-->
             
-                                Promedio de cada uno de los revisores y la fecha en la que se evaluó en proyecto:<br><br>
-
-                                <h5> PROMEDIOS</h5>
+                                PROMEDIO DE CADA UNO DE LOS REVISORES Y FECHA EN LA QUE SE EVALÚO EL PROYECTO:<br><br>
                             
                                 <div class="tcontainer">
                                     <table class="table table-dark table-striped mt-4">
@@ -99,14 +97,14 @@
 
                                                     <tr> 
                                                 </thead>
-                                                @foreach($evaluacion as $cal) 
+                                             @foreach($evaluacion as $cal) 
                                                 <tr>
                                                     
                                                     <th scope="col">{{$cal->proyecto_id}}</th>
                                                     <th scope="col">{{$cal->calificacion}}</th>
                                                     <th scope="col">{{$cal->fecha}}</th>
                                                     <td>
-                                                    <a href="mostrar-conceptos/{{$proyecto->id}}" class="btn btn-info">VER</a>
+                                                    <a href="/conceptos/{{$cal->id}}" class="btn btn-info">VER</a>
 
                                                
                                                      </td>
@@ -122,38 +120,7 @@
                                                 </tbody>
                                     </table>
                            
-                                </div><br><br>
-                                <h5> ¿COMO FUE?</h5>
-                                <div class="tcontainer">
-                                    <table class="table table-dark table-striped mt-4">
-                                                <thead class="table table-dark table-striped mt-4">
-                                            
-                                                    <tr>
-                                                        <th scope="col">Docente</th>
-                                                        <th scope="col">Concepto</th>
-                                                        <th scope="col">Valor</th>
-                                                        <th scope="col">Observacion</th>
-                                                    <tr> 
-                                                </thead>
-                                                @foreach($proyecto->calificaciones as $evalua) 
-                                                <tr> 
-                                                    <th scope="col">{{$evalua->calificadores->nombre}}</th> 
-                                                    <th scope="col">{{$evalua->concepto}}</th>
-                                                    <th scope="col">{{$evalua->valor}}</th>
-                                                    <th scope="col">{{$evalua->observacion}}</th>
-
-                                                   
-                                                        </th>
-                                                        <tr> 
-                                                @endforeach
-
-                                
-                                            
-                                                <tbody>                                               
-                                                </tbody>
-                                    </table>
-                           
-                                </div>
+                                </div><br>
 
                                
                                <a href="/docentes" class="btn btn-warning" tabindex="5">Regresar</a>

@@ -49,12 +49,12 @@
                                             @method('PUT')
                                                 <div class="mb-3 form-group">
                                                 <label for="" class="form-label">Avance (En porcentaje %)</label><br>
-                                                <input id="nombre" name="avance" type="text" class="form-control" tabindex="2">
+                                                <input name="avance" type="text" class="form-control" tabindex="2">
                                                     </select>
                     
                                                 </div> 
                                         
-                                                <a href="/rubricas" class="btn btn-secondary" tabindex="5">Cancelar</a>
+                                                <a href="/docentes" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                                 <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
                                         </form>
                                     </div>

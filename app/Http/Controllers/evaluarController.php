@@ -76,8 +76,9 @@ class evaluarController extends Controller
     
     public function conceptos($id){
     
-        $evalua = Evaluacion::find($id);
-        return view('docente.conceptos',compact('evalua'));
+        $evaluacion = Evaluacion::find($id);
+        $nuevo = DesgloceEvaluacion::where('evaluacion_id',$evaluacion->id)->get();
+        return view('docente.conceptos',compact('evaluacion','nuevo'));
     }
 
     public function porcentaje($id){
@@ -86,12 +87,11 @@ class evaluarController extends Controller
         return view('docente.porcentaje',compact('proyecto'));
     }
 
-    public function guardarPorcentajes(Request $request, $id){
-        $proyecto->avance = request()->avance;
-        $registro = Proyecto::find($id);
-        $registro->fill($proyecto);
+    public function guardarPorcentajes(Request $request){
+        
+        $cuanto = $request->input('avance');        
+        $registro = Proyecto::find($cuanto);
         $registro->save();
-        echo "Avance asignado";
         return redirect("/docentes")->with('avance','Avance asignado');
     }
 
