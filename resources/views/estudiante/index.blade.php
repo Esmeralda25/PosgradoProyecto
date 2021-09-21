@@ -94,12 +94,11 @@
                                     
                                     @if (in_array("Concluido",$hacer) )
                                     <div class="col-6">
-                                        <!-- /.historico -->
-
+                                        
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/historico')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Como Fue</span></a>
+                                            <a href="mostrar-calificacionesEs/{{$estudiante->id}}" style="color: white"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Como Fue</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

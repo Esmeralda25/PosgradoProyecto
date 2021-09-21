@@ -39,5 +39,5 @@ class Docente extends Authenticatable
     } */
     public function desgloceEvaluacion(){
         return $this->belongsTo('App\Models\DesgloceEvaluacion','evaluaciones_id','id');
-    }
+    } 
 }

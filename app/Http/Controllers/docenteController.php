@@ -12,7 +12,7 @@ class docenteController extends Controller
     public function index()
     {
         $docente  = \Session::get('usuario' );
-        
+         
         
         $proyectos = $docente->proyectos();
 
