@@ -12,6 +12,24 @@ class Estudiante extends Usuario
     
     public $timestamps = false;
     
+    public function proyectos(){
+        /*
+        $comites = Comite::where('asesor', $this->id)
+                            ->orWhere('revisor1', $this->id)
+                            ->orWhere('revisor2', $this->id)
+                            ->orWhere('revisor3', $this->id)
+                        ->select(id);
+        */
+        
+        return Proyecto::whereIn('comite', 
+            Comite::where('asesor', $this->id)
+            ->orWhere('revisor1', $this->id)
+            ->orWhere('revisor2', $this->id)
+            ->orWhere('revisor3', $this->id)
+            ->select('id')
+        )->get();
+
+    }
 
      
     public function nivel(){
@@ -33,6 +51,8 @@ class Estudiante extends Usuario
         return $this->belongsTo('App\Models\Proyecto','id','estudiante_id');
     }
 
-
+    public function desgloceEvaluaciones(){
+        return $this->belongsTo('App\Models\DesgloceEvaluacion','evaluaciones_id','id');
+    }
 
 }

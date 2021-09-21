@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Proyecto;
+use App\Models\Rubrica;
+use App\Models\Evaluacion;
+use App\Models\DesgloceEvaluacion;
 use Illuminate\Http\Request;
 
 
@@ -25,7 +28,7 @@ class estudianteController extends Controller
         else 
             $hacer = [$estudiante->semestreActual->estado];        
         //dd($hacer);
-        return view('estudiante.index', compact('hacer'));
+        return view('estudiante.index', compact('hacer','proyecto','estudiante'));
 
     }
 
@@ -38,12 +41,14 @@ class estudianteController extends Controller
     public function store(Request $request)
     {
         return redirect('/estudiantes');
-    }
+    } 
 
     
-    public function show($id)
-    {
-        //
+    public function show($id){
+        $usuario  = \Session::get('usuario' );
+        $proyecto = Proyecto::find($id);
+        //$proyectos = $usuario->proyectos();
+        return view('estudiante.historicoes', compact('proyecto'));
     }
 
     /**

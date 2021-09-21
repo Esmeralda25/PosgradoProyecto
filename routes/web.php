@@ -123,6 +123,8 @@ Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
 //Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
 
+Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\estudianteController@show');
+
 Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
 Route::post('registrar','App\Http\Controllers\proyectosController@store');
 Route::get('seguimiento','App\Http\Controllers\proyectosController@show');

@@ -59,7 +59,7 @@
                                                 <tr> 
                                             
                                             
-                                                    <th scope="col">{{$proyecto->titulo}}</th>
+                                                    <th scope="col">{{$proyecto->titulo}}</th> 
                                                     <th scope="col">{{$proyecto->estudiante->nombre}}</th>
                                                     <td>
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Evaluacion")
