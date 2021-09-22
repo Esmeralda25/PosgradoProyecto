@@ -93,7 +93,13 @@
                                             <td><input type="number" name="logrados[{{$loop->iteration}}]" class="form-control" value="{{$compromiso->cuantos_cumplidos}}"
                                                                     min="1" max="{{$compromiso->cuantos_prog}}"></td>
                                             <td style="padding: 5px">
-                                                <input type="file" name="evidencia[{{$loop->iteration}}]" >
+                                                @if (!is_null($compromiso->evidencia))
+                                                    {{$compromiso->evidencia->archivo}}     
+                                                @else 
+                                                    SIN EVIDENCIA                                                                                          
+                                                @endif
+<BR>
+                                                <input type="file" name="evidencia[{{$loop->iteration}}]" > 
                                             </td> 
                                     </tr>
                                     @empty
@@ -105,9 +111,18 @@
                             </table>
                             <div style="height:15px;"></div>   
                                 <div>
+                                    @if ($estudiante->proyecto->reporte( $estudiante->semestreActual->id )->count() != 0)
+
+                                    {{$estudiante->proyecto->reporte( $estudiante->semestreActual->id )->get()[0]->reporte }}     
+                                @else 
+                                    SIN REPORTE                                                                                          
+                                @endif
+
+                                    
                                     REPORTE: <input type="file" name="reporte">
                                 </div>
                                 <div>
+
                                     <input type="submit"  class="btn btn-danger" value="REPORTAR">
 
                                 </div>

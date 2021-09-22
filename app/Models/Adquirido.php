@@ -11,6 +11,6 @@ class Adquirido extends Model
     public $timestamps = false;
 
     public function evidencia(){
-        return $this->belongsTo('App\Models\Evidencia');
+        return $this->hasOne('App\Models\Evidencia');
     }
 }  

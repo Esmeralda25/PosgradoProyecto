@@ -172,5 +172,5 @@ Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
 
 
 Route::get('/prueba', function () {
-    echo Hash::make( 'paso' );
+    echo public_path('evidencias');
 });

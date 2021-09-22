@@ -31,6 +31,13 @@ class Proyecto extends Model
         ->where('periodos_id',$semestre)
         ;
     }
+
+    public function reporte($semestre){
+        return $this->hasOne('App\Models\Reporte','proyecto_id','id')
+        ->where('periodo_id',$semestre)
+        ;
+    }
+
     public function actividades($semestre){
         return $this->hasMany('App\Models\Actividad','proyectos_id','id')
         ->where('periodos_id',$semestre)

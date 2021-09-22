@@ -9,10 +9,13 @@ use App\Models\Estudiante;
 use App\Models\Docente;
 use App\Models\Compromiso;
 use App\Models\Actividad;
+use App\Models\Reporte;
 use App\Models\Periodo;
+
 use Illuminate\Support\MessageBag;
 use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class proyectosController extends Controller
 {
@@ -102,13 +105,20 @@ class proyectosController extends Controller
 
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
-
         $cuales = $request->input('cual');
         $logrados = $request->input('logrados');
-        
+
+        $evidencias=$request->file('evidencia');
+        $reporte = $request->file('reporte');
+
+
+
+
+//        dd($request->all());
+        //var_dump($cuales);
         foreach ($cuales as $key => $cual) {
             //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
-            try{
+          //  try{
                 //validar tambien si no subio una imagen o un documento
                 $rules = [
                     'evidencia'=>'required'
@@ -122,61 +132,28 @@ class proyectosController extends Controller
             $compromiso = Adquirido::find($cual);        
             $compromiso->cuantos_cumplidos = $logrados[$key];
             $compromiso->save(); 
-
-            }catch(\Throwable $th){
-
+            
+            $archivo = $evidencias[$key];
+            $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $cual . "_e_" . $archivo->getClientOriginalName()  ;
+//            $ret = $archivo->storeAs($nombre_archivo,['disk' => 'evidencias']);
+            $ret = Storage::putFileAs('evidencias', $archivo, $nombre_archivo );
+            Evidencia::updateOrCreate(
+                ['adquirido_id' => $cual],
+                ['archivo' => $nombre_archivo]
+            );
+            
+//        }catch(\Throwable $th){
             }
-        }
 
+            $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestreActual->id  . "_r_" . $reporte->getClientOriginalName()  ;
+            $ret = Storage::putFileAs('evidencias', $reporte, $nombre_archivo );
+            
+            Reporte::updateOrCreate(
+                ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestreActual->id ],
+                ['reporte' => $nombre_archivo]
+            );
 
-        if($request->hasFile("evidencia")){
-            $files=$request->file('evidencia');
-            $cuantos = $request->input('cual');
-            $reporte = $request->input('reporte');
-            $i=0;
-
-            foreach($cuantos as $file){
-                $datos = [
-                    'adquirido_id' => $file,
-                ];
-                echo "<hr>";
-                print_r($datos);
-                echo "<hr>";
-
-                Evidencia::create($datos);
-               
-            }
-           
-        }
-/*
-    AUN FALTA SUBIR ARCHIVOS Y QUE SOLO SEAN PDFs
-    QUE LOS ARCHIVOS TENGAN UN FORMATO...
-    POR EJEMPLO
-    
-    DONDE EL PRIMER NUMERO SERIA EL ID DEL USUARIO EL SEGUNDO NUMERO SERIA EL ID DEL PROYECTO Y EL TERCER NUMERO SERIA YA SEA
-    NUMERO DE LA EVIDENCIA O EL NUMERO DEL PERIODO QUE ESTA REPORTANDO
-    #_#_#_e_
-    #_#_#_r_        
-
-    POR EJEMPLO
-    Hugo es el estudiante 20 y tiene el proyecto 7  actualmente esta en el perido 16 (semestreAcrtual->id)
-    en esete semestre el se comprometio en tres cosas (el compromsio 6, 10 y 11): 
-    compromiso 6 es el "Compromiso 1p" de los que programo 1 y cumplio 1 pero si la evidencia (supongamos que es una conferencia 
-    y va a mostrar el reconocmineto y lo subio como constanciaxyz.pdf ) por lo que se llamaria 
-    20_7_6_e_constanciaxyz.pdf
-
-    en el caso del reporte (el archivo que sube se llama protocolo.pdf) aqui se llamaria  
-    20_7_16_r_protocolo.pdf
-
-    para que el docente lo pueda ver...
-*/
-
-        //falta subir los archivos y falta mostrarlos en la vista de reportar y cuando el docente evalua tambien, 
-
-        
         return redirect('reportar');
-//        dd($request->all());
-
     }
 
 
