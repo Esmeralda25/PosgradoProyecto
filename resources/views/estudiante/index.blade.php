@@ -66,7 +66,13 @@
 
 
                                     @if (in_array("Reportar",$hacer) )
-                                    <div class="col-6" href="/estudiante/etapa3">
+                                    @if (session('message'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
+                                        </div> 
+                                     @endif
+                                    <br><br><div class="col-6" href="/estudiante/etapa3">
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                                             <div class="info-box-content">

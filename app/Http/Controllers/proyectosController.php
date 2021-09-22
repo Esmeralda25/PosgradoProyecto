@@ -153,7 +153,7 @@ class proyectosController extends Controller
                 ['reporte' => $nombre_archivo]
             );
 
-        return redirect('reportar');
+        return redirect('/estudiantes')->with('message','Se agregaron los compromisos y tu reporte correctamente');
     }
 
 

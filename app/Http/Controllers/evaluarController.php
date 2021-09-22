@@ -8,9 +8,15 @@ use App\Models\Rubrica;
 use App\Models\Evaluacion;
 use App\Models\DesgloceEvaluacion;
 use App\Models\Criterio;
+use App\Models\Evidencia;
+use App\Models\Reporte;
+
+
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class evaluarController extends Controller
 {
@@ -44,7 +50,7 @@ class evaluarController extends Controller
             foreach($valores as $calif){
                 $datos = [
                     'evaluacion_id'=>$nueva_evaluacion->id,
-                    'docentes_id'=>$id_docente,
+                    'docente_id'=>$id_docente,
                     'concepto'=>$conceptos[$i],
                     'valor'=> $calif,
                     'observacion'=>$observaciones[$i],
@@ -80,6 +86,21 @@ class evaluarController extends Controller
         $nuevo = DesgloceEvaluacion::where('evaluacion_id',$evaluacion->id)->get();
         return view('docente.conceptos',compact('evaluacion','nuevo'));
     }
+
+    public function verCompromisos($id){
+
+       $evidencia = Evidencia::find($id);
+       $pathToFile = storage_path('app/evidencias').'/'.$evidencia->archivo;
+       return response()->download($pathToFile);
+       
+    }
+    public function verReportes($id){
+
+        $pdf = Reporte::find($id);
+        $pathToFile = storage_path('app/evidencias').'/'.$pdf->reporte;
+        return response()->download($pathToFile);
+        
+     }
 
     public function porcentaje($id){
     

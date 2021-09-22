@@ -103,6 +103,8 @@
                                                     <tr>
                                                         <th scope="col">ID</th>
                                                         <th scope="col">Archivo</th>
+                                                        <th scope="col">Acciones</th>
+
                                                     
                                                     <tr> 
                                                 </thead>
@@ -111,6 +113,46 @@
                                                 <tr> 
                                                     <th scope="col">{{$nuev->adquirido_id}}</th>
                                                     <th scope="col">{{$nuev->archivo}}</th>
+                                                    <td>
+                                                    <a href="/doc-compromisos/{{$nuev->id}}" class="btn btn-info">VER</a>
+                                                    </td>
+
+                                                   
+                                                        </th>
+                                                        <tr> 
+                                                @endforeach
+
+                                
+                                            
+                                                <tbody>                                               
+                                                </tbody>
+                                    </table>
+                           
+                                </div>
+
+                                <th class="row">
+                                            <a>REPORTE</a>
+                                                        </th>
+                                            <div class="tcontainer">
+                                            <table class="table table-dark table-striped mt-4">
+                                            <thead class="table table-dark table-striped mt-4">
+                                            
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Archivo</th>
+                                                        <th scope="col">Acciones</th>
+
+                                                    
+                                                    <tr> 
+                                                </thead>
+
+                                                @foreach($proyecto->pdf as $archivos) 
+                                                <tr> 
+                                                    <th scope="col">{{$archivos->id}}</th>
+                                                    <th scope="col">{{$archivos->reporte}}</th>
+                                                    <td>
+                                                    <a href="/doc-reportes/{{$archivos->id}}" class="btn btn-info">VER</a>
+                                                    </td>
 
                                                    
                                                         </th>

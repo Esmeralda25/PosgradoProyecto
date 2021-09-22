@@ -42,7 +42,6 @@ class Proyecto extends Model
         return $this->hasMany('App\Models\Actividad','proyectos_id','id')
         ->where('periodos_id',$semestre)
         ;
-
     }
 
     public function nuevaActividad()
@@ -59,6 +58,11 @@ class Proyecto extends Model
     public function promedio()
     {
         return $this->hasMany('App\Models\Evaluacion','proyecto_id','id');
+    }
+
+    public function pdf()
+    {
+        return $this->hasMany('App\Models\Reporte','proyecto_id','id');
     }
     
     
