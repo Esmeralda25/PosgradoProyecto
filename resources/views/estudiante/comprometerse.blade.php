@@ -107,7 +107,7 @@
                         @csrf
                           @method('PUT')    
                             <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
-                            <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
+                            <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
                         <th class="col-7">
                           A que te comprometes: 
                           <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">

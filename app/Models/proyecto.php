@@ -27,7 +27,7 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\Compromiso','id','compromiso');
     }
     public function compromisos($semestre){
-        return $this->hasMany('App\Models\Adquirido','proyectos_id','id')
+        return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
         ->where('periodos_id',$semestre)
         ;
     }
@@ -45,9 +45,15 @@ class Proyecto extends Model
 
     }
 
-    public function calificaciones()
+    public function nuevaActividad()
     {
-        return $this->hasManyThrough(DesgloceEvaluacion::class, Evaluacion::class);
+        return $this->hasMany('App\Models\Actividad','proyectos_id','id');
+    }
+
+
+    public function evidencias()
+    {
+        return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
 
     public function promedio()

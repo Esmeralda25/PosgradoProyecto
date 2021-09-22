@@ -64,7 +64,7 @@ class proyectosController extends Controller
     public function update(Request $request){
     
 
-        if($request->periodos_id && $request->proyectos_id && $request->que && $request->cuantos_prog){
+        if($request->periodos_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
             $rules = [
                 'cuantos_prog'=>'required'
             ];

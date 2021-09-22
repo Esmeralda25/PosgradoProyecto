@@ -47,7 +47,6 @@
                                                 <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">Docente</th>
                                                         <th scope="col">Concepto</th>
                                                         <th scope="col">Valor</th>
                                                         <th scope="col">Observacion</th>
@@ -56,7 +55,6 @@
 
                                                 @foreach($nuevo as $evalua) 
                                                 <tr> 
-                                                    <th scope="col">{{$evalua->calificadores->nombre}}</th>
                                                     <th scope="col">{{$evalua->concepto}}</th>
                                                     <th scope="col">{{$evalua->valor}}</th>
                                                     <th scope="col">{{$evalua->observacion}}</th>

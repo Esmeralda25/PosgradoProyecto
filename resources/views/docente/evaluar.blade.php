@@ -60,15 +60,75 @@
                                                             <th></th>  
                                                         </tr>
                                                         <tr>
-                                                            <th class="row">
-                                                                <a>Protocolo Entregado</a>
-                                                            </th> 
+                                                        
+                                                        <th class="row">
+                                                                <a>ACTIVIDADES</a>
+                                                        </th>
+                                                        <div class="tcontainer">
+                                                            <table class="table table-dark table-striped mt-4">
+                                                               <thead class="table table-dark table-striped mt-4">
+                                            
+                                                    <tr>
+                                                        <th scope="col">Actividad</th>
+                                                        <th scope="col">En el periodo</th>
+                                                    
+                                                    <tr> 
+                                                </thead>
+
+                                                @foreach($proyecto->nuevaActividad as $actividad) 
+                                                <tr> 
+                                                    <th scope="col">{{$actividad->nombre}}</th>
+                                                    <th scope="col">{{$actividad->periodo}}</th>
+
+                                                   
+                                                        </th>
+                                                        <tr> 
+                                                @endforeach
+
+                                
+                                            
+                                                <tbody>                                               
+                                                </tbody>
+                                    </table>
+                           
+                                </div>
+                                                       
+                                <th class="row">
+                                                                <a>COMPROMISOS</a>
+                                                        </th>
+                                                        <div class="tcontainer">
+                                                            <table class="table table-dark table-striped mt-4">
+                                                               <thead class="table table-dark table-striped mt-4">
+                                            
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Archivo</th>
+                                                    
+                                                    <tr> 
+                                                </thead>
+
+                                                @foreach($proyecto->evidencias as $nuev) 
+                                                <tr> 
+                                                    <th scope="col">{{$nuev->adquirido_id}}</th>
+                                                    <th scope="col">{{$nuev->archivo}}</th>
+
+                                                   
+                                                        </th>
+                                                        <tr> 
+                                                @endforeach
+
+                                
+                                            
+                                                <tbody>                                               
+                                                </tbody>
+                                    </table>
+                           
+                                </div>
+                        
                                                             <th></th>   
                                                         </tr>
                                                         <tr>
-                                                            <th class="row">
-                                                                <a>Resultados y Desarrollo (Compromisos y Cronogramas)</a>
-                                                            </th>  
+                                                            
                                                             <th></th>  
                                                         </tr>
                                                         

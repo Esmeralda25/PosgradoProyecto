@@ -90,8 +90,11 @@
                                             
                                                     <tr>
                                                         <th scope="col">Proyecto</th>
-                                                        <th scope="col">Promedio</th>
+                                                        <th scope="col">Docente</th>
+                                                        <th scope="col">Promedio semestral</th>
                                                         <th scope="col">Fecha en la que se evalúo</th>
+                                                        <th scope="col">Semestre</th>
+
                                                         <th scope="col">Acciones</th>
 
 
@@ -101,8 +104,11 @@
                                                 <tr>
                                                     
                                                     <th scope="col">{{$cal->proyecto_id}}</th>
+                                                    <th scope="col">{{$cal->docente->nombre}}</th>
                                                     <th scope="col">{{$cal->calificacion}}</th>
                                                     <th scope="col">{{$cal->fecha}}</th>
+                                                    <th scope="col">{{$cal->periodo->nombre}}</th>
+
                                                     <td>
                                                     <a href="/conceptos/{{$cal->id}}" class="btn btn-info">VER</a>
 
