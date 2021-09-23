@@ -154,6 +154,7 @@ Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\evaluarController@p
 Route::put('guardar-porcentajes','App\Http\Controllers\evaluarController@guardarPorcentajes');
 Route::get('doc-compromisos/{id}','App\Http\Controllers\evaluarController@verCompromisos');
 Route::get('doc-reportes/{id}','App\Http\Controllers\evaluarController@verReportes');
+Route::get('promedios-semestrales/{id}','App\Http\Controllers\evaluarController@promedioSemestrales');
 
 
 Route::get('historicos', 'App\Http\Controllers\historicoController@index');

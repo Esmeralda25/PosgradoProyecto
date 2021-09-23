@@ -35,7 +35,9 @@ class evaluarController extends Controller
           DB::beginTransaction();
             $nueva_evaluacion = Evaluacion::create([
                 'proyecto_id'=> $request->proyecto_id,
-                'fecha'=> date('Y-m-d H:i:s')
+                'fecha'=> date('Y-m-d H:i:s'),
+                'docente_id' =>$id_docente,
+                'periodo_id'=> $request->periodo_id,
                 ]  );
 //                echo "agrego una nueva evaluacion";
             //por cada valor voy a guardarlo en la tabla de desgloce
@@ -72,6 +74,11 @@ class evaluarController extends Controller
             DB::rollBack();
         }
     } 
+
+    public function promedioSemestrales($id){
+        $proyecto = Proyecto::find($id);
+        return view('docente.semestral', compact('proyecto'));
+    }
 
     public function show($id){
         $usuario  = \Session::get('usuario' );
@@ -110,9 +117,6 @@ class evaluarController extends Controller
 
     public function guardarPorcentajes(Request $request){
         
-        $cuanto = $request->input('avance');        
-        $registro = Proyecto::find($cuanto);
-        $registro->save();
         return redirect("/docentes")->with('avance','Avance asignado');
     }
 

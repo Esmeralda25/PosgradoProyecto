@@ -62,11 +62,15 @@
                                                     <th scope="col">{{$proyecto->titulo}}</th> 
                                                     <th scope="col">{{$proyecto->estudiante->nombre}}</th>
                                                     <td>
+                                                
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Evaluacion")
                                                             <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>
-                                                            <a href="porcentaje-proyectos/{{$proyecto->id}}" class="btn btn-info">Asignar Avance</a>        
- 
+                                                            @if($proyecto->promedio-> count() >=1)
+                                                            <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Calificaciones Parciales</a></button>
+                                                            @endif
+                                                                    
                                                         @endif
+                                                     
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Concluido")
                                                             <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Historico</a></button>
                                                         @endif
@@ -75,14 +79,7 @@
                                                         <tr> 
                                                 @endforeach
                                                  <!-- liga para descargar manuales -->
-                                                <div class="col-6">
-                                                    <div class="info-box mb-3">
-                                                        <span class="info-box-icon bg-success elevation-1"><i class="fa fa-id-card" aria-hidden="true"></i></span>
-                                        
-                                                        <div class="info-box-content">
-                                                        <a href="{{url('')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Manuales de Usuario</span></a>
-                                                            
-                                                        </div>
+                                               
                                                         <!-- /.info-box-content -->
                                                     </div>
                                                 </div>
