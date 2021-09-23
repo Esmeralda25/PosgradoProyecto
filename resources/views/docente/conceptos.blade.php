@@ -15,11 +15,7 @@
          </li>    
     </form>    
 @endsection
-@section('regresar') 
-    <a href="/docentes" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
+
 
 @section('content') 
 <section class="content">
@@ -73,7 +69,6 @@
                                 </div>
                         
                     </div>
-                    <a href="/mostrar-calificaciones/{{$evaluacion->id}}" class="btn btn-warning" tabindex="5">Regresar</a>
             
                 </div>
             </div>

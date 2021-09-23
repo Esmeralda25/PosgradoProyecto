@@ -14,6 +14,10 @@ class Evaluacion extends Model
     public function comoFue(){
         return $this->hasMany('App\Models\DesgloceEvaluacion', 'evaluacion_id','id');       
     }
+    //esta relacion no se si esta bien
+    public function estudiante(){
+        return $this->hasOne('App\Models\Estudiante', 'id','estudiante_id');       
+    }
 
     public function docente(){
         return $this->hasOne('App\Models\Docente', 'id','docente_id');       
