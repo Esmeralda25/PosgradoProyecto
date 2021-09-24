@@ -35,7 +35,6 @@
 
                         <table class="table table-dark table-striped mt-6">
                             <thead class="table table-dark table-striped mt-6">
-                                <h2 style="font-size: 35px; text-align:center; margin:0 auto; font-family:sans-serif">AGREGAR PROGRAMA EDUCATIVO</h2> 
                                 <tr>
                                     <th scope="col">Programa</th>
                                     <th scope="col">Coordinador</th>
