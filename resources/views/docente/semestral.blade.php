@@ -82,14 +82,14 @@
                    
                     <!--abajo esta lo normal-->
             
-                                PROMEDIO SEMESTRAL DEL PROYECTO:<br><br>
+                                PROMEDIO DE CADA UNO DE LOS REVISORES Y FECHA EN LA QUE SE EVALÚO EL PROYECTO:<br><br>
                             
                                 <div class="tcontainer">
                                     <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">Promedio semestral</th>
+                                                        <th scope="col">Promedio</th>
                                                         <th scope="col">Semestre</th>
 
                                                         <th scope="col">Acciones</th>
@@ -97,13 +97,22 @@
 
                                                     <tr> 
                                                 </thead>
+                                                <tr>
+                                                    
+                                                    <th scope="col">10</th>
+                                                    <th scope="col">{{$proyecto->estudiante->semestreActual->nombre}}</th>
 
-                                                <td>
-                                                    <a href="" class="btn btn-info">VER</a>
+                                                    <td>
+                                                    <a href="/mostrar-calificaciones/{{$proyecto->id}}" class="btn btn-info">VER</a>
 
                                                
                                                      </td>
 
+                                                   
+                                                        </th>
+                                                        <tr> 
+
+                                
                                             
                                                 <tbody>                                               
                                                 </tbody>

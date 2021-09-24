@@ -62,18 +62,23 @@
                                                     <th scope="col">{{$proyecto->titulo}}</th> 
                                                     <th scope="col">{{$proyecto->estudiante->nombre}}</th>
                                                     <td>
-                                                
+
+                                            
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Evaluacion")
                                                             <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>
                                                             @if($proyecto->promedio-> count() >=1)
-                                                            <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Calificaciones Parciales</a></button>
+                                                            <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
+                                                            @endif
+                                                            @if ($proyecto->comiteTutorial->asesor)
+                                                             <button type="button" class="btn btn-success"><a href="porcentaje-proyectos/{{$proyecto->id}}" style="color: white">Avance</a></button>
                                                             @endif
                                                                     
                                                         @endif
                                                      
                                                         @if ($proyecto->estudiante->semestreActual->estado == "Concluido")
-                                                            <button type="button" class="btn btn-warning"><a href="mostrar-calificaciones/{{$proyecto->id}}" style="color: white">Historico</a></button>
+                                                            <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
                                                         @endif
+                                                        
                                                     </td>
                                                         </th>
                                                         <tr> 

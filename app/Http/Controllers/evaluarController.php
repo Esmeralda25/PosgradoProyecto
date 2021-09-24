@@ -20,9 +20,8 @@ use Illuminate\Support\Facades\Storage;
 
 class evaluarController extends Controller
 {
-    public function index($id){
-        $proyecto = Proyecto::find($id);
-        $proyecto = $proyecto->fresh();
+    public function index($id){        
+        $proyecto = Proyecto::find($id);;
         $rubica_usada = $proyecto->estudiante->semestreActual->rubrica;
         $criterios = Rubrica::find($rubica_usada)->criteriosProyecto; //Esto me sirve para traer todos los criterios de la rubrica ing.
         return view('docente.evaluar', compact('proyecto','criterios'));
@@ -77,13 +76,14 @@ class evaluarController extends Controller
 
     public function promedioSemestrales($id){
         $proyecto = Proyecto::find($id);
-        return view('docente.semestral', compact('proyecto'));
+        $periodo = Proyecto::where('estudiante_id', $proyecto->id)->get();
+        return view('docente.semestral', compact('proyecto','periodo'));
     }
 
     public function show($id){
         $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
-        $evaluacion = Evaluacion::where('proyecto_id', $proyecto->id)->get();
+        $evaluacion = Evaluacion::where('proyecto_id',$proyecto->id)->get();
         return view('docente.historico', compact('proyecto','evaluacion'));
     }
     

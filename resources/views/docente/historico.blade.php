@@ -89,11 +89,9 @@
                                                 <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">Proyecto</th>
                                                         <th scope="col">Docente</th>
                                                         <th scope="col">Promedio semestral</th>
                                                         <th scope="col">Fecha en la que se evalúo</th>
-                                                        <th scope="col">Semestre</th>
 
                                                         <th scope="col">Acciones</th>
 
@@ -103,11 +101,10 @@
                                              @foreach($evaluacion as $cal) 
                                                 <tr>
                                                     
-                                                    <th scope="col">{{$cal->proyecto_id}}</th>
                                                     <th scope="col">{{$cal->docente->nombre}}</th>
                                                     <th scope="col">{{$cal->calificacion}}</th>
                                                     <th scope="col">{{$cal->fecha}}</th>
-                                                    <th scope="col">{{$cal->periodo->nombre}}</th>
+ 
 
                                                     <td>
                                                     <a href="/conceptos/{{$cal->id}}" class="btn btn-info">VER</a>
@@ -129,7 +126,7 @@
                                 </div><br>
 
                                
-                               <a href="/docentes" class="btn btn-warning" tabindex="5">Regresar</a>
+                               <a href="/promedios-semestrales/{{$proyecto->id}}" class="btn btn-warning" tabindex="5">Regresar</a>
                         
                     </div>
             

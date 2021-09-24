@@ -64,6 +64,10 @@ class Proyecto extends Model
     {
         return $this->hasMany('App\Models\Reporte','proyecto_id','id');
     }
+    public function nuevoPeriodo()
+    {
+        return $this->hasManyThrough(Periodo::class, Estudiante::class);
+    }
     
     
 }
