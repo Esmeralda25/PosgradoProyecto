@@ -10,17 +10,12 @@
         <li class="nav-item"> 
             @csrf
             <a href="/logout" class="nav-link"> 
-            <i class="fas fa-users nav-icon"></i>    
+            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
     </form>   
 @endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
 
-</li>
-@endsection
 
 @section('content')
 <section class="content">
@@ -37,28 +32,28 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div class="row">
+                            <div >
             
                         <form action="/pes/{{$pe->id}}" method="post">
                             @csrf
                             @method('PUT')
-                                <div class="mb-3">
+                                <div class="mb-12">
                                     Programa Educativo
                                     <input type="text" name="nombre"  class="form-control" tabindex="2" value="{{$pe->nombre}}">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-12">
                                     Nombre del coordinador
                                     <input type="text" name="coordinador"  class="form-control" tabindex="3"  value="{{$pe->coordinador}}">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-12">
                                     Correo del cordianador
                                     <input type="text" name="correo"  class="form-control" tabindex="3"  value="{{$pe->correo}}">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-12">
                                     Contraseña
                                     <input type="password" name="password"  class="form-control" tabindex="3">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-12">
                                     Repita la Contraseña
                                     <input  type="password" name="password2"  class="form-control" tabindex="3">
                                 </div>
