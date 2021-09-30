@@ -31,8 +31,8 @@ Route::resource('pes', PesController::class);
 
 //USUARIO COORDINADOR
 //no todo es resources......
-Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
-Route::get('manual', 'App\Http\Controllers\coordinadorController@manual');
+Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
+Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
 //-----------------------------------------
 
 /*crud
@@ -163,7 +163,7 @@ Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
 
 
 
-Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
+Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
 
 //Route::resource('loges', 'App\Http\Controllers\loginController');
 
