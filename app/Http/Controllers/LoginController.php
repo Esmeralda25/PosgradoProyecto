@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Login;
 use Illuminate\Support\Facades\Hash;
 
-class loginController extends Controller
+class LoginController extends Controller
 {   
     public function index()
     {
