@@ -143,7 +143,7 @@ Route::post('reportar','App\Http\Controllers\proyectosController@guardarReporte'
 
 //Docente 
 
-Route::resource('docentes', 'App\Http\Controllers\docenteController');
+Route::resource('docentes', 'App\Http\Controllers\DocenteController');
 
 //Docente Evaluaciones
 Route::get('evaluaciones/{id}', 'App\Http\Controllers\evaluarController@index');
