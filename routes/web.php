@@ -157,7 +157,7 @@ Route::get('doc-reportes/{id}','App\Http\Controllers\EvaluarController@verReport
 Route::get('promedios-semestrales/{id}','App\Http\Controllers\EvaluarController@promedioSemestrales');
 
 
-Route::get('historicos', 'App\Http\Controllers\historicoController@index');
+Route::get('historicos', 'App\Http\Controllers\HistoricoController@index');
 
 Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
 

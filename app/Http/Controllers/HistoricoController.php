@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class historicoController extends Controller
+class HistoricoController extends Controller
 {
     public function index(){
        
