@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Docente; 
 use App\Models\Estudiante;
 use App\Models\Pe;  
-class entradaController extends Controller
+class EntradaController extends Controller
 {
     public function validar (Request $peticion){
         $identificacion = "";

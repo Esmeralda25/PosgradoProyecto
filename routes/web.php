@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 
 
-Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
-Route::get('logout', 'App\Http\Controllers\entradaController@logout');
-Route::resource('info', 'App\Http\Controllers\infoController');
+Route::post('entrada','App\Http\Controllers\EntradaController@validar'); 
+Route::get('logout', 'App\Http\Controllers\EntradaController@logout');
+Route::resource('info', 'App\Http\Controllers\InfoController');
 
 Route::resource('pes', PesController::class);
 
