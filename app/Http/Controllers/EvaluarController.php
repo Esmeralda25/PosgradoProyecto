@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
-class evaluarController extends Controller
+class EvaluarController extends Controller
 {
     public function index($id){        
         $proyecto = Proyecto::find($id);;

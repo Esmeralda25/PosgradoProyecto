@@ -146,15 +146,15 @@ Route::post('reportar','App\Http\Controllers\proyectosController@guardarReporte'
 Route::resource('docentes', 'App\Http\Controllers\DocenteController');
 
 //Docente Evaluaciones
-Route::get('evaluaciones/{id}', 'App\Http\Controllers\evaluarController@index');
-Route::post('guardar-calificaciones','App\Http\Controllers\evaluarController@store');
-Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\evaluarController@show');
-Route::get('conceptos/{id}','App\Http\Controllers\evaluarController@conceptos');
-Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\evaluarController@porcentaje');
-Route::put('guardar-porcentajes','App\Http\Controllers\evaluarController@guardarPorcentajes');
-Route::get('doc-compromisos/{id}','App\Http\Controllers\evaluarController@verCompromisos');
-Route::get('doc-reportes/{id}','App\Http\Controllers\evaluarController@verReportes');
-Route::get('promedios-semestrales/{id}','App\Http\Controllers\evaluarController@promedioSemestrales');
+Route::get('evaluaciones/{id}', 'App\Http\Controllers\EvaluarController@index');
+Route::post('guardar-calificaciones','App\Http\Controllers\EvaluarController@store');
+Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\EvaluarController@show');
+Route::get('conceptos/{id}','App\Http\Controllers\EvaluarController@conceptos');
+Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\EvaluarController@porcentaje');
+Route::put('guardar-porcentajes','App\Http\Controllers\EvaluarController@guardarPorcentajes');
+Route::get('doc-compromisos/{id}','App\Http\Controllers\EvaluarController@verCompromisos');
+Route::get('doc-reportes/{id}','App\Http\Controllers\EvaluarController@verReportes');
+Route::get('promedios-semestrales/{id}','App\Http\Controllers\EvaluarController@promedioSemestrales');
 
 
 Route::get('historicos', 'App\Http\Controllers\historicoController@index');
