@@ -120,10 +120,10 @@ Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 */
 
 //USUARIO Estudiante
-Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
-//Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
+Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController');
+//Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController@estatusAlumno');
 
-Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\estudianteController@show');
+Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\EstudianteController@show');
 
 Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
 Route::post('registrar','App\Http\Controllers\proyectosController@store');
