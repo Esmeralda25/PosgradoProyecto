@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CompromisosadquiridosController extends Controller
+class AdquiridosController extends Controller
 {
     public function index()
     {

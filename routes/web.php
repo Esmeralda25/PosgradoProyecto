@@ -112,7 +112,7 @@ Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-    //Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController'); //no creo que sirva es un controlador que solo tiene un metodo
+    //Route::resource('compromisos', 'App\Http\Controllers\AquiridosController'); //no creo que sirva es un controlador que solo tiene un metodo
 
 /*
 como debieron cambiar esto?
