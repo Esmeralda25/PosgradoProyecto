@@ -63,8 +63,8 @@ Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinad
     //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
     //Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
 
-Route::get('listar-proyectos', 'App\Http\Controllers\proyectosController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
-Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\proyectosController@asignarComite' );
+Route::get('listar-proyectos', 'App\Http\Controllers\ProyectoController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
+Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\ProyectoController@asignarComite' );
 Route::put('asignar-comite/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
 //Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
 
@@ -125,20 +125,20 @@ Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController');
 
 Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\EstudianteController@show');
 
-Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
-Route::post('registrar','App\Http\Controllers\proyectosController@store');
-Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
-Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
-Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
-Route::delete('comprometerse/{id}','App\Http\Controllers\proyectosController@destroy');
+Route::get('registrar','App\Http\Controllers\ProyectoController@registrar');
+Route::post('registrar','App\Http\Controllers\ProyectoController@store');
+Route::get('seguimiento','App\Http\Controllers\ProyectoController@show');
+Route::get('comprometerse','App\Http\Controllers\ProyectoController@edit');
+Route::put('comprometerse','App\Http\Controllers\ProyectoController@update');
+Route::delete('comprometerse/{id}','App\Http\Controllers\ProyectoController@destroy');
  
-Route::get('comprometerse_act','App\Http\Controllers\proyectosController@edit');
-Route::put('comprometerse_act','App\Http\Controllers\proyectosController@update');
-Route::delete('comprometerse_act/{id}','App\Http\Controllers\proyectosController@destroy');
+Route::get('comprometerse-act','App\Http\Controllers\ProyectoController@edit');
+Route::put('comprometerse-act','App\Http\Controllers\ProyectoController@update');
+Route::delete('comprometerse-act/{id}','App\Http\Controllers\ProyectoController@destroy');
 
 
-Route::get('reportar','App\Http\Controllers\proyectosController@reportar');
-Route::post('reportar','App\Http\Controllers\proyectosController@guardarReporte');
+Route::get('reportar','App\Http\Controllers\ProyectoController@reportar');
+Route::post('reportar','App\Http\Controllers\ProyectoController@guardarReporte');
 
 
 //Docente 

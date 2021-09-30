@@ -17,7 +17,7 @@ use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class proyectosController extends Controller
+class ProyectoController extends Controller
 {
 
     public function listarProyectos(){
