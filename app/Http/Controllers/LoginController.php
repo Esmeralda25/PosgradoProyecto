@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\docente;
+use App\Models\Docente;
 use Illuminate\Http\Request;
 use App\Models\Login;
 use Illuminate\Support\Facades\Hash;
