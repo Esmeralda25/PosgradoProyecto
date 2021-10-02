@@ -177,3 +177,5 @@ Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
 Route::get('/prueba', function () {
     echo public_path('evidencias');
 });
+
+//prueba commit en la cuenta correcta
