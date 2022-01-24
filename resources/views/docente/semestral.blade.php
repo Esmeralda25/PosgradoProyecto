@@ -99,7 +99,7 @@
                                                 </thead>
                                                 <tr>
                                                     
-                                                    <th scope="col">10</th>
+                                                    <th scope="col">100</th>
                                                     <th scope="col">{{$proyecto->estudiante->semestreActual->nombre}}</th>
 
                                                     <td>

@@ -34,25 +34,25 @@
 
                         <form action="/pes" method="POST" enctype="multipart/form-data">
                         @csrf
-                            <div class="mb-3">
+                            <div class="row form-group col-12">
                                 Programa Educativo
-                                <input type="text" name="nombre"  class="form-control" tabindex="2">
+                                <input type="text" name="nombre" class="form-control">
                             </div>
-                            <div class="mb-3">
+                            <div class="row form-group col-12">
                                 Nombre del coordinador
-                                <input type="text" name="coordinador"  class="form-control" tabindex="3">
+                                <input type="text" name="coordinador"  class="form-control" style="WIDTH:900px;">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-12">
                                 Correo del cordianador
-                                <input type="text" name="correo"  class="form-control" tabindex="3">
+                                <input type="text" name="correo" class="form-control" style="WIDTH:900px;">
                             </div>
                             <div class="mb-3">
                                 Contraseña
-                                <input type="password" name="password"  class="form-control" tabindex="3">
+                                <input type="password" name="password"  class="form-control" style="WIDTH:900px;">
                             </div>
                             <div class="mb-3">
                                 Repita la Contraseña
-                                <input  type="password" name="password2"  class="form-control" tabindex="3">
+                                <input  type="password" name="password2"  class="form-control" style="WIDTH:900px;">
                             </div>
 
                             <a href="/pes" class="btn btn-secondary" tabindex="5">Cancelar</a>

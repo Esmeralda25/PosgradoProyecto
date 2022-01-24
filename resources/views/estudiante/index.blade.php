@@ -38,6 +38,7 @@
                                 <div class="row">
                                     @if (in_array("Registrar",$hacer) )
                                     {{--Crear el proyecto --}}
+                                    
                                     <div class="col-6" href="/estudiante/etapa1">
                                         <div class="info-box">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>                   
@@ -86,6 +87,12 @@
                                     @if ( in_array("Inicio",$hacer) || in_array("Seguimiento",$hacer) || in_array("Evaluacion",$hacer )  )
                                      {{--Ya tengo proyecto, ya dije que es lo que voy a hacer (adquiri compromisos) ahora es tiempo de trabajar en ellos y se puede solo
                                         ver que es mi proyecto y que compromisos tengo  --}}
+                                        @if (session('registro'))
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                             <strong>¡Bien!,</strong> {{Session::get('registro')}}
+                                        </div> 
+                                     @endif
                                     <div class="col-6" href="/estudiante/etapa4">
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
@@ -104,7 +111,7 @@
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                            <a href="mostrar-calificacionesEs/{{$estudiante->id}}" style="color: white"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Como Fue</span></a>
+                                            <a href="mostrar-calificacionesEs/{{$estudiante->id}}" style="color: white"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Historico</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

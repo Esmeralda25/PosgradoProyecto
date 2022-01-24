@@ -37,7 +37,7 @@ class proyectosController extends Controller
     }
     public function store(Request $request){
         proyecto::create(request()->all()); 
-        return redirect('/estudiantes'); //error al redireccionar, manda estado del estudiante nulo
+        return redirect('/estudiantes')->with('registro','¡Bien proyecto registrado correctamente!'); //error al redireccionar, manda estado del estudiante nulo
     } 
  
     public function show()

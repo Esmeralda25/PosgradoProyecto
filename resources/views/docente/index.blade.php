@@ -69,9 +69,6 @@
                                                             @if($proyecto->promedio-> count() >=1)
                                                             <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
                                                             @endif
-                                                            @if ($proyecto->comiteTutorial->asesor)
-                                                             <button type="button" class="btn btn-success"><a href="porcentaje-proyectos/{{$proyecto->id}}" style="color: white">Avance</a></button>
-                                                            @endif
                                                                     
                                                         @endif
                                                      

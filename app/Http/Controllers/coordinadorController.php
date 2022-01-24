@@ -206,7 +206,7 @@ class coordinadorController extends Controller
             $comite->save();    
         }
 
-        return redirect("/listar-proyectos");
+        return redirect("/listar-proyectos")->with('comite','Comite asigado al proyecto correctamente');
     }
     
 

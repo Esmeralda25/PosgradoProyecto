@@ -115,7 +115,7 @@ class PesController extends Controller
     {
         try{
             Pe::destroy($id);
-            return redirect('pes');//detalle: que avise que si borro
+            return redirect('pes')->with('message','Programa educativo eliminado correctamente');
         } catch (\Throwable $th) {
             return redirect('pes');//detalle: que avise que no pudo borrar
         }

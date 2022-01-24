@@ -39,6 +39,12 @@
                                 <div class="col-md-12">
                             <!-- contenido de main imagenes -->
                                     <div class="row">
+                                    @if (session('comite'))
+                                         <div class="alert alert-success alert-dismissable">
+                                             <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                          <strong>¡Bien!,</strong> {{Session::get('comite')}}
+                                        </div> 
+                                    @endif
                                     
                                     <table class="table table-dark table-striped mt-4">
                                             <thead >

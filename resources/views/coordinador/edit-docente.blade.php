@@ -37,7 +37,7 @@
             <div class="col-10">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">Crear Registros</h1>
+                            <h1 class="card-title font-weight-bold" style="text-align: center">Editar Registros</h1>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
