@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Proyectos;
 use App\Models\Comite;
 
-class asignarController extends Controller
+class AsignarController extends Controller
 {
     public function index(){
         $usuario  = \Session::get('usuario' );

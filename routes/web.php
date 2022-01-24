@@ -22,17 +22,17 @@ Route::get('/', function () {
 
 
 
-Route::post('entrada','App\Http\Controllers\entradaController@validar'); 
-Route::get('logout', 'App\Http\Controllers\entradaController@logout');
-Route::resource('info', 'App\Http\Controllers\infoController');
+Route::post('entrada','App\Http\Controllers\EntradaController@validar'); 
+Route::get('logout', 'App\Http\Controllers\EntradaController@logout');
+Route::resource('info', 'App\Http\Controllers\InfoController');
 
 Route::resource('pes', PesController::class);
 
 
 //USUARIO COORDINADOR
 //no todo es resources......
-Route::resource('coordinadores', 'App\Http\Controllers\coordinadorController');
-Route::get('manual', 'App\Http\Controllers\coordinadorController@manual');
+Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
+Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
 //-----------------------------------------
 
 /*crud
@@ -63,8 +63,8 @@ Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinad
     //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
     //Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
 
-Route::get('listar-proyectos', 'App\Http\Controllers\proyectosController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
-Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\proyectosController@asignarComite' );
+Route::get('listar-proyectos', 'App\Http\Controllers\ProyectoController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
+Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\ProyectoController@asignarComite' );
 Route::put('asignar-comite/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
 //Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
 
@@ -112,7 +112,7 @@ Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-    //Route::resource('compromisos', 'App\Http\Controllers\compromisosadquiridosController'); //no creo que sirva es un controlador que solo tiene un metodo
+    //Route::resource('compromisos', 'App\Http\Controllers\AdquiridoController'); //no creo que sirva es un controlador que solo tiene un metodo
 
 /*
 como debieron cambiar esto?
@@ -120,52 +120,52 @@ Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
 */
 
 //USUARIO Estudiante
-Route::resource('estudiantes', 'App\Http\Controllers\estudianteController');
-//Route::resource('estudiantes', 'App\Http\Controllers\estudianteController@estatusAlumno');
+Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController');
+//Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController@estatusAlumno');
 
-Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\estudianteController@show');
+Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\EstudianteController@show');
 
-Route::get('registrar','App\Http\Controllers\proyectosController@registrar');
-Route::post('registrar','App\Http\Controllers\proyectosController@store');
-Route::get('seguimiento','App\Http\Controllers\proyectosController@show');
-Route::get('comprometerse','App\Http\Controllers\proyectosController@edit');
-Route::put('comprometerse','App\Http\Controllers\proyectosController@update');
-Route::delete('comprometerse/{id}','App\Http\Controllers\proyectosController@destroy');
+Route::get('registrar','App\Http\Controllers\ProyectoController@registrar');
+Route::post('registrar','App\Http\Controllers\ProyectoController@store');
+Route::get('seguimiento','App\Http\Controllers\ProyectoController@show');
+Route::get('comprometerse','App\Http\Controllers\ProyectoController@edit');
+Route::put('comprometerse','App\Http\Controllers\ProyectoController@update');
+Route::delete('comprometerse/{id}','App\Http\Controllers\ProyectoController@destroy');
  
-Route::get('comprometerse_act','App\Http\Controllers\proyectosController@edit');
-Route::put('comprometerse_act','App\Http\Controllers\proyectosController@update');
-Route::delete('comprometerse_act/{id}','App\Http\Controllers\proyectosController@destroy');
+Route::get('comprometerse-act','App\Http\Controllers\ProyectoController@edit');
+Route::put('comprometerse-act','App\Http\Controllers\ProyectoController@update');
+Route::delete('comprometerse-act/{id}','App\Http\Controllers\ProyectoController@destroy');
 
 
-Route::get('reportar','App\Http\Controllers\proyectosController@reportar');
-Route::post('reportar','App\Http\Controllers\proyectosController@guardarReporte');
+Route::get('reportar','App\Http\Controllers\ProyectoController@reportar');
+Route::post('reportar','App\Http\Controllers\ProyectoController@guardarReporte');
 
 
 //Docente 
 
-Route::resource('docentes', 'App\Http\Controllers\docenteController');
+Route::resource('docentes', 'App\Http\Controllers\DocenteController');
 
 //Docente Evaluaciones
-Route::get('evaluaciones/{id}', 'App\Http\Controllers\evaluarController@index');
-Route::post('guardar-calificaciones','App\Http\Controllers\evaluarController@store');
-Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\evaluarController@show');
-Route::get('conceptos/{id}','App\Http\Controllers\evaluarController@conceptos');
-Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\evaluarController@porcentaje');
-Route::put('guardar-porcentajes','App\Http\Controllers\evaluarController@guardarPorcentajes');
-Route::get('doc-compromisos/{id}','App\Http\Controllers\evaluarController@verCompromisos');
-Route::get('doc-reportes/{id}','App\Http\Controllers\evaluarController@verReportes');
-Route::get('promedios-semestrales/{id}','App\Http\Controllers\evaluarController@promedioSemestrales');
+Route::get('evaluaciones/{id}', 'App\Http\Controllers\EvaluarController@index');
+Route::post('guardar-calificaciones','App\Http\Controllers\EvaluarController@store');
+Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\EvaluarController@show');
+Route::get('conceptos/{id}','App\Http\Controllers\EvaluarController@conceptos');
+Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\EvaluarController@porcentaje');
+Route::put('guardar-porcentajes','App\Http\Controllers\EvaluarController@guardarPorcentajes');
+Route::get('doc-compromisos/{id}','App\Http\Controllers\EvaluarController@verCompromisos');
+Route::get('doc-reportes/{id}','App\Http\Controllers\EvaluarController@verReportes');
+Route::get('promedios-semestrales/{id}','App\Http\Controllers\EvaluarController@promedioSemestrales');
 
 
-Route::get('historicos', 'App\Http\Controllers\historicoController@index');
+Route::get('historicos', 'App\Http\Controllers\HistoricoController@index');
 
-Route::resource('historicorevs', 'App\Http\Controllers\historicorevController');
+Route::resource('historicorevs', 'App\Http\Controllers\HistoricorevController');
 
 
 
-Route::resource('cuentaAdmins', 'App\Http\Controllers\cuentaAdminController');
+Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
 
-//Route::resource('loges', 'App\Http\Controllers\loginController');
+//Route::resource('loges', 'App\Http\Controllers\LoginController');
 
 //Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
 

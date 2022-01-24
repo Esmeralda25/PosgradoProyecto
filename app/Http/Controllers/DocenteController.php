@@ -7,7 +7,7 @@ use App\Models\Docente;
 use App\Models\Estudiante;
 use App\Models\Proyecto;
 
-class docenteController extends Controller
+class DocenteController extends Controller
 {  
     public function index()
     {

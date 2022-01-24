@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 
 
-class coordinadorController extends Controller
+class CoordinadorController extends Controller
 {
     public function index()
     {

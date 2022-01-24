@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class historicorevController extends Controller
+class HistoricorevController extends Controller
 {
     public function index(){
       

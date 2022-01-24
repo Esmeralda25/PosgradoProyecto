@@ -9,7 +9,7 @@ use App\Models\DesgloceEvaluacion;
 use Illuminate\Http\Request;
 
 
-class estudianteController extends Controller
+class EstudianteController extends Controller
 {
     /**
      * Display a listing of the resource.
