@@ -78,6 +78,7 @@ class PesController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('generacionEditar',$id);
         $pe= Pe::find($id);
         return view('pes.edit')->with('pe',$pe);
     }

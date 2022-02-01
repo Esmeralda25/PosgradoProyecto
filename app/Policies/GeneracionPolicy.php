@@ -2,20 +2,23 @@
 
 namespace App\Policies;
 
-use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\Usuario;
+use App\Models\Pe;
+use App\Models\Generacion;
+
+
 
 class GeneracionPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+   public function generacion(Pe $pes, Generacion $id){
+    if($pes->id == $id->$pes_id){
+    return true;
+   } 
+   else{
+       return false;
+   }
+}
 }

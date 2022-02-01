@@ -11,6 +11,6 @@ class PePolicy
     use HandlesAuthorization;
     
     public function pesAutorizado(Pe $pe){
-        return true; //Aun no esta terminado ing
+        
     }
 }

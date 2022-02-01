@@ -63,7 +63,9 @@ class GeneracionController extends Controller
      */
     public function edit($id) 
     {
+        //$this->authorize('generacion',$id);
         $generacion = Generacion::find($id);
+
         return view('coordinador.generacion.edit')->with('generacion',$generacion); 
     }
 
@@ -90,6 +92,7 @@ class GeneracionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    //$this->authorize('generacion',$id);
     {
         try{
             Generacion::destroy($id);
