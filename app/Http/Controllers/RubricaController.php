@@ -1,18 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use App\Models\Rubrica;
 use App\Models\Pe;
 use Illuminate\Http\Request;
 
+
 class RubricaController extends Controller
 {
     public function index(){ 
-        /*
-        $rubricas = \DB::table('rubricas')
-        ->get();
-        */
-        //USAR EL MODELO NO QUERYBUILDER
+        
         $pe  = \Session::get('usuario' );
         $pe = $pe->fresh();
 
@@ -53,8 +51,10 @@ class RubricaController extends Controller
      */
     public function show($id)
     {
+        //$this->authorize('rub',$id);
         $rubrica= Rubrica::find($id);
         return view('coordinador.rubrica.show')->with('rubrica',$rubrica);
+    
     }
 
     /**
@@ -64,7 +64,8 @@ class RubricaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        //$this->authorize('rubrica', $id);
         $rubrica = Rubrica::find($id);
         return view('coordinador.rubrica.edit')->with('rubrica',$rubrica); 
     }
@@ -92,6 +93,7 @@ class RubricaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    //$this->authorize('rub',$id);
     {
         try{
             Rubrica::destroy($id);

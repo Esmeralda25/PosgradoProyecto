@@ -2,20 +2,22 @@
 
 namespace App\Policies;
 
-use App\Models\Usuario;
+
+use App\Models\Rubrica;
+use App\Models\Pe;
+
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RubricaPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
+    public function rub(Pe $usuario, Rubrica $rubri){
+        if($usuario->id === $rubri->$usuario_id){
+        return true;
+       } 
+       else{
+           return false;
+       }
     }
 }

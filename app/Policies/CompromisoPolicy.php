@@ -2,20 +2,22 @@
 
 namespace App\Policies;
 
-use App\Models\Usuario;
+use App\Models\Pe;
+use App\Models\Compromiso;
+
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CompromisoPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
+    public function compro(Pe $usuario, Compromiso $cmp){
+        if($usuario->id === $cmp->$usuario_id){
+        return true;
+       } 
+       else{
+           return false;
+       }
     }
+    
 }

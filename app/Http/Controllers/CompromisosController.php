@@ -66,6 +66,7 @@ class CompromisosController extends Controller
      */ 
     public function edit($id)
     {
+        //$this->authorize('compro', $id);
        $compromiso = Compromiso::find($id);
         return view('coordinador.Compromisos.edit')->with('compromiso',$compromiso);
     }
@@ -97,6 +98,7 @@ class CompromisosController extends Controller
      */
     public function destroy($id)
     {
+        //$this->authorize('rubrica', $id);
         try{
             Compromiso::destroy($id);
             return redirect('Compromisos')->with('borrar','Compromiso eliminado correctamente');
