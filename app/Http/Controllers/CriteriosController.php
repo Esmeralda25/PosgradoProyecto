@@ -8,7 +8,7 @@ use App\Models\Rubrica;
 class CriteriosController extends Controller
 {
     public function index($id){ 
-        //el id que envias es el id del criterio no de la rubrica
+        //$this->authorize('crit', $id);
         $rubrica = Rubrica::find($id);
         $criterios = Criterio::where('rubrica_id', $rubrica->id)->get(); //las convenciones dicen que todos los campos osn en minusculas, esta es una llave foranea que debe ser "rubrica_id"
         return view('coordinador.criterio.index', compact('rubrica','criterios'));
@@ -60,6 +60,7 @@ class CriteriosController extends Controller
      */
     public function edit($id)
     {
+        //$this->authorize('crit', $id);
         $criterios = Criterio::find($id);
         return view('coordinador.criterio.edit')->with('criterio',$criterios); 
     }

@@ -3,17 +3,19 @@
 namespace App\Policies;
 
 use App\Models\Usuario;
-use App\Models\Rubrica;
-use App\Models\Criterio;
+use App\Models\Generacion;
+use App\Models\Periodo;
+
+
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CriterioPolicy
+class ProyectoPolicy
 {
     use HandlesAuthorization;
 
-    public function crit(Rubrica $rubrica, Criterio $id){
-        if($rubrica->id == $id->$rubrica_id){
+    public function perio(Periodo $periodo, Generacion $id){
+        if($periodo->id == $id->$periodo_id){
         return true;
        } 
        else{

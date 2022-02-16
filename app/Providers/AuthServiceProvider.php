@@ -16,7 +16,10 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Generacion' => 'App\Policies\GeneracionPolicy', 
         'App\Models\Pe' => 'App\Policies\PePolicy',
         'App\Models\Rubrica' => 'App\Policies\RubricaPolicy',
-        'App\Models\Compromiso' => 'App\Policies\CompromisoPolicy'
+        'App\Models\Compromiso' => 'App\Policies\CompromisoPolicy',
+        'App\Models\Comite' => 'App\Policies\ComitePolicy',
+        'App\Models\Criterio' => 'App\Policies\CriterioPolicy',
+        'App\Models\Periodo' => 'App\Policies\PeriodoPolicy',
          
     ];
 

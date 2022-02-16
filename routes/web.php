@@ -3,16 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 
 Route::get('/', function () {
@@ -30,43 +20,26 @@ Route::resource('pes', PesController::class);
 
 
 //USUARIO COORDINADOR
-//no todo es resources......
 Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
 Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
-//-----------------------------------------
-
-/*crud
-listar-
-agregar-
-agregar-
-mostrar-
-actualizar-
-actualizar-
-eliminar-
-*/
 
 //opcion: Usuarios
 Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios'); //muestra la lista de usuarios
 Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
-//Route::get('historico', 'App\Http\Controllers\coordinadorController@historicoCoordinador');//historico docente
 
 Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
 Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarUsuario');
 Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarUsuario');
 Route::delete('eliminar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@eliminarUsuario');
  
-Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password'); //funciona la ñ pero no es insternacional en lugar de la palabra contraseña pon password
+Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password'); 
 Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
 
-//opcion: Proyectos
-    //Route::resource('asesores', 'App\Http\Controllers\asesorController');
-    //si lo manejas como resource deberia de ser proyectos - un resource puede tener otras rutas....
-    //Route::resource('asignaciones', 'App\Http\Controllers\asignarController'); //ademas el asignarController solo tiene un metodo el index porque lo pones en un resource te crea las otras rutas y no hay donde manejarlas.
 
-Route::get('listar-proyectos', 'App\Http\Controllers\ProyectoController@listarProyectos'); //debería ser ProyectoController (es PascalCase y viene del nombre del modelo que debe ser Proyecto en singular)
-Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\ProyectoController@asignarComite' );
-Route::put('asignar-comite/{id}',['App\Http\Controllers\coordinadorController' , 'actualizarComite']);
-//Route::put('comites/{id}','App\Http\Controllers\coordinadorController@actualizarComite');
+
+Route::get('listar-proyectos', 'App\Http\Controllers\CoordinadorController@listarProyectos'); 
+Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\CoordinadorController@asignarComite' );
+Route::put('asignar-comite/{id}',['App\Http\Controllers\CoordinadorController' , 'actualizarComite']);
 
 
 //opcion: Generaciones
@@ -112,17 +85,10 @@ Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
 Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
 Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
 Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-    //Route::resource('compromisos', 'App\Http\Controllers\AdquiridoController'); //no creo que sirva es un controlador que solo tiene un metodo
-
-/*
-como debieron cambiar esto?
-Route::resource('estadisticos', 'App\Http\Controllers\estadisticoController');
-*/
+  
 
 //USUARIO Estudiante
 Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController');
-//Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController@estatusAlumno');
-
 Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\EstudianteController@show');
 
 Route::get('registrar','App\Http\Controllers\ProyectoController@registrar');
@@ -165,9 +131,7 @@ Route::resource('historicorevs', 'App\Http\Controllers\HistoricorevController');
 
 Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
 
-//Route::resource('loges', 'App\Http\Controllers\LoginController');
 
-//Route::resource('estumains', 'App\Http\Controllers\estudiantemainController');
 
 
 
