@@ -75,10 +75,10 @@ class CoordinadorController extends Controller
                 Adscripcion::where('docentes_id',$id)->delete(); //deberia ser docente_id por ser llave foranea
                 Docente::destroy($id);
                 return redirect('listar-usuarios')->with('sborrad','Docente eliminado correctamente');
-                echo 'Usuario borrado correctamente'; //este echo se pierde, deberia de ser un ->with
+                
             } catch (\Throwable $th) {
                 return redirect('listar-usuarios')->with('nborrad','No se pudo eliminar al docente ya que pertenece a un comite tutorial de un proyecto activo');
-                echo 'El usuario no se pudo borrar, verifiue de nuevo'; //este echo se pierde, deberia de ser un ->with
+                
             }
     
         }
@@ -168,6 +168,25 @@ class CoordinadorController extends Controller
         return redirect('listar-usuarios')->with('editar','Usuario actualizado correctamente'); 
 
     }
+    
+    public function listarProyectos(){
+        $usuario  = \Session::get('usuario' );
+        $usuario = $usuario->fresh(); 
+        $proyectos = $usuario->proyectos;
+        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
+ 
+
+    }
+
+    public function asignarComite($id_proyecto){
+        //$this->authorize('comit',$id_proyecto);
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
+        $proyecto = proyecto::find($id_proyecto);
+        $docentes = $pe->docentes;
+        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
+    }
+
     public function actualizarComite(Request $request, $id){
         
         if($request->asesor == $request->revisor1){

@@ -22,7 +22,7 @@ class GeneracionController extends Controller
     }
 
     public function create(){
-
+        
         $pe = \Session::get('usuario');
         return view('coordinador.generacion.create')->with('pe',$pe);
 

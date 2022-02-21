@@ -50,7 +50,7 @@
                                             <thead >
                                                 
                                                 <tr>
-                                                    <th scope="col">Id</th>
+
                                                     <th scope="col">Proyecto</th>
                                                     <th scope="col">Estudiante</th>
                                                     <th scope="col">Asesor</th>
@@ -62,7 +62,6 @@
                                             @foreach($proyectos as $proyecto)
                                             <tr>
                                                 {{-- no son th si no td --}}
-                                                <td>{{$proyecto->id}}</td>
                                                 <td>{{$proyecto->titulo}}</td>
                                                 <td>{{$proyecto->estudiante->nombre}}</td>
 

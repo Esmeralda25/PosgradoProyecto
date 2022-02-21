@@ -9,6 +9,7 @@ use App\Models\Rubrica;
 class PeriodosController extends Controller
 {
     public function index($id){ 
+        //$this->authorize('perio', $id);
         $generacion = Generacion::find($id);
         $periodos = Periodo::where('generacion_id', $generacion->id)->get();
         
@@ -64,7 +65,7 @@ class PeriodosController extends Controller
      */
     public function edit($id)
     {
-        
+        //$this->authorize('perio', $id);
         $periodo = Periodo::find($id);
         $rubricas = Rubrica::all();
         

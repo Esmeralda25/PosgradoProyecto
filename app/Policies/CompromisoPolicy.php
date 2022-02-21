@@ -11,8 +11,8 @@ class CompromisoPolicy
 {
     use HandlesAuthorization;
 
-    public function compro(Pe $usuario, Compromiso $cmp){
-        if($usuario->id === $cmp->$usuario_id){
+    public function compro(Pe $pes, Compromiso $cmp){
+        if($pes->id === $cmp->$pes_id){
         return true;
        } 
        else{
