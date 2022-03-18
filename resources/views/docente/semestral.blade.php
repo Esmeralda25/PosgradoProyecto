@@ -89,8 +89,8 @@
                                                 <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">Promedio</th>
-                                                        <th scope="col">Semestre</th>
+                                            
+                                                        <th scope="col">Periodo</th>
 
                                                         <th scope="col">Acciones</th>
 
@@ -99,7 +99,6 @@
                                                 </thead>
                                                 <tr>
                                                     
-                                                    <th scope="col">100</th>
                                                     <th scope="col">{{$proyecto->estudiante->semestreActual->nombre}}</th>
 
                                                     <td>

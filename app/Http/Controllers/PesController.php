@@ -9,6 +9,7 @@ use App\Models\Pe;
 class PesController extends Controller
 {
     public function index(){
+        //$this->authorize('listar');
         $pes = Pe::paginate(7);
         
         //detalle:
@@ -78,7 +79,6 @@ class PesController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('generacionEditar',$id);
         $pe= Pe::find($id);
         return view('pes.edit')->with('pe',$pe);
     }

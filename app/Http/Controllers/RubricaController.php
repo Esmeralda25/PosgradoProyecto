@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class RubricaController extends Controller
 {
     public function index(){ 
-        
+        //$this->authorize('listar');       
         $pe  = \Session::get('usuario' );
         $pe = $pe->fresh();
 
@@ -19,6 +19,7 @@ class RubricaController extends Controller
     }
  
     public function create(){
+       // $this->authorize('create', Rubrica::class);  
         $pe  = \Session::get('usuario' );
         $pe = $pe->fresh();
         return view('coordinador.rubrica.create',compact('pe'));

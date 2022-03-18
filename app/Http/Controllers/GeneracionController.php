@@ -11,18 +11,17 @@ use App\Models\Pe;
 class GeneracionController extends Controller
 {
     public function index(){ 
-        
+         //$this->authorize('listar');
         $pe = \Session::get('usuario');
         $pe= $pe->fresh();
-        //echo "entra coordinador: $usuario->nombre con coordinador $usuario->coordinador  ";
-
         $generaciones = Generacion::where('pes_id', $pe->id)->get();
         return view('coordinador.generacion.index',compact('generaciones',$generaciones));
     
     }
 
     public function create(){
-        
+
+        //$this->authorize('create', Generacion::class);
         $pe = \Session::get('usuario');
         return view('coordinador.generacion.create')->with('pe',$pe);
 
@@ -63,7 +62,7 @@ class GeneracionController extends Controller
      */
     public function edit($id) 
     {
-        //$this->authorize('generacion',$id);
+        //$this->authorize('listar',$id);
         $generacion = Generacion::find($id);
 
         return view('coordinador.generacion.edit')->with('generacion',$generacion); 

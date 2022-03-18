@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Rubrica;
+use App\Models\Criterio;
 use App\Models\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class RubricaPolicy
+class CiterioPolicy
 {
     use HandlesAuthorization;
 
@@ -21,25 +21,14 @@ class RubricaPolicy
         //
     }
 
-    public function listar(Usuario $usuario, Rubrica $rubrica)
-    {
-        if($usuario->rol=='Coordinador') return true;
-        else return false;
-    }
-
-    public function create(Usuario $usuario)
-    {
-        return $usuario->rol == 'Coordinador';
-    }
-
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Rubrica  $rubrica
+     * @param  \App\Models\Criterio  $criterio
      * @return mixed
      */
-    public function view(Usuario $usuario, Rubrica $rubrica)
+    public function view(Usuario $usuario, Criterio $criterio)
     {
         //
     }
@@ -50,16 +39,19 @@ class RubricaPolicy
      * @param  \App\Models\Usuario  $usuario
      * @return mixed
      */
-    
+    public function create(Usuario $usuario)
+    {
+        //
+    }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Rubrica  $rubrica
+     * @param  \App\Models\Criterio  $criterio
      * @return mixed
      */
-    public function update(Usuario $usuario, Rubrica $rubrica)
+    public function update(Usuario $usuario, Criterio $criterio)
     {
         //
     }
@@ -68,10 +60,10 @@ class RubricaPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Rubrica  $rubrica
+     * @param  \App\Models\Criterio  $criterio
      * @return mixed
      */
-    public function delete(Usuario $usuario, Rubrica $rubrica)
+    public function delete(Usuario $usuario, Criterio $criterio)
     {
         //
     }
@@ -80,10 +72,10 @@ class RubricaPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Rubrica  $rubrica
+     * @param  \App\Models\Criterio  $criterio
      * @return mixed
      */
-    public function restore(Usuario $usuario, Rubrica $rubrica)
+    public function restore(Usuario $usuario, Criterio $criterio)
     {
         //
     }
@@ -92,10 +84,10 @@ class RubricaPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Usuario  $usuario
-     * @param  \App\Models\Rubrica  $rubrica
+     * @param  \App\Models\Criterio  $criterio
      * @return mixed
      */
-    public function forceDelete(Usuario $usuario, Rubrica $rubrica)
+    public function forceDelete(Usuario $usuario, Criterio $criterio)
     {
         //
     }
