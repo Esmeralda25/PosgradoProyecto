@@ -27,7 +27,6 @@ class EstudianteController extends Controller
             $hacer = ["Registrar"];
         else 
             $hacer = [$estudiante->semestreActual->estado];        
-        //dd($hacer);
         return view('estudiante.index', compact('hacer','proyecto','estudiante'));
 
     }

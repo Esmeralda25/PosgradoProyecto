@@ -46,6 +46,10 @@ class Estudiante extends Usuario
     public function semestreActual(){
         return $this->hasOne('App\Models\Periodo','id','periodos_id');
     }
+
+    public function nuevoPeriodo(){
+        return $this->hasMany('App\Models\Periodo','id','periodos_id');
+    }
     
     public function proyecto(){
         return $this->belongsTo('App\Models\Proyecto','id','estudiante_id');

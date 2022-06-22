@@ -76,8 +76,10 @@ class EvaluarController extends Controller
 
     public function promedioSemestrales($id){
         $proyecto = Proyecto::find($id);
-        $periodo = Proyecto::where('estudiante_id', $proyecto->id)->get();
+        $nuevo = $proyecto->estudiante->nuevoPeriodo;
+        $periodo = Rubrica::find($nuevo);
         return view('docente.semestral', compact('proyecto','periodo'));
+
     }
 
     public function show($id){

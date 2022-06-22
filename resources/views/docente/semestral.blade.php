@@ -98,8 +98,8 @@
                                                     <tr> 
                                                 </thead>
                                                 <tr>
-                                                    
-                                                    <th scope="col">{{$proyecto->estudiante->semestreActual->nombre}}</th>
+                                                @foreach($proyecto->estudiante->nuevoPeriodo as $proye)
+                                                    <th scope="col">{{$proye->nombre}}</th>
 
                                                     <td>
                                                     <a href="/mostrar-calificaciones/{{$proyecto->id}}" class="btn btn-info">VER</a>
@@ -107,7 +107,7 @@
                                                
                                                      </td>
 
-                                                   
+                                                     @endforeach
                                                         </th>
                                                         <tr> 
 
