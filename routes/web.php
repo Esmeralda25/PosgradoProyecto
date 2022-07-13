@@ -19,12 +19,12 @@ Route::resource('info', 'App\Http\Controllers\InfoController');
 Route::resource('pes', PesController::class);
 
 
-//USUARIO COORDINADOR
+//------------------------USUARIO COORDINADOR-------------------------
 Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
 Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
 
 //opcion: Usuarios
-Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios'); //muestra la lista de usuarios
+Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios')->middleware('coordina'); 
 Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
 
 Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
@@ -130,6 +130,8 @@ Route::resource('historicorevs', 'App\Http\Controllers\HistoricorevController');
 
 
 Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
+
+
 
 
 
