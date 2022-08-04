@@ -23,7 +23,7 @@ class CreateEvidenciasTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('adquirido_id');
+            $table->integer('adquirido_id')->unsigned();
             $table->string('archivo', 45)->nullable()->default(null);
 
             $table->index(["adquirido_id"], 'fk_evidencias_adquiridos1_idx');

@@ -26,8 +26,8 @@ class CreateAdquiridosTable extends Migration
             $table->string('que', 45)->nullable()->default(null);
             $table->integer('cuantos_prog')->nullable()->default(null);
             $table->integer('cuantos_cumplidos')->nullable()->default(null);
-            $table->integer('proyecto_id');
-            $table->integer('periodos_id');
+            $table->integer('proyecto_id')->unsigned();
+            $table->integer('periodos_id')->unsigned();
 
             $table->index(["proyecto_id"], 'fk_adquiridos_proyectos1_idx');
 
