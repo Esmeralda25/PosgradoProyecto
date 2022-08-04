@@ -23,10 +23,10 @@ class CreateComitesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('asesor')->unsigned();
-            $table->integer('revisor1')->unsigned();
-            $table->integer('revisor2')->unsigned();
-            $table->integer('revisor3')->unsigned();
+            $table->integer('asesor');
+            $table->integer('revisor1');
+            $table->integer('revisor2');
+            $table->integer('revisor3');
 
             $table->index(["asesor"], 'fk_comite_docentes2_idx');
 

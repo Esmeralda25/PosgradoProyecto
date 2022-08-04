@@ -27,8 +27,8 @@ class CreateEvaluacionesTable extends Migration
             $table->string('calificacion', 20)->nullable()->default(null);
             $table->string('observaciones')->nullable()->default(null);
             $table->date('fecha');
-            $table->integer('docente_id')->unsigned()->nullable()->default(null);
-            $table->integer('periodo_id')->unsigned()->nullable()->default(null);
+            $table->integer('docente_id')->nullable()->default(null);
+            $table->integer('periodo_id')->nullable()->default(null);
 
             $table->index(["proyecto_id"], 'fk_evaluaciones_proyectos1_idx');
 

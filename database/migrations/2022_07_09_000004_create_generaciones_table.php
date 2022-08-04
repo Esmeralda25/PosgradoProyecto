@@ -25,7 +25,7 @@ class CreateGeneracionesTable extends Migration
             $table->increments('id');
             $table->string('nombre', 100)->nullable()->default(null);
             $table->string('descripcion', 100)->nullable()->default(null);
-            $table->integer('pes_id')->unsigned();
+            $table->integer('pes_id');
 
             $table->index(["pes_id"], 'fk_generaciones_pes1_idx');
 

@@ -23,7 +23,7 @@ class CreateDesgloceEvaluacionTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('evaluacion_id')->unsigned()->nullable()->default(null);
+            $table->integer('evaluacion_id')->nullable()->default(null);
             $table->string('concepto', 45)->nullable()->default(null);
             $table->string('valor', 45)->nullable()->default(null);
             $table->string('observacion', 45)->nullable()->default(null);

@@ -25,7 +25,7 @@ class CreateRubricasTable extends Migration
             $table->increments('id');
             $table->string('nombre', 100);
             $table->enum('tipo', ['Numerica', 'Alfanumerica'])->nullable()->default(null);
-            $table->integer('pe_id')->unsigned();
+            $table->integer('pe_id');
 
             $table->index(["pe_id"], 'fk_rubricas_pes1_idx');
 

@@ -24,7 +24,7 @@ class CreateCompromisosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('titulo', 45)->nullable()->default(null);
-            $table->integer('pes_id')->nullable()->unsigned()->default(null);
+            $table->integer('pes_id')->nullable()->default(null);
 
             $table->index(["pes_id"], 'fk_compromisos_pes1_idx');
 
