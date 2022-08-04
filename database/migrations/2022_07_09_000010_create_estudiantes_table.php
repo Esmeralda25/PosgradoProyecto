@@ -26,8 +26,8 @@ class CreateEstudiantesTable extends Migration
             $table->string('nombre', 100);
             $table->string('correo', 45)->nullable()->default(null);
             $table->string('password', 100)->nullable()->default(null);
-            $table->integer('pes_id');
-            $table->integer('periodos_id')->nullable()->default(null);
+            $table->integer('pes_id')->unsigned();
+            $table->integer('periodos_id')->unsigned()->nullable()->default(null);
 
             $table->index(["pes_id"], 'fk_estudiantes_pes1_idx');
 

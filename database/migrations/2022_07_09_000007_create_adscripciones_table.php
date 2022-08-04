@@ -23,8 +23,8 @@ class CreateAdscripcionesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('pes_id');
-            $table->integer('docentes_id');
+            $table->integer('pes_id')->unsigned();
+            $table->integer('docentes_id')->unsigned();
 
             $table->index(["pes_id"], 'fk_adscripciones_pes1_idx');
 

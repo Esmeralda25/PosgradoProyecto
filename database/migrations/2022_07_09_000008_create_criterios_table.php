@@ -23,7 +23,7 @@ class CreateCriteriosTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('rubrica_id');
+            $table->integer('rubrica_id')->unsigned();
             $table->string('descripcion');
 
             $table->index(["rubrica_id"], 'fk_Criterios_Rubricas1_idx');

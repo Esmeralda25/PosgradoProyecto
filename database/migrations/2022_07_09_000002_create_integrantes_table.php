@@ -23,7 +23,7 @@ class CreateIntegrantesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('quien');
+            $table->integer('quien')->unsigned();
             $table->string('puesto', 45)->nullable()->default(null);
 
             $table->index(["quien"], 'fk_comite_docentes1_idx');

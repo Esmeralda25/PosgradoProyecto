@@ -24,8 +24,8 @@ class CreateReportesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('reporte', 45)->nullable()->default(null);
-            $table->integer('proyecto_id');
-            $table->integer('periodo_id');
+            $table->integer('proyecto_id')->unsigned();
+            $table->integer('periodo_id')->unsigned();
 
             $table->index(["proyecto_id"], 'fk_reportes_proyectos1_idx');
 

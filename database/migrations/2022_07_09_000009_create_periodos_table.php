@@ -27,8 +27,8 @@ class CreatePeriodosTable extends Migration
             $table->date('fechaInicio')->nullable()->default(null);
             $table->date('fechaFin')->nullable()->default(null);
             $table->enum('estado', ['Inicio', 'Comprometerse', 'Seguimiento', 'Reportar', 'Evaluacion', 'Concluido'])->nullable()->default(null);
-            $table->integer('rubrica');
-            $table->integer('generacion_id');
+            $table->integer('rubrica')->unsigned();
+            $table->integer('generacion_id')->unsigned();
 
             $table->index(["rubrica"], 'fk_Periodos_Rubricas1_idx');
 
