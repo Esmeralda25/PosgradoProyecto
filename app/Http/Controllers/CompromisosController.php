@@ -9,13 +9,12 @@ class CompromisosController extends Controller
 {
     public function index(){
         $coordinador = \Session::get('usuario');
-
-        //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
-
         $compromisos = Compromiso::orderBy('titulo','DESC')->where('pes_id',$coordinador->id)->orWhereNull('pes_id')->get();
-        return view('coordinador.Compromisos.index')->with('compromisos', $compromisos);
+        $opciones = Compromiso::select('titulo')->distinct()->paginate(10);//->get();
+        return view('coordinador.Compromisos.index' , compact('compromisos','opciones') ); 
     }
     public function create(){ 
+        $tipos = Compromiso::select('titulo')->distinct()->get();
         //return view('coordinador.Compromisos.create');
     }
     

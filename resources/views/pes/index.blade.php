@@ -67,6 +67,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        <br>
+                        {{ $pes->links() }}
                 </div>
         
             </div>

@@ -54,17 +54,6 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="info-box mb-3">
-                                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
-                            
-                                            <div class="info-box-content">
-                                            <a href="{{url('/listar-proyectos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos</span></a>
-                                            
-                                            </div>
-                                            <!-- /.info-box-content -->
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="info-box mb-3">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
                                                 <a href="{{url('/listar-generaciones')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
@@ -83,6 +72,18 @@
                                             <!-- /.info-box-content -->
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="info-box mb-3">
+                                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
+                            
+                                            <div class="info-box-content">
+                                            <a href="{{url('/listar-proyectos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos (asignar comite)</span></a>
+                                            
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                    </div>
+
                                     <!-- liga para descargar manuales -->
                                    
                                     

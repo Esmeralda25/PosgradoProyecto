@@ -95,12 +95,14 @@
                                                     <select name="revisor3" id="sel" style="width: 1000px; height:35px">
                                                       @foreach($docentes as $asesor)  
                                                       <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                                      @endforeach    
+                                                      @endforeach
+                                                    </select>  
                                             </div>
-                                                
-                                            <input type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px" value="Asignar">
-
-                                            
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <input type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px" value="Asignar">
+                                                </div>
+                                            </div>
                                         </form>
                             </div>                    
                     

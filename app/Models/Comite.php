@@ -30,9 +30,16 @@ class Comite extends Model
      * @return u Un objeto docente ('App\Models\Docente')
      */
     public function docenteAsesor(){
-        return $this->hasOne('App\Models\Docente','id','asesor');
-
- 
+        return $this->hasOne('App\Models\Docente','id','asesor'); 
+    }
+    public function docenteRevisor1(){
+        return $this->hasOne('App\Models\Docente','id','revisor1'); 
+    }
+    public function docenteRevisor2(){
+        return $this->hasOne('App\Models\Docente','id','revisor2'); 
+    }
+    public function docenteRevisor3(){
+        return $this->hasOne('App\Models\Docente','id','revisor3'); 
     }
  
 }

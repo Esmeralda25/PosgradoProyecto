@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 
 
-class CoordinadorController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
@@ -41,10 +41,9 @@ class CoordinadorController extends Controller
         ->select('nombre','id', DB::raw("'Docente' as nivel") )
         ->whereIn('id', DB::table('adscripciones')->select('docentes_id')->where('pes_id',$coordinador->id) )
         ->union($estudiantes)
-        ->get();
+        ->paginate(8);
         // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
         // 
-
         return view('coordinador.listar-usuarios',compact('usuarios'));
     }
 
@@ -212,15 +211,15 @@ class CoordinadorController extends Controller
 
         //reviso si ese proyecto ya tenia un comite
         $proyecto = Proyecto::find($id);
-        $res = is_null($proyecto->comite);
-        if(is_null($proyecto->comite)){
+        $res = is_null($proyecto->comite_id);
+        if(is_null($proyecto->comite_id)){
             $comite = new Comite;
             $comite->fill($request->all());
             $comite->save();    
-            $proyecto->comite = $comite->id;
+            $proyecto->comite_id = $comite->id;
             $proyecto->save();    
         }else{
-            $comite =  Comite::find($proyecto->comite);
+            $comite =  Comite::find($proyecto->comite_id);
             $comite->fill($request->all());
             $comite->save();    
         }
@@ -251,9 +250,7 @@ class CoordinadorController extends Controller
             $docente->save();
             return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctamente');
         }
-
-    
-        }
+    }
     public function manual()
     {
         return view('manual');

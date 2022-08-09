@@ -95,7 +95,12 @@
                                     <form action="/Compromisos" method="POST">
                                         @csrf
                                         Nuevo: 
-                                        <input type="text" name="titulo">
+                                        <input size="100" list="opciones" id="titulo" name="titulo" required style="display: block" />
+                                        <datalist id="opciones">
+                                            @foreach($opciones as $opcion)
+                                              <option value="{{$opcion->titulo}}">
+                                            @endforeach
+                                        </datalist>
                                         <input type="submit" class="btn btn-warning" value="Agregar">
                                     </form>
                                 </div>

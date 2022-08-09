@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+//use Illuminate\Support\Facades\Session;
 
 use App\Models\Docente; 
 use App\Models\Estudiante;
@@ -14,6 +14,13 @@ use App\Models\Pe;
 class EntradaController extends Controller
 {
     public function validar (Request $peticion){
+//        dd($peticion->all());
+        $peticion->validate(
+            [
+                'nombre' => 'required',
+                'palabra' => 'required',
+            ]
+        );
         $identificacion = "";
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
 
@@ -75,8 +82,7 @@ class EntradaController extends Controller
                 return  redirect('/pes');
             }
         }
-        echo "USUARIO NO REGISTRADO";
-        return view('user_notfound');//si separaron la palabra user porque no separaron la palabra not
+        return redirect()->back()->withInput()->with(['mensaje'=>'usuario no encontrado']);
 
         }
 

@@ -114,6 +114,8 @@
                                            
                                             </tbody>
                                     </table>
+                                    <br>
+                                    {{$usuarios->links()}}
                             
                                 </div>
                             </div>

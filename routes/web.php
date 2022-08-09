@@ -2,6 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesController;
+use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GeneracionController;
+use App\Http\Controllers\PeriodosController;
+use App\Http\Controllers\RubricaController;
+use App\Http\Controllers\CriteriosController;
+use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\CompromisosController;
+use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\EvaluarController;
+use App\Http\Controllers\HistoricoController;
+use App\Http\Controllers\HistoricorevController;
+use App\Http\Controllers\AdminController;
+
+
+
 
 
 
@@ -10,134 +28,120 @@ Route::get('/', function () {
 });
 
 
-
-
-Route::post('entrada','App\Http\Controllers\EntradaController@validar'); 
-Route::get('logout', 'App\Http\Controllers\EntradaController@logout');
-Route::resource('info', 'App\Http\Controllers\InfoController');
-
+Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.entrada');
+Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida');;
+Route::resource('info', InfoController::class);
 Route::resource('pes', PesController::class);
 
 
 //------------------------USUARIO COORDINADOR-------------------------
-Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
-Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
+Route::resource('coordinadores', UserController::class);
+Route::get('manual', [UserController::class, 'manual']);
 
 //opcion: Usuarios
-Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios')->middleware('coordina'); 
-Route::get('agregar-usuarios', 'App\Http\Controllers\coordinadorController@agregarUsuarios');
+Route::get('listar-usuarios', [UserController::class, 'listarUsuarios']);//->middleware('coordina');
+Route::get('agregar-usuarios', [UserController::class, 'agregarUsuarios']);
+Route::post('agregar-usuarios', [UserController::class, 'store']);
+Route::get('editar-usuarios/{tipo}/{id}', [UserController::class, 'editarUsuario']);
+Route::put('actualizar-usuarios/{tipo}/{id}', [UserController::class, 'actualizarUsuario']);
+Route::delete('eliminar-usuarios/{tipo}/{id}', [UserController::class, 'eliminarUsuario']);
 
-Route::post('agregar-usuarios', 'App\Http\Controllers\coordinadorController@store');
-Route::get('editar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@editarUsuario');
-Route::put('actualizar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@actualizarUsuario');
-Route::delete('eliminar-usuarios/{tipo}/{id}','App\Http\Controllers\coordinadorController@eliminarUsuario');
- 
-Route::get('editar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@password'); 
-Route::put('actualizar-contraseñas/{tipo}/{id}','App\Http\Controllers\coordinadorController@guardarPassword');
-
+Route::get('editar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@password']);
+Route::put('actualizar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@guardarPassword']);
 
 
-Route::get('listar-proyectos', 'App\Http\Controllers\CoordinadorController@listarProyectos'); 
-Route::get('asignar-comite/{id_proyecto}','App\Http\Controllers\CoordinadorController@asignarComite' );
-Route::put('asignar-comite/{id}',['App\Http\Controllers\CoordinadorController' , 'actualizarComite']);
+
+Route::get('listar-proyectos', [UserController::class, 'listarProyectos']);
+Route::get('asignar-comite/{id_proyecto}', [UserController::class, 'asignarComite']);
+Route::put('asignar-comite/{id}', [UserController::class, 'actualizarComite']);
 
 
 //opcion: Generaciones
-Route::resource('generaciones','App\Http\Controllers\GeneracionController');
-Route::get('listar-generaciones','App\Http\Controllers\GeneracionController@index');
-Route::get('agregar-generaciones','App\Http\Controllers\GeneracionController@create');
-Route::post('guardar-generaciones','App\Http\Controllers\GeneracionController@store');
-Route::get('editar-generaciones/{id}','App\Http\Controllers\GeneracionController@edit');
-Route::put('actualizar-generaciones/{id}','App\Http\Controllers\GeneracionController@update');
-Route::delete('eliminar-generaciones/{id}','App\Http\Controllers\GeneracionController@destroy');
+Route::resource('generaciones', GeneracionController::class);
+Route::get('listar-generaciones', [GeneracionController::class, 'index']);
+Route::get('agregar-generaciones', [GeneracionController::class, 'create']);
+Route::post('guardar-generaciones', [GeneracionController::class, 'store']);
+Route::get('editar-generaciones/{id}', [GeneracionController::class, 'edit']);
+Route::put('actualizar-generaciones/{id}', [GeneracionController::class, 'update']);
+Route::delete('eliminar-generaciones/{id}', [GeneracionController::class, 'destroy']);
 
 
 //opcion: Periodos
-Route::get('periodos/{id}','App\Http\Controllers\PeriodosController@index');
-Route::get('agregar-periodos/{id}',['App\Http\Controllers\PeriodosController','create']);
-Route::post('guardar-periodos','App\Http\Controllers\PeriodosController@store');
-Route::get('editar-periodos/{id}','App\Http\Controllers\PeriodosController@edit');
-Route::put('actualizar-periodos/{id}','App\Http\Controllers\PeriodosController@update');
-Route::get('estadisticos','App\Http\Controllers\PeriodosController@estadistico');
-Route::delete('borrar-periodos/{id}','App\Http\Controllers\PeriodosController@destroy');
+Route::get('periodos/{id}', [PeriodosController::class, 'index']);
+Route::get('agregar-periodos/{id}', [PeriodosController::class, 'create']);
+Route::post('guardar-periodos', [PeriodosController::class, 'store']);
+Route::get('editar-periodos/{id}', [PeriodosController::class, 'edit']);
+Route::put('actualizar-periodos/{id}', [PeriodosController::class, 'update']);
+Route::get('estadisticos', [PeriodosController::class, 'estadistico']);
+Route::delete('borrar-periodos/{id}', [PeriodosController::class, 'destroy']);
 
 //opcion: Rubricas
-Route::resource('rubricas', 'App\Http\Controllers\RubricaController');
-Route::get('agregar-rubricas','App\Http\Controllers\RubricaController@create');
-Route::post('guardar-rubricas','App\Http\Controllers\RubricaController@store');
-Route::get('editar-rubricas/{id}','App\Http\Controllers\RubricaController@edit');
-Route::put('actualizar-rubricas/{id}','App\Http\Controllers\RubricaController@update');
-Route::get('mostrar-rubricas/{id}','App\Http\Controllers\RubricaController@show');
+Route::resource('rubricas', RubricaController::class);
+Route::get('agregar-rubricas', [RubricaController::class, 'create']);
+Route::post('guardar-rubricas', [RubricaController::class, 'store']);
+Route::get('editar-rubricas/{id}', [RubricaController::class, 'edit']);
+Route::put('actualizar-rubricas/{id}', [RubricaController::class, 'update']);
+Route::get('mostrar-rubricas/{id}', [RubricaController::class, 'show']);
 
 //opcion: Criterios
-Route::get('criterios/{id}','App\Http\Controllers\CriteriosController@index');
-Route::get('agregar-criterios/{id}','App\Http\Controllers\CriteriosController@create');
-Route::post('guardar-criterios','App\Http\Controllers\CriteriosController@store');
-Route::get('editar-criterios/{id}',['App\Http\Controllers\CriteriosController','edit']);
-Route::put('actualizar-criterios/{id}','App\Http\Controllers\CriteriosController@update');
-Route::delete('borrar-criterios/{id}','App\Http\Controllers\CriteriosController@destroy');
+Route::get('criterios/{id}', [CriteriosController::class, 'index']);
+Route::get('agregar-criterios/{id}', [CriteriosController::class, 'create']);
+Route::post('guardar-criterios', [CriteriosController::class, 'store']);
+Route::get('editar-criterios/{id}', [CriteriosController::class, 'edit']);
+Route::put('actualizar-criterios/{id}', [CriteriosController::class, 'update']);
+Route::delete('borrar-criterios/{id}', [CriteriosController::class, 'destroy']);
 
 
 //opcion: Compromisos
-Route::put('compromisos/{id}','App\Http\Controllers\coordinadorController@actualizarCompromiso');
-Route::get('listar-compromisos',['App\Http\Controllers\CompromisosController' , 'index' ]);
-Route::resource('Compromisos', 'App\Http\Controllers\CompromisosController');
-Route::get('agregarCompromisos','App\Http\Controllers\CompromisosController@create');
-Route::post('guardarCompromisos','App\Http\Controllers\CompromisosController@store');
-Route::get('editarCompromisos/{id}','App\Http\Controllers\CompromisosController@edit');
-  
+Route::resource('Compromisos', CompromisosController::class);
+Route::put('compromisos/{id}', [UserController::class, 'actualizarCompromiso']);
+Route::get('listar-compromisos', [CompromisosController::class, 'index']);
+Route::get('agregarCompromisos', [CompromisosController::class, 'create']);
+Route::post('guardarCompromisos', [CompromisosController::class, 'store']);
+Route::get('editarCompromisos/{id}', [CompromisosController::class, 'edit']);
+
 
 //USUARIO Estudiante
-Route::resource('estudiantes', 'App\Http\Controllers\EstudianteController');
-Route::get('mostrar-calificacionesEs/{id}','App\Http\Controllers\EstudianteController@show');
+Route::resource('estudiantes', EstudianteController::class);
+Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']);
 
-Route::get('registrar','App\Http\Controllers\ProyectoController@registrar');
-Route::post('registrar','App\Http\Controllers\ProyectoController@store');
-Route::get('seguimiento','App\Http\Controllers\ProyectoController@show');
-Route::get('comprometerse','App\Http\Controllers\ProyectoController@edit');
-Route::put('comprometerse','App\Http\Controllers\ProyectoController@update');
-Route::delete('comprometerse/{id}','App\Http\Controllers\ProyectoController@destroy');
- 
-Route::get('comprometerse-act','App\Http\Controllers\ProyectoController@edit');
-Route::put('comprometerse-act','App\Http\Controllers\ProyectoController@update');
-Route::delete('comprometerse-act/{id}','App\Http\Controllers\ProyectoController@destroy');
+Route::get('registrar', [ProyectoController::class,'registrar']);
+Route::post('registrar', [ProyectoController::class,'store']);
+Route::get('seguimiento', [ProyectoController::class,'show']);
+Route::get('comprometerse', [ProyectoController::class,'edit']);
+Route::put('comprometerse', [ProyectoController::class,'update']);
+Route::delete('comprometerse/{id}', [ProyectoController::class,'destroy']);
+
+Route::get('comprometerse-act', [ProyectoController::class,'edit']);
+Route::put('comprometerse-act', [ProyectoController::class,'update']);
+Route::delete('comprometerse-act/{id}', [ProyectoController::class,'destroy']);
 
 
-Route::get('reportar','App\Http\Controllers\ProyectoController@reportar');
-Route::post('reportar','App\Http\Controllers\ProyectoController@guardarReporte');
+Route::get('reportar', [ProyectoController::class,'reportar']);
+Route::post('reportar', [ProyectoController::class,'guardarReporte']);
 
 
 //Docente 
 
-Route::resource('docentes', 'App\Http\Controllers\DocenteController');
+Route::resource('docentes', DocenteController::class);
 
 //Docente Evaluaciones
-Route::get('evaluaciones/{id}', 'App\Http\Controllers\EvaluarController@index');
-Route::post('guardar-calificaciones','App\Http\Controllers\EvaluarController@store');
-Route::get('mostrar-calificaciones/{id}','App\Http\Controllers\EvaluarController@show');
-Route::get('conceptos/{id}','App\Http\Controllers\EvaluarController@conceptos');
-Route::get('porcentaje-proyectos/{id}','App\Http\Controllers\EvaluarController@porcentaje');
-Route::put('guardar-porcentajes','App\Http\Controllers\EvaluarController@guardarPorcentajes');
-Route::get('doc-compromisos/{id}','App\Http\Controllers\EvaluarController@verCompromisos');
-Route::get('doc-reportes/{id}','App\Http\Controllers\EvaluarController@verReportes');
-Route::get('promedios-semestrales/{id}','App\Http\Controllers\EvaluarController@promedioSemestrales');
+Route::get('evaluaciones/{id}', [EvaluarController::class, 'index']);
+Route::post('guardar-calificaciones', [EvaluarController::class, 'store']);
+Route::get('mostrar-calificaciones/{id}', [EvaluarController::class, 'show']);
+Route::get('conceptos/{id}', [EvaluarController::class, 'conceptos']);
+Route::get('porcentaje-proyectos/{id}', [EvaluarController::class, 'porcentaje']);
+Route::put('guardar-porcentajes', [EvaluarController::class, 'guardarPorcentajes']);
+Route::get('doc-compromisos/{id}', [EvaluarController::class, 'verCompromisos']);
+Route::get('doc-reportes/{id}', [EvaluarController::class, 'verReportes']);
+Route::get('promedios-semestrales/{id}', [EvaluarController::class, 'promedioSemestrales']);
 
 
-Route::get('historicos', 'App\Http\Controllers\HistoricoController@index');
+Route::get('historicos', [HistoricoController::class,'index']);
 
-Route::resource('historicorevs', 'App\Http\Controllers\HistoricorevController');
+Route::resource('historicorevs', HistoricorevController::class);
 
-
-
-Route::resource('cuentaAdmins', 'App\Http\Controllers\AdminController');
-
-
-
-
-
-
-
-
+Route::resource('cuentaAdmins', AdminController::class);
 
 
 Route::get('/prueba', function () {

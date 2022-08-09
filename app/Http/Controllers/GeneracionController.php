@@ -14,7 +14,7 @@ class GeneracionController extends Controller
          //$this->authorize('listar');
         $pe = \Session::get('usuario');
         $pe= $pe->fresh();
-        $generaciones = Generacion::where('pes_id', $pe->id)->get();
+        $generaciones = Generacion::where('pes_id', $pe->id)->orderBy('nombre','DESC')->paginate(8);
         return view('coordinador.generacion.index',compact('generaciones',$generaciones));
     
     }

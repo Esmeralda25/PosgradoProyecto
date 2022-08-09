@@ -97,6 +97,8 @@
                                                 <tbody>                                               
                                                 </tbody>
                                             </table>
+                                            <br>
+                                            {{$generaciones->links()}}
                                     </div>
                                 </div>
                             </div>

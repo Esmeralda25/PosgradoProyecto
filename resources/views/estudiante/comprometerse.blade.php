@@ -75,6 +75,43 @@
                                                               
                             </tbody>        
                 </table>
+                <div style="height:20px;"></div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr style="text-align: center;background-color: black;">
+                        <th colspan="2" style="font-size: 25px;">
+                          Comite Tutorial
+                        </th>
+                      </tr> 
+                    </thead>  
+                    <tbody>
+                        @if (is_null($estudiante->proyecto->comite_id))
+                            <tr>
+                                <th colspan="2">SIN ASIGNAR</th>
+                            </tr>
+                        @else
+                            <tr>
+                                <th>Asesor</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteAsesor->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 1</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor1->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 2</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor2->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 3</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor3->nombre}}</td>
+                            </tr>
+                            
+                        @endif
+                    </tbody>
+                </table>
+
+
                     
                 <div style="height:20px;"></div>
                 @if (session('message'))

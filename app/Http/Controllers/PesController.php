@@ -10,7 +10,7 @@ class PesController extends Controller
 {
     public function index(){
         //$this->authorize('listar');
-        $pes = Pe::paginate(7);
+        $pes = Pe::paginate(10);
         
         //detalle:
         //como pasar variables a una vista 

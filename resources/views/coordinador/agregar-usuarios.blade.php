@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Contraseña</label>
-                                                    <input id="password" name="password" type="text" class="form-control" tabindex="3">
+                                                    <input id="password" name="password" type="password" class="form-control" tabindex="3">
                                                 </div>
                                         
                                                 <a href="/listar-usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>

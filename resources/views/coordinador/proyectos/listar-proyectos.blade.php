@@ -66,7 +66,7 @@
                                                 <td>{{$proyecto->estudiante->nombre}}</td>
 
 
-                                                @if ($proyecto->comite != null )
+                                                @if ($proyecto->comite_id != null )
                                                 <td colspan="2">
                                                     {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
                                                 </td>

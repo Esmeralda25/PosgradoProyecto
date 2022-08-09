@@ -63,7 +63,7 @@
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivos Especificos</label>
-                                    <input type="text" class="row col-12" name="objetivose">
+                                    <textarea name="objetivose" style="width: 100%;" cols="30" rows="10"></textarea>
                                 </div>
                             </div>                            
                             <div style=" margin-bottom:30px;">
