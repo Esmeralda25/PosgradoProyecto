@@ -24,12 +24,12 @@ class CreateCompromisosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('titulo', 45)->nullable()->default(null);
-            $table->integer('pes_id')->nullable()->unsigned()->default(null);
+            $table->integer('pe_id')->nullable()->unsigned()->default(null);
 
-            $table->index(["pes_id"], 'fk_compromisos_pes1_idx');
+            $table->index(["pe_id"], 'fk_compromisos_pes1_idx');
 
 
-            $table->foreign('pes_id', 'fk_compromisos_pes1_idx')
+            $table->foreign('pe_id', 'fk_compromisos_pes1_idx')
                 ->references('id')->on('pes')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
