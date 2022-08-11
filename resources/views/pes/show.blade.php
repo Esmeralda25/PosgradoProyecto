@@ -41,10 +41,20 @@
                                 </div>
                                 <div class="mb-12">
                                     Correo del cordianador:{{$pe->correo}} <br>
-                                </div><br>
+                                </div>
+                                <div class="mb-12">
+                                    Docentes :
+                                    <ul>   
+                                    @forelse ($pe->docentes as $docente)
+                                        <li>{{$docente->nombre}} ({{$docente->correo}})</li>
+                                    @empty
+                                        SIN DOCENTES ASIGNADOS
+                                    @endforelse
+                                    </ul>
+                                </div>
+                                <br>
                                 <div>
-                                    <a href="/pes" class="btn btn-warning" tabindex="5">Cancelar</a>
-
+                                    <a href="{{route('programas.index')}}" class="btn btn-warning" tabindex="5">Cancelar</a>
                                 </div>
                             </div>
                         </div>

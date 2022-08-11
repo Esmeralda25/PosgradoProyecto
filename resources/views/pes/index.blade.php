@@ -31,11 +31,11 @@
                             Programa Educativo
                             </h1>
                             @if (session('message'))
-                                        <div class="alert alert-success alert-dismissable">
-                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
-                                        </div> 
-                                     @endif
+                                <div class="alert alert-success alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        <strong>{{Session::get('message')}}</strong> 
+                                </div> 
+                            @endif
                         </div>
                         <a style="margin: 10px auto;" href="{{route('programas.create')}}" class="btn btn-primary btn-block">Agregar</a>
 

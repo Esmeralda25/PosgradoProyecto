@@ -4,22 +4,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use App\Http\Requests\PesRequest;
+
 use App\Models\Pe;
 
 class PesController extends Controller
 {
     public function index(){
         //$this->authorize('listar');
-        $pes = Pe::paginate(10);
-        
-        //detalle:
-        //como pasar variables a una vista 
+        $pes = Pe::paginate(10);        
         return view('pes.index',compact('pes'));
-
-
-        //        return view('pes.index', $datos);
-        //$pes = Pe::all();
-        //return view('pes.index')->with('pes',$pes);
     }
 
     public function create(){
@@ -28,26 +22,12 @@ class PesController extends Controller
         return view('pes.create');
     }
     
-    public function store(Request $request) 
+    public function store(PesRequest $request) 
     {
-        $campos = request()->except('_token');
-        if ( $campos['password'] !=  $campos['password2']) 
-            return redirect()->back(); //detalle quiero que regrese y no vuelva a escribir y ademas que le avise  "error, no repetiste bien las contraseñas";
-
-        unset($campos['password2']);
+        $campos = request()->except('_token','password_confirmation');
         $campos['password'] = Hash::make($campos['password']);
-
         Pe::insert($campos);
-
-        //$pes = new Pes();
-
-        //$pes -> coordinador = $request ->get('coordinador');
-        //$pes -> correo = $request -> get('correo');
-        //$pes -> contraseña = $request -> get('contraseña');
-        //$pes -> save();
-
-        return redirect('/pes'); //detalle que me avise "se guardo correctamente"
-    }
+        return redirect(route('programas.index'))->with('message','Programa educativo agregado correctamente');    }
 
     
     /**
@@ -90,20 +70,18 @@ class PesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PesRequest $request, $id)
     {
 
-        $campos = $request->all(); 
-        if ( $campos['password'] !=  $campos['password2']) 
-            return redirect()->back(); //detalle quiero que regrese y no vuelva a escribir y ademas que le avise  "error, no repetiste bien las contraseñas";
-        
+        $campos = request()->except('_token','password_confirmation');
+
         if ( $campos['password'] == "") unset( $campos['password']);
         else $campos['password'] = Hash::make($campos['password']);
 
         $registro = Pe::find($id);
         $registro->fill($campos);
         $registro->save();
-        return redirect("/pes"); //detalle avisar que modifico
+        return redirect(route('programas.index'))->with('message','Programa educativo modificado correctamente'); 
     }
 
     /**
@@ -116,9 +94,9 @@ class PesController extends Controller
     {
         try{
             Pe::destroy($id);
-            return redirect('pes')->with('message','Programa educativo eliminado correctamente');
+            return redirect(route('programas.index'))->with('message','Programa educativo eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect('pes');//detalle: que avise que no pudo borrar
+            return redirect(route('programas.index'))->with('message', $th->getMessage());;//detalle: que avise que no pudo borrar
         }
     }
 }
