@@ -6,10 +6,10 @@
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
+    <form action="{{route('entrada.salida')}}">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link"> 
+            <a href="{{route('entrada.salida')}}" class="nav-link"> 
             <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
@@ -101,18 +101,19 @@
                                                                <thead class="table table-dark table-striped mt-4">
                                             
                                                     <tr>
-                                                        <th scope="col">ID</th>
-                                                        <th scope="col">Archivo</th>
-                                                        <th scope="col">Acciones</th>
-
-                                                    
+                                                        <th scope="col">Que</th>
+                                                        <th scope="col">Cuantos comprometio</th>
+                                                        <th scope="col">Cuantos cumplio</th>
                                                     <tr> 
                                                 </thead>
 
-                                                @foreach($proyecto->evidencias as $nuev) 
+
+
+                                                @foreach($proyecto->compromisos(18)->get() as $nuev) 
                                                 <tr> 
-                                                    <th scope="col">{{$nuev->adquirido_id}}</th>
-                                                    <th scope="col">{{$nuev->archivo}}</th>
+                                                    <td>{{$nuev->que}}</td>
+                                                    <td>{{$nuev->cuantos_prog}}</td>
+                                                    <td>{{$nuev->cuantos_cumplidos}}</td>
                                                     <td>
                                                     <a href="/doc-compromisos/{{$nuev->id}}" class="btn btn-info">VER</a>
                                                     </td>

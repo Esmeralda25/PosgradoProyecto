@@ -67,9 +67,8 @@ class PeriodosController extends Controller
     {
         //$this->authorize('perio', $id);
         $periodo = Periodo::find($id);
-        $rubricas = Rubrica::all();
-        
-        
+        //deben ser las rubricas que tiene ese p.e.
+        $rubricas = $periodo->pe->rubricas;
         return view('coordinador.periodo.edit', compact('periodo','rubricas') );
     }
 

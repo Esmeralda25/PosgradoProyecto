@@ -6,10 +6,10 @@
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
+    <form action="{{route('entrada.salida')}}">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link"> 
+            <a href="{{route('entrada.salida')}}" class="nav-link"> 
             <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
@@ -59,26 +59,28 @@
                                         <input type="hidden" name="generacion_id" value="{{$generacion->id}}">       
                                             <div class="card-body">
                                                 <div class="row form-group col-12">
-                                                <label for="" class="row col-12">Nombre</label>
-                                                <input type="text" class="row col-12" name="nombre">
+                                                    <label for="" class="row col-12">Nombre</label>
+                                                    <input type="text" class="row col-12" name="nombre">
                                                 </div>
-                            
-                                            <label for="" class="row col-12">Fecha Inicio</label>
-                                            <input type="date" placeholder="" name="fechaInicio" class="form-control" style="width: 300px">
-                                        
+                                                <div class="row form-group col-12">                            
+                                                    <label for="" class="row col-12">Fecha Inicio</label>
+                                                    <input type="date" placeholder="" name="fechaInicio" class="form-control" style="width: 300px">
+                                            </div>
+                                            <div class="row form-group col-12">                            
+                                                <label for="" class="row col-12">Fecha Fin</label>
+                                                <input type="date" placeholder="" name="fechaFin" class="form-control" style="width: 300px">    
+                                            </div>
         
-                                            <label for="" class="row col-12">Fecha Fin</label>
-                                            <input type="date" placeholder="" name="fechaFin" class="form-control" style="width: 300px">
-
-                                            <label for="" class="row col-12">Rubrica</label>
-
-                                            <select name="rubrica">
-                                                @foreach ($rubricas as $rubrica)
-                                                <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>
-                                                    
-                                                @endforeach
-                                            </select>
-                                            </div> 
+                                            {{--
+    <label for="" class="row col-12">Rubrica</label>
+    <select name="rubrica">
+        @foreach ($rubricas as $rubrica)
+        <option value="{{$rubrica->id}}">{{$rubrica->nombre}}</option>
+        
+        @endforeach
+    </select>
+    --}}
+                                            </div>
                                             <a href="/periodos/{{$generacion->id}}" class="btn btn-danger" tabindex="5">Cancelar</a>
                                             <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>
                                     </form>

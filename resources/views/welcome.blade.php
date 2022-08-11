@@ -40,7 +40,7 @@
             </div>
             
             <div class="card">
-                <form class="formulario" action="{{route('entrada.entrada')}}" method="POST">
+                <form class="formulario" action="{{route('entrada.validar')}}" method="POST">
                     <div class="card-header text-center font-weight-bolder" style="font-size: 25px">
                         Iniciar Sesión
                     </div>

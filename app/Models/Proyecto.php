@@ -26,6 +26,7 @@ class Proyecto extends Model
     public function compromiso(){
         return $this->hasOne('App\Models\Compromiso','id','compromiso');
     }
+    
     public function compromisos($semestre){
         return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
         ->where('periodos_id',$semestre)

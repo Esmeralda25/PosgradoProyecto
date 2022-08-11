@@ -28,10 +28,12 @@ Route::get('/', function () {
 });
 
 
-Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.entrada');
+Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.validar');
 Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida');;
+
 Route::resource('info', InfoController::class);
-Route::resource('pes', PesController::class);
+
+Route::resource('programas', PesController::class);
 
 
 //------------------------USUARIO COORDINADOR-------------------------

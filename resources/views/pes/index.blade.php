@@ -6,10 +6,10 @@
 @endsection
 @section('submenu')
     <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
+    <form action="{{route('entrada.salida')}}">
         <li class="nav-item"> 
             @csrf
-            <a href="/logout" class="nav-link"> 
+            <a href="{{route('entrada.salida')}}" class="nav-link"> 
             <i  class="fa fa-sign-out" aria-hidden="true"></i>    
         </a>
          </li>    
@@ -37,7 +37,7 @@
                                         </div> 
                                      @endif
                         </div>
-                        <a style="margin: 10px auto;" href="/pes/create" class="btn btn-primary btn-block">Agregar</a>
+                        <a style="margin: 10px auto;" href="{{route('programas.create')}}" class="btn btn-primary btn-block">Agregar</a>
 
                         <table class="table table-dark table-striped mt-6">
                             <thead class="table table-dark table-striped mt-6">
@@ -54,12 +54,11 @@
                                 <td>{{$pe->nombre}}</td>
                                 <td><a href="mailto:{{$pe->correo}}">{{$pe->coordinador}}</a></td>                   
                                 <td>
-                                    <a href="pes/{{$pe->id}}/edit" class="btn btn-info">EDITAR</a>
-                                    <a href="pes/{{$pe->id}}" class="btn btn-warning" style="display:inline">MOSTAR</a>
-                                    <form action="pes/{{$pe->id}}" style="display:inline" method="post" >
+                                    <a href="{{route('programas.edit',$pe->id)}}" class="btn btn-info">EDITAR</a>
+                                    <a href="{{route('programas.show',$pe->id)}}" class="btn btn-warning" style="display:inline">MOSTAR</a>
+                                    <form action="{{route('programas.destroy',$pe->id)}}" style="display:inline" method="post" >
                                         @csrf
                                         @method('delete')
-                                        
                                         <input type="submit" value="ELIMINAR"  class="btn btn-danger">
                                     </form>
                                 </td>

@@ -30,4 +30,9 @@ class Pe extends Usuario
             'docentes_id' // Local key on the environments table...
         );
     }
+
+    public function rubricas(){
+        return $this->hasMany(Rubrica::class,'pe_id','id');
+    
+    }
 }

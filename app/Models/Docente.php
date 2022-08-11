@@ -21,7 +21,7 @@ class Docente extends Authenticatable
                         ->select(id);
         */
         
-        return Proyecto::whereIn('comite', 
+        return Proyecto::whereIn('comite_id', 
             Comite::where('asesor', $this->id)
             ->orWhere('revisor1', $this->id)
             ->orWhere('revisor2', $this->id)

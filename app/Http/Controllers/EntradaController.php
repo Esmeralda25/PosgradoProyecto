@@ -79,7 +79,7 @@ class EntradaController extends Controller
             if( $peticion->input('palabra') == "asd" ){
                 \Session::put('usuario' ,  ["nombre" => "informático"] );
 
-                return  redirect('/pes');
+                return  redirect(route('programas.index'));
             }
         }
         return redirect()->back()->withInput()->with(['mensaje'=>'usuario no encontrado']);
