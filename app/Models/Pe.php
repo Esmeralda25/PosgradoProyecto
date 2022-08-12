@@ -8,6 +8,7 @@ class Pe extends Usuario
     public $table = "pes";
     protected $fillable=['coordinador','correo','password','nombre'];
     public $timestamps = false;
+//    protected $with=["docentes"];
 
     public function proyectos(){
         return $this->hasManyThrough(

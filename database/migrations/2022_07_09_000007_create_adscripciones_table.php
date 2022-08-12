@@ -24,14 +24,14 @@ class CreateAdscripcionesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('pe_id')->unsigned();
-            $table->integer('docentes_id')->unsigned();
+            $table->integer('docente_id')->unsigned();
 
             $table->index(["pe_id"], 'fk_adscripciones_pes1_idx');
 
-            $table->index(["docentes_id"], 'fk_adscripciones_docentes1_idx');
+            $table->index(["docente_id"], 'fk_adscripciones_docentes1_idx');
 
 
-            $table->foreign('docentes_id', 'fk_adscripciones_docentes1_idx')
+            $table->foreign('docente_id', 'fk_adscripciones_docentes1_idx')
                 ->references('id')->on('docentes')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');

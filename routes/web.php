@@ -17,11 +17,7 @@ use App\Http\Controllers\EvaluarController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\HistoricorevController;
 use App\Http\Controllers\AdminController;
-
-
-
-
-
+use App\Http\Controllers\TableroController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,26 +26,31 @@ Route::get('/', function () {
 
 Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.validar');
 Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida');;
-
-Route::resource('info', InfoController::class);
+Route::resource('info', InfoController::class); //tanto resource solo para poner creditos
+Route::get('manual', [UserController::class, 'manual']); //no funciona esta ruta
 
 Route::resource('programas', PesController::class);
 
 
 //------------------------USUARIO COORDINADOR-------------------------
-Route::resource('coordinadores', UserController::class);
-Route::get('manual', [UserController::class, 'manual']);
+Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
+//Route::resource('coordinadores', UserController::class);
+
 
 //opcion: Usuarios
-Route::get('listar-usuarios', [UserController::class, 'listarUsuarios']);//->middleware('coordina');
-Route::get('agregar-usuarios', [UserController::class, 'agregarUsuarios']);
-Route::post('agregar-usuarios', [UserController::class, 'store']);
-Route::get('editar-usuarios/{tipo}/{id}', [UserController::class, 'editarUsuario']);
-Route::put('actualizar-usuarios/{tipo}/{id}', [UserController::class, 'actualizarUsuario']);
-Route::delete('eliminar-usuarios/{tipo}/{id}', [UserController::class, 'eliminarUsuario']);
+Route::resource('docentes', DocenteController::class);
 
-Route::get('editar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@password']);
-Route::put('actualizar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@guardarPassword']);
+
+
+//Route::get('listar-usuarios', [UserController::class, 'listarUsuarios']);//->middleware('coordina');
+//Route::get('agregar-usuarios', [UserController::class, 'agregarUsuarios']);
+//Route::post('agregar-usuarios', [UserController::class, 'store']);
+//Route::get('editar-usuarios/{tipo}/{id}', [UserController::class, 'editarUsuario']);
+//Route::put('actualizar-usuarios/{tipo}/{id}', [UserController::class, 'actualizarUsuario']);
+//Route::delete('eliminar-usuarios/{tipo}/{id}', [UserController::class, 'eliminarUsuario']);
+
+//Route::get('editar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@password']);
+//Route::put('actualizar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@guardarPassword']);
 
 
 

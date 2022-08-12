@@ -36,7 +36,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/listar-usuarios')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Usuarios</span></a>  
+                                                <a href="{{route('docentes.index')}}"><span class="info-box-text  font-weight-bold" style="color: aliceblue;">Docentes</span></a>  
                                             </div>
                                             <!-- /.info-box-content -->
                                         </div>

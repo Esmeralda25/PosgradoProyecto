@@ -16,7 +16,7 @@
     </form>   
 @endsection
 @section('regresar') 
-    <a href="/coordinadores" class="nav-link">
+    <a href="{{route('coordinadores')}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
 @endsection 

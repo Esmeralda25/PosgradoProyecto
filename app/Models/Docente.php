@@ -40,4 +40,22 @@ class Docente extends Authenticatable
     public function desgloceEvaluacion(){
         return $this->belongsTo('App\Models\DesgloceEvaluacion','evaluaciones_id','id');
     } 
+
+    public function adscripciones(){
+        return $this->hasMany('App\Models\Adscripcion');
+    } 
+
+
+    public function programas(){
+        return $this->hasManyThrough(
+            'App\Models\Pe',
+            'App\Models\Adscripcion',
+            'docente_id',
+            'id',//id de pes
+            'id',
+            'pe_id',
+        );
+    } 
+
+
 }

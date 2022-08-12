@@ -27,7 +27,8 @@ class UserController extends Controller
         //return view('coordinador.index');//->with('add',$add);
     }
 
-    public function listarUsuarios(){
+    public function _listarUsuarios(){
+/*
         $coordinador = \Session::get('usuario');
         $coordinador = $coordinador->fresh();
 
@@ -45,6 +46,7 @@ class UserController extends Controller
         // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
         // 
         return view('coordinador.listar-usuarios',compact('usuarios'));
+*/
     }
 
 
@@ -84,41 +86,6 @@ class UserController extends Controller
 
 
 
-
-    }
-
-    public function agregarUsuarios()
-    {
-            return view('coordinador.agregar-usuarios');
-        
-    }
-    public function store(Request $request) //lo dejaré pero no todo es un resource y si lo es entonces no esta en su controlador
-    {
-        $pe = \Session::get('usuario');
-        $estudiante = request()->except(['_token','nivel']);
-        $docente = request()->except('_token');
-        //dd($docente);
-        $adscripcion = $request->all();
-
-        if($request->input('nivel')=="Estudiante"){
-            //echo "agregar estudiante";
-            $estudiante['pes_id'] = $pe->id;
-            $estudiante['password'] = bcrypt($request->password);
-            Estudiante::insert($estudiante);
-        }elseif($request->input('nivel')=="Docente"){
-            //Docente::insert($docente);
-            $nuevo = new docente();
-            $nuevo->fill($docente);
-            $nuevo->password = bcrypt($request->password);
-            $nuevo->save();
-            //modificar la adscripcion  a $pe->id del $nuevo->id
-            $add = new Adscripcion();
-            $add->pes_id = $pe->id;
-            $add->docentes_id = $nuevo->id; 
-            $add->save();
-
-        }
-        return redirect('listar-usuarios')->with('message','Usuario agregado correctamente');
 
     }
 

@@ -48,7 +48,7 @@ class EntradaController extends Controller
                 $identificacion = "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
                 \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
-                return  redirect('/coordinadores');
+                return  redirect(route('coordinadores'));
             }
         } 
         
@@ -62,15 +62,7 @@ class EntradaController extends Controller
             if (Hash::check($password_dieron, $password_guadado)) {
                 $identificacion = "Docente : " . $usuario->nombre ;
                 \Session::put('identificacion' ,  $identificacion );
-
                 \Session::put('usuario' ,  $usuario );
-/*
-                session_start -->es de php
-                session_destroy(); --> es de php 
-
-                \Session
-*/
-                //session_start();     CHECAR DIFERENCIA
                 return  redirect('/docentes');
             }
         }
