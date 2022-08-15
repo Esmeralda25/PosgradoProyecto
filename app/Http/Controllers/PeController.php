@@ -4,25 +4,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Requests\PesRequest;
+use App\Http\Requests\PeRequest;
 
 use App\Models\Pe;
 
-class PesController extends Controller
+class PeController extends Controller
 {
     public function index(){
         //$this->authorize('listar');
         $pes = Pe::paginate(10);        
-        return view('pes.index',compact('pes'));
+        return view('pe.listar',compact('pes'));
     }
 
     public function create(){
         
 
-        return view('pes.create');
+        return view('pe.agregar');
     }
     
-    public function store(PesRequest $request) 
+    public function store(PeRequest $request) 
     {
         $campos = request()->except('_token','password_confirmation');
         $campos['password'] = Hash::make($campos['password']);
@@ -47,7 +47,7 @@ class PesController extends Controller
     public function show($id)
     {
         $pe= Pe::find($id);
-        return view('pes.show')->with('pe',$pe);
+        return view('pe.mostrar')->with('pe',$pe);
         //
     }
 
@@ -60,7 +60,7 @@ class PesController extends Controller
     public function edit($id)
     {
         $pe= Pe::find($id);
-        return view('pes.edit')->with('pe',$pe);
+        return view('pe.editar')->with('pe',$pe);
     }
 
     /** 
@@ -70,7 +70,7 @@ class PesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PesRequest $request, $id)
+    public function update(PeRequest $request, $id)
     {
 
         $campos = request()->except('_token','password_confirmation');

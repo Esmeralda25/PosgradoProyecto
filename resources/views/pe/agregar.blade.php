@@ -13,7 +13,7 @@
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/pes')}}" class="nav-link">Inicio</a>
+      <a href="{{route('programas.index')}}" class="nav-link">Inicio</a>
 </li>
 @endsection
 @section('content')

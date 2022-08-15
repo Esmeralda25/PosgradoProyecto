@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PesController;
+use App\Http\Controllers\PeController;
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\UserController;
@@ -29,7 +29,7 @@ Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida
 Route::resource('info', InfoController::class); //tanto resource solo para poner creditos
 Route::get('manual', [UserController::class, 'manual']); //no funciona esta ruta
 
-Route::resource('programas', PesController::class);
+Route::resource('programas', PeController::class);
 
 
 //------------------------USUARIO COORDINADOR-------------------------

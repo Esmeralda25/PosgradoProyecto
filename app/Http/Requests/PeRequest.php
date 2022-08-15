@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PesRequest extends FormRequest
+class PeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class PesRequest extends FormRequest
     public function rules()
     {
         return             [
-            'password' => 'required|confirmed',
+            'password' => 'confirmed',
             'nombre' => 'required',
             'coordinador' => 'required',
             'correo'=>'required|email',
