@@ -25,19 +25,7 @@ class DocenteController extends Controller
         $coordinador = \Session::get('usuario');
         $coordinador = $coordinador->fresh();
 
-//        dd(Docente::whereIn('id',Adscripcion::where('pe_id',$coordinador->id)->select('id'))->toSql() );
-
         $usuarios =  Docente::whereIn('id',Adscripcion::where('pe_id',$coordinador->id)->select('docente_id'))->paginate(8);
-//        dd($usuarios);
-
-/*
-        $usuarios =  DB::table('docentes')
-        ->select('nombre','id', DB::raw("'Docente' as nivel") )
-        ->whereIn('id', DB::table('adscripciones')->select('docentes_id')->where('pe_id',$coordinador->id) )
-        ->paginate(8);
-*/
-        // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
-        // 
         return view('docente.listar')->with('usuarios',$usuarios);
     }
 
