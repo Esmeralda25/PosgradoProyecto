@@ -13,11 +13,11 @@ class PeController extends Controller
     public function index(){
         //$this->authorize('listar');
         $pes = Pe::paginate(10);        
-        return view('pe.listar',compact('pes'));
+        return view('informatico.pe.listar',compact('pes'));
     }
 
     public function create(){
-        return view('pe.agregar');
+        return view('informatico.pe.agregar');
     }
     
     public function store(PeRequest $request) 
@@ -45,7 +45,7 @@ class PeController extends Controller
     public function show($id)
     {
         $pe= Pe::find($id);
-        return view('pe.mostrar')->with('pe',$pe);
+        return view('informatico.pe.mostrar')->with('pe',$pe);
         //
     }
 
@@ -58,7 +58,7 @@ class PeController extends Controller
     public function edit($id)
     {
         $pe= Pe::find($id);
-        return view('pe.editar')->with('pe',$pe);
+        return view('informatico.pe.editar')->with('pe',$pe);
     }
 
     /** 
