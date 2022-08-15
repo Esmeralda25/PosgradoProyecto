@@ -5,7 +5,7 @@ if (! function_exists('current_type')) {
         $usuario  = \Session::get('usuario' );
         if (is_null($usuario)) return "BIENVENIDO";
         if(is_array($usuario)){
-            return "informatico";  
+            return "Informatico";  
         }else{
             $clase = get_class($usuario);
             switch ($clase) {

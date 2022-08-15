@@ -51,13 +51,23 @@
       @yield('inicio')               
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://www.tuxtla.tecnm.mx/" class="nav-link">TecNM</a>
+      
+        <a href="
+        @switch(current_type())
+          @case("Coordiandor")
+             {{route('coordinadores')}}
+              @break
+        @endswitch
+        " class="nav-link">..INICIO..</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">SII</a>
+        <a href="https://www.tuxtla.tecnm.mx/" target="_blank" class="nav-link">TecNM</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/manual')}}" class="nav-link">Manuales de Usuario</a>
+        <a href="https://sii.tuxtla.tecnm.mx/" target="_blank"  class="nav-link">SII</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{url('/manual')}}"  target="_blank"  class="nav-link">Manuales de Usuario</a>
       </li>
         
       </ul>
