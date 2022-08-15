@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
-@endsection
 @section('regresar') 
     <a href="{{route('coordinadores')}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    

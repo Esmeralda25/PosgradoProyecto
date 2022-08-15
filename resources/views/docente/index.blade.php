@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
 @section('content')
 <section class="content">
     <div class="container-fluid">

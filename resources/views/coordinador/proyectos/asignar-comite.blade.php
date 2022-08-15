@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>Coordinador</p>
-
-@endsection
 @section('regresar') 
     <a href="/listar-proyectos" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    

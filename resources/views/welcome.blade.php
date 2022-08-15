@@ -6,11 +6,6 @@
     <p>Registrarse</p>
 </a>
 @endsection
-
-@section('titulo')
-<p>Posgrado</p>
-@endsection
-
 @section('content')
 @if (session('mensaje'))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">

@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p></p>
-
-@endsection
 @section('regresar') 
     <a href="/periodos/{{$generacion->id}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    

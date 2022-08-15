@@ -1,9 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
-@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{route('coordinadores')}}" class="nav-link" >Inicio</a>
