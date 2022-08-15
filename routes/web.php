@@ -29,34 +29,42 @@ Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida
 Route::resource('info', InfoController::class); //tanto resource solo para poner creditos
 Route::get('manual', [UserController::class, 'manual']); //no funciona esta ruta
 
+
+///INFORMATICO
+//no tiene inicio puesto que es lo unico que hace, pero falta otras opciones que seran mas modulos
 Route::resource('programas', PeController::class);
 
 
-//------------------------USUARIO COORDINADOR-------------------------
-Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
-//Route::resource('coordinadores', UserController::class);
 
 
-//opcion: Usuarios
+/// COORDINADOR
+    Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
+//Docentes
 Route::resource('docentes', DocenteController::class);
+//Rubricas
+Route::resource('rubricas', RubricaController::class);
+//-Criterios
+Route::get('criterios/{rubrica}', [CriteriosController::class, 'index'])->name('criterios.index');
+Route::resource('criterios', RubricaController::class)->except('index');
+
+/*
+Route::get('agregar-criterios/{id}', [CriteriosController::class, 'create'])->name('criterios.create2');
+Route::post('guardar-criterios', [CriteriosController::class, 'store'])->name('criterios.store2');
+Route::get('editar-criterios/{id}', [CriteriosController::class, 'edit'])->name('criterios.edit2');
+Route::put('actualizar-criterios/{id}', [CriteriosController::class, 'update'])->name('criterios.update2');
+Route::delete('borrar-criterios/{id}', [CriteriosController::class, 'destroy'])->name('criterios.destroy2');
+*/
+
+
+Route::get('agregar-rubricas', [RubricaController::class, 'create']);
+Route::post('guardar-rubricas', [RubricaController::class, 'store']);
+Route::get('editar-rubricas/{id}', [RubricaController::class, 'edit']);
+Route::put('actualizar-rubricas/{id}', [RubricaController::class, 'update']);
+Route::get('mostrar-rubricas/{id}', [RubricaController::class, 'show']);
 
 
 
-//Route::get('listar-usuarios', [UserController::class, 'listarUsuarios']);//->middleware('coordina');
-//Route::get('agregar-usuarios', [UserController::class, 'agregarUsuarios']);
-//Route::post('agregar-usuarios', [UserController::class, 'store']);
-//Route::get('editar-usuarios/{tipo}/{id}', [UserController::class, 'editarUsuario']);
-//Route::put('actualizar-usuarios/{tipo}/{id}', [UserController::class, 'actualizarUsuario']);
-//Route::delete('eliminar-usuarios/{tipo}/{id}', [UserController::class, 'eliminarUsuario']);
 
-//Route::get('editar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@password']);
-//Route::put('actualizar-contraseñas/{tipo}/{id}', [UserController::class, 'UserController@guardarPassword']);
-
-
-
-Route::get('listar-proyectos', [UserController::class, 'listarProyectos']);
-Route::get('asignar-comite/{id_proyecto}', [UserController::class, 'asignarComite']);
-Route::put('asignar-comite/{id}', [UserController::class, 'actualizarComite']);
 
 
 //opcion: Generaciones
@@ -78,21 +86,6 @@ Route::put('actualizar-periodos/{id}', [PeriodosController::class, 'update']);
 Route::get('estadisticos', [PeriodosController::class, 'estadistico']);
 Route::delete('borrar-periodos/{id}', [PeriodosController::class, 'destroy']);
 
-//opcion: Rubricas
-Route::resource('rubricas', RubricaController::class);
-Route::get('agregar-rubricas', [RubricaController::class, 'create']);
-Route::post('guardar-rubricas', [RubricaController::class, 'store']);
-Route::get('editar-rubricas/{id}', [RubricaController::class, 'edit']);
-Route::put('actualizar-rubricas/{id}', [RubricaController::class, 'update']);
-Route::get('mostrar-rubricas/{id}', [RubricaController::class, 'show']);
-
-//opcion: Criterios
-Route::get('criterios/{id}', [CriteriosController::class, 'index']);
-Route::get('agregar-criterios/{id}', [CriteriosController::class, 'create']);
-Route::post('guardar-criterios', [CriteriosController::class, 'store']);
-Route::get('editar-criterios/{id}', [CriteriosController::class, 'edit']);
-Route::put('actualizar-criterios/{id}', [CriteriosController::class, 'update']);
-Route::delete('borrar-criterios/{id}', [CriteriosController::class, 'destroy']);
 
 
 //opcion: Compromisos
@@ -102,6 +95,14 @@ Route::get('listar-compromisos', [CompromisosController::class, 'index']);
 Route::get('agregarCompromisos', [CompromisosController::class, 'create']);
 Route::post('guardarCompromisos', [CompromisosController::class, 'store']);
 Route::get('editarCompromisos/{id}', [CompromisosController::class, 'edit']);
+
+//al modificar proyectos
+Route::get('listar-proyectos', [UserController::class, 'listarProyectos']);
+Route::get('asignar-comite/{id_proyecto}', [UserController::class, 'asignarComite']);
+Route::put('asignar-comite/{id}', [UserController::class, 'actualizarComite']);
+
+
+
 
 
 //USUARIO Estudiante
