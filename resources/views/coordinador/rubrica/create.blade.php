@@ -30,14 +30,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%"> -->
                                     
                                         <form action="/guardar-rubricas" method="POST" enctype="multipart/form-data">
                                             @csrf
                                                 <input type="hidden" name="pe_id" value="{{$pe->id}}">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Titulo</label>
-                                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">
+                                                    <input id="nombre" name="nombre" type="text" style="width: 100%">
                                                 </div>
                                             
                                                 <div class="mb-3 form-group">

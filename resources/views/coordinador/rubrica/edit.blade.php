@@ -31,7 +31,7 @@
                             <div class="card-body">
                             <div class="row form-group col-12">
                             <label for="" class="row col-12">Titulo</label>
-                            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$rubrica->nombre}}">
+                            <input id="nombre" name="nombre" type="text" style="width: 100%" tabindex="2" value="{{$rubrica->nombre}}">
                             </div>
 
                             <div class="mb-3 form-group">

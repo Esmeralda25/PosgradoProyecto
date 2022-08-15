@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
-                                <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                 @if ($rubricas->count()==0)
                                  No existen rubricas para este programa educativo.
                                  Por favor, agregalas.
@@ -49,11 +49,11 @@
                                                 </div>
                                                 <div class="row form-group col-12">                            
                                                     <label for="" class="row col-12">Fecha Inicio</label>
-                                                    <input type="date" placeholder="" name="fechaInicio" class="form-control" style="width: 300px">
+                                                    <input type="date" placeholder="" name="fechaInicio" style="width: 100%" style="width: 300px">
                                             </div>
                                             <div class="row form-group col-12">                            
                                                 <label for="" class="row col-12">Fecha Fin</label>
-                                                <input type="date" placeholder="" name="fechaFin" class="form-control" style="width: 300px">    
+                                                <input type="date" placeholder="" name="fechaFin" style="width: 100%" style="width: 300px">    
                                             </div>
         
                                             {{--

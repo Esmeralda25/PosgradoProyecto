@@ -29,10 +29,10 @@
                         @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Descripcion</label>
-                                <input name="descripcion" type="text" class="form-control" tabindex="2">
+                                <input name="descripcion" type="text" style="width: 100%" tabindex="2">
                             </div>
                             <div class="mb-3">
-                                <input name="rubrica_id" type="hidden" class="form-control" tabindex="2" value="{{$rubrica->id}}">
+                                <input name="rubrica_id" type="hidden" style="width: 100%" tabindex="2" value="{{$rubrica->id}}">
                             </div>
                             
                             

@@ -100,7 +100,7 @@
                                             </th>
                                             <th class="col-5">
                                             
-                                            <input type="text" readonly class="form-control" for="botonClick" value=""> 
+                                            <input type="text" readonly style="width: 100%" for="botonClick" value=""> 
                                                 
                                             </th>
                                      
@@ -110,7 +110,7 @@
                                                 Conferencias Nacionales
                                             </th>
                                             <th>
-                                                <input type="text" readonly class="form-control" >
+                                                <input type="text" readonly style="width: 100%" >
                                             </th>
                                      
                                         </tr>
@@ -122,10 +122,10 @@
                                     <thead>
                                         <tr class="col-12">
                                             <th class="col-4">
-                                                <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="width: 200px">
+                                                <input type="text" placeholder="Actividad..." name="nombre" style="width: 100%" style="width: 200px">
                                             </th>
                                             <th class="col-4">
-                                                <input type="date" placeholder="Periodo.." name="nombre" class="form-control" style="width: 300px">
+                                                <input type="date" placeholder="Periodo.." name="nombre" style="width: 100%" style="width: 300px">
                                             </th>
                                             <th scope="row" class="col-4">
                                                 <button class="btn btn-primary" style="width:37px"><i class="fas fa-plus-circle"></i></button>
@@ -143,18 +143,18 @@
                                     <thead class="thead-dark">
                                       <tr>
                                         <th scope="col">Busqueda de informacion</th>
-                                        <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
+                                        <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" style="width: 100%"></th>
                                         
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <th scope="row">Creacion de la herramienta</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
+                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" style="width: 100%"></td> 
                                       </tr>
                                       <tr>
                                         <th scope="row">Difucion del trabajo</th>
-                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
+                                        <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" style="width: 100%"></td> 
                                       </tr>
                                     </tbody>
                                 </table> -->

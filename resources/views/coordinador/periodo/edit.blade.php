@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
-                                <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                 
                                     <form action="/actualizar-periodos/{{$periodo->id}}" method="POST" enctype="multipart/form-data">
                                     @csrf  
@@ -39,14 +39,14 @@
                                         <div class="card-body">
                                             <div class="row form-group col-12">
                                                 <label for="" class="row col-12">Nombre</label>
-                                                <input name="nombre" type="text" class="form-control" tabindex="2" value="{{$periodo->nombre}}">                                        
+                                                <input name="nombre" type="text" style="width: 100%" tabindex="2" value="{{$periodo->nombre}}">                                        
                                             </div>
                                             
                                             <label for="" class="row col-12">Fecha Inicio</label>
-                                            <input name="fechaInicio" type="date" class="form-control" style="width: 170px" value="{{$periodo->fechaInicio}}">                                        
+                                            <input name="fechaInicio" type="date" style="width: 100%" style="width: 170px" value="{{$periodo->fechaInicio}}">                                        
         
                                             <label for="" class="row col-12">Fecha Fin</label>
-                                            <input name="fechaFin" type="date" class="form-control" style="width: 170px" value="{{$periodo->fechaFin}}">                                        
+                                            <input name="fechaFin" type="date" style="width: 100%" style="width: 170px" value="{{$periodo->fechaFin}}">                                        
 
                                             <label for="" class="row col-12">Rubrica</label>
 

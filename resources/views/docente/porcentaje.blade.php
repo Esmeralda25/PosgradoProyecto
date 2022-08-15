@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                     <div class="container">
                                         
 
@@ -34,7 +34,7 @@
                                             @method('PUT')
                                                 <div class="mb-3 form-group">
                                                 <label for="" class="form-label">Avance (En porcentaje %)</label><br>
-                                                <input name="avance" type="text" class="form-control" tabindex="2">
+                                                <input name="avance" type="text" style="width: 100%" tabindex="2">
                                                     </select>
                     
                                                 </div> 

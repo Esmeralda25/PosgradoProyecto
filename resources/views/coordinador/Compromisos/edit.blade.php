@@ -28,7 +28,7 @@
                                         <div class="card-body">
                                             <div class="row form-group col-12">
                                                 <label for="" class="row col-12">Compromiso</label>
-                                                <input id="titulo" name="titulo" type="text" class="form-control" tabindex="2" value="{{$compromiso->titulo}}">
+                                                <input id="titulo" name="titulo" type="text" style="width: 100%" tabindex="2" value="{{$compromiso->titulo}}">
                                             </div>
 
                                                 <a href="/Compromisos" class="btn btn-danger" tabindex="5">Cancelar</a>

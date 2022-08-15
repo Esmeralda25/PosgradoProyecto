@@ -206,10 +206,10 @@
                                   <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
                                   <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
                                   <th class="col-3">
-                                    <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                                    <input type="text" placeholder="Actividad..." name="nombre" style="width: 100%" style="margin-right: 5px; margin-left:4px; width: 200px">
                                   </th>
                                   <th class="row col-9">
-                                  <input type="text" placeholder="Periodo..." name="periodo" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                                  <input type="text" placeholder="Periodo..." name="periodo" style="width: 100%" style="margin-right: 5px; margin-left:4px; width: 200px">
 
                                     <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
                                   </th> 

@@ -215,8 +215,8 @@
                                                         </tbody>
                                                     </table>                               
                                             <div class="mb-3">
-                                            <input name="proyecto_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->id}}">
-                                            <input name="periodo_id" type="hidden" class="form-control" tabindex="2" value="{{$proyecto->estudiante->semestreActual->id}}">
+                                            <input name="proyecto_id" type="hidden" style="width: 100%" tabindex="2" value="{{$proyecto->id}}">
+                                            <input name="periodo_id" type="hidden" style="width: 100%" tabindex="2" value="{{$proyecto->estudiante->semestreActual->id}}">
 
                                             </div>
                                         </div>

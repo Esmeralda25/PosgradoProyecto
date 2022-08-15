@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-md-12">
                         <!-- contenido de main imagenes -->
-                                <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->                                    
+                                <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->                                    
 
                                     <form action="/guardar-generaciones" method="POST" enctype="multipart/form-data">
                                     @csrf

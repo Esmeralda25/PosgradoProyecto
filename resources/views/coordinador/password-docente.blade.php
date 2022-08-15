@@ -28,14 +28,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                             <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                         <form action="/actualizar-contraseñas/Docente/{{$docente->id}}​​" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         
                                                 <div class="form-group">
                                                 <label for="password">Introduce tu nuevo password:</label>
-                                                <input type="password" name="password" class="form-control">
+                                                <input type="password" name="password" style="width: 100%">
                                                 </div>
                                                 <a href="/listar-usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>
                                                 <button type="submit" class="btn btn-warning">Guardar</button>

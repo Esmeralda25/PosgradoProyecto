@@ -31,13 +31,13 @@
                             <div class="card-body"> 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Nombre</label>
-                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$generacion->nombre}}">
+                                    <input id="nombre" name="nombre" type="text" style="width: 100%" tabindex="2" value="{{$generacion->nombre}}">
                                 </div>
 
             
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Descripcion</label>
-                                    <input id="nombre" name="descripcion" type="text" class="form-control" tabindex="2" value="{{$generacion->descripcion}}">
+                                    <input id="nombre" name="descripcion" type="text" style="width: 100%" tabindex="2" value="{{$generacion->descripcion}}">
                                 </div>
                                 <a href="/generaciones" class="btn btn-danger" tabindex="5">Cancelar</a>
                                 <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>

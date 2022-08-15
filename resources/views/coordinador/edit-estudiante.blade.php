@@ -29,19 +29,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                             <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                         <form action="/actualizar-usuarios/Estudiante/{{$estudiante->id}}" method="post"  enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
 
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Nombre</label>
-                                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" value="{{$estudiante->nombre}}">
+                                                    <input id="nombre" name="nombre" type="text" style="width: 100%" tabindex="2" value="{{$estudiante->nombre}}">
                                                 </div>
                                             
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Correo</label>
-                                                    <input id="correo" name="correo" type="text" class="form-control" tabindex="3" value="{{$estudiante->correo}}">
+                                                    <input id="correo" name="correo" type="text" style="width: 100%" tabindex="3" value="{{$estudiante->correo}}">
                                                 </div>
                                        
                                                 <a href="/listar-usuarios" class="btn btn-danger" tabindex="5">Cancelar</a>

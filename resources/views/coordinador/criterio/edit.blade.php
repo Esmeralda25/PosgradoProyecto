@@ -31,7 +31,7 @@
                             <div class="card-body"> 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Descripcion</label>
-                                    <input name="descripcion" type="text" class="form-control" tabindex="2" value="{{$criterio->descripcion}}">
+                                    <input name="descripcion" type="text" style="width: 100%" tabindex="2" value="{{$criterio->descripcion}}">
                                 </div>
 
                                 <a href="/rubricas" class="btn btn-danger" tabindex="5">Cancelar</a>
