@@ -36,11 +36,13 @@ if (! function_exists('current_name')) {
 
             switch ($clase) {
                 case 'App\Models\Estudiante':
+                    return  "Estudiante : " . $usuario->pe->nombre . ":" . $usuario->nombre ;
+                    break;
                 case 'App\Models\Docente':
-                    return $usuario->nombre;
+                    return "Docente : " . $usuario->nombre ;
                     break;
                case 'App\Models\Pe':
-                    return $usuario->coordinador;
+                    return "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
                     break;
             }
         }

@@ -3,18 +3,6 @@
   <p>{{ \Session::get('usuario')->coordinador}}</p>
 
 @endsection
-@section('submenu') 
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="{{route('entrada.salida')}}">
-        <li class="nav-item"> 
-            @csrf
-            <a href="{{route('entrada.salida')}}" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
-
 @section('content')
 <section class="content">
     <div class="container-fluid ">

@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TecNM - {{ current_user() }}</title>
+    <title>TecNM - {{ current_type() }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -37,10 +37,16 @@
     <li class="nav-item d-none d-lg-inline-block">
         @yield('regresar')
       </i>
-  
       <li class="nav-item d-none d-sm-inline-block">
-        @yield('submenu')
-      </i>
+        <form action="{{route('entrada.salida')}}">
+            <li class="nav-item"> 
+                @csrf
+                <a href="{{route('entrada.salida')}}" class="nav-link"> 
+                <i  class="fa fa-sign-out" aria-hidden="true"></i>    
+            </a>
+            </li>    
+        </form>
+    </i>
       <li class="nav-item d-none d-sm-inline-block">
       @yield('inicio')               
       </li>
@@ -62,11 +68,8 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <span class="nav-link">
-          @if (\Session::has('identificacion'))
-            {{ \Session::get('identificacion')}}     
-          @endif
+          {{ current_name() }}
         </span>
-
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">

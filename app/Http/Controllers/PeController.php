@@ -17,8 +17,6 @@ class PeController extends Controller
     }
 
     public function create(){
-        
-
         return view('pe.agregar');
     }
     

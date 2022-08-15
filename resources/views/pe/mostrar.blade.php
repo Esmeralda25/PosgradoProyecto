@@ -1,16 +1,5 @@
 @extends('layouts.master');
 
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="{{route('entrada.salida')}}">
-        <li class="nav-item"> 
-            @csrf
-            <a href="{{route('entrada.salida')}}" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/pes')}}" class="nav-link">Inicio</a>

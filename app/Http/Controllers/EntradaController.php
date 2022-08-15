@@ -30,8 +30,6 @@ class EntradaController extends Controller
             $password_guadado = $usuario->password;
             //puesto: pe : nombre
             if (Hash::check($password_dieron, $password_guadado)) {               
-                $identificacion = "Estudiante : " . $usuario->pe->nombre . ":" . $usuario->nombre ;
-                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
                 return  redirect('/estudiantes');
             }
@@ -45,8 +43,6 @@ class EntradaController extends Controller
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
-                $identificacion = "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
-                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
                 return  redirect(route('coordinadores'));
             }
@@ -60,8 +56,6 @@ class EntradaController extends Controller
             $password_guadado = $usuario->password;
 
             if (Hash::check($password_dieron, $password_guadado)) {
-                $identificacion = "Docente : " . $usuario->nombre ;
-                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
                 return  redirect('/docentes');
             }
@@ -70,7 +64,6 @@ class EntradaController extends Controller
         if($peticion->input('nombre') == "informatico@gmail.com" ){
             if( $peticion->input('palabra') == "asd" ){
                 \Session::put('usuario' ,  ["nombre" => "informático"] );
-
                 return  redirect(route('programas.index'));
             }
         }
