@@ -1,17 +1,4 @@
 @extends('layouts.master')
-
-@section('regresar') 
-    <a href="/rubricas" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('coordinadores')}}" class="nav-link" >Inicio</a>
-</li>
-@endsection
-
-
 @section('content')
 <section class="content">
     <div class="container-fluid">

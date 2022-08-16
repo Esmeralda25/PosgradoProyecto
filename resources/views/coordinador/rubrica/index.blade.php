@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('regresar') 
-    <a href="{{route('coordinadores')}}" class="nav-link">
+    <a href="{{route('inicio')}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
 @endsection 
@@ -22,12 +22,6 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                    @if (session('message'))
-                                    <div class="alert alert-success alert-dismissable">
-                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        {{Session::get('message')}}
-                                    </div>
-                                    @endif 
                                     <!-- contenido de main imagenes -->
                                             <a style="margin: 10px auto;" href="{{route('rubricas.create')}}" class="btn btn-primary btn-block">Agregar</a>
                                             <table class="table table-dark table-striped mt-4">

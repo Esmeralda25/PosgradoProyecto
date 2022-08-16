@@ -30,7 +30,7 @@
                                         <div class="info-box">
                                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-medal"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/rubricas')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
+                                            <a href="{{route('rubricas.index')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Rubricas</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
 

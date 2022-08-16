@@ -1,9 +1,4 @@
 @extends('layouts.master')
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('coordinadores')}}" class="nav-link" >Inicio</a>
-</li>
-@endsection
 
 @section('content')
 <section class="content">

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('regresar') 
-    <a href="{{route('coordinadores')}}" class="nav-link">
+    <a href="{{route('inicio')}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
 @endsection 

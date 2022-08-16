@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
 class TableroController extends Controller
 {
@@ -10,18 +9,26 @@ class TableroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function coordinadores()
-    {
-        $usuario = \Session::get('usuario');
-        $usuario = $usuario->fresh();
-       return view('coordinador.index')->with('pe',$usuario);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function inicio(){
+        $usuario  = \Session::get('usuario' );
+        if (is_null($usuario)) redirect(route('welcome'));
+        if(is_array($usuario)){
+            return  redirect(route('programas.index'));  
+        }else{
+            $usuario = $usuario->fresh();
+            $clase = get_class($usuario);
+            switch ($clase) {
+                case 'App\Models\Estudiante':
+                    return  redirect('/estudiantes');
+                    break;
+                case 'App\Models\Docente':
+                    return  redirect('/docentes');
+                    break;
+               case 'App\Models\Pe':
+                    return view('coordinador.index')->with('pe',$usuario);
+                    break;
+            }
+        }
+    }    
 }
 

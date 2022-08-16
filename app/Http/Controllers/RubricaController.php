@@ -106,7 +106,7 @@ class RubricaController extends Controller
             Rubrica::destroy($id);
             return redirect('rubricas')->with('message','Rubrica eliminada correctamente');//detalle: que avise que si borro
         } catch (\Throwable $th) {
-            return redirect('rubricas');//detalle: que avise que no pudo borr
+            return redirect('rubricas')->with('message','No es posible eliminar esta rubrica pues contiene criterios');//detalle: que avise que no pudo borr
             alert("No se pudo borrar");
         }
     }

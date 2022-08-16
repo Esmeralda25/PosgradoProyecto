@@ -15,5 +15,9 @@ class Rubrica extends Model
         return $this->hasMany('App\Models\Criterio', 'rubrica_id','id');       
     }
 
+    public function criterios(){
+        return $this->hasMany('App\Models\Criterio');       
+    }
+
 
 }

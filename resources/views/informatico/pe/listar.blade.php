@@ -1,24 +1,12 @@
 @extends('layouts.master')
 @section('content')
-<section class="content">
-    <div class="container-fluid">
-
-        <div style="height:60px">
-        </div>  <!-- espacio del top -->  
-
         <div class="row justify-content-center" >
             <div class="col-10">
                 <div class="card col-12">
-                        <div class="card-header" style="text-align: center">
-                            <h1 class="card-title font-weight-bold" style="text-align: center">                                
-                            Programa Educativo
+                        <div class="card-header" >
+                            <h1 class="card-title font-weight-bold" >                                
+                                Programa Educativo
                             </h1>
-                            @if (session('message'))
-                                <div class="alert alert-success alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <strong>{{Session::get('message')}}</strong> 
-                                </div> 
-                            @endif
                         </div>
                         <a style="margin: 10px auto;" href="{{route('programas.create')}}" class="btn btn-primary btn-block">Agregar</a>
 
@@ -57,8 +45,6 @@
             </div>
     
         </div>
-    </div>
-</section>
 
 
 @endsection

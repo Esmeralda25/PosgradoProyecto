@@ -1,16 +1,4 @@
 @extends('layouts.master')
-@section('regresar') 
-    <a href="/listar-usuarios" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('coordinadores')}}" class="nav-link" >Inicio</a>
-</li>
-@endsection
-
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -63,7 +51,7 @@
                                         <label for="" class="form-label">Confirmar contraseña</label>
                                         <input id="password_confirmation" name="password_confirmation" type="password" style="width: 100%">
                                     </div>
-                                    <a href="{{route('coordinadores')}}" class="btn btn-danger" "5">Cancelar</a>
+                                    <a href="{{route('inicio')}}" class="btn btn-danger" "5">Cancelar</a>
                                     <button type="submit" class="btn btn-warning" "4"><a>Guardar</a></button>
                                 </form>
                             </div>

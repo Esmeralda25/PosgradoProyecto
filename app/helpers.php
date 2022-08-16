@@ -3,7 +3,7 @@ if (! function_exists('current_type')) {
     function current_type()
     {
         $usuario  = \Session::get('usuario' );
-        if (is_null($usuario)) return "BIENVENIDO";
+        if (is_null($usuario)) return "";
         if(is_array($usuario)){
             return "Informatico";  
         }else{

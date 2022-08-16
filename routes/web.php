@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GeneracionController;
 use App\Http\Controllers\PeriodosController;
 use App\Http\Controllers\RubricaController;
-use App\Http\Controllers\CriteriosController;
+use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CompromisosController;
@@ -21,13 +21,15 @@ use App\Http\Controllers\TableroController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 
 Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.validar');
 Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida');;
 Route::resource('info', InfoController::class); //tanto resource solo para poner creditos
 Route::get('manual', [UserController::class, 'manual']); //no funciona esta ruta
+
+Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
 
 
 ///INFORMATICO
@@ -38,31 +40,35 @@ Route::resource('programas', PeController::class);
 
 
 /// COORDINADOR
-    Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
+    //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
 //Docentes
 Route::resource('docentes', DocenteController::class);
 //Rubricas
 Route::resource('rubricas', RubricaController::class);
 //-Criterios
-Route::get('criterios/{rubrica}', [CriteriosController::class, 'index'])->name('criterios.index');
-Route::resource('criterios', RubricaController::class)->except('index');
+
+Route::get('criterios/create/{rubrica}', [CriterioController::class, 'create'])->name('criterios.create');
+Route::get('criterios/{rubrica}', [CriterioController::class, 'index'])->name('criterios.index');
+//Route::post('criterios', [CriterioController::class, 'store'])->name('criterios.store');
+
+Route::resource('criterios', CriterioController::class)->except(['index','create']);
+
+
 
 /*
-Route::get('agregar-criterios/{id}', [CriteriosController::class, 'create'])->name('criterios.create2');
-Route::post('guardar-criterios', [CriteriosController::class, 'store'])->name('criterios.store2');
-Route::get('editar-criterios/{id}', [CriteriosController::class, 'edit'])->name('criterios.edit2');
-Route::put('actualizar-criterios/{id}', [CriteriosController::class, 'update'])->name('criterios.update2');
-Route::delete('borrar-criterios/{id}', [CriteriosController::class, 'destroy'])->name('criterios.destroy2');
+Route::get('editar-criterios/{id}', [CriterioController::class, 'edit'])->name('criterios.edit2');
+Route::put('actualizar-criterios/{id}', [CriterioController::class, 'update'])->name('criterios.update2');
+Route::delete('borrar-criterios/{id}', [CriterioController::class, 'destroy'])->name('criterios.destroy2');
 */
 
 
+/*
 Route::get('agregar-rubricas', [RubricaController::class, 'create']);
 Route::post('guardar-rubricas', [RubricaController::class, 'store']);
 Route::get('editar-rubricas/{id}', [RubricaController::class, 'edit']);
 Route::put('actualizar-rubricas/{id}', [RubricaController::class, 'update']);
 Route::get('mostrar-rubricas/{id}', [RubricaController::class, 'show']);
-
-
+*/
 
 
 

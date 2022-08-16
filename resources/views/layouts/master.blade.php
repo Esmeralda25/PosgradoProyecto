@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TecNM - {{ current_type() }}</title>
-
+    <title>TecNM</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('adminlte/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('adminlte/css/socialbar.css')}}">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Theme style -->
@@ -20,45 +17,31 @@
     <!--LINK IMAGENES-->
     <link rel="preload" href="{{asset('adminlte/img/logotec.png')}}">
     <link rel="stylesheet" href="{{asset('adminlte/img/fondo1.jpg')}}">
-    
-    
 </head>
-<body class="fondo hold-transition dark-mode  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center" style="width: 100%">
     <img class="animation__wobble" src="{{asset('adminlte/img/logotec.png')}}" alt="AdminLTELogo" height="300" width="500">
   </div>
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-    <li class="nav-item d-none d-lg-inline-block">
-        @yield('regresar')
-      </i>
-      <li class="nav-item d-none d-sm-inline-block">
-        <form action="{{route('entrada.salida')}}">
-            <li class="nav-item"> 
-                @csrf
-                <a href="{{route('entrada.salida')}}" class="nav-link"> 
-                <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-            </a>
-            </li>    
-        </form>
-    </i>
-      <li class="nav-item d-none d-sm-inline-block">
-      @yield('inicio')               
+      <li class="nav-item d-none d-lg-inline-block">
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-      
-        <a href="
-        @switch(current_type())
-          @case("Coordiandor")
-             {{route('coordinadores')}}
-              @break
-        @endswitch
-        " class="nav-link">..INICIO..</a>
+        <form action="{{route('entrada.salida')}}">
+          @csrf
+          <li class="nav-item"> 
+            <a href="{{route('entrada.salida')}}" class="nav-link"> 
+              <i  class="fa fa-sign-out" aria-hidden="true"></i>    
+            </a>
+          </li>    
+        </form>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('inicio')}}" class="nav-link">..INICIO..</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://www.tuxtla.tecnm.mx/" target="_blank" class="nav-link">TecNM</a>
@@ -69,10 +52,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{url('/manual')}}"  target="_blank"  class="nav-link">Manuales de Usuario</a>
       </li>
-        
-      </ul>
-    
-
+    </ul>
     <!-- header-lado derecho -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
@@ -88,20 +68,32 @@
       </li>
     </ul>
   </nav>
-         
-
   <div class="content-wrapper" style="height: 100%; width: 100%">
-        
-      <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->
-      @yield('content')           
-          
-  </div>  
-    
-        
-  
- 
-  
+    <!-- Main content AQUI VA EL CONTENIDO PRINCIPAL -->
+    @if (session('message'))
+      <div class="alert alert-success alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>{{Session::get('message')}}</strong> 
+      </div> 
+    @endif
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+    <section class="content">
+      <div class="container-fluid">
+        <div style="height:60px">
+        </div>  <!-- separacion -->  
 
+        @yield('content')                   
+      </div>
+    </section>
+  </div>  
   <!-- Main Footer -->
   <footer class="main-footer  col-12">
   <ul>

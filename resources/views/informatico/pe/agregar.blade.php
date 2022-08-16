@@ -1,31 +1,11 @@
 @extends('layouts.master');
-
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('programas.index')}}" class="nav-link">Inicio</a>
-</li>
-@endsection
 @section('content')
-<section class="content">
-    <div class="container-fluid">
-        <div style="height:60px">
-        </div>  <!-- espacio del top -->  
-
         <div class="row justify-content-center" >
             <div class="col-12">
                 <div class="card col-12">
                         <div class="card-header" style="text-align: center">
                             <h1 class="card-title font-weight-bold" style="text-align: center">Crear Registros</h1>
                         </div>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div >
@@ -59,7 +39,5 @@
                 </div>
             </div>
         </div> 
-    </div> 
-</section>  
 
 @endsection
