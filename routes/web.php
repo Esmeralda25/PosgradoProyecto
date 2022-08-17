@@ -14,14 +14,14 @@ Route::get('/', function () {
 
 Route::post('entrada','App\Http\Controllers\EntradaController@validar'); 
 Route::get('logout', 'App\Http\Controllers\EntradaController@logout');
-Route::resource('info', 'App\Http\Controllers\InfoController');
+Route::get('info', 'App\Http\Controllers\InfoController@index');
 
 Route::resource('pes', PesController::class);
 
 
 //------------------------USUARIO COORDINADOR-------------------------
 Route::resource('coordinadores', 'App\Http\Controllers\CoordinadorController');
-Route::get('manual', 'App\Http\Controllers\CoordinadorController@manual');
+Route::get('manuales', 'App\Http\Controllers\CoordinadorController@manual');
 
 //opcion: Usuarios
 Route::get('listar-usuarios', 'App\Http\Controllers\coordinadorController@listarUsuarios')->middleware('coordina'); 

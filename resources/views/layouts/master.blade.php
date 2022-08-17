@@ -30,7 +30,7 @@
     <img class="animation__wobble" src="{{asset('adminlte/img/logotec.png')}}" alt="AdminLTELogo" height="300" width="500">
   </div>
 
-  <!-- Navbar -->
+  <!-- Navbar --> 
   <nav class="main-header navbar navbar-expand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -51,7 +51,7 @@
         <a href="https://sii.tuxtla.tecnm.mx/" class="nav-link">SII</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/manual')}}" class="nav-link">Manuales de Usuario</a>
+        <a href="{{url('/manuales')}}" class="nav-link">Manuales de Usuario</a>
       </li>
         
       </ul>

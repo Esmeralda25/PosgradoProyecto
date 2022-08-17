@@ -256,7 +256,7 @@ class CoordinadorController extends Controller
         }
     public function manual()
     {
-        return view('manual');
+        return view('manuales');
 
     }
 
