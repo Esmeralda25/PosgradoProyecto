@@ -1,10 +1,4 @@
 @extends('layouts.master')
-
-@section('regresar') 
-    <a href="/rubricas" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection 
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -47,6 +41,7 @@
                                             @endforeach       
                                         </tbody>
                                     </table>
+                                    <a style="margin: 10px auto;" href="{{route('rubricas.index')}}" class="btn btn-primary btn-block">Listar Rubicas del programa</a>
                                 </div>
                             </div>
                         </div>

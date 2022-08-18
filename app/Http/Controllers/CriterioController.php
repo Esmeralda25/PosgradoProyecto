@@ -18,8 +18,8 @@ class CriterioController extends Controller
 
     public function create($id){
         
-        $rubricas = Rubrica::find($id);        
-        return view('coordinador.rubrica.criterio.create')->with('rubrica',$rubricas);//compact('rubricas'));
+        $rubrica = Rubrica::find($id);        
+        return view('coordinador.rubrica.criterio.create', compact('rubrica'));
         
     }
     
@@ -60,8 +60,8 @@ class CriterioController extends Controller
     public function edit($id)
     {
         //$this->authorize('crit', $id);
-        $criterios = Criterio::find($id);
-        return view('coordinador.rubrica.criterio.edit')->with('criterio',$criterios); 
+        $criterio = Criterio::find($id);
+        return view('coordinador.rubrica.criterio.edit',compact('criterio')); 
     }
 
     /**
@@ -77,9 +77,8 @@ class CriterioController extends Controller
         $registro = Criterio::find($id);
         $registro->fill($criterios);
         $registro->save();
-        //este id es el id del criterio necesitas saber de que rubrica estas hablando.
         $idr = $registro->rubrica->id;
-        return redirect("/criterios/$idr")->with('message','Citerio actualizado correctamente');
+        return redirect(route('criterios.index',$idr))->with('message','Citerio actualizado correctamente');
     }
 
     /**
@@ -90,13 +89,14 @@ class CriterioController extends Controller
      */
     public function destroy($id)
     {
+        $critero = Criterio::find($id);
+        $idr = $critero->rubrica->id;
         try{
-            Criterio::destroy($id);
-            return redirect("/criterios/$id")->with('message','Criterio eliminado correctamente');
+            $critero->delete();
+            return redirect(route('criterios.index',$idr))->with('message','Criterio eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect("/criterios/$id")->with('message','No se pudo eliminar el criterio, verifiue');
+            return redirect(route('criterios.index',$idr))->with('message','No se pudo eliminar el criterio, verifiue:  ' . $th->getMessage());
         }
     }
-
 }
 
