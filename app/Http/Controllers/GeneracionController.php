@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Generacion;
-use App\Models\Pe;
+use App\Http\Requests\GeneracionRequest;
 
 
   
@@ -14,8 +14,8 @@ class GeneracionController extends Controller
          //$this->authorize('listar');
         $pe = \Session::get('usuario');
         $pe= $pe->fresh();
-        $generaciones = Generacion::where('pes_id', $pe->id)->orderBy('nombre','DESC')->paginate(8);
-        return view('coordinador.generacion.index',compact('generaciones',$generaciones));
+        $generaciones = Generacion::where('pe_id', $pe->id)->orderBy('nombre','DESC')->paginate(8);
+        return view('coordinador.generacion.index',compact('generaciones'));
     
     }
 
@@ -23,24 +23,33 @@ class GeneracionController extends Controller
 
         //$this->authorize('create', Generacion::class);
         $pe = \Session::get('usuario');
-        return view('coordinador.generacion.create')->with('pe',$pe);
+        $pe= $pe->fresh();
+
+        $pe_id = $pe->id;
+
+        return view('coordinador.generacion.create', compact('pe_id'));
 
         
     }
     
-    public function store(Request $request) 
-    {
-        generacion::create(request()->all());
-        return redirect('/listar-generaciones')->with('message','Generacion agregada correctamente');
-    }
-
-    
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\GeneracionRequest $request
      * @return \Illuminate\Http\Response
      */
+
+    public function store(GeneracionRequest $request) 
+    {
+        try {
+            generacion::create(request()->all());
+        } catch (\Throwable $th) {
+            return redirect(route('generaciones.index'))->with('message','Error al crear la generacion: ' . $th->getMessage() );
+        }
+        return redirect(route('generaciones.index'))->with('message','Generacion guardada correctamente');
+    }
+
+    
     
 
     /**
@@ -64,8 +73,7 @@ class GeneracionController extends Controller
     {
         //$this->authorize('listar',$id);
         $generacion = Generacion::find($id);
-
-        return view('coordinador.generacion.edit')->with('generacion',$generacion); 
+        return view('coordinador.generacion.edit',compact('generacion',)); 
     }
 
     /**
@@ -81,7 +89,7 @@ class GeneracionController extends Controller
         $registro = Generacion::find($id);
         $registro->fill($generacion);
         $registro->save();
-        return redirect("/listar-generaciones")->with('mensaje','Generacion actualizada correctamente');
+        return redirect(route('generaciones.index'))->with('message','Generacion actualizada correctamente');
     }
 
     /**
@@ -95,9 +103,9 @@ class GeneracionController extends Controller
     {
         try{
             Generacion::destroy($id);
-            return redirect('listar-generaciones')->with('borrar','Generacion eliminada correctamente');
+            return redirect(route('generaciones.index'))->with('message','Generacion eliminada correctamente');
         } catch (\Throwable $th) {
-            return redirect('listar-generaciones')->with('nborrar','Esta generación no se pudo borrar ya que tiene periodos agregados');
+            return redirect(route('generaciones.index'))->with('message','Esta generación no se pudo borrar ya que tiene periodos agregados');
         }
     }
 }

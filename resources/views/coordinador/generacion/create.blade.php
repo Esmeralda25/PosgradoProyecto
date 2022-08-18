@@ -1,17 +1,4 @@
 @extends('layouts.master')
-
-@section('regresar') 
-    <a href="/generaciones" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
-@section('inicio')
-<li class="nav-item d-none d-sm-inline-block">
-      <a href="{{route('inicio')}}" class="nav-link" >Inicio</a>
-</li>
-@endsection
-
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -29,31 +16,20 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                        <!-- contenido de main imagenes -->
-                                <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->                                    
-
-                                    <form action="/guardar-generaciones" method="POST" enctype="multipart/form-data">
+                                    <form action="{{route('generaciones.store')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                           
                                     <div class="card-body">
                                     <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Nombre</label>
-                                    <input type="text" class="row col-12" name="nombre">
+                                        <label for="" class="row col-12">Nombre</label>
+                                        <input type="text" class="row col-12" name="nombre" value="{{old('nombre')}}">
                                     </div>
-
-    
                                     <div class="row form-group col-12">
-                                    <label for="" class="row col-12">Descripcion</label>
-                                    <input type="text" class="row col-12" name="descripcion">
+                                        <label for="" class="row col-12">Descripcion</label>
+                                        <input type="text" class="row col-12" name="descripcion" value="{{old('descripcion')}}">
                                     </div>
-
-                                    <div class="row form-group col-12">
-                                    <input type="hidden" class="row col-12" name="pes_id" value="{{$pe->id}}">
-                                    </div>
-
-                                    
-                                            <a href="/generaciones" class="btn btn-danger" tabindex="5">Cancelar</a>
-                                            <button type="submit" class="btn btn-warning" tabindex="4">Guardar</button>
+                                        <input type="hidden" class="row col-12" name="pe_id" value="{{$pe_id}}">
+                                        <a href="{{route('generaciones.index')}}" class="btn btn-danger">Cancelar</a>
+                                        <button type="submit" class="btn btn-warning">Guardar</button>
                                     </form>
                                     
                                     

@@ -46,52 +46,34 @@ Route::resource('docentes', DocenteController::class);
 //Rubricas
 Route::resource('rubricas', RubricaController::class);
 //-Criterios
-
 Route::get('criterios/create/{rubrica}', [CriterioController::class, 'create'])->name('criterios.create');
 Route::get('criterios/{rubrica}', [CriterioController::class, 'index'])->name('criterios.index');
-//Route::post('criterios', [CriterioController::class, 'store'])->name('criterios.store');
-
 Route::resource('criterios', CriterioController::class)->except(['index','create']);
 
-
-
-/*
-Route::get('editar-criterios/{id}', [CriterioController::class, 'edit'])->name('criterios.edit2');
-Route::put('actualizar-criterios/{id}', [CriterioController::class, 'update'])->name('criterios.update2');
-Route::delete('borrar-criterios/{id}', [CriterioController::class, 'destroy'])->name('criterios.destroy2');
-*/
-
-
-/*
-Route::get('agregar-rubricas', [RubricaController::class, 'create']);
-Route::post('guardar-rubricas', [RubricaController::class, 'store']);
-Route::get('editar-rubricas/{id}', [RubricaController::class, 'edit']);
-Route::put('actualizar-rubricas/{id}', [RubricaController::class, 'update']);
-Route::get('mostrar-rubricas/{id}', [RubricaController::class, 'show']);
-*/
-
-
-
-
-//opcion: Generaciones
+//Generaciones
 Route::resource('generaciones', GeneracionController::class);
+
+/* 
 Route::get('listar-generaciones', [GeneracionController::class, 'index']);
 Route::get('agregar-generaciones', [GeneracionController::class, 'create']);
 Route::post('guardar-generaciones', [GeneracionController::class, 'store']);
 Route::get('editar-generaciones/{id}', [GeneracionController::class, 'edit']);
 Route::put('actualizar-generaciones/{id}', [GeneracionController::class, 'update']);
 Route::delete('eliminar-generaciones/{id}', [GeneracionController::class, 'destroy']);
-
+*/
 
 //opcion: Periodos
-Route::get('periodos/{id}', [PeriodosController::class, 'index']);
-Route::get('agregar-periodos/{id}', [PeriodosController::class, 'create']);
+Route::get('periodos/{programa}', [PeriodosController::class, 'index']);
+Route::get('periodos/{programa}', [PeriodosController::class, 'create']);
+Route::resource('periodos', PeriodosController::class);
+
+/*
 Route::post('guardar-periodos', [PeriodosController::class, 'store']);
 Route::get('editar-periodos/{id}', [PeriodosController::class, 'edit']);
 Route::put('actualizar-periodos/{id}', [PeriodosController::class, 'update']);
 Route::get('estadisticos', [PeriodosController::class, 'estadistico']);
 Route::delete('borrar-periodos/{id}', [PeriodosController::class, 'destroy']);
-
+*/
 
 
 //opcion: Compromisos
