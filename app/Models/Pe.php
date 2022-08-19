@@ -24,7 +24,7 @@ class Pe extends Usuario
     public function docentes(){
 
         return $this->hasManyThrough(
-            docente::class,
+            Docente::class,
             Adscripcion::class,
             'pe_id', // `adscripciones`.`pe_id`
             'id', //docentes`.`id`

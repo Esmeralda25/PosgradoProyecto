@@ -127,7 +127,7 @@
                       <form action="/comprometerse" method="POST">    
                         @csrf
                           @method('PUT')    
-                            <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                            <input type="hidden" name="periodo_id" value="{{$estudiante->semestreActual->id}}">
                             <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
                         <th class="col-7">
                           A que te comprometes: 
@@ -203,7 +203,7 @@
                           <form action="/comprometerse" method="POST">    
                               @csrf
                                 @method('PUT')    
-                                  <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                                  <input type="hidden" name="periodo_id" value="{{$estudiante->semestreActual->id}}">
                                   <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
                                   <th class="col-3">
                                     <input type="text" placeholder="Actividad..." name="nombre" style="width: 100%" style="margin-right: 5px; margin-left:4px; width: 200px">

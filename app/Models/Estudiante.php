@@ -8,7 +8,7 @@ class Estudiante extends Usuario
 {
  
     protected $fillable=['nombre','correo','password','pes_id',
-    'compromisos_id','actividades_id','periodos_id', 'cursando'];
+    'compromisos_id','actividades_id','periodo_id', 'cursando'];
     
     public $timestamps = false;
     
@@ -44,11 +44,11 @@ class Estudiante extends Usuario
     }
 
     public function semestreActual(){
-        return $this->hasOne('App\Models\Periodo','id','periodos_id');
+        return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
 
     public function nuevoPeriodo(){
-        return $this->hasMany('App\Models\Periodo','id','periodos_id');
+        return $this->hasMany('App\Models\Periodo','id','periodo_id');
     }
     
     public function proyecto(){

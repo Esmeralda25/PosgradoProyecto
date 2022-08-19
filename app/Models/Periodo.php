@@ -11,6 +11,9 @@ class Periodo extends Model
     protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];
     public $timestamps = false;
 
+    public function generacion(){
+        return $this->belongsTo('App\Models\Generacion');
+    }
     public function pe(){
 //        protected $fillable=['nombre','descripcion','pes_id'];
         return $this->hasOneThrough(
@@ -19,13 +22,20 @@ class Periodo extends Model
             'id',//generaciones.id
             'id',//pes.id
             'generacion_id',//no se que hace
-            'pes_id'//generaciones.pes_id
+            'pe_id'//generaciones.pe_id
         );
-
-
     }
-    public function rubricaAUsar(){
-        return $this->hasOne('App\Models\Rubrica','id','rubrica');
+    public function rubrica(){
+        //hasOne si rubircas tiene un periodo_id que sea ? donde ? es el id actual
+        //belognsTo si `rubricas`.`id` = ? donde ? es el rubrica_id
+        return $this->belongsTo('App\Models\Rubrica');
+    } 
+    public function estudiantes(){
+       return $this->hasMany('App\Models\Estudiante');
     }
+    public function inscritos(){
+        return $this->hasMany('App\Models\Estudiante')->count();
+     }
+ 
 }
 

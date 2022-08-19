@@ -6,7 +6,7 @@ use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GeneracionController;
-use App\Http\Controllers\PeriodosController;
+use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\ProyectoController;
@@ -46,33 +46,24 @@ Route::resource('docentes', DocenteController::class);
 //Rubricas
 Route::resource('rubricas', RubricaController::class);
 //-Criterios
-Route::get('criterios/create/{rubrica}', [CriterioController::class, 'create'])->name('criterios.create');
-Route::get('criterios/{rubrica}', [CriterioController::class, 'index'])->name('criterios.index');
+Route::get('criterios/create/{rubrica_id}', [CriterioController::class, 'create'])->name('criterios.create');
+Route::get('criterios/{rubrica_id}', [CriterioController::class, 'index'])->name('criterios.index');
 Route::resource('criterios', CriterioController::class)->except(['index','create']);
 
 //Generaciones
 Route::resource('generaciones', GeneracionController::class);
+//-Periodos
+Route::get('periodos/create/{geneacion_id}', [PeriodoController::class, 'create'])->name('periodos.create');
+Route::get('periodos/{geneacion_id}', [PeriodoController::class, 'index'])->name('periodos.index');
+Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');;
 
-/* 
-Route::get('listar-generaciones', [GeneracionController::class, 'index']);
-Route::get('agregar-generaciones', [GeneracionController::class, 'create']);
-Route::post('guardar-generaciones', [GeneracionController::class, 'store']);
-Route::get('editar-generaciones/{id}', [GeneracionController::class, 'edit']);
-Route::put('actualizar-generaciones/{id}', [GeneracionController::class, 'update']);
-Route::delete('eliminar-generaciones/{id}', [GeneracionController::class, 'destroy']);
-*/
-
-//opcion: Periodos
-Route::get('periodos/{programa}', [PeriodosController::class, 'index']);
-Route::get('periodos/{programa}', [PeriodosController::class, 'create']);
-Route::resource('periodos', PeriodosController::class);
+Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
 /*
-Route::post('guardar-periodos', [PeriodosController::class, 'store']);
-Route::get('editar-periodos/{id}', [PeriodosController::class, 'edit']);
-Route::put('actualizar-periodos/{id}', [PeriodosController::class, 'update']);
-Route::get('estadisticos', [PeriodosController::class, 'estadistico']);
-Route::delete('borrar-periodos/{id}', [PeriodosController::class, 'destroy']);
+Route::post('guardar-periodos', [PeriodoController::class, 'store']);
+Route::get('editar-periodos/{id}', [PeriodoController::class, 'edit']);
+Route::put('actualizar-periodos/{id}', [PeriodoController::class, 'update']);
+Route::delete('borrar-periodos/{id}', [PeriodoController::class, 'destroy']);
 */
 
 

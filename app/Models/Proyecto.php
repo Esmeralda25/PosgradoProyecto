@@ -29,7 +29,7 @@ class Proyecto extends Model
     
     public function compromisos($semestre){
         return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
-        ->where('periodos_id',$semestre)
+        ->where('periodo_id',$semestre)
         ;
     }
 
@@ -41,7 +41,7 @@ class Proyecto extends Model
 
     public function actividades($semestre){
         return $this->hasMany('App\Models\Actividad','proyectos_id','id')
-        ->where('periodos_id',$semestre)
+        ->where('periodo_id',$semestre)
         ;
     }
 

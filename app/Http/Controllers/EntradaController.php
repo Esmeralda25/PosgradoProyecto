@@ -44,7 +44,8 @@ class EntradaController extends Controller
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
                 \Session::put('usuario' ,  $usuario );
-                return  view('coordinador.index')->with('pe',$usuario);
+                return redirect(route('inicio'));
+                // view('coordinador.index')->with('pe',$usuario);
             }
         } 
         

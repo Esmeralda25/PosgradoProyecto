@@ -9,17 +9,16 @@ use App\Http\Requests\CriterioRequest;
 
 class CriterioController extends Controller
 {
-    public function index($id){ 
+    public function index($rubrica_id){ 
         //$this->authorize('crit', $id);
-        $rubrica = Rubrica::find($id);
+        $rubrica = Rubrica::find($rubrica_id);
         $criterios = $rubrica->criterios;
         return view('coordinador.rubrica.criterio.index', compact('rubrica','criterios'));
     }
 
-    public function create($id){
+    public function create($rubrica_id){
         
-        $rubrica = Rubrica::find($id);        
-        return view('coordinador.rubrica.criterio.create', compact('rubrica'));
+        return view('coordinador.rubrica.criterio.create', compact('rubrica_id'));
         
     }
     

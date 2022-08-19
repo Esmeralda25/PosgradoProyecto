@@ -27,9 +27,9 @@
                             <input name="descripcion" type="text" style="width: 100%" value="{{old('descripcion')}}">
                         </div>
                         <div class="mb-3">
-                            <input name="rubrica_id" type="hidden" value="{{$rubrica->id}}">
+                            <input name="rubrica_id" type="hidden" value="{{$rubrica_id}}">
                         </div>
-                        <a href="{{route('criterios.index',$rubrica->id)}}" class="btn btn-danger">Cancelar</a>
+                        <a href="{{route('criterios.index',$rubrica_id)}}" class="btn btn-danger">Cancelar</a>
                         <input type="submit" class="btn btn-warning" value="Guardar">
                     </form>
                 </div>

@@ -40,7 +40,13 @@
                                         <div class="info-box mb-3">
                                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calendar-check"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{route('generaciones.index')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
+                                                @if ($pe->rubricas->count()==0)
+                                                    <span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span> DEBE DE AGREGAR RUBRICAS
+                                                @else
+                                                    <a href="{{route('generaciones.index')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Generaciones</span></a>
+                                                    
+                                                @endif
+    
                                             </div>
 
                                         </div>
@@ -87,7 +93,7 @@
 
 
 @endsection
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapºr. Contains page content -->
 
 
 

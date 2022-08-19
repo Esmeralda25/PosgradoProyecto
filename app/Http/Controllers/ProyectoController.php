@@ -47,7 +47,7 @@ class ProyectoController extends Controller
         //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
         $estudiante = $estudiante->fresh(); 
         $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        $periodos = Estudiante::where('periodos_id', $estudiante->periodos)->get();
+        $periodos = Estudiante::where('periodo_id', $estudiante->periodos)->get();
         return view('estudiante.comprometerse', compact('estudiante','compromisos', 'periodos'));  
     
         
@@ -57,7 +57,7 @@ class ProyectoController extends Controller
     public function update(Request $request){
     
 
-        if($request->periodos_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
+        if($request->periodo_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
             $rules = [
                 'cuantos_prog'=>'required'
             ];
