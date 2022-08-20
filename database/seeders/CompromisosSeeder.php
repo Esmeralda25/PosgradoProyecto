@@ -15,13 +15,13 @@ class CompromisosSeeder extends Seeder
     public function run()
     {
       $compromisos = array(
-        array('id' => '1','titulo' => 'Artículos JCR sometidos','pes_id' => '2'),
-        array('id' => '2','titulo' => 'Artículos JCR Aceptados o Publicados','pes_id' => '5'),
-        array('id' => '3','titulo' => 'Modelo de utilidad o patente','pes_id' => NULL),
-        array('id' => '4','titulo' => 'Conferencias Nacionales','pes_id' => '2'),
-        array('id' => '5','titulo' => 'Conferencias Internacionales.','pes_id' => '5'),
-        array('id' => '9','titulo' => 'Compromiso 2p','pes_id' => '6'),
-        array('id' => '10','titulo' => 'Compromiso 1p','pes_id' => '6')
+        array('id' => '1','titulo' => 'Artículos JCR sometidos','pe_id' => '2'),
+        array('id' => '2','titulo' => 'Artículos JCR Aceptados o Publicados','pe_id' => '5'),
+        array('id' => '3','titulo' => 'Modelo de utilidad o patente','pe_id' => NULL),
+        array('id' => '4','titulo' => 'Conferencias Nacionales','pe_id' => '2'),
+        array('id' => '5','titulo' => 'Conferencias Internacionales.','pe_id' => '5'),
+        array('id' => '9','titulo' => 'Compromiso 2p','pe_id' => '6'),
+        array('id' => '10','titulo' => 'Compromiso 1p','pe_id' => '6')
       );
       
       foreach ($compromisos  as $compromiso ) {
