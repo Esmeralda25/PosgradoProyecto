@@ -37,6 +37,7 @@
                                             <td>
                                                 <a href="{{route('periodos.edit',$periodo->id)}}" class="btn btn-info">EDITAR</a>
                                                 <a href="/estadisticos" class="btn btn-warning" style="color: white">ESTADISTICOS</a>
+                                                <a href="{{route('periodos.proyectos',$periodo->id)}}" class="btn btn-primary" >PROYECTOS</a>
                                                 <form action="{{route('periodos.destroy',$periodo->id)}}" style="display:inline" method="post" >
                                                     @csrf
                                                     @method('delete')

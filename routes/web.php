@@ -53,23 +53,17 @@ Route::resource('criterios', CriterioController::class)->except(['index','create
 //Generaciones
 Route::resource('generaciones', GeneracionController::class);
 //-Periodos
-Route::get('periodos/create/{geneacion_id}', [PeriodoController::class, 'create'])->name('periodos.create');
-Route::get('periodos/{geneacion_id}', [PeriodoController::class, 'index'])->name('periodos.index');
-Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');;
+Route::get('periodos/create/{geneacion}', [PeriodoController::class, 'create'])->name('periodos.create');
+Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos'])->name('periodos.proyectos');
+Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
+Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');
+
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
 //Compromisos
 Route::resource('compromisos', CompromisosController::class);
 
-/*
-Route::put('compromisos/{id}', [UserController::class, 'actualizarCompromiso']);
-Route::get('listar-compromisos', [CompromisosController::class, 'index']);
-Route::get('agregarCompromisos', [CompromisosController::class, 'create']);
-Route::post('guardarCompromisos', [CompromisosController::class, 'store']);
-Route::get('editarCompromisos/{id}', [CompromisosController::class, 'edit']);
-*/
-
-
+//proyectos(asignar comite)
 
 //al modificar proyectos
 Route::get('listar-proyectos', [UserController::class, 'listarProyectos']);

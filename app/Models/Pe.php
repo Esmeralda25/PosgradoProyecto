@@ -10,17 +10,31 @@ class Pe extends Usuario
     public $timestamps = false;
 //    protected $with=["docentes"];
 
+
     public function proyectos(){
         return $this->hasManyThrough(
             proyecto::class,
             estudiante::class,   
-            'pes_id', // Foreign key on the environments table...
-            '', //categoria_id // Foreign key on the deployments table...
-            '' , //cid // Local key on the projects table...
-            'id' // Local key on the environments table...
+            'pes_id', // estudiantes.pes_id 
+            '', //estudiante_id
+            '' , // Local key on the ___ table...
+            'id' // estudiantes.id
         );
-    }
+    }   
 
+    public function proyectosSinComite(){
+    return $this->hasManyThrough(
+        proyecto::class,
+        estudiante::class,   
+        'pes_id', // estudiantes.pes_id 
+        '', //estudiante_id
+        '' , // Local key on the ___ table...
+        'id' // estudiantes.id
+    )
+    ->whereNull('comite_id');
+}
+//"select * from `proyectos` inner join `estudiantes` on `estudiantes`.`id` = `proyectos`.`estudiante_id` where `estudiantes`.`pes_id` = ?"
+// select * from `proyectos` inner join `estudiantes` on `estudiantes`.`id` = `proyectos`.`x`             where `estudiantes`.`pes_id` is null"
     public function docentes(){
 
         return $this->hasManyThrough(

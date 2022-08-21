@@ -108,4 +108,13 @@ class PeriodoController extends Controller
     public function estadistico(){
         return view('coordinador.estadistico.index');
     }
+
+    public function proyectos($periodo_id)
+    {
+        //$this->authorize('perio', $id);
+        $periodo = Periodo::find($periodo_id);
+        $proyectos = $periodo->proyectos;
+        return view('coordinador.generacion.periodo.proyectos', compact('proyectos') );
+    }
+
 }

@@ -13,7 +13,8 @@ class Generacion extends Model
     public $timestamps = false;
 
     public function periodos(){
-        return $this->hasMany('App\Models\Periodo')->orderBy('fechaInicio','ASC');
+        return $this->hasMany('App\Models\Periodo')->orderBy('fechaInicio','ASC')->orderBy('fechaFin','ASC')
+        ;
     }
     public function pe(){
         return $this->belongsTo('App\Models\Pe');

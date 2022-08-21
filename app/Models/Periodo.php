@@ -35,7 +35,9 @@ class Periodo extends Model
     }
     public function inscritos(){
         return $this->hasMany('App\Models\Estudiante')->count();
-     }
- 
+    }
+    public function proyectos(){
+        return $this->hasMany('App\Models\Proyecto');
+    } 
 }
 

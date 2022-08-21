@@ -20,7 +20,13 @@ class Proyecto extends Model
          
     }
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','periodo_id');
+        return $this->hasOne('App\Models\Periodo','id','periodo_id')
+        ->withDefault(
+            [
+                'id' => 0,
+                'nombre' => 'Sin periodo asignado'
+            ]
+        );
     }
 
     public function compromiso(){
