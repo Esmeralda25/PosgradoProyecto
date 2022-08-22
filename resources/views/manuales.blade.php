@@ -25,7 +25,7 @@
                                         <div class="info-box">
                                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user-tie"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Informático</span></a>
+                                            <a target="_blank" href="https://drive.google.com/file/d/1GVmOb13feW-5_UNgIfWCKQG-1IvH1Nn5/view?usp=sharing"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Informático</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
 
@@ -35,7 +35,7 @@
                                         <div class="info-box">
                                         <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user-tie"></i></span>
                                             <div class="info-box-content">
-                                            <a href="{{url('/')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Coordinador</span></a>
+                                            <a target="_blank" href="https://drive.google.com/file/d/1KVBta4VoUkso9mDcD-9dUtVqzCTYLMV_/view?usp=sharing"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Coordinador</span></a>
                                             </div>
                                             <!-- /.info-box-content -->
 
@@ -46,7 +46,7 @@
                                         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user-tie"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Docente</span></a>
+                                            <a target="_blank" href="https://drive.google.com/file/d/1HFrd5sjomGoBJ0lEvT_mPZr3JwEv4PUM/view?usp=sharing"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Docente</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->
@@ -56,7 +56,7 @@
                                         <div class="info-box mb-3">
                                         <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-tie"></i></span>
                                             <div class="info-box-content">
-                                                <a href="{{url('/')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Estudiante</span></a>
+                                            <a target="_blank" href="https://drive.google.com/file/d/17b-nebm41buNDoj-zQDBynpvW9vnZe1s/view?usp=sharing"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Estudiante</span></a>
                                             </div>
 
                                         </div>
