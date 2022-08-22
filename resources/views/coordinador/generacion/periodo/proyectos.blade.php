@@ -32,6 +32,7 @@
                                                     <th scope="col">Proyecto</th>
                                                     <th scope="col">Estudiante</th>
                                                     <th scope="col">Asesor</th>
+                                                    <th scope="col">Acciones</th>
                                                 <tr>
                                             </thead>
                                             <tbody>
@@ -40,14 +41,23 @@
                                                     {{-- no son th si no td --}}
                                                     <td>{{$proyecto->titulo}}</td>
                                                     <td>{{$proyecto->estudiante->nombre}}</td>
-                                                    <td colspan="2">
+                                                    <td >
                                                         @if ($proyecto->comite_id != null )
                                                             {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
                                                         @else
                                                             No asignado.
                                                         @endif
                                                     </td>
+                                                    <td>
+                                                        @if ($proyecto->periodo->id == 0 )
+                                                            No tiene periodo
+                                                        @else
+                                                            <a href="{{route('periodos.cambiarGet',$proyecto->id)}}" class="btn btn-danger">CAMBIAR</a>
+                                                        @endif
+                                                    </td>
+    
                                                 <tr> 
+
                                             @endforeach
                                             </tbody>
                                         </table>  

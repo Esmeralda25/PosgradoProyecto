@@ -1,10 +1,4 @@
 @extends('layouts.master')
-
-@section('regresar') 
-    <a href="{{route('inicio')}}" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -35,7 +29,7 @@
                                             <thead >
                                                 
                                                 <tr>
-
+                                                    <th scope="col">Periodo</th>
                                                     <th scope="col">Proyecto</th>
                                                     <th scope="col">Estudiante</th>
                                                     <th scope="col">Asesor</th>
@@ -47,31 +41,27 @@
                                             @foreach($proyectos as $proyecto)
                                             <tr>
                                                 {{-- no son th si no td --}}
+                                                <td>{{$proyecto->periodo->nombre}}</td>
                                                 <td>{{$proyecto->titulo}}</td>
                                                 <td>{{$proyecto->estudiante->nombre}}</td>
 
 
                                                 @if ($proyecto->comite_id != null )
-                                                <td colspan="2">
-                                                    {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
-                                                </td>
+                                                    <td>
+                                                        {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
+                                                    </td>
                                                 @else
-                                                <td>
-                                                    No asignado.
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group" style="padding-rigth: 12px">
-                                                        <buttom class="btn btn-danger" style="padding-rigth: 12px"> 
-                                                            <a href="/asignar-comite/{{$proyecto->id}}" style="color: black">ASIGNAR</a> 
-                                                            {{--no le asiganas solo asesores, le asignas comite tutortial--}}
-                                                        </buttom>
-                                                    </div> 
-                                                </td>
-
+                                                    <td>
+                                                        No asignado.
+                                                    </td>
                                                 @endif
-
-
-
+                                                <td>
+                                                    @if ($proyecto->periodo->id == 0 )
+                                                        No tiene periodo
+                                                    @else
+                                                        <a href="{{route('proyectos.asignarGet',$proyecto->id)}}" class="btn btn-danger">ASIGNAR</a>
+                                                    @endif
+                                                </td>
                                             <tr> 
                                                 @endforeach
                                             </tbody>

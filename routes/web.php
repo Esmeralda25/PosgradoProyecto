@@ -53,6 +53,8 @@ Route::resource('criterios', CriterioController::class)->except(['index','create
 //Generaciones
 Route::resource('generaciones', GeneracionController::class);
 //-Periodos
+Route::get('periodos/cambiar-comite/{id_proyecto}', [PeriodoController::class, 'cambiarComite'])->name('periodos.cambiarGet');
+Route::put('periodos/cambiar-comite/{id_proyecto}', [PeriodoController::class, 'cambiarComitePut'])->name('periodos.cambiarPut');
 Route::get('periodos/create/{geneacion}', [PeriodoController::class, 'create'])->name('periodos.create');
 Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos'])->name('periodos.proyectos');
 Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
@@ -65,11 +67,10 @@ Route::resource('compromisos', CompromisosController::class);
 
 //proyectos(asignar comite)
 
-//al modificar proyectos
-Route::get('listar-proyectos', [UserController::class, 'listarProyectos']);
-Route::get('asignar-comite/{id_proyecto}', [UserController::class, 'asignarComite']);
-Route::put('asignar-comite/{id}', [UserController::class, 'actualizarComite']);
-
+Route::get('proyectos/listar', [ProyectoController::class, 'listarProyectos'])->name('proyectos.sincomite');
+Route::get('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class, 'asignarComite'])->name('proyectos.asignarGet');
+Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class, 'asignarComitePut'])->name('proyectos.asignarPut');
+//una cosa es asignar y otra es cambiar, tengo que hacer las rutas y copiar y pegar el blade
 
 
 

@@ -2,25 +2,56 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests\ComiteRequest;
 use App\Models\Proyecto;
 use App\Models\Adquirido;
 use App\Models\Evidencia;
 use App\Models\Estudiante;
-use App\Models\Docente;
+use App\Models\Comite;
 use App\Models\Compromiso;
 use App\Models\Actividad;
 use App\Models\Reporte;
 use App\Models\Periodo;
 
+
 use Illuminate\Support\MessageBag;
-use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProyectoController extends Controller
 {
 
-   
+    public function listarProyectos(){
+        $usuario  = \Session::get('usuario' );
+        $usuario = $usuario->fresh(); 
+        $proyectos = $usuario->proyectosSinComite()->get();
+        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
+    }
+    public function asignarComite($id_proyecto){
+        //$this->authorize('comit',$id_proyecto);
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
+        $proyecto = proyecto::find($id_proyecto);
+        $docentes = $pe->docentes;
+        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
+    }
+    public function asignarComitePut(ComiteRequest $request, $id)
+    {
+        $proyecto = Proyecto::find($id);
+        if(is_null($proyecto->comite_id)){
+            $comite = new Comite;
+            $comite->fill($request->all());
+            $comite->save();    
+            $proyecto->comite_id = $comite->id;
+            $proyecto->save();    
+        }else{
+            $comite =  Comite::find($proyecto->comite_id);
+            $comite->fill($request->all());
+            $comite->save();
+        }
+        return redirect(route('proyectos.sincomite'))->with('message','Comite asigado al proyecto correctamente');
+
+    }
 
     public function registrar(){
         $estudiante = \Session::get('usuario');

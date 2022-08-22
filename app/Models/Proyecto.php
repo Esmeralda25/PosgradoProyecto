@@ -19,6 +19,29 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\Comite','id','comite_id');
          
     }
+    /*
+        return $this->hasOneThrough(
+            'App\Models\Pe',
+            'App\Models\Generacion',
+            'id',//segundo.id
+            'id',//primero.id
+            'generacion_id',//no se que hace
+            'pe_id'//segundo.primero_id
+        );
+    
+    */
+    public function generacion(){
+/*
+        return $this->hasOneThrough(
+            Generacion::class, //related
+            Periodo::class, //Through
+            'id',//segundo.id
+            'id',//primero.id
+            '',//no se que hace
+            'generacion_id'//segundo.primero_id
+        );
+*/
+    }
     public function periodo(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id')
         ->withDefault(

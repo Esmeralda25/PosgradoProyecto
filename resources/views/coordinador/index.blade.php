@@ -67,7 +67,7 @@
                                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-project-diagram"></i></span>
                             
                                             <div class="info-box-content">
-                                            <a href="{{url('/listar-proyectos')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos (asignar comite)</span></a>
+                                            <a href="{{route('proyectos.sincomite')}}"><span class="info-box-text font-weight-bold" style="color: aliceblue;">Proyectos (asignar comite)</span></a>
                                             
                                             </div>
                                             <!-- /.info-box-content -->

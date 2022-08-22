@@ -135,64 +135,9 @@ class UserController extends Controller
 
     }
     
-    public function listarProyectos(){
-        $usuario  = \Session::get('usuario' );
-        $usuario = $usuario->fresh(); 
-        $proyectos = $usuario->proyectos;
-        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
- 
 
-    }
 
-    public function asignarComite($id_proyecto){
-        //$this->authorize('comit',$id_proyecto);
-        $pe = \Session::get('usuario');
-        $pe = $pe->fresh(); 
-        $proyecto = proyecto::find($id_proyecto);
-        $docentes = $pe->docentes;
-        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
-    }
 
-    public function actualizarComite(Request $request, $id){
-        
-        if($request->asesor == $request->revisor1){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');       
-         }else
-        if($request->asesor == $request->revisor2){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.'); 
-         }else
-        if($request->asesor == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');    
-        }else
-        if($request->revisor1 == $request->revisor2){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
-        }else
-        if($request->revisor1 == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');   
-        }else
-        if($request->revisor2 == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
-        }else
-        $docente  = \Session::get('usuario' );
-        $docente = $docente->fresh();
-
-        //reviso si ese proyecto ya tenia un comite
-        $proyecto = Proyecto::find($id);
-        $res = is_null($proyecto->comite_id);
-        if(is_null($proyecto->comite_id)){
-            $comite = new Comite;
-            $comite->fill($request->all());
-            $comite->save();    
-            $proyecto->comite_id = $comite->id;
-            $proyecto->save();    
-        }else{
-            $comite =  Comite::find($proyecto->comite_id);
-            $comite->fill($request->all());
-            $comite->save();    
-        }
-
-        return redirect("/listar-proyectos")->with('comite','Comite asigado al proyecto correctamente');
-    }
     
 
     public function guardarPassword(Request $request, $tipo, $id){

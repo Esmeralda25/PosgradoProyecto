@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Periodo;
 use App\Models\Generacion;
 use App\Http\Requests\PeriodoRequest;
-use App\Models\Rubrica;
+use App\Models\Proyecto;
 
 class PeriodoController extends Controller
 {
@@ -115,6 +115,30 @@ class PeriodoController extends Controller
         $periodo = Periodo::find($periodo_id);
         $proyectos = $periodo->proyectos;
         return view('coordinador.generacion.periodo.proyectos', compact('proyectos') );
+    }
+    public function cambiarComite($id_proyecto){
+        //$this->authorize('comit',$id_proyecto);
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
+        $proyecto = proyecto::find($id_proyecto);
+        $docentes = $pe->docentes;
+        return view('coordinador.generacion.periodo.cambiar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
+    }
+    public function cambiarComitePut(ComiteRequest $request, $id)
+    {
+        $proyecto = Proyecto::find($id);
+        if(is_null($proyecto->comite_id)){
+            $comite = new Comite;
+            $comite->fill($request->all());
+            $comite->save();    
+            $proyecto->comite_id = $comite->id;
+            $proyecto->save();    
+        }else{
+            $comite =  Comite::find($proyecto->comite_id);
+            $comite->fill($request->all());
+            $comite->save();
+        }
+        return redirect(route('periodos.proyectos',$proyecto->periodo->id))->with('message','Comite actualizado correctamente');
     }
 
 }

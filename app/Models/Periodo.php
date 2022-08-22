@@ -15,7 +15,6 @@ class Periodo extends Model
         return $this->belongsTo('App\Models\Generacion');
     }
     public function pe(){
-//        protected $fillable=['nombre','descripcion','pes_id'];
         return $this->hasOneThrough(
             'App\Models\Pe',
             'App\Models\Generacion',

@@ -42,7 +42,9 @@
                                         <label>Asesor:</label>
                                         <select name="asesor" id="asesor" style="width: 70%;">                                                                                      
                                             @foreach($docentes as $docente)
-                                                <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->asesor)
+                                                    selected
+                                                @endif>{{$docente->nombre}}</option>                                                        
                                             @endforeach
                                         </select>                                            
                                     </div>
@@ -50,7 +52,9 @@
                                         <label>Revisor 1: </label>
                                             <select name="revisor1" id="revisor1" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor1)
+                                                        selected
+                                                    @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach
                                             </select>
                                     </div>
@@ -58,7 +62,9 @@
                                         <label>Revisor 2: </label>
                                             <select name="revisor2" id="revisor2" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor2)
+                                                        selected
+                                                    @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach
                                             </select>
                                     </div>
@@ -66,15 +72,16 @@
                                         <label>Revisor 3: </label>
                                             <select name="revisor3" id="revisor3" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor3)
+                                                        selected
+                                                    @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach
                                             </select>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <a href="{{route('proyectos.sincomite')}}" class="btn btn-danger  align-center">Cancelar</a>
-
-                                            <input type="submit" class="btn btn-warning  align-center" value="Asignar">
+                                            <a href="{{route('periodos.proyectos',$proyecto->periodo->id)}}" class="btn btn-danger  align-center">Cancelar</a>
+                                            <input type="submit" class="btn btn-warning  align-center" value="Cambiar">
                                         </div>
                                     </div>
                                 </form>
