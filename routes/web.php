@@ -26,8 +26,8 @@ Route::get('/', function () {
 
 Route::post('entrada', [EntradaController::class, 'validar'])->name('entrada.validar');
 Route::get('logout', [EntradaController::class, 'logout'])->name('entrada.salida');;
-Route::resource('info', InfoController::class); //tanto resource solo para poner creditos
-Route::get('manual', [UserController::class, 'manual']); //no funciona esta ruta
+Route::get('info', [InfoController::class, 'index'])->name('info');
+Route::get('manuales', [UserController::class, 'manual'])->name('manuales'); //no funciona esta ruta
 
 Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
 

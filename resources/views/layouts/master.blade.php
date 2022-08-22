@@ -50,7 +50,7 @@
         <a href="https://sii.tuxtla.tecnm.mx/" target="_blank"  class="nav-link">SII</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/manual')}}"  target="_blank"  class="nav-link">Manuales de Usuario</a>
+        <a href="{{route('manuales')}}"  target="_blank"  class="nav-link">Manuales de Usuario</a>
       </li>
     </ul>
     <!-- header-lado derecho -->
@@ -115,7 +115,7 @@
       </a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-  <strong><a href="{{url('/info')}}">    
+  <strong><a href="{{route('info')}}">    
     Sistema para el seguimiento de proyectos de Posgrado
     </a></strong>
   </li>
