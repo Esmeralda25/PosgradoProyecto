@@ -40,10 +40,10 @@ class Estudiante extends Usuario
     }
 
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','cursando');
+        return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
 
-    public function semestreActual(){
+    public function semestre(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
 

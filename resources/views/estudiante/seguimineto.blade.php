@@ -107,7 +107,7 @@
                             <tbody>
                                 <tr>
                                     <th>
-                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
+                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
                                                 <li>{{$compromiso->que}}, se programo: {{$compromiso->cuantos_prog}}</li>
                                         @empty
                                                 Sin compromisos definidos para este semestre
@@ -130,7 +130,7 @@
                             <tbody>
                                 <tr>
                                     <th>
-                                        @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
+                                        @forelse ($estudiante->proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
                                             <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->periodo}}"</li>
                                         @empty
                                             Sin actividades definidas para este semestre

@@ -21,13 +21,16 @@ class EstudianteController extends Controller
         $estudiante  = \Session::get('usuario' );
         $estudiante = $estudiante->fresh(); 
 
+        if (is_null($estudiante->periodo_id))
+            return redirect()->back()->withInput()->with('message','Este estudiante no tiene periodo asignado');
+
+
         $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
-        
         if ($proyecto->count() == 0 )
             $hacer = ["Registrar"];
         else 
-            $hacer = [$estudiante->semestreActual->estado];        
-        return view('estudiante.index', compact('hacer','proyecto','estudiante'));
+            $hacer = [$estudiante->semestre->estado];        
+        return view('estudiante.index', compact('hacer','proyecto','estudiante'))->with('message',$hacer);
 
     }
 

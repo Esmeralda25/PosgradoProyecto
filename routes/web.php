@@ -75,8 +75,9 @@ Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class,
 
 
 
-//USUARIO Estudiante
+/// Estudiante
 Route::resource('estudiantes', EstudianteController::class);
+
 Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']);
 
 Route::get('registrar', [ProyectoController::class,'registrar']);

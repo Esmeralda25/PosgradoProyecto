@@ -22,7 +22,7 @@ class EvaluarController extends Controller
 {
     public function index($id){        
         $proyecto = Proyecto::find($id);;
-        $rubica_usada = $proyecto->estudiante->semestreActual->rubrica;
+        $rubica_usada = $proyecto->estudiante->semestre->rubrica;
         $criterios = Rubrica::find($rubica_usada)->criterios; //Esto me sirve para traer todos los criterios de la rubrica ing.
         return view('docente.evaluar', compact('proyecto','criterios'));
     }

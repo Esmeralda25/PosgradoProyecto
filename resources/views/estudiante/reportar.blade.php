@@ -34,7 +34,7 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
+                                            @forelse ($estudiante->proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
                                                 <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->periodo}}"</li>
                                             @empty
                                                 Sin actividades definidas para este semestre
@@ -68,7 +68,7 @@
                                 </thead>
                                  
                                 <tbody>
-                                    @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
+                                    @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
                                     <tr>
                                         <input type="hidden" name="cual[{{$loop->iteration}}]" value="{{$compromiso->id}}">
                                             <th>{{$compromiso->que}}</th>
@@ -95,9 +95,9 @@
                             </table>
                             <div style="height:15px;"></div>   
                                 <div>
-                                    @if ($estudiante->proyecto->reporte( $estudiante->semestreActual->id )->count() != 0)
+                                    @if ($estudiante->proyecto->reporte( $estudiante->semestre->id )->count() != 0)
 
-                                    {{$estudiante->proyecto->reporte( $estudiante->semestreActual->id )->get()[0]->reporte }}     
+                                    {{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}     
                                 @else 
                                     SIN REPORTE                                                                                          
                                 @endif

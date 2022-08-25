@@ -19,11 +19,15 @@ class EntradaController extends Controller
             [
                 'nombre' => 'required',
                 'palabra' => 'required',
+            ],
+            [
+                'nombre.required' => 'Se requiere el nombre de usuario',
+                'palabra.required' => 'Seguro de que no tiene contraseña',
             ]
+            
         );
         $identificacion = "";
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
-
         if(!is_null($usuario) ){
             //es un estudiante debo checar su password   
             $password_dieron =  $peticion->input('palabra');            
@@ -31,14 +35,12 @@ class EntradaController extends Controller
             //puesto: pe : nombre
             if (Hash::check($password_dieron, $password_guadado)) {               
                 \Session::put('usuario' ,  $usuario );
-                return  redirect('/estudiantes');
+                return  redirect(route('estudiantes.index'));
             }
         }
 
-        $usuario = Pe::where('correo', $peticion->input('nombre'))->first();
-        
+        $usuario = Pe::where('correo', $peticion->input('nombre'))->first();        
         if(! is_null($usuario) ){
-            
             //es un coordiandor debo checar su password (checar si es informatico)
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
@@ -50,7 +52,6 @@ class EntradaController extends Controller
         } 
         
         $usuario = docente::where('correo', $peticion->input('nombre'))->first();
-        //dd($peticion->input('nombre'));
         if(! is_null($usuario)){
             //es un docente se debe verificar su password
             $password_dieron = $peticion->input('palabra');
@@ -68,8 +69,7 @@ class EntradaController extends Controller
                 return  redirect(route('programas.index'));
             }
         }
-        return redirect()->back()->withInput()->with(['mensaje'=>'usuario no encontrado']);
-
+        return redirect()->back()->withInput()->with(['message'=>'Las credenciales introducidas no coinciden con la base de datos.']);
         }
 
         public function logout (Request $peticion){

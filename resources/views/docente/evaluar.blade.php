@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                             
-                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica: {{$proyecto->estudiante->semestreActual->rubrica->nombre}}</h3>
+                                    <h3 style="border: rgb(0, 0, 0);background: rgba(223, 223, 223, 0.589)">Rubrica: {{$proyecto->estudiante->semestre->rubrica->nombre}}</h3>
                                     <div class="form-group col-md-12">
                                 
                                         <div id="idcontenido">
@@ -193,12 +193,12 @@
                                                                     @php
 //                                                                        var_dump("");
                                                                     @endphp
-                                                                <td>@if($proyecto->estudiante->semestreActual->rubrica->tipo == "Numerica")
+                                                                <td>@if($proyecto->estudiante->semestre->rubrica->tipo == "Numerica")
                                                                     <input type="number" name="valor[{{$loop->index}}]"
                                                                                         min="0" max="100">                                                 
                                                                @endif
         
-                                                               @if($proyecto->estudiante->semestreActual->rubrica->tipo == "Alfanumerica")
+                                                               @if($proyecto->estudiante->semestre->rubrica->tipo == "Alfanumerica")
                                                                     <select name="valor[{{$loop->index}}]">
                                                                     <option value="0">No aceptable</option>
                                                                     <option value="70">Regular</option>
@@ -216,7 +216,7 @@
                                                     </table>                               
                                             <div class="mb-3">
                                             <input name="proyecto_id" type="hidden" style="width: 100%" tabindex="2" value="{{$proyecto->id}}">
-                                            <input name="periodo_id" type="hidden" style="width: 100%" tabindex="2" value="{{$proyecto->estudiante->semestreActual->id}}">
+                                            <input name="periodo_id" type="hidden" style="width: 100%" tabindex="2" value="{{$proyecto->estudiante->semestre->id}}">
 
                                             </div>
                                         </div>

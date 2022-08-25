@@ -167,12 +167,12 @@ class ProyectoController extends Controller
             );            
         }
 
-        $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestreActual->id  . "_r_" . $reporte->getClientOriginalName()  ;
+        $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestre->id  . "_r_" . $reporte->getClientOriginalName()  ;
         $ret = Storage::putFileAs('evidencias', $reporte, $nombre_archivo );
 
 //        Reporte::updateOrCreate(
         Reporte::Create(
-            ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestreActual->id ],
+            ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestre->id ],
             ['reporte' => $nombre_archivo]
         );
 
