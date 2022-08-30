@@ -26,11 +26,41 @@ class EstudianteController extends Controller
 
 
         $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
-        if ($proyecto->count() == 0 )
+        if ($proyecto->count() == 0 ){
             $hacer = ["Registrar"];
-        else 
+            return redirect( url('/registrar') )->with('message','Estudiante sin proyecto registrado') ;
+        }
+        $estado = $estudiante->periodo->estado;
+            switch ($estado) {
+                case 'Inicio':
+                    # code...
+                    break;
+                case 'Comprometerse':
+                        # code...
+                        break;
+                case 'Seguimiento':
+                    # code...
+                    break;
+                case 'Reportar':
+                    # code...
+                    break;
+                case 'Evaluacion':
+                    # code...
+                    break;
+                case 'Concluido':
+                    # code...
+                    break;
+                    
+                default:
+                    # code...
+                    break;
+            }
+
+
             $hacer = [$estudiante->semestre->estado];        
-        return view('estudiante.index', compact('hacer','proyecto','estudiante'))->with('message',$hacer);
+        
+//        \Session::put('message',$hacer);
+        return view('estudiante.index', compact('hacer','proyecto','estudiante'));
 
     }
 
