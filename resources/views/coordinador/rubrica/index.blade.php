@@ -1,22 +1,7 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
-    <a href="/coordinadores" class="nav-link">
+    <a href="{{route('inicio')}}" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
     </a>
 @endsection 
@@ -37,30 +22,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                    @if (session('message'))
-                                    <div class="alert alert-success alert-dismissable">
-                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <strong>¡Bien!,</strong> {{Session::get('message')}}
-                                    </div>
-                                    @endif 
-                                    @if (session('mensaje'))
-                                    <div class="alert alert-info alert-dismissable">
-                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <strong>¡Bien!,</strong> {{Session::get('mensaje')}}
-                                    </div>
-                                    @endif 
-                                    @if (session('borrar'))
-                                    <div class="alert alert-warning alert-dismissable">
-                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <strong>¡Bien!,</strong> {{Session::get('borrar')}}
-                                    </div>
-                                    @endif 
-
-                                        <!-- contenido de main imagenes -->
-                                            <a style="margin: 10px auto;" href="{{url('/agregar-rubricas')}}" class="btn btn-primary btn-block">Agregar</a>
+                                    <!-- contenido de main imagenes -->
+                                            <a style="margin: 10px auto;" href="{{route('rubricas.create')}}" class="btn btn-primary btn-block">Agregar</a>
                                             <table class="table table-dark table-striped mt-4">
                                                 <thead class="table table-dark table-striped mt-4">
-                                            
                                                     <tr> 
                                                         <th scope="col">Titulo</th>
                                                         <th scope="col">Tipo</th>
@@ -72,15 +37,15 @@
                                                     <th scope="col">{{$rubrica->nombre}}</th>
                                                     <th scope="col">{{$rubrica->tipo}}</th>
                                                     <td>
-                                                    <a href="editar-rubricas/{{$rubrica->id}}" class="btn btn-success">EDITAR</a>
-                                                    <a href="criterios/{{$rubrica->id}}" class="btn btn-info">CRITERIOS</a>
-                                                     <button type="button" class="btn btn-warning"><a href="mostrar-rubricas/{{$rubrica->id}}" style="color: white">MOSTRAR</a></button>
-                                                     <form action="rubricas/{{$rubrica->id}}" style="display:inline" method="post" >
+                                                    <a href="{{route('rubricas.edit',$rubrica->id)}}" class="btn btn-success">EDITAR</a>
+                                                    <a href="{{route('criterios.index',$rubrica->id)}}" class="btn btn-info">CRITERIOS</a>
+                                                    <a href="{{route('rubricas.show',$rubrica->id)}}" class="btn btn-warning" style="color:white">MOSTRAR</a>
+                                                    <form action="{{route('rubricas.destroy',$rubrica->id)}}" style="display:inline" method="post" >
                                                      @csrf
                                                     @method('delete')
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">
                                                 </form> 
-                                                    </td>
+                                                    </td
                                                         </th>
                                                         <tr> 
                                                         @endforeach

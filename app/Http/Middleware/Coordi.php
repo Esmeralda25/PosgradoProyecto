@@ -16,7 +16,6 @@ class Coordi
      */
     public function handle(Request $request, Closure $next)
     {
-        dd($request);
             if($request->cookies =='Coordinador'){
                 return $next($request);
             }else{

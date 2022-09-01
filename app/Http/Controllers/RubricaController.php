@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Rubrica;
 use App\Models\Pe;
 use Illuminate\Http\Request;
+use App\Http\Requests\RubricaRequest;
+
 
 
 class RubricaController extends Controller
@@ -22,16 +24,20 @@ class RubricaController extends Controller
        // $this->authorize('create', Rubrica::class);  
         $pe  = \Session::get('usuario' );
         $pe = $pe->fresh();
-        return view('coordinador.rubrica.create',compact('pe'));
+        $pe_id = $pe->id;
+        return view('coordinador.rubrica.create',compact('pe_id'));
 
         
     }
     
-    public function store(Request $request) 
+    public function store(RubricaRequest $request) 
     {
-        //dd($request->all());
-        rubrica::create(request()->all());
-        return redirect('/rubricas')->with('message','Rurbica guardada correctamente');
+        try {
+            rubrica::create(request()->all());
+        } catch (\Throwable $th) {
+            return redirect(route('rubricas.index'))->with('message','Error al crear la rurbica: ' . $th->getMessage() );
+        }
+        return redirect(route('rubricas.index'))->with('message','Rurbica guardada correctamente');
         
     }
 
@@ -84,7 +90,7 @@ class RubricaController extends Controller
         $registro = Rubrica::find($id);
         $registro->fill($rubrica);
         $registro->save();
-        return redirect("/rubricas")->with('mensaje','Rubrica actualizada correctamente');
+        return redirect(route('rubricas.index'))->with('message','Rubrica actualizada correctamente');
     }
 
     /** 
@@ -98,9 +104,9 @@ class RubricaController extends Controller
     {
         try{
             Rubrica::destroy($id);
-            return redirect('rubricas')->with('borrar','Rubrica eliminada correctamente');//detalle: que avise que si borro
+            return redirect('rubricas')->with('message','Rubrica eliminada correctamente');//detalle: que avise que si borro
         } catch (\Throwable $th) {
-            return redirect('rubricas');//detalle: que avise que no pudo borr
+            return redirect('rubricas')->with('message','No es posible eliminar esta rubrica pues contiene criterios');//detalle: que avise que no pudo borr
             alert("No se pudo borrar");
         }
     }

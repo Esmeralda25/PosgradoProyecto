@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Proyecto extends Model
 {
     protected $table = 'proyectos';
-    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose', 'avance','comite','estudiante_id', 'periodo_id','calificacion_id', 'compromiso'];
+    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose', 'avance','comite_id','estudiante_id', 'periodo_id','calificacion_id', 'compromiso'];
     
     public $timestamps = false;  
 
@@ -16,19 +16,49 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\estudiante','id','estudiante_id');
     }
     public function comiteTutorial(){
-        return $this->hasOne('App\Models\Comite','id','comite');
+        return $this->hasOne('App\Models\Comite','id','comite_id');
          
     }
+    /*
+        return $this->hasOneThrough(
+            'App\Models\Pe',
+            'App\Models\Generacion',
+            'id',//segundo.id
+            'id',//primero.id
+            'generacion_id',//no se que hace
+            'pe_id'//segundo.primero_id
+        );
+    
+    */
+    public function generacion(){
+/*
+        return $this->hasOneThrough(
+            Generacion::class, //related
+            Periodo::class, //Through
+            'id',//segundo.id
+            'id',//primero.id
+            '',//no se que hace
+            'generacion_id'//segundo.primero_id
+        );
+*/
+    }
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','periodo_id');
+        return $this->hasOne('App\Models\Periodo','id','periodo_id')
+        ->withDefault(
+            [
+                'id' => 0,
+                'nombre' => 'Sin periodo asignado'
+            ]
+        );
     }
 
     public function compromiso(){
         return $this->hasOne('App\Models\Compromiso','id','compromiso');
     }
+    
     public function compromisos($semestre){
         return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
-        ->where('periodos_id',$semestre)
+        ->where('periodo_id',$semestre)
         ;
     }
 
@@ -40,7 +70,7 @@ class Proyecto extends Model
 
     public function actividades($semestre){
         return $this->hasMany('App\Models\Actividad','proyectos_id','id')
-        ->where('periodos_id',$semestre)
+        ->where('periodo_id',$semestre)
         ;
     }
 

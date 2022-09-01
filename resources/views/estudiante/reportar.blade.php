@@ -1,20 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -90,7 +74,7 @@
                                             <th>{{$compromiso->que}}</th>
                                             <td>{{$compromiso->cuantos_prog}}</td>
 
-                                            <td><input type="number" name="logrados[{{$loop->iteration}}]" class="form-control" value="{{$compromiso->cuantos_cumplidos}}"
+                                            <td><input type="number" name="logrados[{{$loop->iteration}}]" style="width: 100%" value="{{$compromiso->cuantos_cumplidos}}"
                                                                     min="1" max="{{$compromiso->cuantos_prog}}"></td>
                                             <td style="padding: 5px">
                                                 @if (!is_null($compromiso->evidencia))

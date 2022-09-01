@@ -27,10 +27,10 @@ class CreatePeriodosTable extends Migration
             $table->date('fechaInicio')->nullable()->default(null);
             $table->date('fechaFin')->nullable()->default(null);
             $table->enum('estado', ['Inicio', 'Comprometerse', 'Seguimiento', 'Reportar', 'Evaluacion', 'Concluido'])->nullable()->default(null);
-            $table->integer('rubrica')->unsigned();
+            $table->integer('rubrica_id')->unsigned()->nullable()->default(null);
             $table->integer('generacion_id')->unsigned();
 
-            $table->index(["rubrica"], 'fk_Periodos_Rubricas1_idx');
+            $table->index(["rubrica_id"], 'fk_Periodos_Rubricas1_idx');
 
             $table->index(["generacion_id"], 'fk_periodos_generaciones1_idx');
 
@@ -40,7 +40,7 @@ class CreatePeriodosTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
-            $table->foreign('rubrica', 'fk_Periodos_Rubricas1_idx')
+            $table->foreign('rubrica_id', 'fk_Periodos_Rubricas1_idx')
                 ->references('id')->on('rubricas')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');

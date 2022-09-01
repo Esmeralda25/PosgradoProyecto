@@ -47,9 +47,6 @@ class EstudianteController extends Controller
         $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
         $evaluacion = Evaluacion::where('proyecto_id', $proyecto->id)->get();
-        //dd($evaluacion);       
-        //dd($proyecto);
-        //$proyectos = $usuario->proyectos();
         return view('estudiante.historicoes', compact('proyecto','evaluacion'));
     }
 

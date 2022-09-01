@@ -1,20 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>Coordinador</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/listar-proyectos" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -22,7 +7,7 @@
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+      <a href="{{route('inicio')}}" class="nav-link" >Inicio</a>
 </li>
 @endsection
 
@@ -50,60 +35,50 @@
                                     Objetivo Espesificos: {{ $proyecto->objetivose }} <br>
                                 </div>
                                 <hr>
-                                @if (session('message'))
-                                <div class="alert alert-danger alert-dismissable">
-                                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <strong>¡Error!,</strong> {{Session::get('message')}}
-                                    </div> 
-                                @endif
-                                
-                                        <form action="/asignar-comite/{{$proyecto->id}}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('PUT')
-            
-                                            <div class="row col-12">
-                                                <label for="nivel" style="padding: 2px; font-size:20px">Asesor: </label>
-                                                    <select name="asesor" id="sel" style="width: 1000px; height:35px">                                                                                      
-                                                      @foreach($docentes as $asesor)
-                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                                      @endforeach
-                                                    </select>
-                                                    
-                                            </div>
-                                            
-            
-                                            <div class="row col-12">
-                                                <label for="nivel" style="padding: 2px; font-size:20px">Revisor 1: </label>
-                                                    <select name="revisor1" id="sel" style="width: 1000px; height:35px">
-                                                    @foreach($docentes as $asesor)  
-                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                                    @endforeach
-                                                    </select>
-                                            </div>
-                                            <div class="row col-12">
-                                              <label for="nivel" style="padding: 2px; font-size:20px">Revisor 2: </label>
-                                                <select name="revisor2" id="sel" style="width: 1000px; height:35px">                                   
-                                                @foreach($docentes as $asesor)  
-                                                  <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
+                                <form action="{{route('proyectos.asignarPut',$proyecto->id)}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="row col-12">
+                                        <label>Asesor:</label>
+                                        <select name="asesor" id="asesor" style="width: 70%;">                                                                                      
+                                            @foreach($docentes as $docente)
+                                                <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                            @endforeach
+                                        </select>                                            
+                                    </div>
+                                    <div class="row col-12">
+                                        <label>Revisor 1: </label>
+                                            <select name="revisor1" id="revisor1" style="width: 70%;">
+                                                @foreach($docentes as $docente)
+                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
                                                 @endforeach
-                                                
-            
-                                                </select>
-                                            </div>
-                                            <div class="row col-12">
-                                                <label for="nivel" style="padding: 2px; font-size:20px">Revisor 3: </label>
-                                                    <select name="revisor3" id="sel" style="width: 1000px; height:35px">
-                                                      @foreach($docentes as $asesor)  
-                                                      <option value="{{$asesor->id}}">{{$asesor->nombre}}</option>
-                                                      @endforeach    
-                                            </div>
-                                                
-                                            <input type="submit" class=" row btn btn-warning align-center" style="width: 500px; height:35px; margin-left: 150px; margin-top:10px; padding: 5px" value="Asignar">
+                                            </select>
+                                    </div>
+                                    <div class="row col-12">
+                                        <label>Revisor 2: </label>
+                                            <select name="revisor2" id="revisor2" style="width: 70%;">
+                                                @foreach($docentes as $docente)
+                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="row col-12">
+                                        <label>Revisor 3: </label>
+                                            <select name="revisor3" id="revisor3" style="width: 70%;">
+                                                @foreach($docentes as $docente)
+                                                    <option value="{{$docente->id}}">{{$docente->nombre}}</option>                                                        
+                                                @endforeach
+                                            </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="{{route('proyectos.sincomite')}}" class="btn btn-danger  align-center">Cancelar</a>
 
-                                            
-                                        </form>
-                            </div>                    
-                    
+                                            <input type="submit" class="btn btn-warning  align-center" value="Asignar">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div> <!--class="card"-->
                     </div><!--class="col-md-12"-->
                 </div> <!--class="row"-->

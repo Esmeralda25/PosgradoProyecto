@@ -1,20 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/docentes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -40,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                     <div class="container">
                                         
 
@@ -49,7 +34,7 @@
                                             @method('PUT')
                                                 <div class="mb-3 form-group">
                                                 <label for="" class="form-label">Avance (En porcentaje %)</label><br>
-                                                <input name="avance" type="text" class="form-control" tabindex="2">
+                                                <input name="avance" type="text" style="width: 100%" tabindex="2">
                                                     </select>
                     
                                                 </div> 

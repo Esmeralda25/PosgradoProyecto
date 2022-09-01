@@ -1,20 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/rubricas" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -22,7 +7,7 @@
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+      <a href="{{route('inicio')}}" class="nav-link" >Inicio</a>
 </li>
 @endsection
 
@@ -45,14 +30,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" class="form-control" tabindex="3"> -->
+                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%"> -->
                                     
-                                        <form action="/guardar-rubricas" method="POST" enctype="multipart/form-data">
+                                        <form action="{{route('rubricas.store')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
-                                                <input type="hidden" name="pe_id" value="{{$pe->id}}">
+                                                <input type="hidden" name="pe_id" value="{{$pe_id}}">
                                                 <div class="mb-3">
                                                     <label for="" class="form-label">Titulo</label>
-                                                    <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">
+                                                    <input id="nombre" name="nombre" type="text" style="width: 100%" value="{{old("nombre")}}">
                                                 </div>
                                             
                                                 <div class="mb-3 form-group">
@@ -64,7 +49,7 @@
                     
                                                 </div> 
                                         
-                                                <a href="/rubricas" class="btn btn-danger" tabindex="5">Cancelar</a>
+                                                <a href="{{route('rubricas.index')}}" class="btn btn-danger" tabindex="5">Cancelar</a>
                                                 <button type="submit" class="btn btn-warning" tabindex="4"><a>Guardar</a></button>
                                         </form>
                                 </div>

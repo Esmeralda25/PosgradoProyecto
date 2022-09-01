@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Criterio;
 use App\Models\Rubrica;
+use App\Http\Requests\CriterioRequest;
 
-class CriteriosController extends Controller
+
+class CriterioController extends Controller
 {
-    public function index($id){ 
+    public function index($rubrica_id){ 
         //$this->authorize('crit', $id);
-        $rubrica = Rubrica::find($id);
-        $criterios = Criterio::where('rubrica_id', $rubrica->id)->get(); //las convenciones dicen que todos los campos osn en minusculas, esta es una llave foranea que debe ser "rubrica_id"
-        return view('coordinador.criterio.index', compact('rubrica','criterios'));
-    
+        $rubrica = Rubrica::find($rubrica_id);
+        $criterios = $rubrica->criterios;
+        return view('coordinador.rubrica.criterio.index', compact('rubrica','criterios'));
     }
 
-    public function create($id){
+    public function create($rubrica_id){
         
-        $rubricas = Rubrica::find($id);
-        
-        return view('coordinador.criterio.create')->with('rubrica',$rubricas);//compact('rubricas'));
+        return view('coordinador.rubrica.criterio.create', compact('rubrica_id'));
         
     }
     
@@ -28,8 +27,7 @@ class CriteriosController extends Controller
         $valores = $request->all();
         Criterio::create($valores);
         $id =$valores['rubrica_id'];
-        return redirect("/criterios/$id")->with('message','Criterio agregado correctamente');
-        
+        return redirect(route("criterios.index", $id))->with('message','Criterio agregado correctamente');   
     }
 
     
@@ -61,8 +59,8 @@ class CriteriosController extends Controller
     public function edit($id)
     {
         //$this->authorize('crit', $id);
-        $criterios = Criterio::find($id);
-        return view('coordinador.criterio.edit')->with('criterio',$criterios); 
+        $criterio = Criterio::find($id);
+        return view('coordinador.rubrica.criterio.edit',compact('criterio')); 
     }
 
     /**
@@ -78,9 +76,8 @@ class CriteriosController extends Controller
         $registro = Criterio::find($id);
         $registro->fill($criterios);
         $registro->save();
-        //este id es el id del criterio necesitas saber de que rubrica estas hablando.
         $idr = $registro->rubrica->id;
-        return redirect("/criterios/$idr")->with('mensaje','Citerio actualizado correctamente');
+        return redirect(route('criterios.index',$idr))->with('message','Citerio actualizado correctamente');
     }
 
     /**
@@ -91,13 +88,14 @@ class CriteriosController extends Controller
      */
     public function destroy($id)
     {
+        $critero = Criterio::find($id);
+        $idr = $critero->rubrica->id;
         try{
-            Criterio::destroy($id);
-            return redirect("/criterios/$id")->with('borrar','Criterio eliminado correctamente');
+            $critero->delete();
+            return redirect(route('criterios.index',$idr))->with('message','Criterio eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect("/criterios/$id")->with('nborrar','No se pudo eliminar el criterio, verifiue');
+            return redirect(route('criterios.index',$idr))->with('message','No se pudo eliminar el criterio, verifiue:  ' . $th->getMessage());
         }
     }
-
 }
 

@@ -17,7 +17,7 @@ class Adscripcion extends Model
      * usamos el atributo $table para identificar la tabla puesto que por convenciones
      * la tabla que el modelo buscaria se llamaria adscripcions
     */
-    protected $fillable=['pes_id','docentes_id'];
+    protected $fillable=['pe_id','docente_id'];
     public $timestamps = false;
 
 }

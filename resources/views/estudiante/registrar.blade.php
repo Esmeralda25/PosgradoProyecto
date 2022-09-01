@@ -1,20 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>Estudiante</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -63,7 +47,7 @@
 
                                 <div class="row form-group col-12">
                                     <label for="" class="row col-12">Objetivos Especificos</label>
-                                    <input type="text" class="row col-12" name="objetivose">
+                                    <textarea name="objetivose" style="width: 100%;" cols="30" rows="10"></textarea>
                                 </div>
                             </div>                            
                             <div style=" margin-bottom:30px;">

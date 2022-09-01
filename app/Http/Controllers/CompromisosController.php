@@ -9,32 +9,22 @@ class CompromisosController extends Controller
 {
     public function index(){
         $coordinador = \Session::get('usuario');
-
-        //$estudiantes = Estudiante::where('pes_id',$coordinador->id)->get();
-
-        $compromisos = Compromiso::orderBy('titulo','DESC')->where('pes_id',$coordinador->id)->orWhereNull('pes_id')->get();
-        return view('coordinador.Compromisos.index')->with('compromisos', $compromisos);
+        $compromisos = Compromiso::orderBy('titulo','DESC')->where('pe_id',$coordinador->id)->orWhereNull('pe_id')->get();
+        $opciones = Compromiso::select('titulo')->distinct()->paginate(10);//->get();
+        return view('coordinador.compromiso.index' , compact('compromisos','opciones') ); 
     }
     public function create(){ 
-        //return view('coordinador.Compromisos.create');
     }
     
     public function store(Request $request) 
     {
         //guardar los datos que vengan
         $coordinador = \Session::get('usuario');
-
         $compromiso = new Compromiso;
         $compromiso->fill( $request->all() );
-        $compromiso->pes_id=$coordinador->id;
+        $compromiso->pe_id=$coordinador->id;
         $compromiso->save();
-        return redirect("/Compromisos")->with('message','Compromiso agregado correctamente'); //que me envie con un mensaje
-
-        
-       
-        
-
-        //return redirect('/pes');
+        return redirect(route('compromisos.index'))->with('message','Compromiso agregado correctamente'); //que me envie con un mensaje
     }
 
 
@@ -68,7 +58,7 @@ class CompromisosController extends Controller
     {
         //$this->authorize('compro', $id);
        $compromiso = Compromiso::find($id);
-        return view('coordinador.Compromisos.edit')->with('compromiso',$compromiso);
+        return view('coordinador.compromiso.edit',compact('compromiso'));
     }
 
     /**
@@ -85,9 +75,7 @@ class CompromisosController extends Controller
         $registro = Compromiso::find($id);
         $registro->fill($compromiso);
         $registro->save();
-        return redirect("/Compromisos")->with('mensaje','Compromiso actualizado correctamente');
-
-        
+        return redirect(route('compromisos.index'))->with('message','Compromiso actualizado correctamente');
     }
 
     /**
@@ -101,9 +89,9 @@ class CompromisosController extends Controller
         //$this->authorize('rubrica', $id);
         try{
             Compromiso::destroy($id);
-            return redirect('Compromisos')->with('borrar','Compromiso eliminado correctamente');
+            return redirect(route('compromisos.index'))->with('message','Compromiso eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect('Compromisos')->with('nborrar','No se pudo eliminar el compromiso, verifique');
+            return redirect(route('compromisos.index'))->with('message','No se pudo eliminar el compromiso, verifique');
             
         }
     }

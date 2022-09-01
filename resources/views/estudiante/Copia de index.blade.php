@@ -1,20 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>Estudiante: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    

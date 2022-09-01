@@ -1,20 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -75,6 +59,43 @@
                                                               
                             </tbody>        
                 </table>
+                <div style="height:20px;"></div>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr style="text-align: center;background-color: black;">
+                        <th colspan="2" style="font-size: 25px;">
+                          Comite Tutorial
+                        </th>
+                      </tr> 
+                    </thead>  
+                    <tbody>
+                        @if (is_null($estudiante->proyecto->comite_id))
+                            <tr>
+                                <th colspan="2">SIN ASIGNAR</th>
+                            </tr>
+                        @else
+                            <tr>
+                                <th>Asesor</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteAsesor->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 1</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor1->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 2</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor2->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th>Revisor 3</th>
+                                <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor3->nombre}}</td>
+                            </tr>
+                            
+                        @endif
+                    </tbody>
+                </table>
+
+
                     
                 <div style="height:20px;"></div>
                 @if (session('message'))
@@ -106,7 +127,7 @@
                       <form action="/comprometerse" method="POST">    
                         @csrf
                           @method('PUT')    
-                            <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                            <input type="hidden" name="periodo_id" value="{{$estudiante->semestreActual->id}}">
                             <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
                         <th class="col-7">
                           A que te comprometes: 
@@ -182,13 +203,13 @@
                           <form action="/comprometerse" method="POST">    
                               @csrf
                                 @method('PUT')    
-                                  <input type="hidden" name="periodos_id" value="{{$estudiante->semestreActual->id}}">
+                                  <input type="hidden" name="periodo_id" value="{{$estudiante->semestreActual->id}}">
                                   <input type="hidden" name="proyectos_id" value="{{$estudiante->proyecto->id}}">
                                   <th class="col-3">
-                                    <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                                    <input type="text" placeholder="Actividad..." name="nombre" style="width: 100%" style="margin-right: 5px; margin-left:4px; width: 200px">
                                   </th>
                                   <th class="row col-9">
-                                  <input type="text" placeholder="Periodo..." name="periodo" class="form-control" style="margin-right: 5px; margin-left:4px; width: 200px">
+                                  <input type="text" placeholder="Periodo..." name="periodo" style="width: 100%" style="margin-right: 5px; margin-left:4px; width: 200px">
 
                                     <button class="btn btn-warning" style="width:60px"><i class="fas fa-plus-circle"></i></button>
                                   </th> 

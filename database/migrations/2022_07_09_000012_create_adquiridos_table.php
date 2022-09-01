@@ -27,14 +27,14 @@ class CreateAdquiridosTable extends Migration
             $table->integer('cuantos_prog')->nullable()->default(null);
             $table->integer('cuantos_cumplidos')->nullable()->default(null);
             $table->integer('proyecto_id')->unsigned();
-            $table->integer('periodos_id')->unsigned();
+            $table->integer('periodo_id')->unsigned();
 
             $table->index(["proyecto_id"], 'fk_adquiridos_proyectos1_idx');
 
-            $table->index(["periodos_id"], 'fk_adquiridos_periodos1_idx');
+            $table->index(["periodo_id"], 'fk_adquiridos_periodos1_idx');
 
 
-            $table->foreign('periodos_id', 'fk_adquiridos_periodos1_idx')
+            $table->foreign('periodo_id', 'fk_adquiridos_periodos1_idx')
                 ->references('id')->on('periodos')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');

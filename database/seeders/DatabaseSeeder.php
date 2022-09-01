@@ -18,13 +18,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DocentesSeeder::class);
             $this->call(ComitesSeeder::class);
             $this->call(CompromisosSeeder::class);
-        
             
         $this->call(AdscripcionesSeeder::class);        
 
         $this->call(RubricasSeeder::class);        
             $this->call(CriteriosSeeder::class);
-
 
         $this->call(GeneracionesSeeder::class);
         $this->call(PeriodosSeeder::class);
@@ -37,8 +35,5 @@ class DatabaseSeeder extends Seeder
         $this->call(DesglocesSeeder::class);
         $this->call(EvidenciasSeeder::class);
         $this->call(ReportesSeeder::class);
-        
-
-        
     }
 }

@@ -1,16 +1,5 @@
 @extends('layouts.master');
 
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
       <a href="{{url('/pes')}}" class="nav-link">Inicio</a>
@@ -41,10 +30,20 @@
                                 </div>
                                 <div class="mb-12">
                                     Correo del cordianador:{{$pe->correo}} <br>
-                                </div><br>
+                                </div>
+                                <div class="mb-12">
+                                    Docentes :
+                                    <ul>   
+                                    @forelse ($pe->docentes as $docente)
+                                        <li>{{$docente->nombre}} ({{$docente->correo}})</li>
+                                    @empty
+                                        SIN DOCENTES ASIGNADOS
+                                    @endforelse
+                                    </ul>
+                                </div>
+                                <br>
                                 <div>
-                                    <a href="/pes" class="btn btn-warning" tabindex="5">Cancelar</a>
-
+                                    <a href="{{route('programas.index')}}" class="btn btn-warning" tabindex="5">Cancelar</a>
                                 </div>
                             </div>
                         </div>

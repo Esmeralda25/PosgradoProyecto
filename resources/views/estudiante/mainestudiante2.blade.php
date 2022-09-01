@@ -1,20 +1,4 @@
 @extends('layouts.master')
-
-@section('titulo')
-  <p>Docente: {{ \Session::get('usuario')->nombre}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -76,7 +60,7 @@
                                     Articulos JCR sometidos
                                     </th>
                                     <th class="col-5">
-                                      <input type="text" placeholder="1" name="nombre" class="form-control">
+                                      <input type="text" placeholder="1" name="nombre" style="width: 100%">
                                     </th>
                                      
                                 </tr>
@@ -85,7 +69,7 @@
                                                 Conferencias Nacionales
                                             </th>
                                             <th>
-                                                <input type="text" placeholder="3" name="nombre" class="form-control" style="width: auto">
+                                                <input type="text" placeholder="3" name="nombre" style="width: 100%" style="width: auto">
                                             </th>
                                      
                                       </tr>  
@@ -95,10 +79,10 @@
                             <thead>
                                 <tr class="col-12">
                                     <th class="col-4">
-                                      <input type="text" placeholder="Actividad..." name="nombre" class="form-control" style="width: 200px">
+                                      <input type="text" placeholder="Actividad..." name="nombre" style="width: 100%" style="width: 200px">
                                     </th>
                                     <th class="col-4">
-                                      <input type="text" placeholder="Periodo.." name="nombre" class="form-control" style="width: 300px">
+                                      <input type="text" placeholder="Periodo.." name="nombre" style="width: 100%" style="width: 300px">
                                     </th>
                                     <th scope="row" class="col-4">
                                       <button class="btn btn-primary" style="width:37px"><i class="fas fa-plus-circle"></i></button>
@@ -117,18 +101,18 @@
                           <thead class="thead-dark">
                               <tr>
                                   <th scope="col">Busqueda de informacion</th>
-                                  <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
+                                  <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" style="width: 100%"></th>
                                         
                               </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <th scope="row">Creacion de la herramienta</th>
-                                  <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
+                                  <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" style="width: 100%"></td> 
                             </tr>
                             <tr>
                               <th scope="row">Difucion del trabajo</th>
-                              <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
+                              <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" style="width: 100%"></td> 
                             </tr>
                           </tbody>
                         </table>

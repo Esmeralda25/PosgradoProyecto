@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+//use Illuminate\Support\Facades\Session;
 
 use App\Models\Docente; 
 use App\Models\Estudiante;
@@ -14,6 +14,13 @@ use App\Models\Pe;
 class EntradaController extends Controller
 {
     public function validar (Request $peticion){
+//        dd($peticion->all());
+        $peticion->validate(
+            [
+                'nombre' => 'required',
+                'palabra' => 'required',
+            ]
+        );
         $identificacion = "";
         $usuario = Estudiante::where('correo', $peticion->input('nombre'))->first();
 
@@ -23,8 +30,6 @@ class EntradaController extends Controller
             $password_guadado = $usuario->password;
             //puesto: pe : nombre
             if (Hash::check($password_dieron, $password_guadado)) {               
-                $identificacion = "Estudiante : " . $usuario->pe->nombre . ":" . $usuario->nombre ;
-                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
                 return  redirect('/estudiantes');
             }
@@ -38,10 +43,9 @@ class EntradaController extends Controller
             $password_dieron =  $peticion->input('palabra');
             $password_guadado = $usuario->password;
             if (Hash::check($password_dieron, $password_guadado)) {
-                $identificacion = "Coordiandor : " . $usuario->nombre . ":" . $usuario->coordiandor ;
-                \Session::put('identificacion' ,  $identificacion );
                 \Session::put('usuario' ,  $usuario );
-                return  redirect('/coordinadores');
+                return redirect(route('inicio'));
+                // view('coordinador.index')->with('pe',$usuario);
             }
         } 
         
@@ -53,17 +57,7 @@ class EntradaController extends Controller
             $password_guadado = $usuario->password;
 
             if (Hash::check($password_dieron, $password_guadado)) {
-                $identificacion = "Docente : " . $usuario->nombre ;
-                \Session::put('identificacion' ,  $identificacion );
-
                 \Session::put('usuario' ,  $usuario );
-/*
-                session_start -->es de php
-                session_destroy(); --> es de php 
-
-                \Session
-*/
-                //session_start();     CHECAR DIFERENCIA
                 return  redirect('/docentes');
             }
         }
@@ -71,12 +65,10 @@ class EntradaController extends Controller
         if($peticion->input('nombre') == "informatico@gmail.com" ){
             if( $peticion->input('palabra') == "asd" ){
                 \Session::put('usuario' ,  ["nombre" => "informático"] );
-
-                return  redirect('/pes');
+                return  redirect(route('programas.index'));
             }
         }
-        echo "USUARIO NO REGISTRADO";
-        return view('user_notfound');//si separaron la palabra user porque no separaron la palabra not
+        return redirect()->back()->withInput()->with(['mensaje'=>'usuario no encontrado']);
 
         }
 

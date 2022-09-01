@@ -26,20 +26,20 @@ class CreateEstudiantesTable extends Migration
             $table->string('nombre', 100);
             $table->string('correo', 45)->nullable()->default(null);
             $table->string('password', 100)->nullable()->default(null);
-            $table->integer('pes_id')->unsigned();
-            $table->integer('periodos_id')->unsigned()->nullable()->default(null);
+            $table->integer('pe_id')->unsigned();
+            $table->integer('periodo_id')->unsigned()->nullable()->default(null);
 
-            $table->index(["pes_id"], 'fk_estudiantes_pes1_idx');
+            $table->index(["pe_id"], 'fk_estudiantes_pes1_idx');
 
-            $table->index(["periodos_id"], 'fk_estudiantes_periodos1_idx');
+            $table->index(["periodo_id"], 'fk_estudiantes_periodos1_idx');
 
 
-            $table->foreign('periodos_id', 'fk_estudiantes_periodos1_idx')
+            $table->foreign('periodo_id', 'fk_estudiantes_periodos1_idx')
                 ->references('id')->on('periodos')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
-            $table->foreign('pes_id', 'fk_estudiantes_pes1_idx')
+            $table->foreign('pe_id', 'fk_estudiantes_pes1_idx')
                 ->references('id')->on('pes')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');

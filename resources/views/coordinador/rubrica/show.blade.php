@@ -1,20 +1,5 @@
 @extends('layouts.master');
 
-@section('titulo')
-  <p>{{ \Session::get('usuario')->coordinador}}</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/rubricas" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -22,7 +7,7 @@
 @endsection
 @section('inicio')
 <li class="nav-item d-none d-sm-inline-block">
-      <a href="{{url('/coordinadores')}}" class="nav-link" >Inicio</a>
+      <a href="{{route('inicio')}}" class="nav-link" >Inicio</a>
 </li>
 @endsection
 
@@ -30,7 +15,7 @@
 @section('content')
 <section class="content">
     <div class="container-fluid">
-
+x
         <div style="height:60px">
         </div>  <!-- espacio del top -->  
 
@@ -47,7 +32,19 @@
                             Tipo de rubrica : {{$rubrica->tipo}}
                         </div>
                         <div class="mb-3">
-                            <a href="/rubricas" class="btn btn-warning" tabindex="5">Regresar</a>
+                             Criterios a considerar:
+                             <ul>
+                             @forelse ($rubrica->criterios as $criterio)
+                                 <li>{{$criterio->descripcion}}</li>
+                             @empty
+                                 SIN CRITERIOS
+                             @endforelse
+                            </ul>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <a href="{{route('rubricas.index')}}" class="btn btn-warning" tabindex="5">Regresar</a>
                         </div>
                 </div>
             </div>

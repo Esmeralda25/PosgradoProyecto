@@ -2,25 +2,56 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Http\Requests\ComiteRequest;
 use App\Models\Proyecto;
 use App\Models\Adquirido;
 use App\Models\Evidencia;
 use App\Models\Estudiante;
-use App\Models\Docente;
+use App\Models\Comite;
 use App\Models\Compromiso;
 use App\Models\Actividad;
 use App\Models\Reporte;
 use App\Models\Periodo;
 
+
 use Illuminate\Support\MessageBag;
-use App\Http\Requests\proyectosRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProyectoController extends Controller
 {
 
-   
+    public function listarProyectos(){
+        $usuario  = \Session::get('usuario' );
+        $usuario = $usuario->fresh(); 
+        $proyectos = $usuario->proyectosSinComite()->get();
+        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
+    }
+    public function asignarComite($id_proyecto){
+        //$this->authorize('comit',$id_proyecto);
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
+        $proyecto = proyecto::find($id_proyecto);
+        $docentes = $pe->docentes;
+        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
+    }
+    public function asignarComitePut(ComiteRequest $request, $id)
+    {
+        $proyecto = Proyecto::find($id);
+        if(is_null($proyecto->comite_id)){
+            $comite = new Comite;
+            $comite->fill($request->all());
+            $comite->save();    
+            $proyecto->comite_id = $comite->id;
+            $proyecto->save();    
+        }else{
+            $comite =  Comite::find($proyecto->comite_id);
+            $comite->fill($request->all());
+            $comite->save();
+        }
+        return redirect(route('proyectos.sincomite'))->with('message','Comite asigado al proyecto correctamente');
+
+    }
 
     public function registrar(){
         $estudiante = \Session::get('usuario');
@@ -47,7 +78,7 @@ class ProyectoController extends Controller
         //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
         $estudiante = $estudiante->fresh(); 
         $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        $periodos = Estudiante::where('periodos_id', $estudiante->periodos)->get();
+        $periodos = Estudiante::where('periodo_id', $estudiante->periodos)->get();
         return view('estudiante.comprometerse', compact('estudiante','compromisos', 'periodos'));  
     
         
@@ -57,7 +88,7 @@ class ProyectoController extends Controller
     public function update(Request $request){
     
 
-        if($request->periodos_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
+        if($request->periodo_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
             $rules = [
                 'cuantos_prog'=>'required'
             ];
@@ -98,6 +129,7 @@ class ProyectoController extends Controller
 
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
+
         $cuales = $request->input('cual');
         $logrados = $request->input('logrados');
 
@@ -109,18 +141,18 @@ class ProyectoController extends Controller
 
 //        dd($request->all());
         //var_dump($cuales);
+        if (empty($cual))
+            echo "";
+        else
         foreach ($cuales as $key => $cual) {
-            //lo siguiente debe estar en un try-catch puesto que puede fallar, falta validar tambien si no subio una imagen o un documento
-          //  try{
-                //validar tambien si no subio una imagen o un documento
-                $rules = [
+            $rules = [
                     'evidencia'=>'required'
-                ];
-                $messages = [
-                    'evidencia.required' => 'Debes subir una imagen o un documento.'
-                    
-                ];
-                $this->validate($request, $rules, $messages);
+            ];
+            $messages = [
+                'evidencia.required' => 'Debes subir una imagen o un documento.'
+                
+            ];
+            $this->validate($request, $rules, $messages);
     
             $compromiso = Adquirido::find($cual);        
             $compromiso->cuantos_cumplidos = $logrados[$key];
@@ -128,23 +160,21 @@ class ProyectoController extends Controller
             
             $archivo = $evidencias[$key];
             $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $cual . "_e_" . $archivo->getClientOriginalName()  ;
-//            $ret = $archivo->storeAs($nombre_archivo,['disk' => 'evidencias']);
             $ret = Storage::putFileAs('evidencias', $archivo, $nombre_archivo );
             Evidencia::updateOrCreate(
                 ['adquirido_id' => $cual],
                 ['archivo' => $nombre_archivo]
-            );
-            
-//        }catch(\Throwable $th){
-            }
+            );            
+        }
 
-            $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestreActual->id  . "_r_" . $reporte->getClientOriginalName()  ;
-            $ret = Storage::putFileAs('evidencias', $reporte, $nombre_archivo );
-            
-            Reporte::updateOrCreate(
-                ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestreActual->id ],
-                ['reporte' => $nombre_archivo]
-            );
+        $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestreActual->id  . "_r_" . $reporte->getClientOriginalName()  ;
+        $ret = Storage::putFileAs('evidencias', $reporte, $nombre_archivo );
+
+//        Reporte::updateOrCreate(
+        Reporte::Create(
+            ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestreActual->id ],
+            ['reporte' => $nombre_archivo]
+        );
 
         return redirect('/estudiantes')->with('message','Se agregaron los compromisos y tu reporte correctamente');
     }

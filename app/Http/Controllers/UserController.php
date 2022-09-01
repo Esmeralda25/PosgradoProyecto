@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 
 
-class CoordinadorController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
@@ -27,7 +27,8 @@ class CoordinadorController extends Controller
         //return view('coordinador.index');//->with('add',$add);
     }
 
-    public function listarUsuarios(){
+    public function _listarUsuarios(){
+/*
         $coordinador = \Session::get('usuario');
         $coordinador = $coordinador->fresh();
 
@@ -41,11 +42,11 @@ class CoordinadorController extends Controller
         ->select('nombre','id', DB::raw("'Docente' as nivel") )
         ->whereIn('id', DB::table('adscripciones')->select('docentes_id')->where('pes_id',$coordinador->id) )
         ->union($estudiantes)
-        ->get();
+        ->paginate(8);
         // "SELECT nombre FROM docentes where id in (select docentes_id where pes_id = 5 )"
         // 
-
         return view('coordinador.listar-usuarios',compact('usuarios'));
+*/
     }
 
 
@@ -85,41 +86,6 @@ class CoordinadorController extends Controller
 
 
 
-
-    }
-
-    public function agregarUsuarios()
-    {
-            return view('coordinador.agregar-usuarios');
-        
-    }
-    public function store(Request $request) //lo dejaré pero no todo es un resource y si lo es entonces no esta en su controlador
-    {
-        $pe = \Session::get('usuario');
-        $estudiante = request()->except(['_token','nivel']);
-        $docente = request()->except('_token');
-        //dd($docente);
-        $adscripcion = $request->all();
-
-        if($request->input('nivel')=="Estudiante"){
-            //echo "agregar estudiante";
-            $estudiante['pes_id'] = $pe->id;
-            $estudiante['password'] = bcrypt($request->password);
-            Estudiante::insert($estudiante);
-        }elseif($request->input('nivel')=="Docente"){
-            //Docente::insert($docente);
-            $nuevo = new docente();
-            $nuevo->fill($docente);
-            $nuevo->password = bcrypt($request->password);
-            $nuevo->save();
-            //modificar la adscripcion  a $pe->id del $nuevo->id
-            $add = new Adscripcion();
-            $add->pes_id = $pe->id;
-            $add->docentes_id = $nuevo->id; 
-            $add->save();
-
-        }
-        return redirect('listar-usuarios')->with('message','Usuario agregado correctamente');
 
     }
 
@@ -169,64 +135,9 @@ class CoordinadorController extends Controller
 
     }
     
-    public function listarProyectos(){
-        $usuario  = \Session::get('usuario' );
-        $usuario = $usuario->fresh(); 
-        $proyectos = $usuario->proyectos;
-        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
- 
 
-    }
 
-    public function asignarComite($id_proyecto){
-        //$this->authorize('comit',$id_proyecto);
-        $pe = \Session::get('usuario');
-        $pe = $pe->fresh(); 
-        $proyecto = proyecto::find($id_proyecto);
-        $docentes = $pe->docentes;
-        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
-    }
 
-    public function actualizarComite(Request $request, $id){
-        
-        if($request->asesor == $request->revisor1){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');       
-         }else
-        if($request->asesor == $request->revisor2){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.'); 
-         }else
-        if($request->asesor == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');    
-        }else
-        if($request->revisor1 == $request->revisor2){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
-        }else
-        if($request->revisor1 == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');   
-        }else
-        if($request->revisor2 == $request->revisor3){
-            return back()->with('message','No se pueden repetir docentes para un mismo proyecto, intenta nuevamente.');        
-        }else
-        $docente  = \Session::get('usuario' );
-        $docente = $docente->fresh();
-
-        //reviso si ese proyecto ya tenia un comite
-        $proyecto = Proyecto::find($id);
-        $res = is_null($proyecto->comite);
-        if(is_null($proyecto->comite)){
-            $comite = new Comite;
-            $comite->fill($request->all());
-            $comite->save();    
-            $proyecto->comite = $comite->id;
-            $proyecto->save();    
-        }else{
-            $comite =  Comite::find($proyecto->comite);
-            $comite->fill($request->all());
-            $comite->save();    
-        }
-
-        return redirect("/listar-proyectos")->with('comite','Comite asigado al proyecto correctamente');
-    }
     
 
     public function guardarPassword(Request $request, $tipo, $id){
@@ -251,9 +162,7 @@ class CoordinadorController extends Controller
             $docente->save();
             return redirect('listar-usuarios')->with('mensaje','Contraseña cambiada correctamente');
         }
-
-    
-        }
+    }
     public function manual()
     {
         return view('manuales');

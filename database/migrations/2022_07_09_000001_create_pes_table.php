@@ -23,10 +23,10 @@ class CreatePesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('nombre', 100)->nullable()->default(null);
             $table->string('coordinador', 45)->nullable()->default(null);
             $table->string('correo', 45)->nullable()->default(null);
             $table->string('password', 100)->nullable()->default(null);
-            $table->string('nombre', 100)->nullable()->default(null);
         });
     }
 

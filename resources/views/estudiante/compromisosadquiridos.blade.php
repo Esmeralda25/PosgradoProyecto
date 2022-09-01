@@ -1,20 +1,5 @@
 @extends('layouts.master')
 
-@section('titulo')
-  <p>Estudiante</p>
-
-@endsection
-@section('submenu')
-    <!--OPCION DEL MENU PARA SALIR DE SESION -->      
-    <form action="/logout">
-        <li class="nav-item"> 
-            @csrf
-            <a href="/logout" class="nav-link"> 
-            <i  class="fa fa-sign-out" aria-hidden="true"></i>    
-        </a>
-         </li>    
-    </form>   
-@endsection
 @section('regresar') 
     <a href="/estudiantes" class="nav-link">
     <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
@@ -75,14 +60,14 @@
                                             <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Articulos JCR sometidos</th>
-                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="1" name="nombre" class="form-control"></th>
+                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="1" name="nombre" style="width: 100%"></th>
                                                 
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
                                                 <th scope="row">Conferencias Nacionales</th>
-                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="3" name="nombre" class="form-control"></td> 
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="3" name="nombre" style="width: 100%"></td> 
                                             </tr>
                                             </tbody>
                                         </table>
@@ -95,18 +80,18 @@
                                             <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Busqueda de informacion</th>
-                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" class="form-control"></th>
+                                                <th scope="col" style="padding-left:100px"><input type="text" placeholder="Enero 2021 - Febrero 2021" name="nombre" style="width: 100%"></th>
                                                 
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
                                                 <th scope="row">Creacion de la herramienta</th>
-                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" class="form-control"></td> 
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="Marzo 2021 - Mayo 2021" name="nombre" style="width: 100%"></td> 
                                             </tr>
                                             <tr>
                                                 <th scope="row">Difucion del trabajo</th>
-                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" class="form-control"></td> 
+                                                <td scope="col" style="padding-left:100px"><input type="text" placeholder="01 Junio 2021 - 30 Junio 2021 " name="nombre" style="width: 100%"></td> 
                                             </tr>
                                             </tbody>
                                         </table>
