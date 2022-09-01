@@ -76,19 +76,19 @@
                             @else
                                 <tr>
                                     <th>Asesor</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteAsesor->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteAsesor->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 1</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor1->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor1->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 2</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor2->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor2->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 3</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor3->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor3->nombre}}</td>
                                 </tr>
                                 
                             @endif

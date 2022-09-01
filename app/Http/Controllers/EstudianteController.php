@@ -28,7 +28,7 @@ class EstudianteController extends Controller
         $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
         if ($proyecto->count() == 0 ){
             $hacer = ["Registrar"];
-            return redirect( url('/registrar') )->with('message','Estudiante sin proyecto registrado') ;
+            return redirect( route('proyectos.create') )->with('message','Estudiante sin proyecto registrado') ;
         }
         $estado = $estudiante->periodo->estado;
             switch ($estado) {
@@ -110,7 +110,7 @@ class EstudianteController extends Controller
         $registro->fill($valores);
 
         $registro->save();
-        return redirect("/estudiantes");
+        return redirect(route('inicio'));
     }
 
     /**

@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Proyecto extends Model
 {
     protected $table = 'proyectos';
-    protected $fillable=['id','titulo','hipotesis','objetivos','objetivose', 'avance','comite_id','estudiante_id', 'periodo_id','calificacion_id', 'compromiso'];
+    protected $fillable=['id','titulo','hipotesis','objetivo','objetivos_especificos', 'avance','comite_id','estudiante_id', 'periodo_id','calificacion_id', 'compromiso'];
     
     public $timestamps = false;  
 
     public function estudiante(){
         return $this->hasOne('App\Models\estudiante','id','estudiante_id');
     }
-    public function comiteTutorial(){
+    public function comite(){
         return $this->hasOne('App\Models\Comite','id','comite_id');
          
     }
@@ -53,7 +53,7 @@ class Proyecto extends Model
     }
 
     public function compromiso(){
-        return $this->hasOne('App\Models\Compromiso','id','compromiso');
+        return $this->hasOne('App\Models\Adquirido','id','compromiso');
     }
     
     public function compromisos($semestre){
@@ -69,7 +69,7 @@ class Proyecto extends Model
     }
 
     public function actividades($semestre){
-        return $this->hasMany('App\Models\Actividad','proyectos_id','id')
+        return $this->hasMany('App\Models\Actividad','proyecto_id','id')
         ->where('periodo_id',$semestre)
         ;
     }
@@ -85,7 +85,7 @@ class Proyecto extends Model
         return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
 
-    public function promedio()
+    public function evaluaciones()
     {
         return $this->hasMany('App\Models\Evaluacion','proyecto_id','id');
     }

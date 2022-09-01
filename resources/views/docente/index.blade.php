@@ -50,7 +50,7 @@
                                             
                                                         @if ($proyecto->estudiante->semestre->estado == "Evaluacion")
                                                             <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>
-                                                            @if($proyecto->promedio-> count() >=1)
+                                                            @if($proyecto->evaluaciones-> count() >=1)
                                                             <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
                                                             @endif
                                                                     

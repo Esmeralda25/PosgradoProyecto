@@ -25,10 +25,10 @@ class CreateActividadesTable extends Migration
             $table->increments('id');
             $table->string('nombre', 45)->nullable()->default(null);
             $table->string('periodo', 45)->nullable()->default(null);
-            $table->integer('proyectos_id')->unsigned();
+            $table->integer('proyecto_id')->unsigned();
             $table->integer('periodo_id')->unsigned();
 
-            $table->index(["proyectos_id"], 'fk_actividades_proyectos1_idx');
+            $table->index(["proyecto_id"], 'fk_actividades_proyectos1_idx');
 
             $table->index(["periodo_id"], 'fk_actividades_periodos1_idx');
 

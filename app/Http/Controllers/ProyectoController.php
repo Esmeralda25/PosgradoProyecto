@@ -11,8 +11,8 @@ use App\Models\Comite;
 use App\Models\Compromiso;
 use App\Models\Actividad;
 use App\Models\Reporte;
-use App\Models\Periodo;
 
+use App\Http\Requests\ProyectoResquest;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +25,7 @@ class ProyectoController extends Controller
         $usuario  = \Session::get('usuario' );
         $usuario = $usuario->fresh(); 
         $proyectos = $usuario->proyectosSinComite()->get();
-        return view('coordinador.proyectos.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
+        return view('proyecto.listar-proyectos',compact('proyectos')); //deberia de ser la sub carpeta proyectos y asi poner en sub carpetas usuarios rubricas, compromisos y generaciones
     }
     public function asignarComite($id_proyecto){
         //$this->authorize('comit',$id_proyecto);
@@ -33,7 +33,7 @@ class ProyectoController extends Controller
         $pe = $pe->fresh(); 
         $proyecto = proyecto::find($id_proyecto);
         $docentes = $pe->docentes;
-        return view('coordinador.proyectos.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
+        return view('proyecto.asignar-comite',compact('proyecto','docentes')); //la convencion dice que las vistas son en plural pero a un proyecto no se le asignan varios comites
     }
     public function asignarComitePut(ComiteRequest $request, $id)
     {
@@ -53,16 +53,45 @@ class ProyectoController extends Controller
 
     }
 
-    public function registrar(){
+    public function create(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
-        return view('estudiante.registrar', compact('estudiante'));
+        $estudiante_id = $estudiante->id;
+        return view('proyecto.create', compact('estudiante_id'));
 
     }
-    public function store(Request $request){
-        proyecto::create(request()->all()); 
-        return redirect('/estudiantes')->with('registro','¡Bien proyecto registrado correctamente!'); //error al redireccionar, manda estado del estudiante nulo
+    public function store(ProyectoResquest $request){
+        Proyecto::create(request()->all()); 
+        return redirect(route('inicio'))->with('message','Proyecto registrado correctamente!'); //error al redireccionar, manda estado del estudiante nulo
     } 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $proyecto = Proyecto::find($id);
+        return view('proyecto.edit', compact('proyecto'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  App\Http\Requests\ProyectoResquest $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProyectoResquest $request, $id)
+    {
+        $proyecto_data = $request->all();
+        $registro = Proyecto::find($id);
+        $registro->fill($proyecto_data);
+        $registro->save();
+        return redirect(route('inicio'))->with('message','Proyecto actualizado correctamente!'); 
+
+    }
  
     public function show()
     {
@@ -73,7 +102,7 @@ class ProyectoController extends Controller
     }
 
 
-    public function edit(){ 
+    public function comprometerseGet(){ 
         $estudiante = \Session::get('usuario');
         //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
         $estudiante = $estudiante->fresh(); 
@@ -85,9 +114,9 @@ class ProyectoController extends Controller
     }
 
 
-    public function update(Request $request){
+    public function comprometersePut(Request $request){
     
-
+//update de adquirido (compromiso adquirido) y el update de actividad
         if($request->periodo_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
             $rules = [
                 'cuantos_prog'=>'required'

@@ -13,6 +13,7 @@ use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CompromisosController;
 use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\_DocenteController;
 use App\Http\Controllers\EvaluarController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\HistoricorevController;
@@ -36,9 +37,6 @@ Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
 //no tiene inicio puesto que es lo unico que hace, pero falta otras opciones que seran mas modulos
 Route::resource('programas', PeController::class);
 
-
-
-
 /// COORDINADOR
     //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
 //Docentes
@@ -59,6 +57,7 @@ Route::get('periodos/create/{geneacion}', [PeriodoController::class, 'create'])-
 Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos'])->name('periodos.proyectos');
 Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
 Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');
+//aqui falta inscribir estudiantes...
 
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
@@ -76,29 +75,41 @@ Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class,
 
 
 /// Estudiante
-Route::resource('estudiantes', EstudianteController::class);
+//Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
 
-Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']);
+//Route::resource('estudiantes', EstudianteController::class);
 
-Route::get('registrar', [ProyectoController::class,'registrar']);
-Route::post('registrar', [ProyectoController::class,'store']);
-Route::get('seguimiento', [ProyectoController::class,'show']);
-Route::get('comprometerse', [ProyectoController::class,'edit']);
-Route::put('comprometerse', [ProyectoController::class,'update']);
+
+Route::get('proyectos/registrar', [ProyectoController::class,'create'])->name('proyectos.create');
+Route::post('proyectos/registrar', [ProyectoController::class,'store'])->name('proyectos.store');
+
+Route::get('proyectos/{proyecto}/edit', [ProyectoController::class,'edit'])->name('proyectos.edit');
+Route::put('proyectos/{proyecto}', [ProyectoController::class,'update'])->name('proyectos.update');
+Route::get('proyectos/{proyecto}', [ProyectoController::class,'show'])->name('proyectos.show');
+
+
+
+//Route::resource('proyectos', ProyectoController::class)->except('update') ;
+Route::get('comprometerse', [ProyectoController::class,'comprometerseGet']);
+Route::put('comprometerse', [ProyectoController::class,'comprometersePut']);
+
 Route::delete('comprometerse/{id}', [ProyectoController::class,'destroy']);
 
-Route::get('comprometerse-act', [ProyectoController::class,'edit']);
-Route::put('comprometerse-act', [ProyectoController::class,'update']);
+Route::get('comprometerse-act', [ProyectoController::class,'comprometerseGet']);
+Route::put('comprometerse-act', [ProyectoController::class,'comprometersePut']);
+
+
 Route::delete('comprometerse-act/{id}', [ProyectoController::class,'destroy']);
 
 
 Route::get('reportar', [ProyectoController::class,'reportar']);
 Route::post('reportar', [ProyectoController::class,'guardarReporte']);
 
+Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']);
 
 //Docente 
 
-Route::resource('docentes', DocenteController::class);
+Route::get('docentest', [_DocenteController::class,'index']);
 
 //Docente Evaluaciones
 Route::get('evaluaciones/{id}', [EvaluarController::class, 'index']);

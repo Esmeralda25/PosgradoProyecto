@@ -48,7 +48,7 @@
 
                                                 @if ($proyecto->comite_id != null )
                                                     <td>
-                                                        {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
+                                                        {{$proyecto->comite->docenteAsesor->nombre}}
                                                     </td>
                                                 @else
                                                     <td>
