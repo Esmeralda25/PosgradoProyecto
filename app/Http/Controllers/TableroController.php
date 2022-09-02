@@ -51,7 +51,7 @@ class TableroController extends Controller
             case 'Inicio':
                 $proyecto = $estudiante->proyecto;
                 //$proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
-                if (is_null($proyecto)){
+                if (is_null($estudiante->proyecto)){
                     //$hacer = ["Registrar"];
                     return redirect( route('proyectos.create'))->with('message','Estudiante sin proyecto registrado') ;
                 }  
@@ -65,7 +65,7 @@ class TableroController extends Controller
                 return redirect( route('proyectos.comprometerse' ))->with('message','Es momento de decidir como alcanzar el objetivo') ;
                 break;
             case 'Seguimiento':
-                # code...
+                return redirect( route('proyectos.show',$estudiante->proyecto->id ))->with('message','Este proyecto no puede editarse puesto que el periodo esta en "SEGUIMINETO"') ;
                 break;
             case 'Reportar':
                 # code...
