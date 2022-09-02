@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Estudiante;
-use App\Models\Compromiso;
-use App\Models\Adquirido;
-
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\Actividad;
 
 
-class AdquiridoController extends Controller
+class ActividadController extends Controller
 {
     public function index()
     {
@@ -19,42 +16,46 @@ class AdquiridoController extends Controller
         return view('estudiante.compromisosadquiridos');//->with('add',$add);
     }
 
-    public function compromisoAdquirido(Request $request){
-
+    public function agendar(Request $request){
         //update de adquirido (compromiso adquirido) y el update de actividad
             $rules = [
-                'cuantos_programo'=>'required|integer|min:1'
+                'nombre'=>'required',
+                'etapa'=>'required'
             ];
             $messages = [
-                'cuantos_programo.required' => '¿Cuantos vas a programar?',
-                'cuantos_programo.integer' => 'Deberia establecer un numero entero',
-                'cuantos_programo.min' => 'Al menos debe programar uno',
+                'nombre.required' => 'No puedes dejar el nombre de la actividad vacio',
+                'etapa.required' => '¿Cúando se llevara a cabo esta actividad?'
             ];
 
             $validator = Validator::make($request->all(),$rules, $messages);
     
             if($validator->fails()){
-                return redirect()->back()->withInput()->withErrors($validator, "compromisos");
+                return redirect()->back()->withInput()->withErrors($validator, "actividades");
             } else {
-                $nuevo = new Adquirido();
-                $nuevo->fill($request->all());
-                $nuevo->save();
+                $nuevop = new Actividad();
+                $nuevop->fill($request->all());
+                $nuevop->save();
                 return redirect( route('proyectos.comprometerse' ))
                     ->with('message','Es momento de decidir como alcanzar el objetivo')
-                    ->with('mensaje_compromiso','Se agregó compromiso correctamente.') ;
-            }        
+                    ->with('mensaje_actividad','Se agregó actividad correctamente.') ;
+            }
+            
+            $this->validate($request, $rules, $messages);
+
+        
     }
     public function destroy($id)
     { 
         try{
-            Adquirido::destroy($id);
+            Actividad::destroy($id);
             return redirect( route('proyectos.comprometerse' ))
                 ->with('message','Es momento de decidir como alcanzar el objetivo')
-                ->with('mensaje_compromiso','Se elimino el compromiso correctamente.') ;
+                ->with('mensaje_actividad','Se elimino la actividad correctamente.') ;
         } catch (\Throwable $th) {
             return redirect( route('proyectos.comprometerse' ))
                 ->with('message','Es momento de decidir como alcanzar el objetivo')
-                ->with('mensaje_compromiso','Error no esperado: ' . $th->getMessage() ) ;
+                ->with('mensaje_actividad','Error no esperado: ' . $th->getMessage() ) ;
         }
-    }
+    } 
+    
 }

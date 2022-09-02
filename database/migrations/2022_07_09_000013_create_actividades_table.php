@@ -24,7 +24,7 @@ class CreateActividadesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 45)->nullable()->default(null);
-            $table->string('periodo', 45)->nullable()->default(null);
+            $table->string('etapa', 45)->nullable()->default(null);
             $table->integer('proyecto_id')->unsigned();
             $table->integer('periodo_id')->unsigned();
 

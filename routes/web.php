@@ -11,7 +11,7 @@ use App\Http\Controllers\RubricaController;
 use App\Http\Controllers\CriterioController;
 use App\Http\Controllers\ProyectoController;
 use App\Http\Controllers\EstudianteController;
-use App\Http\Controllers\CompromisosController;
+use App\Http\Controllers\CompromisoController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\_DocenteController;
 use App\Http\Controllers\EvaluarController;
@@ -19,6 +19,9 @@ use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\HistoricorevController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableroController;
+use App\Http\Controllers\AdquiridoController;
+use App\Http\Controllers\ActividadController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -62,7 +65,7 @@ Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('per
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
 //Compromisos
-Route::resource('compromisos', CompromisosController::class);
+Route::resource('compromisos', CompromisoController::class);
 
 //proyectos(asignar comite)
 
@@ -90,16 +93,18 @@ Route::get('proyectos/{proyecto}', [ProyectoController::class,'show'])->name('pr
 
 
 //Route::resource('proyectos', ProyectoController::class)->except('update') ;
-Route::get('comprometerse', [ProyectoController::class,'comprometerseGet']);
-Route::put('comprometerse', [ProyectoController::class,'comprometersePut']);
 
-Route::delete('comprometerse/{id}', [ProyectoController::class,'destroy']);
+Route::get('proyectos/comprometerse', [ProyectoController::class,'comprometerse'])->name('proyectos.comprometerse');
 
-Route::get('comprometerse-act', [ProyectoController::class,'comprometerseGet']);
-Route::put('comprometerse-act', [ProyectoController::class,'comprometersePut']);
+Route::put('compromiso-adquirido', [AdquiridoController::class,'compromisoAdquirido'])->name('compromisos.adquirir');
+Route::put('actividad-agendada', [ActividadController::class,'agendar'])->name('actividades.agendar');
+
+Route::delete('eliminar-compromiso/{compromiso}', [AdquiridoController::class,'destroy'])->name('compromisos.eliminar');
+Route::delete('eliminar-actividad/{actividad}', [ActividadController::class,'destroy'])->name('actividades.eliminar');
+
+//Route::get('comprometerse-act', [ProyectoController::class,'comprometerseGet']);
 
 
-Route::delete('comprometerse-act/{id}', [ProyectoController::class,'destroy']);
 
 
 Route::get('reportar', [ProyectoController::class,'reportar']);

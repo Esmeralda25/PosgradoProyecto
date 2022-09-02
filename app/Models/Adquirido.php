@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adquirido extends Model 
 {
-    protected $fillable=[  'que', 'cuantos_prog', 'cuantos_cumplidos', 'proyecto_id', 'periodo_id'];
+    protected $fillable=[  'que', 'cuantos_programo', 'cuantos_cumplidos', 'proyecto_id', 'periodo_id'];
     public $timestamps = false;
 
     public function evidencia(){

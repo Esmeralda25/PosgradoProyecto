@@ -24,7 +24,7 @@ class CreateAdquiridosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('que', 45)->nullable()->default(null);
-            $table->integer('cuantos_prog')->nullable()->default(null);
+            $table->integer('cuantos_programo')->nullable()->default(null);
             $table->integer('cuantos_cumplidos')->nullable()->default(null);
             $table->integer('proyecto_id')->unsigned();
             $table->integer('periodo_id')->unsigned();

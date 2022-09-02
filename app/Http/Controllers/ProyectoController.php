@@ -102,51 +102,6 @@ class ProyectoController extends Controller
     }
 
 
-    public function comprometerseGet(){ 
-        $estudiante = \Session::get('usuario');
-        //esta adquiriendo compromisos, estas 3 lineas estaban anteriormente
-        $estudiante = $estudiante->fresh(); 
-        $compromisos = Compromiso::where('pes_id', $estudiante->pe->id) ->orWhereNull('pes_id')->get();
-        $periodos = Estudiante::where('periodo_id', $estudiante->periodos)->get();
-        return view('estudiante.comprometerse', compact('estudiante','compromisos', 'periodos'));  
-    
-        
-    }
-
-
-    public function comprometersePut(Request $request){
-    
-//update de adquirido (compromiso adquirido) y el update de actividad
-        if($request->periodo_id && $request->proyecto_id && $request->que && $request->cuantos_prog){
-            $rules = [
-                'cuantos_prog'=>'required'
-            ];
-            $messages = [
-                'cuantos_prog.required' => 'No puedes dejar los campos vacios'
-            ];
-            $this->validate($request, $rules, $messages);
-            $nuevo = new Adquirido();
-            $nuevo->fill($request->all());
-            $nuevo->save();
-            return redirect('/comprometerse')->with('message','Se agregó compromiso correctamente.');
-        } else {
-            $rules = [
-                'nombre'=>'required',
-                'periodo'=>'required'
-            ];
-            $messages = [
-                'nombre.required' => 'No puedes dejar el campo "Actividad" vacio',
-                'periodo.required' => 'No puedes dejar el campo "Periodo" vacio'
-            ];
-            $this->validate($request, $rules, $messages);
-
-            $nuevop = new Actividad();
-            $nuevop->fill($request->all());
-            $nuevop->save();
-            return redirect('/comprometerse')->with('mensaje','Se agregó actividad correctamente.');
-        }
-        
-    }
  //REPORTAR Y GUARDARREPORTE- REPORTAR AVANCE
     public function reportar(){
         $estudiante = \Session::get('usuario');
@@ -230,32 +185,12 @@ class ProyectoController extends Controller
         $proyecto->save();
         return redirect("/estudiantes");
     }
-
-    public function destroy($id)
-    { 
-
-    $adquirido = Adquirido::find($id);
-    $actividad = Actividad::find($id); 
-//compromisos
-    if(!is_null($adquirido)){
-        try{
-            Adquirido::destroy($id);
-            return redirect('comprometerse')->with('borrar','Compromiso eliminado correctamente');
-        } catch (\Throwable $th) {
-            return redirect('comprometerse');
-        }
-    }
-    else if(!is_null($actividad)){
-    //actividades
-        try{
-            Actividad::destroy($id);
-            return redirect('comprometerse')->with('nborrar','Actividad eliminada correctamente');
-        } catch (\Throwable $th) {
-            return redirect('comprometerse');
-        }
-    }
-
-        
+    public function comprometerse(){ 
+        $estudiante = \Session::get('usuario');
+        $estudiante = $estudiante->fresh(); 
+        $compromisos = Compromiso::where('pe_id', $estudiante->pe->id) ->orWhereNull('pe_id')->get();
+        $periodos = Estudiante::where('periodo_id', $estudiante->periodos)->get();
+        return view('estudiante.comprometerse', compact('estudiante','compromisos'/*, 'periodos'*/));  
     }
 
 }
