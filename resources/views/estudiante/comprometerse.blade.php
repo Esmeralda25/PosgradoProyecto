@@ -126,7 +126,7 @@
                         </th>
                         <th class="row col-5">
                           Cantidad: 
-                          <input type="number" name="cuantos_programo" min="0" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
+                          <input type="number" name="cuantos_programo" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
                           <button class="btn btn-success" style="width:60px"><i class="fas fa-plus-circle"></i></button>
                         </th>
                   </form>  
