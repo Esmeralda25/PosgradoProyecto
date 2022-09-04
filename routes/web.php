@@ -82,33 +82,25 @@ Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class,
 
 //Route::resource('estudiantes', EstudianteController::class);
 
+//Route::resource('proyectos', ProyectoController::class)->except(['index',destroy']) ;
 
 Route::get('proyectos/registrar', [ProyectoController::class,'create'])->name('proyectos.create');
 Route::post('proyectos/registrar', [ProyectoController::class,'store'])->name('proyectos.store');
-
 Route::get('proyectos/{proyecto}/edit', [ProyectoController::class,'edit'])->name('proyectos.edit');
 Route::put('proyectos/{proyecto}', [ProyectoController::class,'update'])->name('proyectos.update');
 Route::get('proyectos/{proyecto}', [ProyectoController::class,'show'])->name('proyectos.show');
 
 
-
-//Route::resource('proyectos', ProyectoController::class)->except('update') ;
-
 Route::get('proyectos/comprometerse', [ProyectoController::class,'comprometerse'])->name('proyectos.comprometerse');
 
 Route::put('compromiso-adquirido', [AdquiridoController::class,'compromisoAdquirido'])->name('compromisos.adquirir');
 Route::put('actividad-agendada', [ActividadController::class,'agendar'])->name('actividades.agendar');
-
 Route::delete('eliminar-compromiso/{compromiso}', [AdquiridoController::class,'destroy'])->name('compromisos.eliminar');
 Route::delete('eliminar-actividad/{actividad}', [ActividadController::class,'destroy'])->name('actividades.eliminar');
 
-//Route::get('comprometerse-act', [ProyectoController::class,'comprometerseGet']);
 
-
-
-
-Route::get('reportar', [ProyectoController::class,'reportar']);
-Route::post('reportar', [ProyectoController::class,'guardarReporte']);
+Route::get('proyectos/reportar', [ProyectoController::class,'reportar'])->name('proyectos.reportar');
+Route::post('proyectos/reportar', [AdquiridoController::class,'guardarReporte'])->name('proyectos.guardarReporte');
 
 Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']);
 

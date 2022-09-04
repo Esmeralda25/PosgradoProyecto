@@ -68,7 +68,7 @@ class TableroController extends Controller
                 return redirect( route('proyectos.show',$estudiante->proyecto->id ))->with('message','Este proyecto no puede editarse puesto que el periodo esta en "SEGUIMINETO"') ;
                 break;
             case 'Reportar':
-                # code...
+                return redirect( route('proyectos.reportar'))->with('message','Es hora de subir las evidencias de los compromisos logrados') ;
                 break;
             case 'Evaluacion':
                 # code...

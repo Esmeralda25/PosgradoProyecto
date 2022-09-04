@@ -25,7 +25,7 @@ class CreateAdquiridosTable extends Migration
             $table->increments('id');
             $table->string('que', 45)->nullable()->default(null);
             $table->integer('cuantos_programo')->nullable()->default(null);
-            $table->integer('cuantos_cumplidos')->nullable()->default(null);
+            $table->integer('cuantos_cumplio')->nullable()->default(null);
             $table->integer('proyecto_id')->unsigned();
             $table->integer('periodo_id')->unsigned();
 

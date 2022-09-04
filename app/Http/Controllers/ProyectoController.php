@@ -14,9 +14,6 @@ use App\Models\Reporte;
 
 use App\Http\Requests\ProyectoResquest;
 
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ProyectoController extends Controller
 {
@@ -98,7 +95,7 @@ class ProyectoController extends Controller
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
 
-        return view('estudiante.seguimineto' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
+        return view('estudiante.seguimineto' , compact('estudiante'));
     }
 
 
@@ -106,62 +103,9 @@ class ProyectoController extends Controller
     public function reportar(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
-        return view('estudiante.reportar' , compact('estudiante'));//y creo que deberia de enviar el proyecto no el estudiante.
+        return view('estudiante.reportar' , compact('estudiante'));
     }
 
-    public function guardarReporte(Request $request){
-
-        $estudiante = \Session::get('usuario');
-        $estudiante = $estudiante->fresh(); 
-
-        $cuales = $request->input('cual');
-        $logrados = $request->input('logrados');
-
-        $evidencias=$request->file('evidencia');
-        $reporte = $request->file('reporte');
-
-
-
-
-//        dd($request->all());
-        //var_dump($cuales);
-        if (empty($cual))
-            echo "";
-        else
-        foreach ($cuales as $key => $cual) {
-            $rules = [
-                    'evidencia'=>'required'
-            ];
-            $messages = [
-                'evidencia.required' => 'Debes subir una imagen o un documento.'
-                
-            ];
-            $this->validate($request, $rules, $messages);
-    
-            $compromiso = Adquirido::find($cual);        
-            $compromiso->cuantos_cumplidos = $logrados[$key];
-            $compromiso->save(); 
-            
-            $archivo = $evidencias[$key];
-            $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $cual . "_e_" . $archivo->getClientOriginalName()  ;
-            $ret = Storage::putFileAs('evidencias', $archivo, $nombre_archivo );
-            Evidencia::updateOrCreate(
-                ['adquirido_id' => $cual],
-                ['archivo' => $nombre_archivo]
-            );            
-        }
-
-        $nombre_archivo = $estudiante->id . "_".  $estudiante->proyecto->id . "_" . $estudiante->semestre->id  . "_r_" . $reporte->getClientOriginalName()  ;
-        $ret = Storage::putFileAs('evidencias', $reporte, $nombre_archivo );
-
-//        Reporte::updateOrCreate(
-        Reporte::Create(
-            ['proyecto_id' => $estudiante->proyecto->id , 'periodo_id' => $estudiante->semestre->id ],
-            ['reporte' => $nombre_archivo]
-        );
-
-        return redirect('/estudiantes')->with('message','Se agregaron los compromisos y tu reporte correctamente');
-    }
 
 
     public function index(){

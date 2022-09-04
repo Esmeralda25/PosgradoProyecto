@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evidencia extends Model 
 {
-    protected $fillable=[  'adquirido_id', 'archivo', 'reporte' ];
+    protected $fillable=[  'adquirido_id', 'archivo'  ];
     public $timestamps = false;
 
 }  

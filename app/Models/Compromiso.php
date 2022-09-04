@@ -20,5 +20,4 @@ class Compromiso extends Model
             ]
         );
     }
-
 }  
