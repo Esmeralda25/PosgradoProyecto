@@ -108,7 +108,13 @@
                                 <tr>
                                     <th>
                                         @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
-                                                <li>{{$compromiso->que}}, se programo: {{$compromiso->cuantos_prog}}</li>
+                                                <li>
+                                                    {{$compromiso->que}}, se programo: {{$compromiso->cuantos_programo}} 
+                                                    <a href="/evidencias/{{$compromiso->evidencia->archivo}}" target="_blank" >
+                                                        {{$compromiso->evidencia->archivo}}
+                                                    </a>
+                                                </li>
+
                                         @empty
                                                 Sin compromisos definidos para este semestre
                                         @endforelse
