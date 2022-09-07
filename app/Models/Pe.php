@@ -14,11 +14,7 @@ class Pe extends Usuario
     public function proyectos(){
         return $this->hasManyThrough(
             proyecto::class,
-            estudiante::class,   
-            'pes_id', // estudiantes.pes_id 
-            '', //estudiante_id
-            '' , // Local key on the ___ table...
-            'id' // estudiantes.id
+            estudiante::class
         );
     }   
 

@@ -100,9 +100,16 @@ class Proyecto extends Model
         return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
 
+    public function valoraciones($semestre)
+    {
+        return $this->hasMany('App\Models\Evaluacion')
+        ->where('periodo_id',$semestre)
+        ;
+    }
+
     public function evaluaciones()
     {
-        return $this->hasMany('App\Models\Evaluacion','proyecto_id','id');
+        return $this->hasMany('App\Models\Evaluacion');
     }
 
     public function pdf()

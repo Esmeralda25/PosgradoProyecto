@@ -97,7 +97,21 @@
                     <div style="height:20px;"></div>
                     @foreach ($estudiante->proyecto->periodos as $periodo)
                         <hr> DURANTE EL PERIODO {{$periodo->nombre}} @if($periodo->id == $estudiante->periodo_id) (ACTUAL) @endif
-                         
+                        @php
+                        $cuantos = 0;
+                        $suma = 0;
+                        foreach ($estudiante->proyecto->valoraciones($periodo->id)->get() as $evaluacion) {
+                            if (!is_null($evaluacion->calificacion)){
+                                $cuantos ++;
+                                $suma += $evaluacion->calificacion;
+                            }    
+                        }
+                        if ($cuantos != 0)
+                            echo "su calificacion fue: " . ($suma/3);
+                        else 
+                            echo "no tiene calificaciones.";
+                        @endphp
+
                             <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
                             <table class="table table-dark table-striped">
                                 <thead>
