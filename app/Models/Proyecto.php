@@ -43,13 +43,28 @@ class Proyecto extends Model
 */
     }
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','periodo_id')
+        return $this->belongsTo('App\Models\Periodo','periodo_id','id')
+//        return $this->hasOne('App\Models\Periodo','id','periodo_id')
         ->withDefault(
             [
                 'id' => 0,
                 'nombre' => 'Sin periodo asignado'
             ]
         );
+    }
+
+    public function periodos(){
+//adquiridos`.`d` = `periodos`.`b` where `adquiridos`.`a` is null"
+        return $this->hasManyThrough(
+            'App\Models\Periodo',
+            'App\Models\Adquirido',
+            'proyecto_id',
+            'id',
+            '',
+            'periodo_id',
+        )->distinct()
+        ->orderBy('fechaInicio','asc')
+        ;
     }
 
     public function compromiso(){

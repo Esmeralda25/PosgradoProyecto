@@ -94,57 +94,62 @@
                             @endif
                         </tbody>
                     </table>
-                        <div style="height:20px;"></div>
-                        <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr class="row col-12" style="text-align: center;">
-                                        <th class="col-12" style="font-size: 25px;">
-                                            Compromisos Adquiridos
-                                        </th>
-                                </tr> 
-                            </thead>  
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
+                    <div style="height:20px;"></div>
+                    @foreach ($estudiante->proyecto->periodos as $periodo)
+                        <hr> DURANTE EL PERIODO {{$periodo->nombre}} @if($periodo->id == $estudiante->periodo_id) (ACTUAL) @endif
+                         
+                            <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr class="row col-12" style="text-align: center;">
+                                            <th class="col-12" style="font-size: 25px;">
+                                                Compromisos Adquiridos
+                                            </th>
+                                    </tr> 
+                                </thead>  
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            @forelse ($estudiante->proyecto->compromisos( $periodo->id )->get() as $compromiso)
                                                 <li>
                                                     {{$compromiso->que}}, se programo: {{$compromiso->cuantos_programo}} 
                                                     <a href="/evidencias/{{$compromiso->evidencia->archivo}}" target="_blank" >
                                                         {{$compromiso->evidencia->archivo}}
                                                     </a>
                                                 </li>
-
-                                        @empty
+                                            @empty
                                                 Sin compromisos definidos para este semestre
-                                        @endforelse
-                                    </th>
-                                </tr>
-                                                              
-                            </tbody>        
-                        </table>
-                        <div style="height:15px;"></div>
-                        <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr class="row col-12" style="text-align: center;">
-                                        <th class="col-12" style="font-size: 25px;">
-                                            Actividades Adquiridas
+                                            @endforelse
                                         </th>
-                                </tr> 
-                            </thead>  
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        @forelse ($estudiante->proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
-                                            <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->periodo}}"</li>
-                                        @empty
-                                            Sin actividades definidas para este semestre
-                                        @endforelse
-                                    </th>
-                                </tr>
-                            </tbody>        
-                        </table>                                      
+                                    </tr>
+                                                                
+                                </tbody>        
+                            </table>
+                            <div style="height:15px;"></div>
+                            <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr class="row col-12" style="text-align: center;">
+                                            <th class="col-12" style="font-size: 25px;">
+                                                Actividades Adquiridas
+                                            </th>
+                                    </tr> 
+                                </thead>  
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            @forelse ($estudiante->proyecto->actividades( $periodo->id )->get() as $actividad)
+                                                <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->etapa}}"</li>
+                                            @empty
+                                                Sin actividades definidas para este semestre
+                                            @endforelse
+                                        </th>
+                                    </tr>
+                                </tbody>        
+                            </table>                                      
+
+                        <hr>                        
+                    @endforeach
                     </div>                            
                         </div>
                     
