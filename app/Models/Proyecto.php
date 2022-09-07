@@ -16,7 +16,7 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\estudiante','id','estudiante_id');
     }
     public function comite(){
-        return $this->hasOne('App\Models\Comite','id','comite_id');
+        return $this->belongsTo('App\Models\Comite');
          
     }
     /*
