@@ -7,7 +7,7 @@ namespace App\Models;
 class Estudiante extends Usuario
 {
  
-    protected $fillable=['nombre','correo','password','pes_id',
+    protected $fillable=['nombre','correo','password','pe_id',
     'compromisos_id','actividades_id','periodo_id', 'cursando'];
     
     public $timestamps = false;
@@ -36,7 +36,7 @@ class Estudiante extends Usuario
         return "Estudiante";
     } 
     public function pe(){
-        return $this->belongsTo('App\Models\Pe','pes_id','id');
+        return $this->belongsTo('App\Models\Pe','pe_id','id');
     }
 
     public function periodo(){
