@@ -31,7 +31,8 @@ class TableroController extends Controller
             }
         }
     }
-        /**
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -71,22 +72,15 @@ class TableroController extends Controller
                 return redirect( route('proyectos.reportar'))->with('message','Es hora de subir las evidencias de los compromisos logrados') ;
                 break;
             case 'Evaluacion':
-                return redirect( route('proyectos.show',$estudiante->proyecto->id ))->with('message','Este proyecto no puede editarse puesto que el periodo esta en "SEGUIMINETO"') ;
+                return redirect( route('proyectos.show',$estudiante->proyecto->id ))->with('message','Este proyecto no puede editarse puesto que el periodo esta en "EVALUACION"') ;
                 break;
             case 'Concluido':
-                # code...
-                break;
-                
+                return redirect( route('proyectos.show',$estudiante->proyecto->id ))->with('message','Este proyecto no puede editarse puesto que el periodo esta "CONCLUIDO"') ;
+                break;                
             default:
                 return redirect(route('welcome'))->with('message','El periodo no ha sido inicializado.');
                 break;
         }
-
-
-//            $hacer = [$estudiante->semestre->estado];              
-//        \Session::put('message',$hacer);
-//        return view('estudiante.tablero', compact('hacer','proyecto','estudiante'));
-
     }
     
 }
