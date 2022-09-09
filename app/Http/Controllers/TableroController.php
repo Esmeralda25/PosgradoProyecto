@@ -23,7 +23,8 @@ class TableroController extends Controller
                     return $this->estudiante();
                     break;
                 case 'App\Models\Docente':
-                    return  redirect('/docentest');
+                    return $this->docente();
+//                    return  redirect('/docentest');
                     break;
                case 'App\Models\Pe':
                     return view('coordinador.index')->with('pe',$usuario);
@@ -82,6 +83,14 @@ class TableroController extends Controller
                 break;
         }
     }
-    
+
+    public function docente()
+    {        
+
+        $docente  = \Session::get('usuario' );
+        $docente = $docente->fresh(); 
+        $proyectos = $docente->proyectos();
+        return view('docente.index', compact('proyectos'));
+    }    
 }
 

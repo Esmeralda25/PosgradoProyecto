@@ -13,7 +13,7 @@ class Proyecto extends Model
     public $timestamps = false;  
 
     public function estudiante(){
-        return $this->hasOne('App\Models\estudiante','id','estudiante_id');
+        return $this->belongsTo('App\Models\estudiante');
     }
     public function comite(){
         return $this->belongsTo('App\Models\Comite');
@@ -48,7 +48,7 @@ class Proyecto extends Model
         ->withDefault(
             [
                 'id' => 0,
-                'nombre' => 'Sin periodo asignado'
+                'nombre' => 'Sin periodo asignado en la creacion'
             ]
         );
     }
@@ -79,6 +79,12 @@ class Proyecto extends Model
 
     public function reporte($semestre){
         return $this->hasOne('App\Models\Reporte','proyecto_id','id')
+        ->withDefault(
+            [
+                'id' => 0,
+                'reporte' => 'Sin reporte entregado'
+            ]
+        )
         ->where('periodo_id',$semestre)
         ;
     }
@@ -110,11 +116,6 @@ class Proyecto extends Model
     public function evaluaciones()
     {
         return $this->hasMany('App\Models\Evaluacion');
-    }
-
-    public function pdf()
-    {
-        return $this->hasMany('App\Models\Reporte','proyecto_id','id');
     }
     public function nuevoPeriodo()
     {

@@ -40,7 +40,14 @@ class Estudiante extends Usuario
     }
 
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','periodo_id');
+        return $this->belongsTo('App\Models\Periodo')
+        ->withDefault(
+            [
+                'id' => 0,
+                'nombre' => 'No esta inscrito en algun periodo'
+            ]
+        );
+;
     }
 
     public function semestre(){
@@ -52,7 +59,7 @@ class Estudiante extends Usuario
     }
     
     public function proyecto(){
-        return $this->belongsTo('App\Models\Proyecto','id','estudiante_id');
+        return $this->hasOne('App\Models\Proyecto');
     }
 
     public function desgloceEvaluaciones(){

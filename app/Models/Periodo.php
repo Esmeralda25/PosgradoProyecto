@@ -25,9 +25,13 @@ class Periodo extends Model
         );
     }
     public function rubrica(){
-        //hasOne si rubircas tiene un periodo_id que sea ? donde ? es el id actual
-        //belognsTo si `rubricas`.`id` = ? donde ? es el rubrica_id
-        return $this->belongsTo('App\Models\Rubrica');
+        return $this->belongsTo('App\Models\Rubrica')
+        ->withDefault(
+            [
+                'id'=>0,
+                'nombre' => 'Sin asignar'
+            ]
+        );
     } 
     public function estudiantes(){
        return $this->hasMany('App\Models\Estudiante');
