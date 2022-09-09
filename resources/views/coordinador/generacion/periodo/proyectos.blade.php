@@ -43,7 +43,7 @@
                                                     <td>{{$proyecto->estudiante->nombre}}</td>
                                                     <td >
                                                         @if ($proyecto->comite_id != null )
-                                                            {{$proyecto->comiteTutorial->docenteAsesor->nombre}}
+                                                            {{$proyecto->comite->docenteAsesor->nombre}}
                                                         @else
                                                             No asignado.
                                                         @endif

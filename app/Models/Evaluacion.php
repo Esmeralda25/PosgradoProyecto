@@ -18,7 +18,6 @@ class Evaluacion extends Model
     public function estudiante(){
         return $this->hasOne('App\Models\Estudiante', 'id','estudiante_id');       
     }
-
     public function docente(){
         return $this->hasOne('App\Models\Docente', 'id','docente_id');       
     }

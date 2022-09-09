@@ -7,7 +7,7 @@ namespace App\Models;
 class Estudiante extends Usuario
 {
  
-    protected $fillable=['nombre','correo','password','pes_id',
+    protected $fillable=['nombre','correo','password','pe_id',
     'compromisos_id','actividades_id','periodo_id', 'cursando'];
     
     public $timestamps = false;
@@ -36,14 +36,21 @@ class Estudiante extends Usuario
         return "Estudiante";
     } 
     public function pe(){
-        return $this->belongsTo('App\Models\Pe','pes_id','id');
+        return $this->belongsTo('App\Models\Pe','pe_id','id');
     }
 
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo','id','cursando');
+        return $this->belongsTo('App\Models\Periodo')
+        ->withDefault(
+            [
+                'id' => 0,
+                'nombre' => 'No esta inscrito en algun periodo'
+            ]
+        );
+;
     }
 
-    public function semestreActual(){
+    public function semestre(){
         return $this->hasOne('App\Models\Periodo','id','periodo_id');
     }
 
@@ -52,7 +59,7 @@ class Estudiante extends Usuario
     }
     
     public function proyecto(){
-        return $this->belongsTo('App\Models\Proyecto','id','estudiante_id');
+        return $this->hasOne('App\Models\Proyecto');
     }
 
     public function desgloceEvaluaciones(){

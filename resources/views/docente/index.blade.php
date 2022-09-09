@@ -20,12 +20,6 @@
                                 <div class="row">
                                 
                                     <div class="col-md-12">
-                                    @if (session('message'))
-                                        <div class="alert alert-success alert-dismissable">
-                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                             <strong>¡Bien!,</strong> {{Session::get('message')}}
-                                        </div> 
-                                     @endif
                                 <!-- contenido de main imagenes -->
                                         <div class="row">
                                             <table class="table table-dark table-striped mt-4">
@@ -48,18 +42,13 @@
                                                     <td>
 
                                             
-                                                        @if ($proyecto->estudiante->semestreActual->estado == "Evaluacion")
-                                                            <a href="evaluaciones/{{$proyecto->id}}" class="btn btn-info">Evaluar</a>
-                                                            @if($proyecto->promedio-> count() >=1)
-                                                            <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
-                                                            @endif
-                                                                    
+                                                        @if ($proyecto->estudiante->semestre->estado == "Evaluacion")
+                                                            <a href="{{route('proyectos.evaluar',$proyecto->id)}}" class="btn btn-info">Evaluar</a>
                                                         @endif
-                                                     
-                                                        @if ($proyecto->estudiante->semestreActual->estado == "Concluido")
-                                                            <button type="button" class="btn btn-warning"><a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a></button>
-                                                        @endif
-                                                        
+                                                    
+                                                        <button type="button" class="btn btn-warning">
+                                                            <a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a>
+                                                        </button>                                                        
                                                     </td>
                                                         </th>
                                                         <tr> 

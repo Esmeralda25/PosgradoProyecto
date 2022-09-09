@@ -21,12 +21,45 @@ class EstudianteController extends Controller
         $estudiante  = \Session::get('usuario' );
         $estudiante = $estudiante->fresh(); 
 
+        if (is_null($estudiante->periodo_id))
+            return redirect()->back()->withInput()->with('message','Este estudiante no tiene periodo asignado');
+
+
         $proyecto = Proyecto::where('estudiante_id', $estudiante->id)->get();
-        
-        if ($proyecto->count() == 0 )
+        if ($proyecto->count() == 0 ){
             $hacer = ["Registrar"];
-        else 
-            $hacer = [$estudiante->semestreActual->estado];        
+            return redirect( route('proyectos.create') )->with('message','Estudiante sin proyecto registrado') ;
+        }
+        $estado = $estudiante->periodo->estado;
+            switch ($estado) {
+                case 'Inicio':
+                    # code...
+                    break;
+                case 'Comprometerse':
+                        # code...
+                        break;
+                case 'Seguimiento':
+                    # code...
+                    break;
+                case 'Reportar':
+                    # code...
+                    break;
+                case 'Evaluacion':
+                    # code...
+                    break;
+                case 'Concluido':
+                    # code...
+                    break;
+                    
+                default:
+                    # code...
+                    break;
+            }
+
+
+            $hacer = [$estudiante->semestre->estado];        
+        
+//        \Session::put('message',$hacer);
         return view('estudiante.index', compact('hacer','proyecto','estudiante'));
 
     }
@@ -77,7 +110,7 @@ class EstudianteController extends Controller
         $registro->fill($valores);
 
         $registro->save();
-        return redirect("/estudiantes");
+        return redirect(route('inicio'));
     }
 
     /**

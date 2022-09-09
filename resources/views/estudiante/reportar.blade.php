@@ -1,9 +1,4 @@
 @extends('layouts.master')
-@section('regresar') 
-    <a href="/estudiantes" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -34,8 +29,8 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
-                                                <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->periodo}}"</li>
+                                            @forelse ($estudiante->proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
+                                                <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->etapa}}"</li>
                                             @empty
                                                 Sin actividades definidas para este semestre
                                             @endforelse
@@ -54,56 +49,76 @@
                                     </tr> 
                                 </thead>
                             </table>    
-                            <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
-                            <form action="reportar" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <table class="table table-dark table-striped">
-                                <thead>
-                                    <tr class="col-12" >
-                                        <th scope="col">Compromisos</th>
-                                        <th scope="col">Programado</th>
-                                        <th scope="col">Realizado</th>
-                                        <th scope="col">Evidencias</th>
-                                    </tr>
-                                </thead>
-                                 
-                                <tbody>
-                                    @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
-                                    <tr>
-                                        <input type="hidden" name="cual[{{$loop->iteration}}]" value="{{$compromiso->id}}">
+                            <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->
+                            @if (session('error_evidencias'))
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <ul>
+                                        @foreach (Session::get('error_evidencias') as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                            </div> 
+                          @endif
+                        
+                            <form action="{{route('proyectos.guardarReporte')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr class="col-12" >
+                                            <th scope="col">Compromisos</th>
+                                            <th scope="col">Programado</th>
+                                            <th scope="col">Realizado</th>
+                                            <th scope="col">Evidencias</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
+                                        <tr>
+                                            <input type="hidden" name="ides[{{$compromiso->id}}]" value="{{$compromiso->id}}">
+                                            <input type="hidden" name="compromisos[{{$compromiso->id}}]" value="{{$compromiso->que}}">
+                                            <input type="hidden" name="metas[{{$compromiso->id}}]" value="{{$compromiso->cuantos_programo}}">
+                                            <input type="hidden" name="reportados[{{$compromiso->id}}]" value="{{$compromiso->cuantos_cumplio}}">
+                                            <input type="hidden" name="archivos[{{$compromiso->id}}]" value="{{$compromiso->evidencia->archivo}}">
+                                            
                                             <th>{{$compromiso->que}}</th>
-                                            <td>{{$compromiso->cuantos_prog}}</td>
-
-                                            <td><input type="number" name="logrados[{{$loop->iteration}}]" style="width: 100%" value="{{$compromiso->cuantos_cumplidos}}"
-                                                                    min="1" max="{{$compromiso->cuantos_prog}}"></td>
+                                            <td>{{$compromiso->cuantos_programo}}</td>
+                                            <td><input type="number" name="logrados[{{$compromiso->id}}]" style="width: 100%" value="{{$compromiso->cuantos_cumplio}}"
+                                                                    min="0" max="{{$compromiso->cuantos_programo}}"></td>
                                             <td style="padding: 5px">
                                                 @if (!is_null($compromiso->evidencia))
-                                                    {{$compromiso->evidencia->archivo}}     
+                                                    <a href="/evidencias/{{$compromiso->evidencia->archivo}}" target="_blank" >
+                                                        {{$compromiso->evidencia->archivo}}
+                                                    </a>
                                                 @else 
                                                     SIN EVIDENCIA                                                                                          
                                                 @endif
-<BR>
-                                                <input type="file" name="evidencia[{{$loop->iteration}}]" > 
+                                                <BR>
+                                                <input type="file" name="evidencias[{{$compromiso->id}}]" > 
                                             </td> 
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="4">Sin compromisos definidos para este semestre</td>
-                                    </tr>
-                                    @endforelse
-                                </tbody>        
-                            </table>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">Sin compromisos definidos para este semestre</td>
+                                        </tr>
+                                        @endforelse
+                                    </tbody>        
+                                </table>
                             <div style="height:15px;"></div>   
+                                
                                 <div>
-                                    @if ($estudiante->proyecto->reporte( $estudiante->semestreActual->id )->count() != 0)
-
-                                    {{$estudiante->proyecto->reporte( $estudiante->semestreActual->id )->get()[0]->reporte }}     
-                                @else 
-                                    SIN REPORTE                                                                                          
-                                @endif
-
-                                    
-                                    REPORTE: <input type="file" name="reporte">
+                                    REPORTE: 
+                                    @if ($estudiante->proyecto->reporte( $estudiante->semestre->id )->count() != 0)
+                                        <input type="hidden" name="reporte_actual" value="{{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte}}">
+                                        <a href="/evidencias/{{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}" target="_blank" >
+                                            {{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}
+                                        </a>
+                                    @else 
+                                        <input type="hidden" name="reporte_actual" value="">
+                                                                                                                                 
+                                    @endif
+                                    <input type="file" name="reporte">
                                 </div>
                                 <div>
 

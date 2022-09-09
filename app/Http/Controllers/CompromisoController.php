@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Compromiso;
  
-class CompromisosController extends Controller
+class CompromisoController extends Controller
 {
     public function index(){
         $coordinador = \Session::get('usuario');

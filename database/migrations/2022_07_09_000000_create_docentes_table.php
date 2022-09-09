@@ -24,7 +24,7 @@ class CreateDocentesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 100);
-            $table->string('correo', 100)->nullable()->default(null);
+            $table->string('correo', 100)->unique()->nullable()->default(null);
             $table->string('password', 100)->nullable()->default(null);
         });
     }

@@ -76,69 +76,94 @@
                             @else
                                 <tr>
                                     <th>Asesor</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteAsesor->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteAsesor->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 1</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor1->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor1->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 2</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor2->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor2->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 3</th>
-                                    <td>{{$estudiante->proyecto->comiteTutorial->docenteRevisor3->nombre}}</td>
+                                    <td>{{$estudiante->proyecto->comite->docenteRevisor3->nombre}}</td>
                                 </tr>
                                 
                             @endif
                         </tbody>
                     </table>
-                        <div style="height:20px;"></div>
-                        <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr class="row col-12" style="text-align: center;">
-                                        <th class="col-12" style="font-size: 25px;">
-                                            Compromisos Adquiridos
-                                        </th>
-                                </tr> 
-                            </thead>  
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestreActual->id )->get() as $compromiso)
-                                                <li>{{$compromiso->que}}, se programo: {{$compromiso->cuantos_prog}}</li>
-                                        @empty
+                    <div style="height:20px;"></div>
+                    @foreach ($estudiante->proyecto->periodos as $periodo)
+                        <hr> DURANTE EL PERIODO {{$periodo->nombre}} @if($periodo->id == $estudiante->periodo_id) (ACTUAL) @endif
+                        @php
+                        $cuantos = 0;
+                        $suma = 0;
+                        foreach ($estudiante->proyecto->valoraciones($periodo->id)->get() as $evaluacion) {
+                            if (!is_null($evaluacion->calificacion)){
+                                $cuantos ++;
+                                $suma += $evaluacion->calificacion;
+                            }    
+                        }
+                        if ($cuantos != 0)
+                            echo "su calificacion fue: " . ($suma/3);
+                        else 
+                            echo "no tiene calificaciones.";
+                        @endphp
+
+                            <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr class="row col-12" style="text-align: center;">
+                                            <th class="col-12" style="font-size: 25px;">
+                                                Compromisos Adquiridos
+                                            </th>
+                                    </tr> 
+                                </thead>  
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            @forelse ($estudiante->proyecto->compromisos( $periodo->id )->get() as $compromiso)
+                                                <li>
+                                                    {{$compromiso->que}}, se programo: {{$compromiso->cuantos_programo}} 
+                                                    <a href="/evidencias/{{$compromiso->evidencia->archivo}}" target="_blank" >
+                                                        {{$compromiso->evidencia->archivo}}
+                                                    </a>
+                                                </li>
+                                            @empty
                                                 Sin compromisos definidos para este semestre
-                                        @endforelse
-                                    </th>
-                                </tr>
-                                                              
-                            </tbody>        
-                        </table>
-                        <div style="height:15px;"></div>
-                        <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
-                        <table class="table table-dark table-striped">
-                            <thead>
-                                <tr class="row col-12" style="text-align: center;">
-                                        <th class="col-12" style="font-size: 25px;">
-                                            Actividades Adquiridas
+                                            @endforelse
                                         </th>
-                                </tr> 
-                            </thead>  
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        @forelse ($estudiante->proyecto->actividades( $estudiante->semestreActual->id )->get() as $actividad)
-                                            <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->periodo}}"</li>
-                                        @empty
-                                            Sin actividades definidas para este semestre
-                                        @endforelse
-                                    </th>
-                                </tr>
-                            </tbody>        
-                        </table>                                      
+                                    </tr>
+                                                                
+                                </tbody>        
+                            </table>
+                            <div style="height:15px;"></div>
+                            <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr class="row col-12" style="text-align: center;">
+                                            <th class="col-12" style="font-size: 25px;">
+                                                Actividades Adquiridas
+                                            </th>
+                                    </tr> 
+                                </thead>  
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            @forelse ($estudiante->proyecto->actividades( $periodo->id )->get() as $actividad)
+                                                <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->etapa}}"</li>
+                                            @empty
+                                                Sin actividades definidas para este semestre
+                                            @endforelse
+                                        </th>
+                                    </tr>
+                                </tbody>        
+                            </table>                                      
+
+                        <hr>                        
+                    @endforeach
                     </div>                            
                         </div>
                     
@@ -146,6 +171,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
 @endsection
     

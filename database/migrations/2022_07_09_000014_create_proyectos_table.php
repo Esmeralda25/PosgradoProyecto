@@ -25,8 +25,8 @@ class CreateProyectosTable extends Migration
             $table->increments('id');
             $table->string('titulo', 100);
             $table->string('hipotesis');
-            $table->string('objetivos');
-            $table->string('objetivose')->nullable()->default(null);
+            $table->string('objetivo');
+            $table->string('objetivos_especificos')->nullable()->default(null);
             $table->string('reporte')->nullable()->default(null);
             $table->float('avance')->nullable()->default(null);
             $table->integer('estudiante_id')->unsigned()->nullable()->default(null);

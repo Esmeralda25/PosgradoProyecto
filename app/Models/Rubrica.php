@@ -19,5 +19,8 @@ class Rubrica extends Model
         return $this->hasMany('App\Models\Criterio');       
     }
 
+    public function pe(){
+        return $this->belongsTo(Pe::class);
+    }
 
 }

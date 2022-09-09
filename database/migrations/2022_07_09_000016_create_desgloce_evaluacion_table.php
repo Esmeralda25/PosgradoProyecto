@@ -24,9 +24,9 @@ class CreateDesgloceEvaluacionTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('evaluacion_id')->unsigned()->nullable()->default(null);
-            $table->string('concepto', 45)->nullable()->default(null);
+            $table->string('concepto')->nullable()->default(null);
             $table->string('valor', 45)->nullable()->default(null);
-            $table->string('observacion', 45)->nullable()->default(null);
+            $table->string('observacion')->nullable()->default(null);
 
             $table->index(["evaluacion_id"], 'fk_desgloce_evaluacion_evaluaciones1');
 

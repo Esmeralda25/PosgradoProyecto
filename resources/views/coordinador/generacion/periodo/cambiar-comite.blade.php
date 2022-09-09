@@ -42,7 +42,7 @@
                                         <label>Asesor:</label>
                                         <select name="asesor" id="asesor" style="width: 70%;">                                                                                      
                                             @foreach($docentes as $docente)
-                                                <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->asesor)
+                                                <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comite->asesor)
                                                     selected
                                                 @endif>{{$docente->nombre}}</option>                                                        
                                             @endforeach
@@ -52,7 +52,7 @@
                                         <label>Revisor 1: </label>
                                             <select name="revisor1" id="revisor1" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor1)
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comite->revisor1)
                                                         selected
                                                     @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach
@@ -62,7 +62,7 @@
                                         <label>Revisor 2: </label>
                                             <select name="revisor2" id="revisor2" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor2)
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comite->revisor2)
                                                         selected
                                                     @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach
@@ -72,7 +72,7 @@
                                         <label>Revisor 3: </label>
                                             <select name="revisor3" id="revisor3" style="width: 70%;">
                                                 @foreach($docentes as $docente)
-                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comiteTutorial->revisor3)
+                                                    <option value="{{$docente->id}}" @if ($docente->id == $proyecto->comite->revisor3)
                                                         selected
                                                     @endif>{{$docente->nombre}}</option>                                                        
                                                 @endforeach

@@ -43,7 +43,7 @@ return [
         ],
         'evidencias' => [
             'driver' => 'local',
-            'root' => storage_path('app/eviencias'),
+            'root' => public_path() . '/evidencias',
             'visibility' => 'public',
         ],
 

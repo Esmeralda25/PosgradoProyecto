@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adquirido extends Model 
 {
-    protected $fillable=[  'que', 'cuantos_prog', 'cuantos_cumplidos', 'proyecto_id', 'periodo_id'];
+    protected $fillable=[  'que', 'cuantos_programo', 'cuantos_cumplio', 'proyecto_id', 'periodo_id'];
     public $timestamps = false;
 
     public function evidencia(){
-        return $this->hasOne('App\Models\Evidencia');
+        return $this->hasOne('App\Models\Evidencia')
+        ->withDefault(
+            [
+                'adquirido_id'=> 0, 
+                'archivo' => null, 
+            ]
+        );
     }
 }  
