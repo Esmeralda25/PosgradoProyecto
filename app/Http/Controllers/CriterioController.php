@@ -17,8 +17,8 @@ class CriterioController extends Controller
     }
 
     public function create($rubrica_id){
-        
-        return view('coordinador.rubrica.criterio.create', compact('rubrica_id'));
+        $rubrica = Rubrica::find($rubrica_id);        
+        return view('coordinador.rubrica.criterio.create', compact('rubrica_id','rubrica'));
         
     }
     
