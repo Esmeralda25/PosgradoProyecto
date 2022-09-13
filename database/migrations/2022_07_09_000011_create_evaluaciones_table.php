@@ -36,6 +36,12 @@ class CreateEvaluacionesTable extends Migration
 
             $table->index(["periodo_id"], 'fk_evaluaciones_periodos1_idx');
 
+            
+            $table->foreign('proyecto_id', 'fk_evaluaciones_proyectos1_idx')
+                ->references('id')->on('proyectos')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
 
             $table->foreign('docente_id', 'fk_evaluaciones_docentes1_idx')
                 ->references('id')->on('docentes')

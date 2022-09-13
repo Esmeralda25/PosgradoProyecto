@@ -111,7 +111,7 @@ Route::get('proyectos/evaluar/{proyecto}', [EvaluarController::class, 'create'])
 Route::post('guardar-calificaciones', [EvaluarController::class, 'store'])->name('proyectos.calificaiones');
 
 
-Route::get('promedios-semestrales/{id}', [EvaluarController::class, 'promedioSemestrales']);
+Route::get('proyectos/historico/{id}', [EvaluarController::class, 'promedioSemestrales'])->name('proyectos.historico');
 
 
 Route::get('mostrar-calificaciones/{id}', [EvaluarController::class, 'show']);

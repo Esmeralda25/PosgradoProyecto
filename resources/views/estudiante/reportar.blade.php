@@ -29,7 +29,7 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            @forelse ($estudiante->proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
+                                            @forelse ($proyecto->actividades( $estudiante->semestre->id )->get() as $actividad)
                                                 <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->etapa}}"</li>
                                             @empty
                                                 Sin actividades definidas para este semestre
@@ -74,7 +74,7 @@
                                     </thead>
                                     
                                     <tbody>
-                                        @forelse ($estudiante->proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
+                                        @forelse ($proyecto->compromisos( $estudiante->semestre->id )->get() as $compromiso)
                                         <tr>
                                             <input type="hidden" name="ides[{{$compromiso->id}}]" value="{{$compromiso->id}}">
                                             <input type="hidden" name="compromisos[{{$compromiso->id}}]" value="{{$compromiso->que}}">
@@ -109,10 +109,10 @@
                                 
                                 <div>
                                     REPORTE: 
-                                    @if ($estudiante->proyecto->reporte( $estudiante->semestre->id )->count() != 0)
-                                        <input type="hidden" name="reporte_actual" value="{{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte}}">
-                                        <a href="/evidencias/{{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}" target="_blank" >
-                                            {{$estudiante->proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}
+                                    @if ($proyecto->reporte( $estudiante->semestre->id )->count() != 0)
+                                        <input type="hidden" name="reporte_actual" value="{{$proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte}}">
+                                        <a href="/evidencias/{{$proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}" target="_blank" >
+                                            {{$proyecto->reporte( $estudiante->semestre->id )->get()[0]->reporte }}
                                         </a>
                                     @else 
                                         <input type="hidden" name="reporte_actual" value="">

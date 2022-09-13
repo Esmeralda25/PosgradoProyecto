@@ -33,6 +33,33 @@ class Periodo extends Model
             ]
         );
     } 
+
+    public function actividades(){
+        if(is_null($this->laravel_through_key)) 
+            return $this->hasMany('App\Models\Actividad');
+        else
+            return $this->hasMany('App\Models\Actividad')->where('proyecto_id',$this->laravel_through_key);
+    }
+
+
+    public function compromisos(){
+        if(is_null($this->laravel_through_key)) 
+            return $this->hasMany('App\Models\Adquirido');
+        else
+            return $this->hasMany('App\Models\Adquirido')->where('proyecto_id',$this->laravel_through_key);
+    }
+
+
+    public function evaluaciones()
+    {
+        if(is_null($this->laravel_through_key)) 
+            return $this->hasMany('App\Models\Evaluacion');
+        else
+            return $this->hasMany('App\Models\Evaluacion')->where('proyecto_id',$this->laravel_through_key);
+    }
+
+
+
     public function estudiantes(){
        return $this->hasMany('App\Models\Estudiante');
     }

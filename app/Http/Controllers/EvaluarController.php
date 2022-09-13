@@ -25,7 +25,8 @@ class EvaluarController extends Controller
             echo "Rubrica no establecida para el semestre a evaluar.";
             die;
         };
-        $criterios = $rubrica->criterios()->get();
+
+        $criterios = $rubrica->criterios;
         return view('docente.evaluar', compact('proyecto','criterios'));
     }
 
@@ -70,17 +71,18 @@ class EvaluarController extends Controller
 
     public function promedioSemestrales($id){
         $proyecto = Proyecto::find($id);
-        $nuevo = $proyecto->estudiante->nuevoPeriodo;
-        $periodo = Rubrica::find($nuevo);
-        return view('docente.semestral', compact('proyecto','periodo'));
-
+        return view('estudiante.seguimineto' , compact('proyecto'));
     }
 
     public function show($id){
         $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
+        return view('estudiante.seguimineto' , compact('proyecto'));
+
+/*
         $evaluacion = Evaluacion::where('proyecto_id',$proyecto->id)->get();
         return view('docente.historico', compact('proyecto','evaluacion'));
+*/
     }
     
     public function conceptos($id){

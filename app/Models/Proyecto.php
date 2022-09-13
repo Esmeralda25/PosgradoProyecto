@@ -53,7 +53,10 @@ class Proyecto extends Model
         );
     }
 
+
+    
     public function periodos(){
+        //le agrega laravel_through_key
 //adquiridos`.`d` = `periodos`.`b` where `adquiridos`.`a` is null"
         return $this->hasManyThrough(
             'App\Models\Periodo',
@@ -71,11 +74,6 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\Adquirido','id','compromiso');
     }
     
-    public function compromisos($semestre){
-        return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
-        ->where('periodo_id',$semestre)
-        ;
-    }
 
     public function reporte($semestre){
         return $this->hasOne('App\Models\Reporte','proyecto_id','id')
@@ -89,12 +87,15 @@ class Proyecto extends Model
         ;
     }
 
-    public function actividades($semestre){
-        return $this->hasMany('App\Models\Actividad','proyecto_id','id')
-        ->where('periodo_id',$semestre)
-        ;
+    public function actividades($periodo_id){   
+        return $this->hasMany('App\Models\Actividad')->where('periodo_id',$periodo_id);
+    }
+    public function compromisos($periodo_id){
+        return $this->hasMany('App\Models\Adquirido')->where('periodo_id',$periodo_id);
     }
 
+
+    
     public function nuevaActividad()
     {
         return $this->hasMany('App\Models\Actividad','proyectos_id','id');
@@ -106,17 +107,14 @@ class Proyecto extends Model
         return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
 
-    public function valoraciones($semestre)
+
+    public function evaluaciones($periodo_id)
     {
         return $this->hasMany('App\Models\Evaluacion')
-        ->where('periodo_id',$semestre)
-        ;
+        ->where('periodo_id');
+
     }
 
-    public function evaluaciones()
-    {
-        return $this->hasMany('App\Models\Evaluacion');
-    }
     public function nuevoPeriodo()
     {
         return $this->hasManyThrough(Periodo::class, Estudiante::class);

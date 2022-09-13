@@ -47,7 +47,7 @@
                                                         @endif
                                                     
                                                         <button type="button" class="btn btn-warning">
-                                                            <a href="promedios-semestrales/{{$proyecto->id}}" style="color: white">Historico</a>
+                                                            <a href="{{route('proyectos.historico',$proyecto->id)}}" style="color: white">Historico</a>
                                                         </button>                                                        
                                                     </td>
                                                         </th>

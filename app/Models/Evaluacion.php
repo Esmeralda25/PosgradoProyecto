@@ -11,8 +11,8 @@ class Evaluacion extends Model
     protected $fillable = ['calificacion','proyecto_id','fecha','docente_id','periodo_id'];
     public $timestamps = false;
 
-    public function comoFue(){
-        return $this->hasMany('App\Models\DesgloceEvaluacion', 'evaluacion_id','id');       
+    public function desgloces(){
+        return $this->hasMany('App\Models\DesgloceEvaluacion');       
     }
     //esta relacion no se si esta bien
     public function estudiante(){

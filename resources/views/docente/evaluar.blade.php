@@ -105,7 +105,7 @@
                                     </tr> 
                                 </thead>  
                                 <tbody>
-                                @forelse ($proyecto->actividades( $proyecto->estudiante->periodo->id )->get() as $actividad)
+                                    @forelse ($proyecto->actividades($proyecto->estudiante->periodo->id)->get() as $actividad)
                                     <tr>
                                         <td>{{$actividad->nombre}}</td>
                                         <td>{{$actividad->etapa}}</td>                                                     
@@ -135,7 +135,7 @@
 
                                 </thead>  
                                 <tbody>
-                                    @forelse ($proyecto->compromisos( $proyecto->estudiante->periodo->id )->get() as $compromiso)
+                                    @forelse ($proyecto->compromisos($proyecto->estudiante->periodo->id)->get() as $compromiso)
                                     <tr>
                                         <td>{{$compromiso->que}}</td>
                                         <td>{{$compromiso->cuantos_programo}}</td>
@@ -182,10 +182,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($criterios as $relacion)
+                                                @foreach($proyecto->estudiante->periodo->rubrica->criterios as $criterio)
                                                 <tr> 
-                                                    <td><input type="hidden" name="concepto[{{$loop->index}}]" value = "{{$relacion->descripcion}}">
-                                                        {{$relacion->descripcion}}</td>
+                                                    <td><input type="hidden" name="concepto[{{$loop->index}}]" value = "{{$criterio->descripcion}}">
+                                                        {{$criterio->descripcion}}</td>
                                                         @php
 //                                                                        var_dump("");
                                                         @endphp

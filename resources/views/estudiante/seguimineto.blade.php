@@ -1,9 +1,4 @@
 @extends('layouts.master')
-@section('regresar') 
-    <a href="/estudiantes" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -32,28 +27,28 @@
                                     <!-- TITULO -->  
                                     <th>
                                         <label for="" style="font-family:Arial; color: white;font-size: 25px;">Título: </label>
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->titulo}}</small>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->titulo}}</small>
                                     </th>
                                 </tr>
                                 <tr>
                                     <!-- HIPOTESIS -->  
                                     <th>
                                         <label for="" style="font-family:Arial;color: white;font-size: 25px;">Hipótesis: </label> 
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->hipotesis}}</small> 
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->hipotesis}}</small> 
                                     </th>
                                 </tr>
                                 <tr>
                                     <!-- OBJETIVO GENERAL -->  
                                     <th>
                                         <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo General: </label>
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivos}}</small> 
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivos}}</small> 
                                     </th>
                                 </tr>
                                 <tr>
                                     <!-- OBJETIVO ESPECIFICO --> 
                                     <th>
                                         <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo Específico:  </label>
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivose}}</small>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivose}}</small>
                                     </th> 
                                 </tr>
                                                               
@@ -69,38 +64,40 @@
                             </tr> 
                         </thead>  
                         <tbody>
-                            @if (is_null($estudiante->proyecto->comite_id))
+                            @if (is_null($proyecto->comite_id))
                                 <tr>
                                     <th colspan="2">SIN ASIGNAR</th>
                                 </tr>
                             @else
                                 <tr>
                                     <th>Asesor</th>
-                                    <td>{{$estudiante->proyecto->comite->docenteAsesor->nombre}}</td>
+                                    <td>{{$proyecto->comite->docenteAsesor->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 1</th>
-                                    <td>{{$estudiante->proyecto->comite->docenteRevisor1->nombre}}</td>
+                                    <td>{{$proyecto->comite->docenteRevisor1->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 2</th>
-                                    <td>{{$estudiante->proyecto->comite->docenteRevisor2->nombre}}</td>
+                                    <td>{{$proyecto->comite->docenteRevisor2->nombre}}</td>
                                 </tr>
                                 <tr>
                                     <th>Revisor 3</th>
-                                    <td>{{$estudiante->proyecto->comite->docenteRevisor3->nombre}}</td>
+                                    <td>{{$proyecto->comite->docenteRevisor3->nombre}}</td>
                                 </tr>
                                 
                             @endif
                         </tbody>
                     </table>
                     <div style="height:20px;"></div>
-                    @foreach ($estudiante->proyecto->periodos as $periodo)
-                        <hr> DURANTE EL PERIODO {{$periodo->nombre}} @if($periodo->id == $estudiante->periodo_id) (ACTUAL) @endif
+                    @foreach ($proyecto->periodos as $periodo)
+                    <div style="padding-left: 1%; align-content: center; background-color: gray ">
+
+                        <hr> DURANTE EL PERIODO {{$periodo->nombre}}
                         @php
                         $cuantos = 0;
                         $suma = 0;
-                        foreach ($estudiante->proyecto->valoraciones($periodo->id)->get() as $evaluacion) {
+                        foreach ($periodo->evaluaciones as $evaluacion) {
                             if (!is_null($evaluacion->calificacion)){
                                 $cuantos ++;
                                 $suma += $evaluacion->calificacion;
@@ -111,9 +108,37 @@
                         else 
                             echo "no tiene calificaciones.";
                         @endphp
+                            <!-- TABLA DE EVALUACIONES -->  
+                            <table style="width:99%" class="table table-dark table-striped">
+                                <thead>
+                                    <tr class="row col-12" style="text-align: center;">
+                                            <th class="col-12" style="font-size: 25px;">
+                                                Evaluaciones realizadas
+                                            </th>
+                                    </tr> 
+                                </thead>  
+                                <tbody>
+                                    @forelse ($periodo->evaluaciones as $evaluacion)
+                                    <tr>
+                                        <td>
+                                            {{$evaluacion->docente->nombre}} - {{$evaluacion->calificacion}} 
+                                            ----> 
+                                        </td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td>
+                                            Sin evaluaciones realizadas este periodo
+                                        </td>
+                                    </tr>
+                                    @endforelse
+                                                                
+                                </tbody>        
+                            </table>
+
 
                             <!-- TABLA DE COMPROMISOS ADQUIRIDOS -->  
-                            <table class="table table-dark table-striped">
+                            <table style="width:99%" class="table table-dark table-striped">
                                 <thead>
                                     <tr class="row col-12" style="text-align: center;">
                                             <th class="col-12" style="font-size: 25px;">
@@ -124,7 +149,7 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            @forelse ($estudiante->proyecto->compromisos( $periodo->id )->get() as $compromiso)
+                                            @forelse ($periodo->compromisos as $compromiso)
                                                 <li>
                                                     {{$compromiso->que}}, se programo: {{$compromiso->cuantos_programo}} 
                                                     <a href="/evidencias/{{$compromiso->evidencia->archivo}}" target="_blank" >
@@ -139,9 +164,8 @@
                                                                 
                                 </tbody>        
                             </table>
-                            <div style="height:15px;"></div>
                             <!-- TABLA DE ACTIVIDADES ADQUIRIDOS style="margin-right: 5px; margin-left:4px"-->  
-                            <table class="table table-dark table-striped">
+                            <table style="width:99%" class="table table-dark table-striped">
                                 <thead>
                                     <tr class="row col-12" style="text-align: center;">
                                             <th class="col-12" style="font-size: 25px;">
@@ -152,7 +176,7 @@
                                 <tbody>
                                     <tr>
                                         <th>
-                                            @forelse ($estudiante->proyecto->actividades( $periodo->id )->get() as $actividad)
+                                            @forelse ($periodo->actividades as $actividad)
                                                 <li>{{$actividad->nombre}} - en el periodo:  "{{$actividad->etapa}}"</li>
                                             @empty
                                                 Sin actividades definidas para este semestre
@@ -163,6 +187,8 @@
                             </table>                                      
 
                         <hr>                        
+
+                    </div>
                     @endforeach
                     </div>                            
                         </div>

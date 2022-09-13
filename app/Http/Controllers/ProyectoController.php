@@ -94,8 +94,8 @@ class ProyectoController extends Controller
     {
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
-
-        return view('estudiante.seguimineto' , compact('estudiante'));
+        $proyecto = $estudiante->proyecto;
+        return view('estudiante.seguimineto' , compact('proyecto'));
     }
 
 
@@ -103,7 +103,8 @@ class ProyectoController extends Controller
     public function reportar(){
         $estudiante = \Session::get('usuario');
         $estudiante = $estudiante->fresh(); 
-        return view('estudiante.reportar' , compact('estudiante'));
+        $proyecto = $estudiante->proyecto;
+        return view('estudiante.reportar' , compact('proyecto'));
     }
 
 
