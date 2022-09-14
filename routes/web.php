@@ -20,7 +20,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableroController;
 use App\Http\Controllers\AdquiridoController;
 use App\Http\Controllers\ActividadController;
-
+use App\Http\Controllers\AdscripcionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,7 +41,10 @@ Route::resource('programas', PeController::class);
 
 /// COORDINADOR
     //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
-//Docentes
+//Adscripciones
+Route::resource('adscripciones', AdscripcionController::class);
+
+    //Docentes
 Route::resource('docentes', DocenteController::class);
 //Rubricas
 Route::resource('rubricas', RubricaController::class);
