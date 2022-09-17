@@ -62,7 +62,7 @@ class Proyecto extends Model
         return $this->hasManyThrough(
             'App\Models\Periodo',
             'App\Models\Adquirido',
-            'proyecto_ida',
+            'proyecto_id',
             'id',
             '',
             'periodo_id',
