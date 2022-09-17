@@ -58,6 +58,21 @@ class Periodo extends Model
             return $this->hasMany('App\Models\Evaluacion')->where('proyecto_id',$this->laravel_through_key);
     }
 
+    public function promedio(){
+        $cuantos = 0;
+        $suma = 0;
+        foreach ($this->evaluaciones as $evaluacion) {
+            if (!is_null($evaluacion->calificacion)){
+                $cuantos ++;
+                $suma += $evaluacion->calificacion;
+            }    
+        }
+        if ($cuantos != 0)
+            return ($suma/$cuantos);
+        else 
+            return 0;
+
+    }
 
 
     public function estudiantes(){

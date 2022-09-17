@@ -109,7 +109,7 @@ class Proyecto extends Model
     }
 
 
-    public function evaluaciones($periodo_id)
+    public function evaluaciones($periodo_id=null)
     {
         return $this->hasMany('App\Models\Evaluacion')
         ->where('periodo_id');

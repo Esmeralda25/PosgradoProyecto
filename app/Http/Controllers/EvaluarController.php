@@ -20,6 +20,7 @@ class EvaluarController extends Controller
 {
     public function create($id){        
         $proyecto = Proyecto::find($id);
+
         $rubrica = $proyecto->estudiante->semestre->rubrica;
         if($rubrica->id == 0) {
             echo "Rubrica no establecida para el semestre a evaluar.";
@@ -30,6 +31,7 @@ class EvaluarController extends Controller
         return view('docente.evaluar', compact('proyecto','criterios'));
     }
 
+    //debe ser un form request
     public function store(Request $request){
         $usuario  = \Session::get('usuario' );
         $id_docente = $usuario->id; 
@@ -40,7 +42,8 @@ class EvaluarController extends Controller
                 'fecha'=> date('Y-m-d H:i:s'),
                 'docente_id' =>$id_docente,
                 'periodo_id'=> $request->periodo_id,
-                ]  );
+                ]
+            );
             $conceptos=$request->input('concepto');
             $observaciones=$request->input('observacion');
             $valores=$request->input('valor');
