@@ -11,12 +11,17 @@ class Adquirido extends Model
     public $timestamps = false;
 
     public function evidencia(){
-        return $this->hasOne('App\Models\Evidencia')
+        return $this->hasOne(Evidencia::class)
         ->withDefault(
             [
                 'adquirido_id'=> 0, 
                 'archivo' => null, 
             ]
         );
+    }
+    
+    public function proyecto(){
+        return $this->belongsTo(Proyecto::class);
+
     }
 }  

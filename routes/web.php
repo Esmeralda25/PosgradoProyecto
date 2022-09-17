@@ -14,9 +14,6 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\CompromisoController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\EvaluarController;
-use App\Http\Controllers\HistoricoController;
-use App\Http\Controllers\HistoricorevController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableroController;
 use App\Http\Controllers\AdquiridoController;
 use App\Http\Controllers\ActividadController;
@@ -110,25 +107,7 @@ Route::get('mostrar-calificacionesEs/{id}', [EstudianteController::class,'show']
 Route::get('proyectos/evaluar/{proyecto}', [EvaluarController::class, 'create'])->name('proyectos.evaluar');
 Route::post('guardar-calificaciones', [EvaluarController::class, 'store'])->name('proyectos.calificaiones');
 
+Route::get('proyectos/historico/{proyecto}', [EvaluarController::class, 'show'/*'show' */])->name('proyectos.historico');
 
-Route::get('proyectos/historico/{id}', [EvaluarController::class, 'promedioSemestrales'])->name('proyectos.historico');
-
-
-Route::get('mostrar-calificaciones/{id}', [EvaluarController::class, 'show']);
-Route::get('conceptos/{id}', [EvaluarController::class, 'conceptos']);
-
-Route::get('porcentaje-proyectos/{id}', [EvaluarController::class, 'porcentaje']);
-Route::put('guardar-porcentajes', [EvaluarController::class, 'guardarPorcentajes']);
-
-
-
-Route::get('historicos', [HistoricoController::class,'index']);
-
-Route::resource('historicorevs', HistoricorevController::class);
-
-Route::resource('cuentaAdmins', AdminController::class);
-
-
-Route::get('/prueba', function () {
-    echo public_path('evidencias');
-});
+Route::get('proyectos/avance/{proyecto}', [EvaluarController::class, 'porcentaje'])->name('proyectos.avance');
+Route::put('proyectos/avance/{proyecto}', [EvaluarController::class, 'guardarAvance'])->name('proyectos.guardarAvance');

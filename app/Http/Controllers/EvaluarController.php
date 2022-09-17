@@ -64,8 +64,8 @@ class EvaluarController extends Controller
             DB::commit();
             return redirect("inicio")->with('message','Calificaciones asignadas al proyecto');
         } catch (\Exception $e){
-            echo $e->getMessage();
             DB::rollBack();
+            return redirect("inicio")->with('message','UPS... error: ' . $e->getMessage());
         }
     } 
 
@@ -75,29 +75,16 @@ class EvaluarController extends Controller
     }
 
     public function show($id){
-        $usuario  = \Session::get('usuario' );
         $proyecto = Proyecto::find($id);
         return view('estudiante.seguimineto' , compact('proyecto'));
-
-/*
-        $evaluacion = Evaluacion::where('proyecto_id',$proyecto->id)->get();
-        return view('docente.historico', compact('proyecto','evaluacion'));
-*/
-    }
-    
-    public function conceptos($id){
-    
-        $evaluacion = Evaluacion::find($id);
-        $nuevo = DesgloceEvaluacion::where('evaluacion_id',$evaluacion->id)->get();
-        return view('docente.conceptos',compact('evaluacion','nuevo'));
-    }
+    }    
 /*
     public function verReportes($id){
         $pdf = Reporte::find($id);
         $pathToFile = storage_path('app/evidencias').'/'.$pdf->reporte;
         return response()->download($pathToFile);        
      }
-     */
+*/
 
     public function porcentaje($id){
     
@@ -105,9 +92,17 @@ class EvaluarController extends Controller
         return view('docente.porcentaje',compact('proyecto'));
     }
 
-    public function guardarPorcentajes(Request $request){
-        
-        return redirect("/docentes")->with('avance','Avance asignado');
+    public function guardarAvance(Request $request,$id){
+        try {
+            $proyecto = Proyecto::find($id);
+            $proyecto->avance= $request->input('avance');
+            $proyecto->save();
+            return redirect("inicio")->with('message','Avance actualizado al proyecto');
+        } catch (\Exception $e){
+            DB::rollBack();
+            return redirect("inicio")->with('message','UPS... error: ' . $e->getMessage());
+        }
+    
     }
 
     

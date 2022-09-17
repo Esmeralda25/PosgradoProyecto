@@ -1,12 +1,5 @@
 @extends('layouts.master')
 
-@section('regresar') 
-    <a href="/docentes" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
-
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -20,26 +13,60 @@
                         <div class="card-header" style="text-align: center">
                             <h1 class="card-title font-weight-bold" style="text-align: center">Asignar Avance</h1>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                     <div class="container">
-                                        
 
-                                        <form action="/guardar-porcentajes" method="POST" enctype="multipart/form-data">
+                                        <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr style="text-align: center;background-color: black;">
+                                                        <th style="font-size: 25px;">
+                                                            Detalles del Proyecto
+                                                        </th>
+                                                </tr> 
+                                            </thead>  
+                                            <tbody>
+                                                <tr>
+                                                    <!-- TITULO -->  
+                                                    <th>
+                                                        <label for="" style="font-family:Arial; color: white;font-size: 25px;">Título: </label>
+                                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->titulo}}</small>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <!-- HIPOTESIS -->  
+                                                    <th>
+                                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Hipótesis: </label> 
+                                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->hipotesis}}</small> 
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <!-- OBJETIVO GENERAL -->  
+                                                    <th>
+                                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo General: </label>
+                                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivo}}</small> 
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <!-- OBJETIVO ESPECIFICO --> 
+                                                    <th>
+                                                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo Específico:  </label>
+                                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivos_especificos}}</small>
+                                                    </th> 
+                                                </tr>
+                                                                              
+                                            </tbody>        
+                                    </table>
+                                    <div style="height:20px;"></div>
+                                    <form action="{{route('proyectos.guardarAvance', $proyecto->id )}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                                 <div class="mb-3 form-group">
                                                 <label for="" class="form-label">Avance (En porcentaje %)</label><br>
-                                                <input name="avance" type="text" style="width: 100%" tabindex="2">
-                                                    </select>
+                                                <input type="number" min="0" max="100" step="1"  name="avance" size="5" value="{{$proyecto->avance}}">
                     
                                                 </div> 
-                                        
-                                                <a href="/docentes" class="btn btn-secondary" tabindex="5">Cancelar</a>
                                                 <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
                                         </form>
                                     </div>

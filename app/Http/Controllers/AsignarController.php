@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Proyectos;
+use App\Models\Proyecto;
 use App\Models\Comite;
 
 class AsignarController extends Controller
@@ -14,7 +14,4 @@ class AsignarController extends Controller
         $proyectos = $usuario->proyectos;
         return view('coordinador.asignarProyecto.asignar',compact('proyectos'));
     }
-    
-    
-    
 }

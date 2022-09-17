@@ -19,32 +19,33 @@ class Proyecto extends Model
         return $this->belongsTo('App\Models\Comite');
          
     }
-    /*
+
+    public function pe(){
         return $this->hasOneThrough(
-            'App\Models\Pe',
-            'App\Models\Generacion',
-            'id',//segundo.id
-            'id',//primero.id
-            'generacion_id',//no se que hace
-            'pe_id'//segundo.primero_id
+            Pe::class,
+            Estudiante::class,
+            'id',
+            'id',
+            'estudiante_id',
+            'pe_id',
+            'estudiante_id'
         );
-    
+    }
+    /*
+            hasOneThrough(
+            'Modelo que tiene',
+            'Modelo atraves',
+            'el key de la segunda que sea igual al quinto parametro',
+            'el key de la primera que enlaza con el foreing key de la segunda',
+            'caul o vacio que significa el local key'
+            'el foreing key en la segunda que enlaza a la primera '
+        );    
     */
     public function generacion(){
-/*
-        return $this->hasOneThrough(
-            Generacion::class, //related
-            Periodo::class, //Through
-            'id',//segundo.id
-            'id',//primero.id
-            '',//no se que hace
-            'generacion_id'//segundo.primero_id
-        );
-*/
+
     }
     public function periodo(){
         return $this->belongsTo('App\Models\Periodo','periodo_id','id')
-//        return $this->hasOne('App\Models\Periodo','id','periodo_id')
         ->withDefault(
             [
                 'id' => 0,
@@ -61,7 +62,7 @@ class Proyecto extends Model
         return $this->hasManyThrough(
             'App\Models\Periodo',
             'App\Models\Adquirido',
-            'proyecto_id',
+            'proyecto_ida',
             'id',
             '',
             'periodo_id',

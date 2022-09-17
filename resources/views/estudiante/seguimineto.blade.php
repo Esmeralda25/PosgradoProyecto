@@ -41,14 +41,14 @@
                                     <!-- OBJETIVO GENERAL -->  
                                     <th>
                                         <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo General: </label>
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivos}}</small> 
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivo}}</small> 
                                     </th>
                                 </tr>
                                 <tr>
                                     <!-- OBJETIVO ESPECIFICO --> 
                                     <th>
                                         <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo Específico:  </label>
-                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivose}}</small>
+                                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$proyecto->objetivos_especificos}}</small>
                                     </th> 
                                 </tr>
                                                               
@@ -122,7 +122,17 @@
                                     <tr>
                                         <td>
                                             {{$evaluacion->docente->nombre}} - {{$evaluacion->calificacion}} 
-                                            ----> 
+                                            <table class="table-striped">
+                                                <tbody>
+                                                    @foreach ($evaluacion->desgloces as $desgloce)
+                                                    <tr>
+                                                        <td>{{$desgloce->concepto}}</td>
+                                                        <td>{{$desgloce->valor}}</td>
+                                                        <td>{{$desgloce->observacion}}</td>
+                                                    </tr>                                                        
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                     @empty

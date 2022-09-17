@@ -19,20 +19,18 @@ class Pe extends Usuario
     }   
 
     public function proyectosSinComite(){
-    return $this->hasManyThrough(
-        proyecto::class,
-        estudiante::class,   
-        'pes_id', // estudiantes.pes_id 
-        '', //estudiante_id
-        '' , // Local key on the ___ table...
-        'id' // estudiantes.id
-    )
-    ->whereNull('comite_id');
-}
-//"select * from `proyectos` inner join `estudiantes` on `estudiantes`.`id` = `proyectos`.`estudiante_id` where `estudiantes`.`pes_id` = ?"
-// select * from `proyectos` inner join `estudiantes` on `estudiantes`.`id` = `proyectos`.`x`             where `estudiantes`.`pes_id` is null"
-    public function docentes(){
+        return $this->hasManyThrough(
+            proyecto::class,
+            estudiante::class,   
+            'pes_id', // estudiantes.pes_id 
+            '', //estudiante_id
+            '' , // Local key on the ___ table...
+            'id' // estudiantes.id
+        )
+        ->whereNull('comite_id');   
+    }
 
+    public function docentes(){
         return $this->hasManyThrough(
             Docente::class,
             Adscripcion::class,

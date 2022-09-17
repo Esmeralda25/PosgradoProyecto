@@ -51,7 +51,7 @@ class Docente extends Authenticatable
             'App\Models\Pe',
             'App\Models\Adscripcion',
             'docente_id',
-            'id',//id de pes
+            'id',
             'id',
             'pe_id',
         );
