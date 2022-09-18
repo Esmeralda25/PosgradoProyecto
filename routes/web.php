@@ -39,7 +39,9 @@ Route::resource('programas', PeController::class);
 /// COORDINADOR
     //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
 //Adscripciones
-Route::resource('adscripciones', AdscripcionController::class);
+//Route::resource('adscripciones', AdscripcionController::class);
+Route::get('adscripciones', [AdscripcionController::class, 'index'])->name('adscripciones.index');
+Route::post('adscripciones/{id}', [AdscripcionController::class, 'store'])->name('adscripciones.store');
 
     //Docentes
 Route::resource('docentes', DocenteController::class);
