@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Docente;
 use App\Models\Adscripcion;
+use App\Models\Pe;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; 
 use App\Http\Requests\DocenteRequest;
@@ -32,18 +33,30 @@ class AdscripcionController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Docente  $docente
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request  $request)
     {
-        //
+        $pe = \Session::get('usuario');
+        //modificar la adscripcion  a $pe->id del $nuevo->id
+        $add = new Adscripcion();
+        $add->pe_id = $pe->id;
+        //$docente =  Docente::where('id', $request->id)->get('id');
+        $add->docente_id = $request->id;
+        
+          
+        $add->save();
+
+        return redirect(route('docentes.index'))->with('message','Usuario agregado correctamente');
     }
 
     /**
