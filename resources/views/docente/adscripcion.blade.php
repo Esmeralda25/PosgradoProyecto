@@ -10,7 +10,7 @@
             <div class="col-10">
                 <div class="card col-12">
                     <div class="card-header" style="text-align: center">
-                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Agregar Programa Educativo</h5>
+                        <h5 class="card-title font-weight-bold" style="text-align: center; font-size:30px">Asignar Docente al Programa Educativo</h5>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -31,8 +31,12 @@
                                                 <tr>
                                                     <th scope="col">{{$adscripcion->nombre}}</th>
                                                     <td>
-                                                        <a href="{{route('docentes.edit',$adscripcion->id)}}" class="btn btn-info">ASIGNAR</a>
+                                                        <form action="{{route('adscripciones.store',$adscripcion->id)}}" style="display:inline" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-info" "4"><a>ASIGNAR</a></button>
+                                                        </form>
                                                     </td>
+                                                    
                                                 </tr>
                                             @endforeach
                                             </tbody>
