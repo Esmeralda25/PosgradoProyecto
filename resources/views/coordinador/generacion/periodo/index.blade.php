@@ -32,7 +32,7 @@
                                             <td scope="col">{{$periodo->nombre}}</td>
                                             <td scope="col">{{$periodo->fechaInicio}}</td>
                                             <td scope="col">{{$periodo->fechaFin}}</td>
-                                            <td scope="col">{{$periodo->inscritos()}}</td>
+                                            <td scope="col">{{$periodo->cuantosInscritos()}}</td>
                                             <td scope="col">{{$periodo->estado}}</td>
                                             <td>
                                                 <a href="{{route('periodos.edit',$periodo->id)}}" class="btn btn-info">EDITAR</a>

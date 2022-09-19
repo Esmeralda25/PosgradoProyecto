@@ -11,4 +11,9 @@ class Actividad extends Model
     protected $fillable=[ 'nombre', 'etapa', 'proyecto_id', 'periodo_id'];
     public $timestamps = false;
 
+    //pero realmente la actividad depende del periodo
+    public function proyecto()
+    {
+        return $this->belongsTo(Proyecto::class);
+    }
 }  

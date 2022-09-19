@@ -28,11 +28,10 @@ class CreateProyectosTable extends Migration
             $table->string('objetivo');
             $table->string('objetivos_especificos')->nullable()->default(null);
             $table->string('reporte')->nullable()->default(null);
-            $table->float('avance')->nullable()->default(null);
+            $table->float('avance')->nullable()->default(0);
             $table->integer('estudiante_id')->unsigned()->nullable()->default(null);
             $table->integer('comite_id')->unsigned()->nullable()->default(null);
             $table->integer('periodo_id')->unsigned()->nullable()->default(null);
-            $table->integer('compromiso')->nullable()->default(null);
 
             $table->unique(["comite_id"], 'comite_UNIQUE');
 

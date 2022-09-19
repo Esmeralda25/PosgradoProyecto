@@ -13,38 +13,26 @@ class Proyecto extends Model
     public $timestamps = false;  
 
     public function estudiante(){
-        return $this->belongsTo('App\Models\estudiante');
+        return $this->belongsTo(Estudiante::class);
     }
     public function comite(){
-        return $this->belongsTo('App\Models\Comite');
+        return $this->belongsTo(Comite::class);
          
     }
-    /*
+
+    public function pe(){
         return $this->hasOneThrough(
-            'App\Models\Pe',
-            'App\Models\Generacion',
-            'id',//segundo.id
-            'id',//primero.id
-            'generacion_id',//no se que hace
-            'pe_id'//segundo.primero_id
+            Pe::class,
+            Estudiante::class,
+            'id',
+            'id',
+            'estudiante_id',
+            'pe_id',
+            'estudiante_id'
         );
-    
-    */
-    public function generacion(){
-/*
-        return $this->hasOneThrough(
-            Generacion::class, //related
-            Periodo::class, //Through
-            'id',//segundo.id
-            'id',//primero.id
-            '',//no se que hace
-            'generacion_id'//segundo.primero_id
-        );
-*/
     }
     public function periodo(){
-        return $this->belongsTo('App\Models\Periodo','periodo_id','id')
-//        return $this->hasOne('App\Models\Periodo','id','periodo_id')
+        return $this->belongsTo(Periodo::class)
         ->withDefault(
             [
                 'id' => 0,
@@ -53,11 +41,14 @@ class Proyecto extends Model
         );
     }
 
+
+    
     public function periodos(){
+        //le agrega laravel_through_key
 //adquiridos`.`d` = `periodos`.`b` where `adquiridos`.`a` is null"
         return $this->hasManyThrough(
-            'App\Models\Periodo',
-            'App\Models\Adquirido',
+            Periodo::class,
+            Adquirido::class,
             'proyecto_id',
             'id',
             '',
@@ -67,18 +58,9 @@ class Proyecto extends Model
         ;
     }
 
-    public function compromiso(){
-        return $this->hasOne('App\Models\Adquirido','id','compromiso');
-    }
-    
-    public function compromisos($semestre){
-        return $this->hasMany('App\Models\Adquirido','proyecto_id','id')
-        ->where('periodo_id',$semestre)
-        ;
-    }
 
     public function reporte($semestre){
-        return $this->hasOne('App\Models\Reporte','proyecto_id','id')
+        return $this->hasOne(Reporte::class,'proyecto_id','id')
         ->withDefault(
             [
                 'id' => 0,
@@ -89,38 +71,20 @@ class Proyecto extends Model
         ;
     }
 
-    public function actividades($semestre){
-        return $this->hasMany('App\Models\Actividad','proyecto_id','id')
-        ->where('periodo_id',$semestre)
-        ;
+    public function actividades($periodo_id){   
+        return $this->hasMany(Actividad::class)->where('periodo_id',$periodo_id);
     }
-
-    public function nuevaActividad()
-    {
-        return $this->hasMany('App\Models\Actividad','proyectos_id','id');
+    public function compromisos($periodo_id){
+        return $this->hasMany(Adquirido::class)->where('periodo_id',$periodo_id);
     }
-
-
     public function evidencias()
     {
         return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
-
-    public function valoraciones($semestre)
+    public function evaluaciones($periodo_id=null)
     {
-        return $this->hasMany('App\Models\Evaluacion')
-        ->where('periodo_id',$semestre)
-        ;
-    }
-
-    public function evaluaciones()
-    {
-        return $this->hasMany('App\Models\Evaluacion');
-    }
-    public function nuevoPeriodo()
-    {
-        return $this->hasManyThrough(Periodo::class, Estudiante::class);
-    }
-    
+        return $this->hasMany(Evaluacion::class)
+        ->where('periodo_id',$periodo_id);
+    }    
     
 }

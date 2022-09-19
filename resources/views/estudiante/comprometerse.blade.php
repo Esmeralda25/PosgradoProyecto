@@ -12,82 +12,18 @@
             <h1 class="card-title font-weight-bold" style="font-size: 40px;">Comprometerse</h1>
           </div>
           <div class="card-body">
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr style="text-align: center;background-color: black;">
-                        <th style="font-size: 25px;">
-                            Detalles del Proyecto
-                        </th>
-                </tr> 
-              </thead>  
-              <tbody>
-                <tr>
-                <!-- TITULO -->  
-                  <th>
-                      <label for="" style="font-family:Arial; color: white;font-size: 25px;">Título: </label>
-                      <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->titulo}}</small>
-                  </th>
-                </tr>
-                <tr>
-                    <!-- HIPOTESIS -->  
-                    <th>
-                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Hipótesis: </label> 
-                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->hipotesis}}</small> 
-                    </th>
-                </tr>
-                <tr>
-                    <!-- OBJETIVO GENERAL -->  
-                    <th>
-                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo General: </label>
-                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivo}}</small> 
-                    </th>
-                </tr>
-                <tr>
-                    <!-- OBJETIVO ESPECIFICO --> 
-                    <th>
-                        <label for="" style="font-family:Arial;color: white;font-size: 25px;">Objetivo Específico:  </label>
-                        <small style="margin-left: 5px;font-family:Arial;color: white;font-size: 20px;">{{$estudiante->proyecto->objetivos_especificos}}</small>
-                    </th> 
+            @php
+                $proyecto = $estudiante->proyecto;
+            @endphp
+            <x-proyecto :proyecto=$proyecto></x-proyecto>
 
-                </tr>
-              </tbody>        
-            </table>
-            <div style="height:20px;"></div>
-            <table class="table table-dark table-striped">
-                <thead>
-                  <tr style="text-align: center;background-color: black;">
-                    <th colspan="2" style="font-size: 25px;">
-                      Comite Tutorial
-                    </th>
-                  </tr> 
-                </thead>  
-                <tbody>
-                    @if (is_null($estudiante->proyecto->comite_id))
-                        <tr>
-                            <th colspan="2">SIN ASIGNAR</th>
-                        </tr>
-                    @else
-                        <tr>
-                            <th>Asesor</th>
-                            <td>{{$estudiante->proyecto->comite->docenteAsesor->nombre}}</td>
-                        </tr>
-                        <tr>
-                            <th>Revisor 1</th>
-                            <td>{{$estudiante->proyecto->comite->docenteRevisor1->nombre}}</td>
-                        </tr>
-                        <tr>
-                            <th>Revisor 2</th>
-                            <td>{{$estudiante->proyecto->comite->docenteRevisor2->nombre}}</td>
-                        </tr>
-                        <tr>
-                            <th>Revisor 3</th>
-                            <td>{{$estudiante->proyecto->comite->docenteRevisor3->nombre}}</td>
-                        </tr>
-                        
-                    @endif
-                </tbody>
-            </table>
-            <div style="height:20px;"></div>
+            @php
+              $periodo = $estudiante->periodo;
+              $periodo->laravel_through_key = $proyecto->id;
+            @endphp
+            <x-periodo :periodo=$periodo></x-periodo>
+
+
             <div>
               <h2 style="width: 100%; text-align:center; background:black; padding:0 0; color:white;margin-top:15px">Compromisos</h2>
             </div>
@@ -112,24 +48,24 @@
                   </div>
                 @endif
                 <form action="{{route('compromisos.adquirir')}}" method="POST">    
-                    @csrf
-                      @method('PUT')    
-                        <input type="hidden" name="periodo_id" value="{{$estudiante->semestre->id}}">
-                        <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
-                        <th class="col-7">
-                          A que te comprometes: 
-                          <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">
-                            @foreach ($compromisos as $compromiso)
-                                <option>{{$compromiso->titulo}}</option>
-                            @endforeach
-                          </select>
-                        </th>
-                        <th class="row col-5">
-                          Cantidad: 
-                          <input type="number" name="cuantos_programo" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
-                          <button class="btn btn-success" style="width:60px"><i class="fas fa-plus-circle"></i></button>
-                        </th>
-                  </form>  
+                  @csrf
+                  @method('PUT')    
+                  <input type="hidden" name="periodo_id" value="{{$estudiante->semestre->id}}">
+                  <input type="hidden" name="proyecto_id" value="{{$estudiante->proyecto->id}}">
+                  <th class="col-7">
+                    A que te comprometes: 
+                    <select name="que" id="nivel" style="margin-right: 5px; margin-left:4px">
+                      @foreach ($compromisos as $compromiso)
+                          <option>{{$compromiso->titulo}}</option>
+                      @endforeach
+                    </select>
+                  </th>
+                  <th class="row col-5">
+                    Cantidad: 
+                    <input type="number" name="cuantos_programo" min="1" max="3"  step="1" value="1" style="margin-right: 5px; margin-left:6px">
+                    <button class="btn btn-success" style="width:60px"><i class="fas fa-plus-circle"></i></button>
+                  </th>
+                </form>  
                 </tr> 
               </thead>         
             </table>

@@ -1,12 +1,5 @@
 @extends('layouts.master')
 
-@section('regresar') 
-    <a href="/docentes" class="nav-link">
-    <i class="fa fa-chevron-circle-left" aria-hidden="true" ></i>    
-    </a>
-@endsection
-
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
@@ -20,27 +13,18 @@
                         <div class="card-header" style="text-align: center">
                             <h1 class="card-title font-weight-bold" style="text-align: center">Asignar Avance</h1>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- contenido de main imagenes -->
-                                    <!--<input id="coordinador" name="coordinador" type="text" style="width: 100%" tabindex="3"> -->
                                     <div class="container">
-                                        
-
-                                        <form action="/guardar-porcentajes" method="POST" enctype="multipart/form-data">
+                                        <x-proyecto :proyecto=$proyecto></x-proyecto>
+                                        <form action="{{route('proyectos.guardarAvance', $proyecto->id )}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                                <div class="mb-3 form-group">
-                                                <label for="" class="form-label">Avance (En porcentaje %)</label><br>
-                                                <input name="avance" type="text" style="width: 100%" tabindex="2">
-                                                    </select>
-                    
-                                                </div> 
-                                        
-                                                <a href="/docentes" class="btn btn-secondary" tabindex="5">Cancelar</a>
-                                                <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
+                                            <label for="" class="form-label">Avance (En porcentaje %)</label>
+                                            <input type="number" min="0" max="100" step="1"  name="avance" size="5" value="{{$proyecto->avance}}">  
+                                            <br>                  
+                                            <button type="submit" class="btn btn-primary" tabindex="4"><a>Guardar</a></button>
                                         </form>
                                     </div>
                                 </div>

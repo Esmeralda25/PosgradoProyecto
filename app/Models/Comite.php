@@ -27,19 +27,19 @@ class Comite extends Model
      * Este metodo es para mostrare la relacion que existe entre un comite y un docente
      * puesto que el asesor esta en un comite y la tabla de comite tiene un campo que se 
      * llama asesor y este nos indica quien es el docente asesor
-     * @return u Un objeto docente ('App\Models\Docente')
+     * @return u Un objeto docente (Docente::class)
      */
     public function docenteAsesor(){
-        return $this->hasOne('App\Models\Docente','id','asesor'); 
+        return $this->hasOne(Docente::class,'id','asesor'); 
     }
     public function docenteRevisor1(){
-        return $this->hasOne('App\Models\Docente','id','revisor1'); 
+        return $this->hasOne(Docente::class,'id','revisor1'); 
     }
     public function docenteRevisor2(){
-        return $this->hasOne('App\Models\Docente','id','revisor2'); 
+        return $this->hasOne(Docente::class,'id','revisor2'); 
     }
     public function docenteRevisor3(){
-        return $this->hasOne('App\Models\Docente','id','revisor3'); 
+        return $this->hasOne(Docente::class,'id','revisor3'); 
     }
  
 }

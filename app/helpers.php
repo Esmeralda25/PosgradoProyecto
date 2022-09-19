@@ -53,14 +53,13 @@ if (! function_exists('current_id')) {
     function current_id()
     {
         $usuario  = \Session::get('usuario' );
-        if (is_null($usuario)) return "";
+        if (is_null($usuario)) return null;
         if(is_array($usuario)){
             return 0;  
         }else{
-            $clase = get_class($usuario);
             $usuario = $usuario->fresh(); 
             return $usuario->id;
         }
-        return "SIN ID";
+        return null;
     }
 }
