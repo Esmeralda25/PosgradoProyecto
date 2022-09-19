@@ -13,8 +13,8 @@ class DesgloceEvaluacion extends Model
 
     public function docente(){
         return $this->hasOneThrough(
-            'App\Models\Docente',
-            'App\Models\Evaluacion',
+            Docente::class,
+            Evaluacion::class,
             'id',
             'id',
             'evaluacion_id', 
@@ -22,7 +22,7 @@ class DesgloceEvaluacion extends Model
         );
     }
     public function evaluacion(){
-        return $this->belongsTo('App\Models\Evaluacion');
+        return $this->belongsTo(Evaluacion::class);
     }
 }
 

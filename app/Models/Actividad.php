@@ -14,6 +14,6 @@ class Actividad extends Model
     //pero realmente la actividad depende del periodo
     public function proyecto()
     {
-        return $this->belongsTo('App\Models\Proyecto');
+        return $this->belongsTo(Proyecto::class);
     }
 }  

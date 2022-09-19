@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Periodo extends Model 
 {
     public $table = "periodos";
-    protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica', 'generacion_id'];
+    protected $fillable=['nombre','fechaInicio','fechaFin','estado','rubrica_id', 'generacion_id'];
     public $timestamps = false;
 
     public function generacion(){
-        return $this->belongsTo('App\Models\Generacion');
+        return $this->belongsTo(Generacion::class);
     }
     public function pe(){
         return $this->hasOneThrough(
-            'App\Models\Pe',
-            'App\Models\Generacion',
+            Pe::class,
+            Generacion::class,
             'id',//generaciones.id
             'id',//pes.id
             'generacion_id',//no se que hace
@@ -25,7 +25,7 @@ class Periodo extends Model
         );
     }
     public function rubrica(){
-        return $this->belongsTo('App\Models\Rubrica')
+        return $this->belongsTo(Rubrica::class)
         ->withDefault(
             [
                 'id'=>0,
@@ -36,26 +36,26 @@ class Periodo extends Model
 
     public function actividades(){
         if(is_null($this->laravel_through_key)) 
-            return $this->hasMany('App\Models\Actividad');
+            return $this->hasMany(Actividad::class);
         else
-            return $this->hasMany('App\Models\Actividad')->where('proyecto_id',$this->laravel_through_key);
+            return $this->hasMany(Actividad::class)->where('proyecto_id',$this->laravel_through_key);
     }
 
 
     public function compromisos(){
         if(is_null($this->laravel_through_key)) 
-            return $this->hasMany('App\Models\Adquirido');
+            return $this->hasMany(Adquirido::class);
         else
-            return $this->hasMany('App\Models\Adquirido')->where('proyecto_id',$this->laravel_through_key);
+            return $this->hasMany(Adquirido::class)->where('proyecto_id',$this->laravel_through_key);
     }
 
 
     public function evaluaciones()
     {
         if(is_null($this->laravel_through_key)) 
-            return $this->hasMany('App\Models\Evaluacion');
+            return $this->hasMany(Evaluacion::class);
         else
-            return $this->hasMany('App\Models\Evaluacion')->where('proyecto_id',$this->laravel_through_key);
+            return $this->hasMany(Evaluacion::class)->where('proyecto_id',$this->laravel_through_key);
     }
 
     public function promedio(){
@@ -73,16 +73,14 @@ class Periodo extends Model
             return 0;
 
     }
-
-
     public function estudiantes(){
-       return $this->hasMany('App\Models\Estudiante');
+       return $this->hasMany(Estudiante::class);
     }
-    public function inscritos(){
-        return $this->hasMany('App\Models\Estudiante')->count();
+    public function cuantosInscritos(){
+        return $this->hasMany(Estudiante::class)->count();
     }
     public function proyectos(){
-        return $this->hasMany('App\Models\Proyecto');
+        return $this->hasMany(Proyecto::class);
     } 
 }
 

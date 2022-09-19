@@ -32,7 +32,6 @@ class CreateProyectosTable extends Migration
             $table->integer('estudiante_id')->unsigned()->nullable()->default(null);
             $table->integer('comite_id')->unsigned()->nullable()->default(null);
             $table->integer('periodo_id')->unsigned()->nullable()->default(null);
-            $table->integer('compromiso')->nullable()->default(null);
 
             $table->unique(["comite_id"], 'comite_UNIQUE');
 

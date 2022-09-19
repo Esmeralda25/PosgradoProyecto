@@ -12,16 +12,12 @@ class Evaluacion extends Model
     public $timestamps = false;
 
     public function desgloces(){
-        return $this->hasMany('App\Models\DesgloceEvaluacion');       
-    }
-    //esta relacion no se si esta bien
-    public function estudiante(){
-        return $this->hasOne('App\Models\Estudiante', 'id','estudiante_id');       
+        return $this->hasMany(DesgloceEvaluacion::class);       
     }
     public function docente(){
-        return $this->hasOne('App\Models\Docente', 'id','docente_id');       
+        return $this->belongsTo(Docente::class);       
     }
     public function periodo(){
-        return $this->hasOne('App\Models\Periodo', 'id','periodo_id');       
+        return $this->belongsTo(Periodo::class);       
     }
 }

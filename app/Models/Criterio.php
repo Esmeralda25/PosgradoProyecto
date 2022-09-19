@@ -12,7 +12,7 @@ class Criterio extends Model
     public $timestamps = false;
 
     public function rubrica(){
-        return $this->belongsTo('App\Models\Rubrica');
+        return $this->belongsTo(Rubrica::class);
     }
  
 }

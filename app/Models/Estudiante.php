@@ -36,34 +36,24 @@ class Estudiante extends Usuario
         return "Estudiante";
     } 
     public function pe(){
-        return $this->belongsTo('App\Models\Pe','pe_id','id');
+        return $this->belongsTo(Pe::class);
     }
 
     public function periodo(){
-        return $this->belongsTo('App\Models\Periodo')
+        return $this->belongsTo(Periodo::class)
         ->withDefault(
             [
                 'id' => 0,
                 'nombre' => 'No esta inscrito en algun periodo'
             ]
         );
-;
-    }
+   }
 
     public function semestre(){
-        return $this->hasOne('App\Models\Periodo','id','periodo_id');
-    }
-
-    public function nuevoPeriodo(){
-        return $this->hasMany('App\Models\Periodo','id','periodo_id');
+        return $this->belongsTo(Periodo::class,'periodo_id','id');
     }
     
     public function proyecto(){
-        return $this->hasOne('App\Models\Proyecto');
+        return $this->hasOne(Proyecto::class);
     }
-
-    public function desgloceEvaluaciones(){
-        return $this->belongsTo('App\Models\DesgloceEvaluacion','evaluaciones_id','id');
-    }
-
 }

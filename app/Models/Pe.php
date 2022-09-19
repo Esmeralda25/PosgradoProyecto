@@ -42,7 +42,6 @@ class Pe extends Usuario
     }
 
     public function rubricas(){
-        return $this->hasMany(Rubrica::class,'pe_id','id');
-    
+        return $this->hasMany(Rubrica::class);
     }
 }

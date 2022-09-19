@@ -13,10 +13,10 @@ class Proyecto extends Model
     public $timestamps = false;  
 
     public function estudiante(){
-        return $this->belongsTo('App\Models\estudiante');
+        return $this->belongsTo(Estudiante::class);
     }
     public function comite(){
-        return $this->belongsTo('App\Models\Comite');
+        return $this->belongsTo(Comite::class);
          
     }
 
@@ -31,21 +31,8 @@ class Proyecto extends Model
             'estudiante_id'
         );
     }
-    /*
-            hasOneThrough(
-            'Modelo que tiene',
-            'Modelo atraves',
-            'el key de la segunda que sea igual al quinto parametro',
-            'el key de la primera que enlaza con el foreing key de la segunda',
-            'caul o vacio que significa el local key'
-            'el foreing key en la segunda que enlaza a la primera '
-        );    
-    */
-    public function generacion(){
-
-    }
     public function periodo(){
-        return $this->belongsTo('App\Models\Periodo','periodo_id','id')
+        return $this->belongsTo(Periodo::class)
         ->withDefault(
             [
                 'id' => 0,
@@ -60,8 +47,8 @@ class Proyecto extends Model
         //le agrega laravel_through_key
 //adquiridos`.`d` = `periodos`.`b` where `adquiridos`.`a` is null"
         return $this->hasManyThrough(
-            'App\Models\Periodo',
-            'App\Models\Adquirido',
+            Periodo::class,
+            Adquirido::class,
             'proyecto_id',
             'id',
             '',
@@ -71,13 +58,9 @@ class Proyecto extends Model
         ;
     }
 
-    public function compromiso(){
-        return $this->hasOne('App\Models\Adquirido','id','compromiso');
-    }
-    
 
     public function reporte($semestre){
-        return $this->hasOne('App\Models\Reporte','proyecto_id','id')
+        return $this->hasOne(Reporte::class,'proyecto_id','id')
         ->withDefault(
             [
                 'id' => 0,
@@ -89,37 +72,19 @@ class Proyecto extends Model
     }
 
     public function actividades($periodo_id){   
-        return $this->hasMany('App\Models\Actividad')->where('periodo_id',$periodo_id);
+        return $this->hasMany(Actividad::class)->where('periodo_id',$periodo_id);
     }
     public function compromisos($periodo_id){
-        return $this->hasMany('App\Models\Adquirido')->where('periodo_id',$periodo_id);
+        return $this->hasMany(Adquirido::class)->where('periodo_id',$periodo_id);
     }
-
-
-    
-    public function nuevaActividad()
-    {
-        return $this->hasMany('App\Models\Actividad','proyectos_id','id');
-    }
-
-
     public function evidencias()
     {
         return $this->hasManyThrough(Evidencia::class, Adquirido::class);
     }
-
-
     public function evaluaciones($periodo_id=null)
     {
-        return $this->hasMany('App\Models\Evaluacion')
-        ->where('periodo_id');
-
-    }
-
-    public function nuevoPeriodo()
-    {
-        return $this->hasManyThrough(Periodo::class, Estudiante::class);
-    }
-    
+        return $this->hasMany(Evaluacion::class)
+        ->where('periodo_id',$periodo_id);
+    }    
     
 }
