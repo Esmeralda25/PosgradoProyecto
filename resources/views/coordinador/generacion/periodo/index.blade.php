@@ -35,8 +35,9 @@
                                             <td scope="col">{{$periodo->cuantosInscritos()}}</td>
                                             <td scope="col">{{$periodo->estado}}</td>
                                             <td>
+
                                                 <a href="{{route('periodos.edit',$periodo->id)}}" class="btn btn-info">EDITAR</a>
-                                                <a href="/estadisticos" class="btn btn-warning" style="color: white">ESTADISTICOS</a>
+                                                <a href="{{route('periodos.estadisticos',$periodo->id)}}" class="btn btn-success">ESTADISTICOS</a>
                                                 <a href="{{route('periodos.proyectos',$periodo->id)}}" class="btn btn-primary" >PROYECTOS</a>
                                                 <form action="{{route('periodos.destroy',$periodo->id)}}" style="display:inline" method="post" >
                                                     @csrf
@@ -44,14 +45,14 @@
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">
                                                 </form> 
                                                 @if ($loop->iteration == 1)
-                                                    <button class="btn btn-success text-white">
+                                                    <button class="btn btn-warning text-white">
                                                         inscribir
                                                     </button>
                                                     <button class="btn btn-primary text-white">
                                                         batch
                                                     </button>
                                                 @else
-                                                    <button class="btn btn-success text-white">
+                                                    <button class="btn btn-warning text-white">
                                                         inscribir (cambios)
                                                     </button>
                                                     <button class="btn btn-primary text-white">

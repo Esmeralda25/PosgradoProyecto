@@ -34,7 +34,9 @@ Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
 
 ///INFORMATICO
 //no tiene inicio puesto que es lo unico que hace, pero falta otras opciones que seran mas modulos
+Route::get('programas/estadisticos/{programa}',[PeController::class,'estadisticos'])->name('programas.estadisticos');
 Route::resource('programas', PeController::class);
+
 
 /// COORDINADOR
     //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
@@ -48,6 +50,7 @@ Route::get('criterios/{rubrica_id}', [CriterioController::class, 'index'])->name
 Route::resource('criterios', CriterioController::class)->except(['index','create']);
 
 //Generaciones
+Route::get('generaciones/estadisticos/{generacion}',[GeneracionController::class,'estadisticos'])->name('generaciones.estadisticos');
 Route::resource('generaciones', GeneracionController::class);
 //-Periodos
 Route::get('periodos/cambiar-comite/{id_proyecto}', [PeriodoController::class, 'cambiarComite'])->name('periodos.cambiarGet');
@@ -55,7 +58,7 @@ Route::put('periodos/cambiar-comite/{id_proyecto}', [PeriodoController::class, '
 Route::get('periodos/create/{geneacion}', [PeriodoController::class, 'create'])->name('periodos.create');
 Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos'])->name('periodos.proyectos');
 Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
-Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');
+Route::get('periodos/estadisticos/{periodo}', [PeriodoController::class, 'estadisticos'])->name('periodos.estadisticos');
 //aqui falta inscribir estudiantes...
 
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;

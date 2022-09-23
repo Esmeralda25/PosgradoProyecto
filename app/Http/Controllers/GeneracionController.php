@@ -108,6 +108,12 @@ class GeneracionController extends Controller
             return redirect(route('generaciones.index'))->with('message','Esta generación no se pudo borrar ya que tiene periodos agregados');
         }
     }
+
+    public function estadisticos($id){
+        $generacion = Generacion::find($id);
+        return view('coordinador.generacion.estadisticos',compact('generacion',)); 
+    }   
+
 }
     
 

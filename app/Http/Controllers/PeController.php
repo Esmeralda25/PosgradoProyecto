@@ -97,6 +97,10 @@ class PeController extends Controller
             return redirect(route('programas.index'))->with('message', $th->getMessage());;//detalle: que avise que no pudo borrar
         }
     }
+    public function estadisticos($id){
+        $pe = Pe::find($id);
+        return view('informatico.pe.estadisticos',compact('pe'));
+    }   
 }
     
 

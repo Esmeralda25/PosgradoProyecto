@@ -16,7 +16,6 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div>
-            
                                 <div class="mb-12">
                                     Programa Educativo : {{$pe->nombre}}<br>
                                 </div>

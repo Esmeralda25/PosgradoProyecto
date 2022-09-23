@@ -30,6 +30,7 @@
                                                         <td scope="col">{{$generacion->nombre}}</td>
                                                         <td scope="col">{{$generacion->descripcion}}</td>
                                                         <td>
+                                                            <a href="{{route('generaciones.estadisticos',$generacion->id)}}" class="btn btn-success">ESTADISTICOS</a>
                                                             <a href="{{route('generaciones.edit',$generacion->id)}}" class="btn btn-info">EDITAR</a>
                                                             <a href="{{route('periodos.index',$generacion->id)}}" class="btn btn-warning" style="color: white">PERIODOS</a>                                                     
                                                             <form action="{{route('generaciones.destroy',$generacion->id)}}" style="display:inline" method="post" >

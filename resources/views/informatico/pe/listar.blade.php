@@ -25,6 +25,7 @@
                                 <td>{{$pe->nombre}}</td>
                                 <td><a href="mailto:{{$pe->correo}}">{{$pe->coordinador}}</a></td>                   
                                 <td>
+                                    <a href="{{route('programas.estadisticos',$pe->id)}}" class="btn btn-success">ESTADISTICOS</a>
                                     <a href="{{route('programas.edit',$pe->id)}}" class="btn btn-info">EDITAR</a>
                                     <a href="{{route('programas.show',$pe->id)}}" class="btn btn-warning" style="display:inline">MOSTAR</a>
                                     <form action="{{route('programas.destroy',$pe->id)}}" style="display:inline" method="post" >
