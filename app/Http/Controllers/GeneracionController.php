@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Generacion;
+use App\Models\Proyecto;
 use App\Http\Requests\GeneracionRequest;
 
 
@@ -111,7 +112,13 @@ class GeneracionController extends Controller
 
     public function estadisticos($id){
         $generacion = Generacion::find($id);
-        return view('coordinador.generacion.estadisticos',compact('generacion',)); 
+        $estadistica  = Proyecto::all();
+        $puntos = [];
+        foreach($estadistica as $grafica){
+            $puntos[] = ['Nombre del Periodo' => $grafica['hipotesis'], 'y'=>($grafica['id'])];
+        }
+    
+        return view('coordinador.generacion.estadisticos',compact('generacion'),["data" =>json_encode($puntos)]); 
     }   
 
 }

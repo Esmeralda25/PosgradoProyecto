@@ -118,8 +118,13 @@ class PeriodoController extends Controller
     public function estadisticos($id){
 
         $periodo = Periodo::find($id);
-        return view('coordinador.generacion.periodo.estadisticos', compact('periodo') );
-
+        $estadistica  = Proyecto::all();
+        $puntos = [];
+        foreach($estadistica as $grafica){
+            $puntos[] = ['Nombre del Periodo' => $grafica['hipotesis'], 'y'=>($grafica['id'])];
+        }
+    
+        return view('coordinador.generacion.periodo.estadisticos',compact('periodo'),["data" =>json_encode($puntos)]);
     }
 
     public function proyectos($periodo_id)
