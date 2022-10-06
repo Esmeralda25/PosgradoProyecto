@@ -40,7 +40,9 @@ class Pe extends Usuario
             'docente_id' // adscripciones.docente_id
         );
     }
-
+    public function generacion(){
+        return $this->hasMany(Generacion::class);
+    }
     public function rubricas(){
         return $this->hasMany(Rubrica::class);
     }
