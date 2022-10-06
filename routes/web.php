@@ -62,7 +62,10 @@ Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos
 Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
 Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');
 //aqui falta inscribir estudiantes...
+Route::get('periodos/{periodo}/periodoEstudiante', [PeriodoController::class, 'periodoEstudiante'])->name('periodos.periodoEstudiante');
 
+
+//Route::get('periodos/estudianteReinscripcion/{periodo}', [PeriodoController::class, 'estudianteReinscripcion'])->name('periodos.estudianteReinscripcion');
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
 //Compromisos
@@ -80,6 +83,7 @@ Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class,
 
 /// Estudiante
 //Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
+
 
 //Route::resource('estudiantes', EstudianteController::class);
 
