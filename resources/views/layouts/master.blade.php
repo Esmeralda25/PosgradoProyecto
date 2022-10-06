@@ -151,5 +151,6 @@
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('adminlte/js/pages/dashboard2.js')}}"></script>
+<script src="/js/periodoEstudiante/periodoEstudiante.js"></script>
 </body>
 </html>
