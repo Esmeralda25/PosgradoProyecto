@@ -6,7 +6,10 @@ use App\Models\Periodo;
 use App\Models\Generacion;
 use App\Http\Requests\PeriodoRequest;
 use App\Models\Proyecto;
-
+use App\Models\Comite;
+use App\Http\Requests\ComiteRequest;
+use App\Models\Estudiante;
+use Illuminate\Support\Facades\Response;
 class PeriodoController extends Controller
 {
     public function index($geneacion_id){ 
@@ -139,6 +142,41 @@ class PeriodoController extends Controller
             $comite->save();
         }
         return redirect(route('periodos.proyectos',$proyecto->periodo->id))->with('message','Comite actualizado correctamente');
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function periodoEstudiante($periodo_id)
+    {
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh(); 
+        $periodos = Periodo::find($periodo_id);
+        return view('coordinador.generacion.periodo.periodo-estudiante', compact('periodos'));   
+    }
+    public function periodoEstudianteGet(Request $request,$periodo_id)
+    {
+        return Estudiante::where('periodo_id',$periodo_id)->get();
+
+         //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
+    }
+    public function periodoEstudianteAsignar($periodo_id)
+    {
+        $estudiante = Estudiante::findOrFail($periodo_id);
+
+        return Response::json($estudiante);
+
+         //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
+    }
+    public function periodoEstudianteAsignarPatch($periodo_id, Request $request)
+    {
+        $estudiante = Estudiante::findOrFail($periodo_id);
+
+        $estudiante->update($request->all());
+        
+        return Response::json($estudiante);
     }
 
 }
