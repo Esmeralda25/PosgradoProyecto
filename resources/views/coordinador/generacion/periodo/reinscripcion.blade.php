@@ -14,12 +14,14 @@
                                 <label>Periodos: </label>
                                 <select id="select-periodo" name="periodo_id">
                                     <option value="">Seleccionar Periodo</option>
-                                    @foreach ($periodos->generacion->periodos as $periodo)
-                                    <option value="{{$periodo->id}}">{{$periodo->nombre}}</option>                                                   
+                                    @foreach ($periodo->periodo as $datos)
+                                    
+                                    <option value="{{$datos->id}}">{{$datos->nombre}}</option>
+                                           
                                     @endforeach
                                 </select>
                             </div>
-                       
+                            
                         </h3>
                     </div>
                     <!-- /.card-header -->
@@ -65,10 +67,8 @@
                     </div>
                     <div class="col-md-7">
                     <select class="form-control" id="periodo_id" name="periodo_id">
-                        @foreach ($periodos->generacion->periodos as $periodo)
-                        
-                        <option  value="{{$periodo->id}}">{{$periodo->nombre}}</option>                                                   
-                        
+                        @foreach ($periodo->generacion->periodos as $datos)
+                            <option value="{{$datos->id}}">{{$datos->nombre}}</option>                                                   
                         @endforeach
                     </select>
                     </div>
@@ -87,4 +87,7 @@
                 </div><!-- card -->
             </div><!-- col10 -->
         </div><!-- row -->
+@endsection
+@section("scripts_de_usuarios")
+<script src="/js/periodoEstudiante/periodoEstudiante.js"></script>
 @endsection

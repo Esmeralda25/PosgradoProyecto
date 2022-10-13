@@ -8,7 +8,7 @@ function onSelectPeriodoChange(){
         return;
     }
     //ajax
-    $.get('/api/periodos/'+periodo_id+'/periodoEstudianteGet',function(data){
+    $.get('/api/periodos/Estudiante/'+periodo_id+'',function(data){
         var html_select 
         for (var estudiantes of data)
         
@@ -26,7 +26,7 @@ function onSelectPeriodoChange(){
 
             let id = ($(this).data('id'));
 
-            $.get('/api/periodos/' + id + '/periodoEstudianteAsignar', function(data) {
+            $.get('/api/periodos/EstudianteAsignar/' + id + '', function(data) {
                $('#editModal .modal-body #nombre').val(data.nombre);
                $('#editModal .modal-body #periodo_id').val(data.periodo_id);
                $('#editModal .modal-body #hidden-folder').val(data.id);
@@ -40,7 +40,7 @@ function onSelectPeriodoChange(){
 
             $.ajax({
                type: 'patch',
-               url: '/api/periodos/' + id + '/periodoEstudianteAsignarPatch',
+               url: '/api/periodos/EstudianteAsignar/' + id + '',
                data: $('#editForm').serialize(),
                dataType: "json",
 

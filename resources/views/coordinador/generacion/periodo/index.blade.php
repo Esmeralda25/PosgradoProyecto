@@ -52,7 +52,7 @@
                                                     <button class="btn btn-success text-white">
                                                         inscribir (cambios)
                                                     </button>
-                                                    <a href="{{route('periodos.periodoEstudiante',$periodo->id)}}" class="btn btn-primary text-white">Re Inscribir</a>
+                                                    <a href="{{route('periodos.reinscripcion',$periodo->id)}}" class="btn btn-primary text-white">Re Inscribir</a>
                                                 @endif
                                             </td>
                                         <tr> 

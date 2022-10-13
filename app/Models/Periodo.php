@@ -14,6 +14,9 @@ class Periodo extends Model
     public function generacion(){
         return $this->belongsTo(Generacion::class);
     }
+    public function periodo(){
+        return $this->generacion->periodos()->where('id','<',$this->id);
+    }
     public function pe(){
         return $this->hasOneThrough(
             Pe::class,

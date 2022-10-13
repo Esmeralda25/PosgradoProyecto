@@ -149,20 +149,20 @@ class PeriodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function periodoEstudiante($periodo_id)
+    public function reinscripcion($periodo_id)
     {
         $pe = \Session::get('usuario');
         $pe = $pe->fresh(); 
-        $periodos = Periodo::find($periodo_id);
-        return view('coordinador.generacion.periodo.periodo-estudiante', compact('periodos'));   
+        $periodo = Periodo::find($periodo_id);
+        return view('coordinador.generacion.periodo.reinscripcion', compact('periodo'));   
     }
-    public function periodoEstudianteGet(Request $request,$periodo_id)
+    public function EstudianteGet(Request $request,$periodo_id)
     {
         return Estudiante::where('periodo_id',$periodo_id)->get();
 
          //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
     }
-    public function periodoEstudianteAsignar($periodo_id)
+    public function EstudianteAsignar($periodo_id)
     {
         $estudiante = Estudiante::findOrFail($periodo_id);
 
@@ -170,7 +170,7 @@ class PeriodoController extends Controller
 
          //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
     }
-    public function periodoEstudianteAsignarPatch($periodo_id, Request $request)
+    public function EstudianteAsignarPatch($periodo_id, Request $request)
     {
         $estudiante = Estudiante::findOrFail($periodo_id);
 
