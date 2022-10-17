@@ -56,6 +56,7 @@ Route::resource('criterios', CriterioController::class)->except(['index','create
 
 //Generaciones
 Route::get('generaciones/estadisticos/{generacion}',[GeneracionController::class,'estadisticos'])->name('generaciones.estadisticos');
+Route::get('estadisticos_generacion/{generacion}',[GeneracionController::class,'estadisticos_generacion'])->name('estadisticos_generacion');
 Route::resource('generaciones', GeneracionController::class);
 //-Periodos
 Route::get('periodos/cambiar-comite/{id_proyecto}', [PeriodoController::class, 'cambiarComite'])->name('periodos.cambiarGet');

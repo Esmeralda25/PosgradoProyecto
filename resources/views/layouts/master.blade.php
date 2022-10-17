@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{asset('adminlte/css/adminlte.css')}}">
     <!--LINK IMAGENES-->
     <link rel="preload" href="{{asset('adminlte/img/logotec.png')}}">
+
+    <!-- jQuery -->
+	<script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('js/pdf/jspdf.debug_1.3.3.js')}}"></script>
 </head>
 <body class="fondo hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -59,7 +63,7 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <span class="nav-link">
-          {{ current_name() }}
+          
         </span>
       </li>
       <li class="nav-item">
@@ -144,7 +148,7 @@
 <!-- off line
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.js"></script>
 ->>
-<!-- ChartJS -->
+<-- ChartJS -->
 <script src="{{asset('adminlte/plugins/chart.js/Chart.min.js')}}"></script>
 
 <!-- AdminLTE for demo purposes -->

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Generacion;
 use App\Models\Proyecto;
+use App\Models\Estudiante;
+use App\Models\Periodo;
+
 use App\Http\Requests\GeneracionRequest;
 
 
@@ -110,16 +113,81 @@ class GeneracionController extends Controller
         }
     }
 
-    public function estadisticos($id){
-        $generacion = Generacion::find($id);
-        $estadistica  = Proyecto::all();
-        $puntos = [];
-        foreach($estadistica as $grafica){
-            $puntos[] = ['Nombre del Periodo' => $grafica['hipotesis'], 'y'=>($grafica['id'])];
-        }
-    
-        return view('coordinador.generacion.estadisticos',compact('generacion'),["data" =>json_encode($puntos)]); 
-    }   
+    public function estadisticos($id_gen){
+		$generacion = Generacion::find($id_gen);
+		$generacionData = Generacion::find($id_gen)->get();
+
+		if( count($generacionData) > 0 ) {
+			$periodos = $generacion->periodos;
+
+			$arr_ids_periodos = array();
+			foreach ($periodos as $key => $value) {
+				array_push($arr_ids_periodos, $value->id);
+			}
+			$proyectos = Proyecto::whereIn('periodo_id', $arr_ids_periodos )->get();
+			$estudiantes = Estudiante::whereIn('periodos_id', $arr_ids_periodos )->get();
+
+			$arr_proyectos = array();
+			foreach ($proyectos as $key) {
+				array_push($arr_proyectos, $key);
+			}
+
+			$chart_gen = [
+				"data_info" => [ "PERIODOS" => count($periodos) ,
+								 "PROYECTOS" => count($proyectos),
+								 "ESTUDIANTES" => count($estudiantes)
+								],
+				"data_proyectos" => $arr_proyectos
+			];
+
+		}else {
+			$chart_gen = [
+				"data_info" => [ -1,-1,-1]
+			];
+		}
+
+		$chart_gen = json_encode($chart_gen);
+
+        return view('coordinador.generacion.estadisticos',compact('id_gen','generacion','chart_gen'));
+    }
+
+    public function estadisticos_generacion($id_gen) {
+		$generacion = Generacion::find($id_gen);
+		$generacionData = Generacion::find($id_gen)->get();
+
+		if( count($generacionData) > 0 ) {
+			$periodos = $generacion->periodos;
+
+			$arr_ids_periodos = array();
+			foreach ($periodos as $key => $value) {
+				array_push($arr_ids_periodos, $value->id);
+			}
+			$proyectos = Proyecto::whereIn('periodo_id', $arr_ids_periodos )->get();
+			$estudiantes = Estudiante::whereIn('periodos_id', $arr_ids_periodos )->get();
+
+			$arr_proyectos = array();
+			foreach ($proyectos as $key) {
+				array_push($arr_proyectos, $key);
+			}
+
+			$chart_gen = [
+				"data_info" => [ "PERIODOS" => count($periodos) ,
+								 "PROYECTOS" => count($proyectos),
+								 "ESTUDIANTES" => count($estudiantes)
+								],
+				"data_proyectos" => $arr_proyectos
+			];
+
+		}else {
+			$chart_gen = [
+				"data_info" => [ -1,-1,-1]
+			];
+		}
+
+		$chart_gen = json_encode($chart_gen);
+
+		echo $chart_gen;
+    }
 
 }
     
