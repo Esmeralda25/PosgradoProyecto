@@ -125,7 +125,7 @@ class GeneracionController extends Controller
 				array_push($arr_ids_periodos, $value->id);
 			}
 			$proyectos = Proyecto::whereIn('periodo_id', $arr_ids_periodos )->get();
-			$estudiantes = Estudiante::whereIn('periodos_id', $arr_ids_periodos )->get();
+			$estudiantes = Estudiante::whereIn('periodo_id', $arr_ids_periodos )->get(); //revisar si no da error periodo_id
 
 			$arr_proyectos = array();
 			foreach ($proyectos as $key) {
@@ -163,7 +163,7 @@ class GeneracionController extends Controller
 				array_push($arr_ids_periodos, $value->id);
 			}
 			$proyectos = Proyecto::whereIn('periodo_id', $arr_ids_periodos )->get();
-			$estudiantes = Estudiante::whereIn('periodos_id', $arr_ids_periodos )->get();
+			$estudiantes = Estudiante::whereIn('periodo_id', $arr_ids_periodos )->get(); //revisar si no da error periodo_id
 
 			$arr_proyectos = array();
 			foreach ($proyectos as $key) {
