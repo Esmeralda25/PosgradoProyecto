@@ -63,7 +63,8 @@ Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('p
 Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('periodos.estadisticos');
 //aqui falta inscribir estudiantes...
 Route::get('periodos/reinscripcion/{periodo}', [PeriodoController::class, 'reinscripcion'])->name('periodos.reinscripcion');
-
+Route::get('periodos/inscripcion/{periodo}', [PeriodoController::class, 'inscripcionCambio'])->name('periodos.inscripcionCambio');
+Route::post('periodos/inscripcion/{periodo}', [PeriodoController::class, 'inscripcionCambioPost'])->name('periodos.inscripcionCambioPost');
 
 //Route::get('periodos/estudianteReinscripcion/{periodo}', [PeriodoController::class, 'estudianteReinscripcion'])->name('periodos.estudianteReinscripcion');
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
