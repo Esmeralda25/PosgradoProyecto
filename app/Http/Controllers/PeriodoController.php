@@ -10,8 +10,11 @@ use App\Models\Comite;
 use App\Http\Requests\ComiteRequest;
 use App\Models\Estudiante;
 use App\Http\Requests\EstudianteRequest;
+use App\Imports\EstudianteImport;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+
 class PeriodoController extends Controller
 {
     public function index($geneacion_id){ 
@@ -201,5 +204,20 @@ class PeriodoController extends Controller
         $nuevo->save();
 
         return redirect(route('periodos.index',$nuevo->periodo->generacion->id))->with('message','Usuario agregado correctamente');
+    }
+    public function vista_batch($periodo_id)
+    {
+        $periodo = Periodo::find($periodo_id);
+        return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
+    public function importarExcel($estudiantes_id,Request $request)
+    {
+        
+        $estudiantes = $request->file('archivo');
+        Excel::import(new EstudianteImport, $estudiantes);
+        return back()->with('message','Importacion de estudiantes completa');
+        //return view('estudiante.inscripcion_batch', compact('periodo')); 
+
     }
 }
