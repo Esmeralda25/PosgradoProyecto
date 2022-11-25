@@ -65,7 +65,8 @@ Route::get('estadisticos', [PeriodoController::class, 'estadistico'])->name('per
 Route::get('periodos/reinscripcion/{periodo}', [PeriodoController::class, 'reinscripcion'])->name('periodos.reinscripcion');
 Route::get('periodos/inscripcion/{periodo}', [PeriodoController::class, 'inscripcionCambio'])->name('periodos.inscripcionCambio');
 Route::post('periodos/inscripcion/{periodo}', [PeriodoController::class, 'inscripcionCambioPost'])->name('periodos.inscripcionCambioPost');
-
+Route::get('periodos/batch/{periodo}', [PeriodoController::class, 'vista_batch'])->name('periodos.vista_batch');
+Route::post('periodos/batch/{periodo}', [PeriodoController::class, 'importarExcel'])->name('periodos.importarExcel');
 //Route::get('periodos/estudianteReinscripcion/{periodo}', [PeriodoController::class, 'estudianteReinscripcion'])->name('periodos.estudianteReinscripcion');
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
