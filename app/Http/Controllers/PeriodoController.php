@@ -9,7 +9,12 @@ use App\Models\Proyecto;
 use App\Models\Comite;
 use App\Http\Requests\ComiteRequest;
 use App\Models\Estudiante;
+use App\Http\Requests\EstudianteRequest;
+use App\Imports\EstudianteImport;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+
 class PeriodoController extends Controller
 {
     public function index($geneacion_id){ 
@@ -181,5 +186,41 @@ class PeriodoController extends Controller
         
         return Response::json($estudiante);
     }
+    public function inscripcionCambio($periodo_id)
+    {
+        $periodo = Periodo::find($periodo_id);
+        return view('estudiante.inscripcion_cambio', compact('periodo')); 
+    }
+    public function inscripcionCambioPost($periodo_id,EstudianteRequest $request)
+    {
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh();
+        $campos = request()->except('_token','password_confirmation');
+        //dd($datos);
+        $campos['password'] = Hash::make($campos['password']);
+        
+        //Insertando datos
+        $nuevo = new Estudiante();
+        $nuevo->fill($campos);
+        $nuevo->pe_id = $pe->id;
+        $nuevo->periodo_id = $periodo_id;
+        $nuevo->save();
 
+        return redirect(route('periodos.index',$nuevo->periodo->generacion->id))->with('message','Usuario agregado correctamente');
+    }
+    public function vista_batch($periodo_id)
+    {
+        $periodo = Periodo::find($periodo_id);
+        return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
+    public function importarExcel($estudiantes_id,Request $request)
+    {
+        
+        $estudiantes = $request->file('archivo');
+        Excel::import(new EstudianteImport, $estudiantes);
+        return back()->with('message','Importacion de estudiantes completa');
+        //return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
 }
