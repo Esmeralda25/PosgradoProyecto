@@ -40,7 +40,6 @@ class Pe extends Usuario
             'docente_id' // adscripciones.docente_id
         );
     }
-
     public function rubricas(){
         return $this->hasMany(Rubrica::class);
     }

@@ -45,9 +45,7 @@
                                                     <input type="submit" value="ELIMINAR"  class="btn btn-danger">
                                                 </form> 
                                                 @if ($loop->iteration == 1)
-                                                    <button class="btn btn-warning text-white">
-                                                        inscribir
-                                                    </button>
+                                                <a href="#" class="btn btn-primary text-white">Inscribir</a>
                                                     <button class="btn btn-primary text-white">
                                                         batch
                                                     </button>
@@ -55,9 +53,7 @@
                                                     <button class="btn btn-warning text-white">
                                                         inscribir (cambios)
                                                     </button>
-                                                    <button class="btn btn-primary text-white">
-                                                        re inscribir
-                                                    </button>
+                                                    <a href="{{route('periodos.reinscripcion',$periodo->id)}}" class="btn btn-primary text-white">Re Inscribir</a>
                                                 @endif
                                             </td>
                                         <tr> 

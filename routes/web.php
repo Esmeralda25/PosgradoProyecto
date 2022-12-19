@@ -17,7 +17,7 @@ use App\Http\Controllers\EvaluarController;
 use App\Http\Controllers\TableroController;
 use App\Http\Controllers\AdquiridoController;
 use App\Http\Controllers\ActividadController;
-
+use App\Http\Controllers\AdscripcionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,7 +40,12 @@ Route::resource('programas', PeController::class);
 
 /// COORDINADOR
     //Route::get('coordinadores', [TableroController::class ,'coordinadores'])->name('coordinadores');
-//Docentes
+//Adscripciones
+//Route::resource('adscripciones', AdscripcionController::class);
+Route::get('adscripciones', [AdscripcionController::class, 'index'])->name('adscripciones.index');
+Route::post('adscripciones/{id}', [AdscripcionController::class, 'store'])->name('adscripciones.store');
+
+    //Docentes
 Route::resource('docentes', DocenteController::class);
 //Rubricas
 Route::resource('rubricas', RubricaController::class);
@@ -60,7 +65,10 @@ Route::get('periodos/{periodo}/proyectos', [PeriodoController::class, 'proyectos
 Route::get('periodos/{geneacion}', [PeriodoController::class, 'index'])->name('periodos.index');
 Route::get('periodos/estadisticos/{periodo}', [PeriodoController::class, 'estadisticos'])->name('periodos.estadisticos');
 //aqui falta inscribir estudiantes...
+Route::get('periodos/reinscripcion/{periodo}', [PeriodoController::class, 'reinscripcion'])->name('periodos.reinscripcion');
 
+
+//Route::get('periodos/estudianteReinscripcion/{periodo}', [PeriodoController::class, 'estudianteReinscripcion'])->name('periodos.estudianteReinscripcion');
 Route::resource('periodos', PeriodoController::class)->except(['index','create']);;
 
 //Compromisos
@@ -78,6 +86,7 @@ Route::put('proyectos/asignar-comite/{id_proyecto}', [ProyectoController::class,
 
 /// Estudiante
 //Route::get('inicio', [TableroController::class ,'inicio'])->name('inicio');
+
 
 //Route::resource('estudiantes', EstudianteController::class);
 

@@ -41,7 +41,7 @@ class CreateProyectosTable extends Migration
 
             $table->index(["periodo_id"], 'fk_proyectos_periodos1_idx');
 
-            $table->index(["compromiso"], 'compromiso');
+            //$table->index(["compromiso"], 'compromiso');
 
 
             $table->foreign('comite_id', 'comite_UNIQUE')

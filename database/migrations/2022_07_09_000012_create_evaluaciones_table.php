@@ -23,7 +23,7 @@ class CreateEvaluacionesTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('proyecto_id');
+            $table->integer('proyecto_id')->unsigned();
             $table->string('calificacion', 20)->nullable()->default(null);
             $table->string('observaciones')->nullable()->default(null);
             $table->date('fecha');
