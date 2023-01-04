@@ -11,6 +11,7 @@ use App\Http\Requests\ComiteRequest;
 use App\Models\Estudiante;
 use App\Http\Requests\EstudianteRequest;
 use App\Imports\EstudianteImport;
+use App\Exports\EstudiantesExport;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -217,6 +218,13 @@ class PeriodoController extends Controller
         $estudiantes = $request->file('archivo');
         Excel::import(new EstudianteImport, $estudiantes);
         return back()->with('message','Importacion de estudiantes completa');
+        //return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
+    public function exportarExcel($periodo_id)
+    {
+       
+        return Excel::download(new EstudiantesExport($periodo_id), 'Estudiantes.xlsx');
         //return view('estudiante.inscripcion_batch', compact('periodo')); 
 
     }
