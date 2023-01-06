@@ -212,11 +212,11 @@ class PeriodoController extends Controller
         return view('estudiante.inscripcion_batch', compact('periodo')); 
 
     }
-    public function importarExcel($estudiantes_id,Request $request)
+    public function importarExcel($periodo_id,Request $request)
     {
         
         $estudiantes = $request->file('archivo');
-        Excel::import(new EstudianteImport, $estudiantes);
+        Excel::import(new EstudianteImport($periodo_id), $estudiantes);
         return back()->with('message','Importacion de estudiantes completa');
         //return view('estudiante.inscripcion_batch', compact('periodo')); 
 
