@@ -15,9 +15,9 @@ class EstudianteImport implements ToModel, WithHeadingRow
     use Importable;
     private $pe;
     private $periodo;
-    public function __construct(int $periodo_id)
+    public function __construct(int $periodo_id, int $pe)
     {
-        $this->pe = Pe::pluck('id','nombre');
+        $this->pe = $pe;
         $this->periodo = $periodo_id;
         
     }
@@ -30,10 +30,10 @@ class EstudianteImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Estudiante([
-            'nombre'     => $row['estudiantes'],
+            'nombre'     => $row['nombre'],
             'correo'    => $row['correo'], 
             'password' => Hash::make($row['password']),
-            'pe_id' => $this->pe[$row['programa_educativo']],
+            'pe_id' => $this->pe,
             'periodo_id' => $this->periodo
         ]);
     }
