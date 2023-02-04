@@ -29,16 +29,21 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-striped mt-4" >
+                                
+                                {{-- <p><a href="#" id="enviar" value="enviar"  class="btn btn-info edit-estudiantePeriodo" />Reinscribir</a></p>--}}
+                                <table class="table table-striped mt-4" id="select-estudiante">
+                                    <a href="#" data-id="" data-toggle="modal" data-target="#editModal" id"enviar" class="btn btn-info edit-estudiantePeriodo">Reinscribir</a>
                                     <thead class="table table-dark">
                                         <tr>
                                             <th scope="col">Nombre</th>
+                                            <th scope="col">Periodo</th>
                                             <th scope="col">Acciones</th>
                                         <tr>
                                     </thead>
-                                    <tbody class="estu" id="select-estudiante">
+                                    <tbody class="estu" >
                                     </tbody>
                                 </table>
+                                
                                 <a href="{{route('generaciones.index')}}" class="btn btn-primary btn-block">Listar generaciones</a>
 
                             </div>
@@ -57,14 +62,6 @@
             <form  id="editForm" class="row g-3">
                 <div class="modal-body">
                     @csrf
-
-                    <div class="col-md-6">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <input type="hidden" id="hidden-folder" value="0">
-                    </div>
                     <div class="col-md-7">
                     <select class="form-control" id="periodo_id" name="periodo_id">
                         @foreach ($periodo->generacion->periodos as $datos)

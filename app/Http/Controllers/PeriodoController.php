@@ -164,7 +164,7 @@ class PeriodoController extends Controller
     }
     public function EstudianteAsignar($periodo_id)
     {
-        $estudiante = Estudiante::findOrFail($periodo_id);
+        $estudiante = Estudiante::find($periodo_id);
 
         return Response::json($estudiante);
 
