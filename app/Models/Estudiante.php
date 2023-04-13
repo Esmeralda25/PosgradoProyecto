@@ -7,7 +7,7 @@ namespace App\Models;
 class Estudiante extends Usuario
 {
  
-    protected $fillable=['nombre','correo','password','pe_id',
+    protected $fillable=['nombre','matricula','correo','password','pe_id',
     'compromisos_id','actividades_id','periodo_id', 'cursando'];
     
     public $timestamps = false;

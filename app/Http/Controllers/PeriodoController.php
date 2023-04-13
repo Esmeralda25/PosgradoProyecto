@@ -165,25 +165,23 @@ class PeriodoController extends Controller
     }
     public function EstudianteGet(Request $request,$periodo_id)
     {
-        return Estudiante::where('periodo_id',$periodo_id)->get();
+        $estudiantes = Periodo::join('estudiantes', 'estudiantes.periodo_id', '=', 'periodos.id')
+        ->select('estudiantes.id','estudiantes.nombre','periodos.id as pid', 'periodos.nombre as periodo')
+        ->where('estudiantes.periodo_id','=',$periodo_id)
+        ->get();
+        return Response::json($estudiantes);
 
          //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
     }
-    public function EstudianteAsignar($periodo_id)
+    public function EstudiantePatch(Request $request,$periodo_id)
     {
-        $estudiante = Estudiante::findOrFail($periodo_id);
-
-        return Response::json($estudiante);
-
-         //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
-    }
-    public function EstudianteAsignarPatch($periodo_id, Request $request)
-    {
-        $estudiante = Estudiante::findOrFail($periodo_id);
-
-        $estudiante->update($request->all());
-        
-        return Response::json($estudiante);
+        $ides= $request->input("check");
+        foreach ( $ides as $key => $value) {
+            $esrudiantes = Estudiante::find($key);
+            $esrudiantes->periodo_id = $periodo_id;
+            $esrudiantes->save();
+        }
+        return redirect(route('periodos.reinscripcion',$periodo_id))->with('message','Reinscripcion exitosa');
     }
     public function inscripcionCambio($periodo_id)
     {

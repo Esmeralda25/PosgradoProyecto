@@ -31,6 +31,7 @@ class EstudianteImport implements ToModel, WithHeadingRow
     {
         return new Estudiante([
             'nombre'     => $row['nombre'],
+            'matricula'    => $row['matricula'], 
             'correo'    => $row['correo'], 
             'password' => Hash::make($row['password']),
             'pe_id' => $this->pe,
