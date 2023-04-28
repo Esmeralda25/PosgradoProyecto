@@ -51,6 +51,7 @@
                                                     <a href="{{route('periodos.inscripcionCambio',$periodo->id)}}" class="btn btn-success text-white">inscribir (cambios)</a>
                                                     <a href="{{route('periodos.reinscripcion',$periodo->id)}}" class="btn btn-primary text-white">Re Inscribir</a>
                                                 @endif
+                                                <a href="{{route('periodos.exportarExcel',$periodo->id)}}" class="btn btn-warning" style="color: white">Exportar lista de estudiantes</a>
                                             </td>
                                         <tr> 
                                     @endforeach

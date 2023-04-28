@@ -19,10 +19,12 @@
                                     <p>{{Session::get('message')}}</p>
                                     @endif
                                     <div class="mb-3">
-                                        <label for="" class="form-label">Importar Registro de Estudiantes</label>
+                                        <label for="" class="form-label">Importar Registro de Estudiantes segun el siguiente</label>
+                                         <a href="{{route('periodos.exportarFormatoExcel',$periodo->id)}}" class="btn btn-success text-white">Formato</a>
                                         <input id="archivo" name="archivo" type="file"  style="width: 100%" value="">
                                     </div>
                                     <button type="submit" class="btn btn-warning" "4"><a>Guardar</a></button>
+                                    <a href="{{route('periodos.index',$periodo->generacion_id)}}" class="btn btn-danger">Cancelar</a>
                                 </form>
                             </div>
                         </div>

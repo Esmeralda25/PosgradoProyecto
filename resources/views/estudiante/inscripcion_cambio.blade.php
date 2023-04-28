@@ -31,6 +31,10 @@
                                         <input id="nombre" name="nombre" type="text" style="width: 100%" value="{{old('nombre')}}">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="" class="form-label">Matricula</label>
+                                        <input id="matricula" name="matricula" type="text" style="width: 100%" value="{{old('matricula')}}">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="" class="form-label">Correo</label>
                                         <input id="correo" name="correo" type="text" style="width: 100%" value="{{old('correo')}}">
                                     </div>

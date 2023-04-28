@@ -24,6 +24,7 @@ class CreateEstudiantesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 100);
+            $table->integer('matricula');
             $table->string('correo', 45)->nullable()->default(null);
             $table->string('password', 100)->nullable()->default(null);
             $table->integer('pe_id')->unsigned();

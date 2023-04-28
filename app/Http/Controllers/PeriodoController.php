@@ -11,6 +11,8 @@ use App\Http\Requests\ComiteRequest;
 use App\Models\Estudiante;
 use App\Http\Requests\EstudianteRequest;
 use App\Imports\EstudianteImport;
+use App\Exports\EstudiantesExport;
+use App\Exports\FormatoExport;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -166,25 +168,23 @@ class PeriodoController extends Controller
     }
     public function EstudianteGet(Request $request,$periodo_id)
     {
-        return Estudiante::where('periodo_id',$periodo_id)->get();
+        $estudiantes = Periodo::join('estudiantes', 'estudiantes.periodo_id', '=', 'periodos.id')
+        ->select('estudiantes.id','estudiantes.nombre','periodos.id as pid', 'periodos.nombre as periodo')
+        ->where('estudiantes.periodo_id','=',$periodo_id)
+        ->get();
+        return Response::json($estudiantes);
 
          //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
     }
-    public function EstudianteAsignar($periodo_id)
+    public function EstudiantePatch(Request $request,$periodo_id)
     {
-        $estudiante = Estudiante::findOrFail($periodo_id);
-
-        return Response::json($estudiante);
-
-         //view('coordinador.generacion.periodo.periodo-estudiante', compact('estudiantes'));   
-    }
-    public function EstudianteAsignarPatch($periodo_id, Request $request)
-    {
-        $estudiante = Estudiante::findOrFail($periodo_id);
-
-        $estudiante->update($request->all());
-        
-        return Response::json($estudiante);
+        $ides= $request->input("check");
+        foreach ( $ides as $key => $value) {
+            $esrudiantes = Estudiante::find($key);
+            $esrudiantes->periodo_id = $periodo_id;
+            $esrudiantes->save();
+        }
+        return redirect(route('periodos.reinscripcion',$periodo_id))->with('message','Reinscripcion exitosa');
     }
     public function inscripcionCambio($periodo_id)
     {
@@ -214,12 +214,28 @@ class PeriodoController extends Controller
         return view('estudiante.inscripcion_batch', compact('periodo')); 
 
     }
-    public function importarExcel($estudiantes_id,Request $request)
+    public function importarExcel($periodo_id,Request $request)
     {
-        
+        $pe = \Session::get('usuario');
+        $pe = $pe->fresh();
+        $pe = $pe->id;
         $estudiantes = $request->file('archivo');
-        Excel::import(new EstudianteImport, $estudiantes);
+        Excel::import(new EstudianteImport($periodo_id, $pe), $estudiantes);
         return back()->with('message','Importacion de estudiantes completa');
+        //return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
+    public function exportarFormatoExcel()
+    {
+       
+        return Excel::download(new FormatoExport, 'Estudiantes.xlsx');
+        //return view('estudiante.inscripcion_batch', compact('periodo')); 
+
+    }
+    public function exportarExcel($periodo_id)
+    {
+       
+        return Excel::download(new EstudiantesExport($periodo_id), 'Estudiantes.xlsx');
         //return view('estudiante.inscripcion_batch', compact('periodo')); 
 
     }
